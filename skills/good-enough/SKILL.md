@@ -29,7 +29,7 @@ Keep facts, exceptions, requirements, and calculation behavior that still matter
 
 - **Decision briefs.** Start with the decision needed and the recommendation when the evidence supports one. Put the condition for approval beside the recommendation. Compare viable options on the trade-offs that could change the choice. Surface uncertainty that matters to the decision.
 - **Impact analyses.** Open with the change, who it affects, and what they should do next. Include the condition that changes the immediate action before the case details. For each material case, show current behavior, the proposed change, who or what it affects, and any action or decision it requires. Use a concrete example when the consequence is hard to infer.
-- **Standard operating procedures (SOPs).** Put prerequisites before the steps. Write the actions in the order someone performs them, with common exceptions next to the steps they affect. Include an observable check for successful completion.
+- **Standard operating procedures (SOPs).** Put prerequisites before the steps. Write the actions in the order someone performs them, with common exceptions next to the steps they affect. Name the restart step when the source establishes it. If the source leaves a restart rule or the overlap between exceptions unresolved, flag it for the process owner. Include an observable check for successful completion.
 
 ## Financial models
 
