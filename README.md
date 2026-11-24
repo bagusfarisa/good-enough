@@ -4,7 +4,7 @@
 
 Good Enough is an agent skill for making documents, spreadsheets, financial models, and presentations that are complete, correct, and easy to use. When you revise an existing artifact, give the agent one task the reader must complete. The skill helps the agent clear that path and check that essential content survives.
 
-[See the cash forecast benchmark](#cash-forecast-benchmark) for an example with downloadable workbooks.
+[Compare the approval decks](#from-scratch-creation-benchmark) · [Try the cash forecast](#cash-forecast-benchmark)
 
 | If you need a… | Good Enough helps the agent… |
 | --- | --- |
@@ -14,6 +14,28 @@ Good Enough is an agent skill for making documents, spreadsheets, financial mode
 | Tracker | Use a clear table and readable formulas. Add a dashboard when it serves a distinct task. |
 | Financial model | Label the assumptions and show how they drive the results a human needs to understand. |
 | Slide deck | Give each slide one main takeaway and keep the evidence that supports it. |
+
+## From-scratch creation benchmark
+
+### One decision in two slides
+
+The same brief asked each agent to prepare an approval deck for a four-week pickup redesign test. Open either deck and see if you can answer the same questions. What can leadership approve today? When can Maple join? What can the Cedar trial tell them?
+
+| Previous Good Enough · 3 slides | With creation guidance · 2 slides |
+| --- | --- |
+| [![Opening slide of the previous three-slide approval deck](evals/from-scratch/previews/approval-previous.png)](evals/from-scratch/artifacts/approval-deck-1-current.pptx) | [![Opening slide of the two-slide approval deck with creation guidance](evals/from-scratch/previews/approval-creation.png)](evals/from-scratch/artifacts/approval-deck-1-candidate.pptx) |
+| [Download the previous deck](evals/from-scratch/artifacts/approval-deck-1-current.pptx) | [Download the deck with creation guidance](evals/from-scratch/artifacts/approval-deck-1-candidate.pptx) |
+
+Every deck with the new guidance kept the decision, rollout condition, and trial evidence in two slides. All decks from the plain prompt and previous skill used three. [Brief and scoring questions](evals/from-scratch/fixtures.json) · [All nine decks and scores](evals/from-scratch/)
+
+| Complete AI reader answers | Plain prompt | Previous skill | Creation guidance |
+| --- | ---: | ---: | ---: |
+| Decision memo | 2/3 | 2/3 | 3/3 |
+| Editable cash forecast | 1/3 | 1/3 | 3/3 |
+| Approval deck | 3/3 | 3/3 | 3/3 |
+| **Total** | **6/9** | **6/9** | **9/9** |
+
+All 27 artifacts passed source fidelity and usability checks. The pilot used one synthetic brief per format and three runs per condition. [Memos, workbooks, decks, and evaluation method](evals/from-scratch/)
 
 ## Install
 
@@ -90,10 +112,6 @@ Keep the pending decisions and exceptions accurate.
 ```
 
 The skill guides how the agent structures and reviews the work. The file formats it can produce depend on its available tools.
-
-## From-scratch creation benchmark
-
-On three new briefs, the creation guidance supported complete reader answers in all nine runs. The previous skill and the plain prompt each supported six. All three conditions passed every source and artifact-usability check. The creation guidance used two slides in each approval deck, compared with three in both comparison conditions. [Memos, workbooks, decks, and scores](evals/from-scratch/)
 
 ## Existing artifact revision benchmark
 
