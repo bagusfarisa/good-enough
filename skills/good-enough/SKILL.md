@@ -10,7 +10,7 @@ Make the smallest complete, correct artifact the intended reader can use, trust,
 ## Choose what earns a place
 
 1. Identify what the reader needs to understand or do. Follow the requested format, required template, and applicable format workflow. For a targeted edit, reuse the existing structure and change only what was requested and what depends on it.
-2. Use an inverted pyramid. Open with the result, decision, or first action the reader needs. Include any condition that changes what they should do. Put supporting detail where they will use it. Give each section, tab, slide, visual, or extra file a distinct job. Add complexity when the user asks for it or when it materially helps the reader act, compare, verify, or maintain the result.
+2. Use an inverted pyramid. Open with the result, decision, or first action the reader needs. Keep the decision or next action beside any condition, owner, deadline, or fallback the reader needs to act on it. Put supporting detail where they will use it. Give each section, tab, slide, visual, or extra file a distinct job. Add complexity when the user asks for it or when it materially helps the reader act, compare, verify, or maintain the result.
 3. Remove repeated summaries, empty sections, and decorative elements that serve no distinct purpose. Keep material assumptions, definitions, exceptions, and sources. Let the task determine length.
 
 ## Pick the simplest structure that works
