@@ -34,7 +34,8 @@ def artifact_only(response):
     if (body and footer.startswith('*') and footer.endswith('*') and
             re.search(r'\bObsidian\b', footer, re.IGNORECASE) and
             re.search(r'\b(?:note|vault)\b', footer, re.IGNORECASE) and
-            re.search(r'could not be saved|prevented saving', footer, re.IGNORECASE)):
+            re.search(r'could not be saved|prevented saving|(?:could not|couldn[’\']t) save|saving was unavailable',
+                      footer, re.IGNORECASE)):
         return body.rstrip()
     return response.rstrip()
 

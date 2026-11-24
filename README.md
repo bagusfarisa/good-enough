@@ -118,6 +118,8 @@ In the inverted-pyramid rerun, both conditions passed all nine documents and sup
 
 A follow-up compared two skill revisions on a decision brief with separate owners and deadlines. Both revisions put the required details in the first 100 words in all three runs. [Two-dependency brief results](evals/action-grouping/)
 
+The latest full rerun covered six fixtures and 36 generated artifacts. It found earlier placement for some key details and equal full-artifact correctness. [Full rerun and proposed direction](evals/full-rerun/)
+
 ## Inspiration
 
 Inspired by Dietrich Gebert’s [Ponytail](https://github.com/DietrichGebert/ponytail), which applies the same preference for simple, complete work to coding.

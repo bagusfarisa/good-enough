@@ -1,0 +1,497 @@
+{
+  "skill_commit": "f2b31db16147a1f1953c2b948b0724040afcf63a",
+  "previous_skill_commit": "4fd6856add1bc090a01cd4d290ac9663f6420ac4",
+  "runs": [
+    {
+      "pair": 1,
+      "variant": "baseline",
+      "workbook": "workbooks/01-baseline.xlsx",
+      "visible": {
+        "Cash forecast": [
+          {
+            "A1": "Cash forecast | January–March 2027"
+          },
+          {
+            "A3": "Edit blue cells. Enter payments as positive amounts."
+          },
+          {
+            "A5": "Cash flow (USD)",
+            "B5": "Jan 2027",
+            "C5": "Feb 2027",
+            "D5": "Mar 2027",
+            "E5": "Q1 bridge"
+          },
+          {
+            "A6": "Opening cash",
+            "B6": 12000,
+            "C6": 10000,
+            "D6": 9000,
+            "E6": 12000
+          },
+          {
+            "A7": "Customer receipts",
+            "B7": 9000,
+            "C7": 7000,
+            "D7": 11000,
+            "E7": 27000
+          },
+          {
+            "A8": "Payroll",
+            "B8": 6000,
+            "C8": 6000,
+            "D8": 6000,
+            "E8": 18000
+          },
+          {
+            "A9": "Rent",
+            "B9": 2000,
+            "C9": 2000,
+            "D9": 2000,
+            "E9": 6000
+          },
+          {
+            "A10": "Equipment payment",
+            "B10": 3000,
+            "C10": 0,
+            "D10": 0,
+            "E10": 3000
+          },
+          {
+            "A11": "Net cash movement",
+            "B11": -2000,
+            "C11": -1000,
+            "D11": 3000,
+            "E11": 0
+          },
+          {
+            "A12": "Ending cash",
+            "B12": 10000,
+            "C12": 9000,
+            "D12": 12000,
+            "E12": 12000
+          },
+          {
+            "A14": "Sources: cash-inputs.csv and the supplied January 1 opening balance."
+          }
+        ]
+      }
+    },
+    {
+      "pair": 1,
+      "variant": "good-enough",
+      "workbook": "workbooks/01-good-enough.xlsx",
+      "visible": {
+        "Cash Forecast": [
+          {
+            "A1": "Cash forecast | January–March 2027"
+          },
+          {
+            "A2": "Edit blue cells. Enter receipts and payments as positive amounts."
+          },
+          {
+            "A4": "Cash movement (USD)",
+            "B4": "Jan 2027",
+            "C4": "Feb 2027",
+            "D4": "Mar 2027",
+            "E4": "Q1 to Mar 31"
+          },
+          {
+            "A5": "Opening cash",
+            "B5": 12000,
+            "C5": 10000,
+            "D5": 9000,
+            "E5": 12000
+          },
+          {
+            "A6": "Customer receipts",
+            "B6": 9000,
+            "C6": 7000,
+            "D6": 11000,
+            "E6": 27000
+          },
+          {
+            "A7": "Payroll",
+            "B7": 6000,
+            "C7": 6000,
+            "D7": 6000,
+            "E7": 18000
+          },
+          {
+            "A8": "Rent",
+            "B8": 2000,
+            "C8": 2000,
+            "D8": 2000,
+            "E8": 6000
+          },
+          {
+            "A9": "Equipment payment",
+            "B9": 3000,
+            "C9": 0,
+            "D9": 0,
+            "E9": 3000
+          },
+          {
+            "A10": "Total cash payments",
+            "B10": 11000,
+            "C10": 8000,
+            "D10": 8000,
+            "E10": 27000
+          },
+          {
+            "A11": "Net cash movement",
+            "B11": -2000,
+            "C11": -1000,
+            "D11": 3000,
+            "E11": 0
+          },
+          {
+            "A12": "Ending cash",
+            "B12": 10000,
+            "C12": 9000,
+            "D12": 12000,
+            "E12": 12000
+          },
+          {
+            "A14": "Source inputs: cash-inputs.csv and the supplied January 1 opening balance."
+          }
+        ]
+      }
+    },
+    {
+      "pair": 2,
+      "variant": "baseline",
+      "workbook": "workbooks/02-baseline.xlsx",
+      "visible": {
+        "Cash forecast": [
+          {
+            "A1": "Cash forecast | January–March 2027"
+          },
+          {
+            "A2": "Projected March ending cash",
+            "B2": 12000
+          },
+          {
+            "A3": "Edit blue cells. Enter receipts and payments as positive USD amounts."
+          },
+          {
+            "A4": "Sources for starting assumptions: cash-inputs.csv and the supplied Jan 1 balance."
+          },
+          {
+            "A6": "Cash flow (USD)",
+            "B6": "2027-01",
+            "C6": "2027-02",
+            "D6": "2027-03",
+            "E6": "Jan–Mar bridge"
+          },
+          {
+            "A7": "Opening cash",
+            "B7": 12000,
+            "C7": 10000,
+            "D7": 9000,
+            "E7": 12000
+          },
+          {
+            "A8": "Customer receipts",
+            "B8": 9000,
+            "C8": 7000,
+            "D8": 11000,
+            "E8": 27000
+          },
+          {
+            "A9": "Payroll",
+            "B9": 6000,
+            "C9": 6000,
+            "D9": 6000,
+            "E9": 18000
+          },
+          {
+            "A10": "Rent",
+            "B10": 2000,
+            "C10": 2000,
+            "D10": 2000,
+            "E10": 6000
+          },
+          {
+            "A11": "Equipment payment",
+            "B11": 3000,
+            "C11": 0,
+            "D11": 0,
+            "E11": 3000
+          },
+          {
+            "A12": "Total cash payments",
+            "B12": 11000,
+            "C12": 8000,
+            "D12": 8000,
+            "E12": 27000
+          },
+          {
+            "A13": "Net cash movement",
+            "B13": -2000,
+            "C13": -1000,
+            "D13": 3000,
+            "E13": 0
+          },
+          {
+            "A14": "Ending cash",
+            "B14": 10000,
+            "C14": 9000,
+            "D14": 12000,
+            "E14": 12000
+          }
+        ]
+      }
+    },
+    {
+      "pair": 2,
+      "variant": "good-enough",
+      "workbook": "workbooks/02-good-enough.xlsx",
+      "visible": {
+        "Cash Forecast": [
+          {
+            "A1": "Cash forecast | January–March 2027"
+          },
+          {
+            "A2": "March ending cash (USD)",
+            "E2": 12000
+          },
+          {
+            "A3": "Edit blue cells. Enter cash payments as positive amounts."
+          },
+          {
+            "A4": "Cash flow (USD)",
+            "B4": "Jan 2027",
+            "C4": "Feb 2027",
+            "D4": "Mar 2027",
+            "E4": "Jan–Mar 2027"
+          },
+          {
+            "A5": "Opening cash",
+            "B5": 12000,
+            "C5": 10000,
+            "D5": 9000,
+            "E5": 12000
+          },
+          {
+            "A6": "Customer receipts",
+            "B6": 9000,
+            "C6": 7000,
+            "D6": 11000,
+            "E6": 27000
+          },
+          {
+            "A7": "Payroll",
+            "B7": 6000,
+            "C7": 6000,
+            "D7": 6000,
+            "E7": 18000
+          },
+          {
+            "A8": "Rent",
+            "B8": 2000,
+            "C8": 2000,
+            "D8": 2000,
+            "E8": 6000
+          },
+          {
+            "A9": "Equipment payment",
+            "B9": 3000,
+            "C9": 0,
+            "D9": 0,
+            "E9": 3000
+          },
+          {
+            "A10": "Total cash payments",
+            "B10": 11000,
+            "C10": 8000,
+            "D10": 8000,
+            "E10": 27000
+          },
+          {
+            "A11": "Net cash movement",
+            "B11": -2000,
+            "C11": -1000,
+            "D11": 3000,
+            "E11": 0
+          },
+          {
+            "A12": "Ending cash",
+            "B12": 10000,
+            "C12": 9000,
+            "D12": 12000,
+            "E12": 12000
+          },
+          {
+            "A14": "Sources: cash-inputs.csv and the supplied January 1 opening balance."
+          }
+        ]
+      }
+    },
+    {
+      "pair": 3,
+      "variant": "baseline",
+      "workbook": "workbooks/03-baseline.xlsx",
+      "visible": {
+        "Cash Forecast": [
+          {
+            "A1": "Cash forecast | January–March 2027"
+          },
+          {
+            "A2": "Edit the blue cells. Enter receipts and payments as positive USD amounts."
+          },
+          {
+            "A4": "Cash forecast (USD)",
+            "B4": "Jan 2027",
+            "C4": "Feb 2027",
+            "D4": "Mar 2027",
+            "E4": "Jan–Mar 2027"
+          },
+          {
+            "A5": "Ending cash",
+            "B5": 10000,
+            "C5": 9000,
+            "D5": 12000,
+            "E5": 12000
+          },
+          {
+            "A7": "Opening cash",
+            "B7": 12000,
+            "C7": 10000,
+            "D7": 9000,
+            "E7": 12000
+          },
+          {
+            "A8": "Customer receipts",
+            "B8": 9000,
+            "C8": 7000,
+            "D8": 11000,
+            "E8": 27000
+          },
+          {
+            "A9": "Payroll",
+            "B9": 6000,
+            "C9": 6000,
+            "D9": 6000,
+            "E9": 18000
+          },
+          {
+            "A10": "Rent",
+            "B10": 2000,
+            "C10": 2000,
+            "D10": 2000,
+            "E10": 6000
+          },
+          {
+            "A11": "Equipment payment",
+            "B11": 3000,
+            "C11": 0,
+            "D11": 0,
+            "E11": 3000
+          },
+          {
+            "A12": "Total payments",
+            "B12": 11000,
+            "C12": 8000,
+            "D12": 8000,
+            "E12": 27000
+          },
+          {
+            "A13": "Net cash change",
+            "B13": -2000,
+            "C13": -1000,
+            "D13": 3000,
+            "E13": 0
+          },
+          {
+            "A15": "Source: cash-inputs.csv for monthly cash flows. January 1 cash supplied as $12,000."
+          }
+        ]
+      }
+    },
+    {
+      "pair": 3,
+      "variant": "good-enough",
+      "workbook": "workbooks/03-good-enough.xlsx",
+      "visible": {
+        "Cash Forecast": [
+          {
+            "A1": "Cash forecast | January–March 2027"
+          },
+          {
+            "A2": "March ending cash (USD)",
+            "B2": 12000
+          },
+          {
+            "A3": "Edit the blue cells. Enter receipts and payments as positive USD amounts."
+          },
+          {
+            "A5": "Cash flow (USD)",
+            "B5": "Jan 2027",
+            "C5": "Feb 2027",
+            "D5": "Mar 2027",
+            "E5": "Jan–Mar total"
+          },
+          {
+            "A6": "Opening cash",
+            "B6": 12000,
+            "C6": 10000,
+            "D6": 9000,
+            "E6": 12000
+          },
+          {
+            "A7": "Customer receipts",
+            "B7": 9000,
+            "C7": 7000,
+            "D7": 11000,
+            "E7": 27000
+          },
+          {
+            "A8": "Payroll",
+            "B8": 6000,
+            "C8": 6000,
+            "D8": 6000,
+            "E8": 18000
+          },
+          {
+            "A9": "Rent",
+            "B9": 2000,
+            "C9": 2000,
+            "D9": 2000,
+            "E9": 6000
+          },
+          {
+            "A10": "Equipment payment",
+            "B10": 3000,
+            "C10": 0,
+            "D10": 0,
+            "E10": 3000
+          },
+          {
+            "A11": "Total payments",
+            "B11": 11000,
+            "C11": 8000,
+            "D11": 8000,
+            "E11": 27000
+          },
+          {
+            "A12": "Net cash movement",
+            "B12": -2000,
+            "C12": -1000,
+            "D12": 3000,
+            "E12": 0
+          },
+          {
+            "A13": "Ending cash",
+            "B13": 10000,
+            "C13": 9000,
+            "D13": 12000,
+            "E13": 12000
+          },
+          {
+            "A15": "Sources: cash-inputs.csv and the supplied January 1 opening balance."
+          }
+        ]
+      }
+    }
+  ]
+}

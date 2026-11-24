@@ -1,0 +1,478 @@
+{
+  "evaluation": "December 2026 cash forecast pilot",
+  "harness": "Codex CLI 0.172.0",
+  "model": "gpt-6.2-sol",
+  "reasoning_effort": "low",
+  "skill_commit": "f2b31db16147a1f1953c2b948b0724040afcf63a",
+  "review": "Scripted workbook checks and layout inspection.",
+  "scenario_payroll_usd": 7000,
+  "runs": [
+    {
+      "pair": 1,
+      "variant": "baseline",
+      "workbook": "workbooks/01-baseline.xlsx",
+      "cli_exit_code": 0,
+      "cli_wall_seconds": 44.2,
+      "token_usage": {
+        "input_tokens": 166604,
+        "cached_input_tokens": 123008,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1350,
+        "reasoning_output_tokens": 11
+      },
+      "skill_file_read": false,
+      "nonzero_tool_commands": 0,
+      "correctness_pass": true,
+      "scripted_task_completed": true,
+      "failures": [],
+      "opening_sheet": "December 2026",
+      "visible_worksheets": 1,
+      "nonempty_rows_on_opening_sheet": 12,
+      "payroll_cell": "December 2026!C8",
+      "ending_cash_cell": "December 2026!C14",
+      "ending_cash_row": 14,
+      "ending_cash_formula": "=C6+C13",
+      "payroll_and_ending_cash_on_opening_sheet": true,
+      "intermediate_cash_total_rows": [
+        "Total cash outflows",
+        "Net cash movement"
+      ],
+      "source_inputs": {
+        "Opening cash": {
+          "sheet": "December 2026",
+          "address": "C6",
+          "value": 10000,
+          "formula": null,
+          "type": "n",
+          "expected": 10000
+        },
+        "Customer receipts": {
+          "sheet": "December 2026",
+          "address": "C7",
+          "value": 5000,
+          "formula": null,
+          "type": "n",
+          "expected": 5000
+        },
+        "Payroll": {
+          "sheet": "December 2026",
+          "address": "C8",
+          "value": 6000,
+          "formula": null,
+          "type": "n",
+          "expected": 6000
+        },
+        "Rent": {
+          "sheet": "December 2026",
+          "address": "C9",
+          "value": 2000,
+          "formula": null,
+          "type": "n",
+          "expected": 2000
+        }
+      },
+      "ending_cash_saved_usd": 7000,
+      "ending_cash_before_edit_usd": 7000,
+      "ending_cash_after_payroll_edit_usd": 6000,
+      "checks": {
+        "four_source_values_are_numeric_inputs": true,
+        "december_2026_and_usd_visible": true,
+        "saved_and_recalculated_ending_cash_is_7000": true,
+        "ending_cash_uses_formula": true,
+        "changing_payroll_to_7000_recalculates_ending_cash_to_6000": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_to_6000": true
+      },
+      "libreoffice_ending_cash_after_payroll_edit_usd": 6000.0
+    },
+    {
+      "pair": 1,
+      "variant": "good-enough",
+      "workbook": "workbooks/01-good-enough.xlsx",
+      "cli_exit_code": 0,
+      "cli_wall_seconds": 48.6,
+      "token_usage": {
+        "input_tokens": 209360,
+        "cached_input_tokens": 185088,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1595,
+        "reasoning_output_tokens": 0
+      },
+      "skill_file_read": true,
+      "nonzero_tool_commands": 0,
+      "correctness_pass": true,
+      "scripted_task_completed": true,
+      "failures": [],
+      "opening_sheet": "December 2026",
+      "visible_worksheets": 1,
+      "nonempty_rows_on_opening_sheet": 9,
+      "payroll_cell": "December 2026!B8",
+      "ending_cash_cell": "December 2026!B2",
+      "ending_cash_row": 2,
+      "ending_cash_formula": "=B6+B7-SUM(B8:B9)",
+      "payroll_and_ending_cash_on_opening_sheet": true,
+      "intermediate_cash_total_rows": [],
+      "source_inputs": {
+        "Opening cash": {
+          "sheet": "December 2026",
+          "address": "B6",
+          "value": 10000,
+          "formula": null,
+          "type": "n",
+          "expected": 10000
+        },
+        "Customer receipts": {
+          "sheet": "December 2026",
+          "address": "B7",
+          "value": 5000,
+          "formula": null,
+          "type": "n",
+          "expected": 5000
+        },
+        "Payroll": {
+          "sheet": "December 2026",
+          "address": "B8",
+          "value": 6000,
+          "formula": null,
+          "type": "n",
+          "expected": 6000
+        },
+        "Rent": {
+          "sheet": "December 2026",
+          "address": "B9",
+          "value": 2000,
+          "formula": null,
+          "type": "n",
+          "expected": 2000
+        }
+      },
+      "ending_cash_saved_usd": 7000,
+      "ending_cash_before_edit_usd": 7000,
+      "ending_cash_after_payroll_edit_usd": 6000,
+      "checks": {
+        "four_source_values_are_numeric_inputs": true,
+        "december_2026_and_usd_visible": true,
+        "saved_and_recalculated_ending_cash_is_7000": true,
+        "ending_cash_uses_formula": true,
+        "changing_payroll_to_7000_recalculates_ending_cash_to_6000": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_to_6000": true
+      },
+      "libreoffice_ending_cash_after_payroll_edit_usd": 6000.0
+    },
+    {
+      "pair": 2,
+      "variant": "baseline",
+      "workbook": "workbooks/02-baseline.xlsx",
+      "cli_exit_code": 0,
+      "cli_wall_seconds": 53.3,
+      "token_usage": {
+        "input_tokens": 189668,
+        "cached_input_tokens": 169472,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1666,
+        "reasoning_output_tokens": 13
+      },
+      "skill_file_read": false,
+      "nonzero_tool_commands": 1,
+      "correctness_pass": true,
+      "scripted_task_completed": true,
+      "failures": [],
+      "opening_sheet": "December Forecast",
+      "visible_worksheets": 1,
+      "nonempty_rows_on_opening_sheet": 9,
+      "payroll_cell": "December Forecast!C8",
+      "ending_cash_cell": "December Forecast!F10",
+      "ending_cash_row": 10,
+      "ending_cash_formula": "=F6+F9",
+      "payroll_and_ending_cash_on_opening_sheet": true,
+      "intermediate_cash_total_rows": [
+        "Cash outflows",
+        "Net cash flow"
+      ],
+      "source_inputs": {
+        "Opening cash": {
+          "sheet": "December Forecast",
+          "address": "C6",
+          "value": 10000,
+          "formula": null,
+          "type": "n",
+          "expected": 10000
+        },
+        "Customer receipts": {
+          "sheet": "December Forecast",
+          "address": "C7",
+          "value": 5000,
+          "formula": null,
+          "type": "n",
+          "expected": 5000
+        },
+        "Payroll": {
+          "sheet": "December Forecast",
+          "address": "C8",
+          "value": 6000,
+          "formula": null,
+          "type": "n",
+          "expected": 6000
+        },
+        "Rent": {
+          "sheet": "December Forecast",
+          "address": "C9",
+          "value": 2000,
+          "formula": null,
+          "type": "n",
+          "expected": 2000
+        }
+      },
+      "ending_cash_saved_usd": 7000,
+      "ending_cash_before_edit_usd": 7000,
+      "ending_cash_after_payroll_edit_usd": 6000,
+      "checks": {
+        "four_source_values_are_numeric_inputs": true,
+        "december_2026_and_usd_visible": true,
+        "saved_and_recalculated_ending_cash_is_7000": true,
+        "ending_cash_uses_formula": true,
+        "changing_payroll_to_7000_recalculates_ending_cash_to_6000": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_to_6000": true
+      },
+      "libreoffice_ending_cash_after_payroll_edit_usd": 6000.0
+    },
+    {
+      "pair": 2,
+      "variant": "good-enough",
+      "workbook": "workbooks/02-good-enough.xlsx",
+      "cli_exit_code": 0,
+      "cli_wall_seconds": 50.3,
+      "token_usage": {
+        "input_tokens": 198614,
+        "cached_input_tokens": 162816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1457,
+        "reasoning_output_tokens": 51
+      },
+      "skill_file_read": true,
+      "nonzero_tool_commands": 1,
+      "correctness_pass": true,
+      "scripted_task_completed": true,
+      "failures": [],
+      "opening_sheet": "December 2026",
+      "visible_worksheets": 1,
+      "nonempty_rows_on_opening_sheet": 10,
+      "payroll_cell": "December 2026!B9",
+      "ending_cash_cell": "December 2026!B3",
+      "ending_cash_row": 3,
+      "ending_cash_formula": "=B7+B12",
+      "payroll_and_ending_cash_on_opening_sheet": true,
+      "intermediate_cash_total_rows": [
+        "Net cash movement"
+      ],
+      "source_inputs": {
+        "Opening cash": {
+          "sheet": "December 2026",
+          "address": "B7",
+          "value": 10000,
+          "formula": null,
+          "type": "n",
+          "expected": 10000
+        },
+        "Customer receipts": {
+          "sheet": "December 2026",
+          "address": "B8",
+          "value": 5000,
+          "formula": null,
+          "type": "n",
+          "expected": 5000
+        },
+        "Payroll": {
+          "sheet": "December 2026",
+          "address": "B9",
+          "value": 6000,
+          "formula": null,
+          "type": "n",
+          "expected": 6000
+        },
+        "Rent": {
+          "sheet": "December 2026",
+          "address": "B10",
+          "value": 2000,
+          "formula": null,
+          "type": "n",
+          "expected": 2000
+        }
+      },
+      "ending_cash_saved_usd": 7000,
+      "ending_cash_before_edit_usd": 7000,
+      "ending_cash_after_payroll_edit_usd": 6000,
+      "checks": {
+        "four_source_values_are_numeric_inputs": true,
+        "december_2026_and_usd_visible": true,
+        "saved_and_recalculated_ending_cash_is_7000": true,
+        "ending_cash_uses_formula": true,
+        "changing_payroll_to_7000_recalculates_ending_cash_to_6000": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_to_6000": true
+      },
+      "libreoffice_ending_cash_after_payroll_edit_usd": 6000.0
+    },
+    {
+      "pair": 3,
+      "variant": "baseline",
+      "workbook": "workbooks/03-baseline.xlsx",
+      "cli_exit_code": 0,
+      "cli_wall_seconds": 49.2,
+      "token_usage": {
+        "input_tokens": 204294,
+        "cached_input_tokens": 158976,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1506,
+        "reasoning_output_tokens": 10
+      },
+      "skill_file_read": false,
+      "nonzero_tool_commands": 0,
+      "correctness_pass": true,
+      "scripted_task_completed": true,
+      "failures": [],
+      "opening_sheet": "December 2026",
+      "visible_worksheets": 1,
+      "nonempty_rows_on_opening_sheet": 11,
+      "payroll_cell": "December 2026!B8",
+      "ending_cash_cell": "December 2026!B2",
+      "ending_cash_row": 2,
+      "ending_cash_formula": "=B6+B7-B10",
+      "payroll_and_ending_cash_on_opening_sheet": true,
+      "intermediate_cash_total_rows": [
+        "Total cash outflows",
+        "Net cash movement"
+      ],
+      "source_inputs": {
+        "Opening cash": {
+          "sheet": "December 2026",
+          "address": "B6",
+          "value": 10000,
+          "formula": null,
+          "type": "n",
+          "expected": 10000
+        },
+        "Customer receipts": {
+          "sheet": "December 2026",
+          "address": "B7",
+          "value": 5000,
+          "formula": null,
+          "type": "n",
+          "expected": 5000
+        },
+        "Payroll": {
+          "sheet": "December 2026",
+          "address": "B8",
+          "value": 6000,
+          "formula": null,
+          "type": "n",
+          "expected": 6000
+        },
+        "Rent": {
+          "sheet": "December 2026",
+          "address": "B9",
+          "value": 2000,
+          "formula": null,
+          "type": "n",
+          "expected": 2000
+        }
+      },
+      "ending_cash_saved_usd": 7000,
+      "ending_cash_before_edit_usd": 7000,
+      "ending_cash_after_payroll_edit_usd": 6000,
+      "checks": {
+        "four_source_values_are_numeric_inputs": true,
+        "december_2026_and_usd_visible": true,
+        "saved_and_recalculated_ending_cash_is_7000": true,
+        "ending_cash_uses_formula": true,
+        "changing_payroll_to_7000_recalculates_ending_cash_to_6000": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_to_6000": true
+      },
+      "libreoffice_ending_cash_after_payroll_edit_usd": 6000.0
+    },
+    {
+      "pair": 3,
+      "variant": "good-enough",
+      "workbook": "workbooks/03-good-enough.xlsx",
+      "cli_exit_code": 0,
+      "cli_wall_seconds": 46.2,
+      "token_usage": {
+        "input_tokens": 217663,
+        "cached_input_tokens": 178304,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1150,
+        "reasoning_output_tokens": 0
+      },
+      "skill_file_read": true,
+      "nonzero_tool_commands": 1,
+      "correctness_pass": true,
+      "scripted_task_completed": true,
+      "failures": [],
+      "opening_sheet": "December 2026",
+      "visible_worksheets": 1,
+      "nonempty_rows_on_opening_sheet": 10,
+      "payroll_cell": "December 2026!B8",
+      "ending_cash_cell": "December 2026!B2",
+      "ending_cash_row": 2,
+      "ending_cash_formula": "=B6+B7-B10",
+      "payroll_and_ending_cash_on_opening_sheet": true,
+      "intermediate_cash_total_rows": [
+        "Total cash outflows"
+      ],
+      "source_inputs": {
+        "Opening cash": {
+          "sheet": "December 2026",
+          "address": "B6",
+          "value": 10000,
+          "formula": null,
+          "type": "n",
+          "expected": 10000
+        },
+        "Customer receipts": {
+          "sheet": "December 2026",
+          "address": "B7",
+          "value": 5000,
+          "formula": null,
+          "type": "n",
+          "expected": 5000
+        },
+        "Payroll": {
+          "sheet": "December 2026",
+          "address": "B8",
+          "value": 6000,
+          "formula": null,
+          "type": "n",
+          "expected": 6000
+        },
+        "Rent": {
+          "sheet": "December 2026",
+          "address": "B9",
+          "value": 2000,
+          "formula": null,
+          "type": "n",
+          "expected": 2000
+        }
+      },
+      "ending_cash_saved_usd": 7000,
+      "ending_cash_before_edit_usd": 7000,
+      "ending_cash_after_payroll_edit_usd": 6000,
+      "checks": {
+        "four_source_values_are_numeric_inputs": true,
+        "december_2026_and_usd_visible": true,
+        "saved_and_recalculated_ending_cash_is_7000": true,
+        "ending_cash_uses_formula": true,
+        "changing_payroll_to_7000_recalculates_ending_cash_to_6000": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_to_6000": true
+      },
+      "libreoffice_ending_cash_after_payroll_edit_usd": 6000.0
+    }
+  ],
+  "calculation_engines": [
+    "Artifact Tool",
+    "LibreOffice 26.8.3.1"
+  ]
+}
