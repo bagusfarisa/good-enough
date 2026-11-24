@@ -1,0 +1,80 @@
+[
+  {
+    "id": "returns-launch",
+    "task": "Revise the existing launch brief for the Support lead preparing the launch-day team handoff. Return the revised brief in Markdown.",
+    "question": "A customer's return request was already open at launch and had been waiting eight days. Product has not decided the scope yet. What should Support tell the customer, and who owns that decision and by when?",
+    "answer": "The existing request stays open and the customer can upload documents there. The customer does not need to start over. Elena (Product) owns the decision, due May 8 at 12:00 UTC.",
+    "checks": {
+      "timing": "May 12 at 09:00 UTC launch, hourly run, only Awaiting customer documents, and seven calendar days from status entry. Documents received before expiry continue normally.",
+      "existing_requests": "Already-open requests stay out of automation and can receive uploads pending Elena's May 8 at 12:00 UTC decision. Applying the rule to cases already beyond the threshold may make those customers start again.",
+      "after_expiry": "Expired portal label, a new request is possible, and the original remains closed.",
+      "email": "Nia owns the email decision, due May 9 at 15:00 UTC. Portal label applies either way.",
+      "operations": "During the first week Operations checks the exception queue weekdays at 16:00 UTC and logs mismatches in the launch tracker."
+    }
+  },
+  {
+    "id": "dispatch-brief",
+    "task": "Revise the existing decision brief for the COO to use in the approval meeting. Return the revised brief in Markdown.",
+    "question": "What can the COO approve now and for how much? Name both tests, their owners and deadlines, and say what happens if only one clears by its deadline.",
+    "answer": "Reserve or approve up to $4,800 for the Atlas pilot without authorizing launch yet. Priya owns the manual override drill by May 14 at 12:00 UTC. Luis owns the scanner feed test by May 15 at 16:00 UTC. Continue manual dispatch if either fails or is late.",
+    "checks": {
+      "decision": "Atlas recommended at up to $4,800. Budget can be reserved now, with launch conditional on both gates. May 18 start.",
+      "gates": "Priya May 14 at 12:00 UTC, manual restore within 10 minutes. Luis May 15 at 16:00 UTC, every sample scan reaches Atlas once. Manual dispatch continues if either gate fails or is late.",
+      "alternatives": "Beacon costs $3,200 and cannot export required audit log until June 8. Manual option avoids pilot fee and lacks proposed check.",
+      "scope": "North warehouse, weekday morning shifts, two weeks.",
+      "outcome": "Compare with previous two weeks. At least 20% fewer missed assignments and no gaps in the audit log. Broader rollout requires separate COO approval."
+    }
+  },
+  {
+    "id": "price-import",
+    "task": "Revise the existing SOP so a new catalog operator can run the weekly price import without supervision. Return the revised SOP in Markdown.",
+    "question": "Preview flags a duplicate SKU. What does the operator do, and where do they resume once the replacement is ready?",
+    "answer": "Stop without publishing. Request a corrected CSV from the supplier, obtain approval for that file, then upload the corrected file and rerun Preview. Do not patch the CSV by hand. Only the stop, supplier correction, approval, fresh upload and Preview are required for a correct answer.",
+    "checks": {
+      "prerequisites": "Use an approved CSV with the scheduled effective date. Written Merchandising approval is required before Publish for a change over 10% in either direction, with exactly 10% exempt.",
+      "preview": "Catalog > Bulk price import. Upload and Preview. Missing required fields and duplicates require supplier correction, approval and fresh upload and Preview. The operator does not manually patch the file.",
+      "publish": "Publish once only after zero Preview errors and approvals. Wait for Applied, compare two affected SKUs with the approved CSV, and log batch ID and effective date only after both match.",
+      "mismatch": "After an Applied mismatch, do not republish or log completion. Send batch ID and both observed prices to Catalog Operations and await instructions.",
+      "failed": "For Failed, send the batch ID to Catalog Operations and do not automatically rerun."
+    }
+  },
+  {
+    "id": "device-return",
+    "task": "Revise the existing SOP for a service-desk operator handling loaner laptop returns at intake. Return the revised SOP in Markdown.",
+    "question": "The tag matches, but the laptop has a visibly swollen battery. What should the operator do with the device and record, and whom should they call?",
+    "answer": "Do not power on or charge it. Move the laptop to the battery isolation cabinet, set Safety hold, call Facilities on extension 221, record tag, location, and time in the incident log, and keep the loan open until Facilities clears it.",
+    "checks": {
+      "tag": "Verify tag against the loaner record. A mismatch goes to Asset Desk, remains in intake under Check required, and is not closed.",
+      "swelling": "Do not power on or charge. Battery isolation cabinet, Safety hold, Facilities extension 221, record tag/location/time, keep loan open until Facilities clears.",
+      "scratches": "Photograph surface scratches and continue.",
+      "accessories": "Missing charger means Accessories pending, note it in asset register, keep loan open for Asset Desk recovery, allow normal laptop cleanup.",
+      "completion": "Give acknowledgment for matching tag with no swelling. Wait for Reset successful before setting Returned, recording receipt timestamp and shelving. End-of-day checks open intake loans for current status or owner."
+    }
+  },
+  {
+    "id": "cash-review",
+    "source": "xlsx",
+    "task": "Revise the existing workbook for an FP&A reviewer explaining April ending cash and testing changes to customer collections. Keep the Drivers and Build sheets and the underlying model behavior. Save the revised workbook as revision.xlsx.",
+    "question": "What is April ending cash, which signed amounts build to it, and what should it be if April collections rise from $24,000 to $28,000? Name where the editable April collections input lives.",
+    "answer": "April ending cash is $13,000, from $11,000 opening cash plus $24,000 collections less $15,000 payroll, $4,000 rent and $3,000 equipment. Changing April collections to $28,000 raises April ending cash to $17,000. The input is the April customer collections cell Drivers!B5. A label plus sheet is enough to locate the input if the opening view supplies it.",
+    "input_sheet": "Drivers",
+    "build_sheet": "Build",
+    "edit": {"B5": 28000},
+    "outputs": {"B12": [13000, 17000], "C12": [17000, 21000]},
+    "secondary_edit": {"C7": 4500},
+    "secondary_outputs": {"B12": 13000, "C12": 16500}
+  },
+  {
+    "id": "margin-review",
+    "source": "xlsx",
+    "task": "Revise the existing workbook for a finance reviewer explaining June gross profit and testing the impact of a change in unit cost. Keep the Inputs and Calculation sheets and the underlying model behavior. Save the revised workbook as revision.xlsx.",
+    "question": "What is June gross profit, how do the sales and cost amounts build to it, and what would gross profit be if June unit cost rises from $14 to $16? Name where the editable June unit cost lives.",
+    "answer": "June gross profit is $18,500. Sales are 1,000 units × $35 = $35,000 less $1,500 returns for $33,500 net sales. Cost is 1,000 units × $14 plus $1,000 freight = $15,000. At $16 unit cost gross profit is $16,500. Unit cost is editable at Inputs!C7. A label plus sheet is enough to locate the input if the opening view supplies it.",
+    "input_sheet": "Inputs",
+    "build_sheet": "Calculation",
+    "edit": {"C7": 16},
+    "outputs": {"B17": [15400, 15400], "C17": [18500, 16500]},
+    "secondary_edit": {"C6": 36},
+    "secondary_outputs": {"B17": 15400, "C17": 19500}
+  }
+]

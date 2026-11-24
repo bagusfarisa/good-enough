@@ -2,7 +2,7 @@
 
 **Ponytail for knowledge worker**
 
-Good Enough is an agent skill for making documents, spreadsheets, financial models, and presentations that are complete, correct, and easy to use. It uses the inverted pyramid to put what the reader needs first and supporting detail where they will use it.
+Good Enough is an agent skill for making documents, spreadsheets, financial models, and presentations that are complete, correct, and easy to use. When you revise an existing artifact, give the agent one task the reader must complete. The skill helps the agent clear that path and check that essential content survives.
 
 [See the cash forecast benchmark](#cash-forecast-benchmark) for an example with downloadable workbooks.
 
@@ -84,10 +84,16 @@ Changes to [`skills/good-enough/SKILL.md`](skills/good-enough/SKILL.md) are publ
 Ask your agent to use the `good-enough` skill. Codex also accepts `$good-enough`, Claude Code and Antigravity offer `/good-enough`, and Pi offers `/skill:good-enough`.
 
 ```text
-Use the good-enough skill to build a 12-month cash forecast. Make it easy for a reviewer to trace the ending cash balance back to the assumptions.
+Use the good-enough skill to revise this launch brief. The Support lead needs
+to tell a customer what happens to a request that was already open at launch.
+Keep the pending decisions and exceptions accurate.
 ```
 
 The skill guides how the agent structures and reviews the work. The file formats it can produce depend on its available tools.
+
+## Existing artifact revision benchmark
+
+In 36 revisions of six synthetic artifacts, Good Enough passed both the full reader task and preservation checks in 12 of 12 runs. The plain prompt passed 11 of 12, and the one-line concision prompt passed 8 of 12. The concision prompt supported more answers from the opening view. [Sources, outputs, scores, and reproduction steps](evals/revision/)
 
 ## Cash forecast benchmark
 
@@ -118,7 +124,7 @@ In the inverted-pyramid rerun, both conditions passed all nine documents and sup
 
 A follow-up compared two skill revisions on a decision brief with separate owners and deadlines. Both revisions put the required details in the first 100 words in all three runs. [Two-dependency brief results](evals/action-grouping/)
 
-The latest full rerun covered six fixtures and 36 generated artifacts. It found earlier placement for some key details and equal full-artifact correctness. [Full rerun and proposed direction](evals/full-rerun/)
+The full rerun covered six fixtures and 36 generated artifacts. It found earlier placement for some key details and equal full-artifact correctness. [Full rerun and proposed direction](evals/full-rerun/)
 
 ## Inspiration
 

@@ -1,0 +1,10 @@
+{
+  "skill_commit": "9e0f917481060f457c49c4693e534bedfaa767a8",
+  "harness": "codex-cli 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning": "low",
+  "repeats": 2,
+  "concise_instruction": "Make it concise and actionable.",
+  "reader_source": "revised artifact only",
+  "cases_sha256": "5b70fbf8d5e3507f1d6c8d8eb50ab09cbcb5094bea9024074946b04836e650b6"
+}
