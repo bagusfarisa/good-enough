@@ -13,23 +13,26 @@ Good Enough is an agent skill for making documents, spreadsheets, financial mode
 | Financial model | Label the assumptions and show how they drive the results a human needs to understand. |
 | Slide deck | Give each slide one main takeaway and keep the evidence that supports it. |
 
-## Try it without installing
+## Install
 
-Fill in the brackets and paste this into your agent with your source material.
+### Ask your agent to install
+
+Copy this prompt into your agent's chat.
 
 ```text
-Create [deliverable] for [audience] using [notes, data, or files].
-The reader needs to [make a decision, understand a change, or complete a task].
+Install the good-enough skill from https://github.com/bagusfarisa/good-enough.
+The skill folder is skills/good-enough on main.
 
-Make it complete, correct, and easy to use. Keep the evidence, assumptions,
-and exceptions the reader needs. Give each section, tab, or slide a clear purpose.
+Identify the agent harness you're running in. Use its documented skill installer
+or skills directory and perform the installation yourself. Use the current project
+if there is one, or install it for my user account otherwise. If Good Enough is
+already installed from this repository, update that installation.
 
-For a financial model, make key results easy to trace back to labeled assumptions.
-
-Before delivering, check that the reader can do the intended task using the finished artifact.
+Verify the installation and tell me how to invoke the skill. If I need to reload
+or start a new session, tell me.
 ```
 
-## Install
+### Installer commands
 
 From your project, run the [Skills CLI](https://github.com/vercel-labs/skills) (Node.js 22.20+) and select your agents when prompted. Add `-g` to install for your user account.
 
