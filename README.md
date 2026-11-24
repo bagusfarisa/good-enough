@@ -4,6 +4,8 @@
 
 Good Enough is an agent skill for making documents, spreadsheets, financial models, and presentations that are complete, correct, and easy to use. Every section, tab, slide, and visual should help the reader do something.
 
+[See the cash forecast benchmark](#cash-forecast-benchmark) for an example with downloadable workbooks.
+
 | If you need a… | Good Enough helps the agent… |
 | --- | --- |
 | Decision brief | State the decision, the recommendation when supported, and the trade-offs that affect the choice. |
@@ -86,6 +88,26 @@ Use the good-enough skill to build a 12-month cash forecast. Make it easy for a 
 ```
 
 The skill guides how the agent structures and reviews the work. The file formats it can produce depend on its available tools.
+
+## Cash forecast benchmark
+
+Try the same task in both workbooks. Change **Payroll** from **$6,000** to **$7,000** and verify that **Ending cash** changes from **$7,000** to **$6,000**.
+
+| Baseline | With Good Enough |
+| --- | --- |
+| ![Baseline workbook with separate assumptions and cash forecast sections](evals/cash-forecast/01-baseline.png) | ![Good Enough workbook with ending cash directly below the four inputs](evals/cash-forecast/01-good-enough.png) |
+| [Open the baseline workbook](evals/cash-forecast/workbooks/01-baseline.xlsx) | [Open the Good Enough workbook](evals/cash-forecast/workbooks/01-good-enough.xlsx) |
+
+| Result across three pairs | Baseline | With Good Enough |
+| --- | ---: | ---: |
+| Scripted payroll task completed | 3/3 | 3/3 |
+| Workbooks passing all correctness checks | 3/3 | 3/3 |
+| Workbook failures | 0 | 0 |
+| Median filled rows on the opening sheet | 11 | 9 |
+
+Good Enough used fewer filled rows in all three pairs. In the example above, the baseline shows two intermediate cash totals. Good Enough puts the result directly below its inputs. This pilot measured workbook behavior and layout. Reader completion time remains unmeasured.
+
+Tested with Codex CLI **0.172.0**, model **`gpt-6.2-sol`** at low reasoning effort, and skill commit [`01eb485`](https://github.com/bagusfarisa/good-enough/blob/01eb48510be3bbbcffc88263268865b5448098eb/skills/good-enough/SKILL.md). [Method and all workbooks](evals/cash-forecast/) · [Prompt](evals/cash-forecast/prompt.txt) · [Inputs](evals/cash-forecast/cash-inputs.csv) · [Raw scores](evals/cash-forecast/scores.json)
 
 ## Inspiration
 

@@ -1,0 +1,1 @@
+Build a December 2026 cash forecast in Excel from cash-inputs.csv for an operations lead. The lead needs to update the cash assumptions and see the resulting ending cash for the month. Use USD and formula-driven results. Use only the source data supplied. Save the deliverable as cash-forecast.xlsx in the current directory.

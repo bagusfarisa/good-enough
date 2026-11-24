@@ -1,0 +1,1 @@
+For this task, work in the current directory and use the local Node.js and @oai/artifact-tool installation to create the file. The artifact-tool API quick start is available in spreadsheet-api.md. No external data or network calls are needed.
