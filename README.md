@@ -95,6 +95,8 @@ The skill guides how the agent structures and reviews the work. The file formats
 
 In 36 revisions of six synthetic artifacts, Good Enough passed both the full reader task and preservation checks in 12 of 12 runs. The plain prompt passed 11 of 12, and the one-line concision prompt passed 8 of 12. The concision prompt supported more answers from the opening view. [Sources, outputs, scores, and reproduction steps](evals/revision/)
 
+A follow-up compared two skill versions and scored the first action separately from the complete answer. [Opening-view check](evals/first-action/)
+
 ## Cash forecast benchmark
 
 Try the same task in both workbooks. Change **Payroll** from **$6,000** to **$7,000** and verify that **Ending cash** changes from **$7,000** to **$6,000**.

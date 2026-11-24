@@ -1,0 +1,26 @@
+{
+  "returns-launch": {
+    "question": "A customer's return request was already open at launch and had been waiting eight days. Product has not decided the scope. What should Support tell the customer to do now?",
+    "answer": "Tell the customer to keep using their existing open request and upload documents there. The customer does not need to start a new request. The decision owner and deadline are not required."
+  },
+  "dispatch-brief": {
+    "question": "The two launch gates have not cleared yet. What can the COO approve now, and what should Dispatch continue doing?",
+    "answer": "The COO can reserve or approve up to $4,800 for the Atlas pilot now. Dispatch continues manual dispatch and waits for both gates before launch. Gate names, owners, and deadlines are not required."
+  },
+  "price-import": {
+    "question": "Preview flags a duplicate SKU. Should the operator publish, and what should they ask the supplier for now?",
+    "answer": "Stop without publishing and ask the supplier for a corrected CSV. Approval and restart steps are not required for this question."
+  },
+  "device-return": {
+    "question": "The tag matches but the laptop has a swollen battery. What immediate handling does the SOP tell the operator to do before recording the incident?",
+    "answer": "Do not power on or charge the laptop. Move it to the battery isolation cabinet. The status, phone call, and incident fields are not required for this immediate handling question."
+  },
+  "cash-review": {
+    "question": "Which editable input changes the actual April forecast to $28,000 of customer collections, and what April ending cash should the reviewer see?",
+    "answer": "Edit April customer collections on the Drivers sheet, at B5, and expect April ending cash of $17,000. A label plus sheet uniquely locates the input. A separate what-if control alone does not change the actual forecast. The payment breakdown is not required."
+  },
+  "margin-review": {
+    "question": "Which editable input changes the actual June forecast to a product cost of $16 per unit, and what June gross profit should the reviewer see?",
+    "answer": "Edit June product cost per unit on the Inputs sheet, at C7, and expect $16,500 gross profit. A label plus sheet uniquely locates the input. A separate what-if control alone does not change the actual forecast. The profit breakdown is not required."
+  }
+}

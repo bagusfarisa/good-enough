@@ -2,11 +2,12 @@
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor
+from hashlib import sha256
 import json
 from pathlib import Path
 import random
 
-from run import HERE, VARIANTS, common
+from run import HERE, common, evaluation_trials
 
 READER = 'gpt-6.1-terra'
 OPENING_WORDS = 120
@@ -108,11 +109,27 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--format', choices=['md', 'xlsx'], required=True)
+    parser.add_argument('--first-actions', type=Path, help='Question and expected answer per fixture for the opening view')
     args = parser.parse_args()
     output = args.out.resolve()
     cases = {c['id']: c for c in json.loads((HERE / 'cases.json').read_text())
              if c.get('source', 'md') == args.format}
     manifest = json.loads((output / 'run.json').read_text())
+    first_actions = {}
+    views = ('opening', 'full')
+    if args.first_actions:
+        question_bytes = args.first_actions.read_bytes()
+        first_actions = json.loads(question_bytes)
+        if not cases.keys() <= first_actions.keys():
+            parser.error('The first-action questions must cover every case being evaluated.')
+        manifest['first_actions_sha256'] = sha256(question_bytes).hexdigest()
+        views += ('first_action',)
+
+    def question(case_id, view):
+        if view == 'first_action':
+            return {'id': case_id, **first_actions[case_id]}
+        return cases[case_id]
+
     answers = output / 'reader-cache'
     answers.mkdir(exist_ok=True)
     workbook_checks = {}
@@ -120,9 +137,7 @@ def main():
         workbook_checks = json.loads((output / 'workbook-checks.json').read_text())
     runs = []
     for case in cases:
-        for trial, variant in [(0, 'source')] + [
-            (i, v) for i in range(1, manifest['repeats'] + 1) for v in VARIANTS
-        ]:
+        for trial, variant in evaluation_trials(manifest):
             identifier = f'{case}-{trial}-{variant}'
             folder = (HERE / 'fixtures') if trial == 0 else output / 'artifacts'
             full = folder / f'{case if trial == 0 else identifier}.{args.format}'
@@ -137,23 +152,24 @@ def main():
                 checks = workbook['checks']
             runs.append({'case': case, 'repeat': trial, 'variant': variant,
                          'artifact': f'fixtures/{full.name}' if trial == 0 else f'artifacts/{full.name}',
-                         'opening': entry, 'full': complete, 'workbook_checks': checks,
+                         'opening': entry, 'full': complete, 'first_action': entry, 'workbook_checks': checks,
                          'word_count': len(common.WORD.findall(complete)) if args.format == 'md' else None})
-    jobs = [(run, view) for run in runs for view in ('opening', 'full')]
+    jobs = [(run, view) for run in runs for view in views]
     random.Random(291).shuffle(jobs)
 
     def read(job):
         run, view = job
-        filename = f'{run["case"]}-{run["repeat"]}-{run["variant"]}-{view}.json'
-        run[f'{view}_answer'] = ask_reader(cases[run['case']], run[view], answers / filename)
-        print('read', filename[:-5], flush=True)
+        name = f'{run["case"]}-{run["repeat"]}-{run["variant"]}-{view}'
+        cache_name = f'{name}-{manifest["first_actions_sha256"]}' if view == 'first_action' else name
+        run[f'{view}_answer'] = ask_reader(question(run['case'], view), run[view], answers / f'{cache_name}.json')
+        print('read', name, flush=True)
 
     with ThreadPoolExecutor(max_workers=6) as pool:
         list(pool.map(read, jobs))
     # Separate judge sessions handle opening and full evidence without condition labels.
     with ThreadPoolExecutor(max_workers=4) as pool:
-        futures = [pool.submit(score_case, case, [r for r in runs if r['case'] == case['id']], view)
-                   for case in cases.values() for view in ('opening', 'full')]
+        futures = [pool.submit(score_case, question(case_id, view), [r for r in runs if r['case'] == case_id], view)
+                   for case_id in cases for view in views]
         for future in futures:
             future.result()
 
@@ -162,8 +178,10 @@ def main():
             run['preserved'] = all(check['passed'] for check in run['retained'].values())
         else:
             run['preserved'] = all(run['workbook_checks'].values())
-        for key in ('opening', 'full', 'opening_answer', 'full_answer'):
-            del run[key]
+        for view in ('opening', 'full', 'first_action'):
+            del run[view]
+        for view in views:
+            del run[f'{view}_answer']
     common.dump(output / f'{args.format}-scores.json', {
         **manifest, 'reader': READER, 'judge': common.JUDGE,
         'opening_words': OPENING_WORDS if args.format == 'md' else None, 'runs': runs})

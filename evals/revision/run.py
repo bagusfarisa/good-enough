@@ -1,4 +1,4 @@
-"""Generate three revisions of each fixture in isolated Codex CLI sessions."""
+"""Generate revisions of each fixture in isolated Codex CLI sessions."""
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor
@@ -27,6 +27,16 @@ RUNTIME = (
 )
 
 
+def trials(manifest):
+    variants = ('baseline', 'good-enough') if 'baseline_skill_commit' in manifest else VARIANTS
+    return [(i, variant) for i in range(1, manifest['repeats'] + 1) for variant in variants]
+
+
+def evaluation_trials(manifest):
+    source = [] if 'baseline_skill_commit' in manifest else [(0, 'source')]
+    return source + trials(manifest)
+
+
 def generate(case, repeat, variant, output, skill, api, modules):
     identifier = f'{case["id"]}-{repeat}-{variant}'
     extension = 'xlsx' if case.get('source') == 'xlsx' else 'md'
@@ -36,7 +46,7 @@ def generate(case, repeat, variant, output, skill, api, modules):
         return
     source = HERE / 'fixtures' / f'{case["id"]}.{extension}'
     guidance = CONCISE + '\n\n' if variant == 'concise' else ''
-    if variant == 'good-enough':
+    if skill:
         guidance = f'Apply the following skill instructions.\n\n<skill>\n{skill}\n</skill>\n\n'
     task = guidance + case['task']
     if extension == 'md':
@@ -76,6 +86,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--revision', default='HEAD')
+    parser.add_argument('--baseline-revision', help='Compare two skill revisions instead of the prompt baselines')
     parser.add_argument('--format', choices=['all', 'md', 'xlsx'], default='all')
     parser.add_argument('--api', type=Path)
     parser.add_argument('--node-modules', type=Path)
@@ -83,15 +94,23 @@ def main():
     cases_path = HERE / 'cases.json'
     cases = json.loads(cases_path.read_text())
     revision = subprocess.check_output(['git', 'rev-parse', args.revision], cwd=HERE, text=True).strip()
-    skill = subprocess.check_output(['git', 'show', f'{revision}:skills/good-enough/SKILL.md'],
-                                    cwd=HERE, text=True)
+    revisions = {'good-enough': revision}
+    if args.baseline_revision:
+        revisions['baseline'] = subprocess.check_output(['git', 'rev-parse', args.baseline_revision],
+                                                        cwd=HERE, text=True).strip()
+    skills = {variant: subprocess.check_output(['git', 'show', f'{rev}:skills/good-enough/SKILL.md'],
+                                               cwd=HERE, text=True) for variant, rev in revisions.items()}
     out = args.out.resolve()
     (out / 'artifacts').mkdir(parents=True, exist_ok=True)
     (out / 'runs').mkdir(exist_ok=True)
     manifest = {'skill_commit': revision, 'harness': subprocess.check_output(['codex', '--version'], text=True).strip(),
                 'generator': common.GENERATOR, 'reasoning': 'low', 'repeats': REPEATS,
-                'concise_instruction': CONCISE, 'reader_source': 'revised artifact only',
+                'reader_source': 'revised artifact only',
                 'cases_sha256': sha256(cases_path.read_bytes()).hexdigest()}
+    if args.baseline_revision:
+        manifest['baseline_skill_commit'] = revisions['baseline']
+    else:
+        manifest['concise_instruction'] = CONCISE
     config = out / 'run.json'
     if config.exists() and json.loads(config.read_text()) != manifest:
         parser.error('Use a new --out directory for a different revision or fixture set.')
@@ -103,8 +122,8 @@ def main():
             continue
         if extension == 'xlsx' and (args.api is None or args.node_modules is None):
             parser.error('Workbook trials require --api and --node-modules.')
-        jobs.extend((case, repeat, variant, out, skill, args.api, args.node_modules)
-                    for repeat in range(1, REPEATS + 1) for variant in VARIANTS)
+        jobs.extend((case, repeat, variant, out, skills.get(variant), args.api, args.node_modules)
+                    for repeat, variant in trials(manifest))
     random.Random(284).shuffle(jobs)
     with ThreadPoolExecutor(max_workers=4) as pool:
         list(pool.map(lambda job: generate(*job), jobs))

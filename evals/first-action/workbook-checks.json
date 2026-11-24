@@ -1,0 +1,424 @@
+{
+  "cash-review-1-baseline": {
+    "opening_sheet": "Review notes",
+    "opening_view": "[Review notes]\nA1=April 2027 cash forecast\nA2=April ending cash (USD) | B2=13000\nA4=April cash bridge | B4=USD\nA5=Opening cash | B5=11000\nA6=Customer collections | B6=24000\nA7=Payroll | B7=-15000\nA8=Rent | B8=-4000\nA9=Equipment | B9=-3000\nA10=Total payments | B10=-22000\nA11=Net cash change | B11=2000\nA12=Ending cash | B12=13000\nA14=Test April customer collections\nA15=1. Enter a new April forecast in Drivers!B5 (blue cell).\nA16=2. Read April ending cash above and the May balances below.\nA17=3. Restore the source forecast in Drivers!B5 when finished.\nA18=Source forecast for April collections (USD) | B18=24000",
+    "full_view": "[Review notes]\nA1=April 2027 cash forecast\nA2=April ending cash (USD) | B2=13000\nA4=April cash bridge | B4=USD\nA5=Opening cash | B5=11000\nA6=Customer collections | B6=24000\nA7=Payroll | B7=-15000\nA8=Rent | B8=-4000\nA9=Equipment | B9=-3000\nA10=Total payments | B10=-22000\nA11=Net cash change | B11=2000\nA12=Ending cash | B12=13000\nA14=Test April customer collections\nA15=1. Enter a new April forecast in Drivers!B5 (blue cell).\nA16=2. Read April ending cash above and the May balances below.\nA17=3. Restore the source forecast in Drivers!B5 when finished.\nA18=Source forecast for April collections (USD) | B18=24000\nA20=May 2027 opening cash (USD) | B20=13000\nA21=May 2027 ending cash (USD) | B21=17000\n\n[Drivers]\nA2=Editable assumptions\nA3=Forecast amounts in USD\nA4=Line item | B4=April 2027 | C4=May 2027\nA5=Customer collections | B5=24000 | C5=20000\nA6=Payroll | B6=15000 | C6=11000\nA7=Rent | B7=4000 | C7=4000\nA8=Equipment | B8=3000 | C8=1000\nA9=Opening cash at start of April | B9=11000\n\n[Build]\nA2=Monthly calculation\nA3=Forecast amounts in USD\nA4=Line item | B4=April 2027 | C4=May 2027\nA5=Opening cash | B5=11000 | C5=13000\nA6=Customer collections | B6=24000 | C6=20000\nA7=Payroll | B7=-15000 | C7=-11000\nA8=Rent | B8=-4000 | C8=-4000\nA9=Equipment | B9=-3000 | C9=-1000\nA10=Total payments | B10=-22000 | C10=-16000\nA11=Net cash change | B11=2000 | C11=4000\nA12=Ending cash | B12=13000 | C12=17000",
+    "headline_cells": [
+      "B2",
+      "B12"
+    ],
+    "cached_outputs": {
+      "B12": 13000,
+      "C12": 17000
+    },
+    "checks": {
+      "expected_tabs": true,
+      "drivers_retained": true,
+      "schedule_retained": true,
+      "saved_outputs": true,
+      "no_saved_formula_errors": true,
+      "artifact_tool_base_and_edits": true,
+      "libreoffice_primary_and_secondary_edits": true,
+      "published_headline_recalculates": true
+    },
+    "libreoffice": {
+      "primary": {
+        "B12": 17000,
+        "C12": 21000
+      },
+      "secondary": {
+        "B12": 13000,
+        "C12": 16500
+      }
+    },
+    "artifact_tool": {
+      "base": {
+        "B12": 13000,
+        "C12": 17000
+      },
+      "primary": {
+        "B12": 17000,
+        "C12": 21000
+      },
+      "secondary": {
+        "B12": 13000,
+        "C12": 16500
+      },
+      "headline_before": {
+        "B2": 13000,
+        "B12": 13000
+      },
+      "headline_after": {
+        "B2": 17000,
+        "B12": 17000
+      }
+    }
+  },
+  "cash-review-1-good-enough": {
+    "opening_sheet": "Review notes",
+    "opening_view": "[Review notes]\nA1=Cash forecast review | April 2027\nA2=April ending cash | B2=13000 | C2=USD forecast\nA4=Test customer collections\nA5=Edit the blue April collections input in Drivers!B5. Read April ending cash above.\nA6=Every $1 change in April collections moves both April and May ending cash by $1.\nA7=Restore Drivers!B5 to $24,000 after testing the supplied forecast.\nA9=April cash bridge | B9=USD forecast\nA10=Opening cash | B10=11000\nA11=Customer collections | B11=24000\nA12=Payroll | B12=-15000\nA13=Rent | B13=-4000\nA14=Equipment | B14=-3000\nA15=Total payments | B15=-22000\nA16=Net cash change | B16=2000\nA18=May ending cash | B18=17000 | C18=USD forecast",
+    "full_view": "[Review notes]\nA1=Cash forecast review | April 2027\nA2=April ending cash | B2=13000 | C2=USD forecast\nA4=Test customer collections\nA5=Edit the blue April collections input in Drivers!B5. Read April ending cash above.\nA6=Every $1 change in April collections moves both April and May ending cash by $1.\nA7=Restore Drivers!B5 to $24,000 after testing the supplied forecast.\nA9=April cash bridge | B9=USD forecast\nA10=Opening cash | B10=11000\nA11=Customer collections | B11=24000\nA12=Payroll | B12=-15000\nA13=Rent | B13=-4000\nA14=Equipment | B14=-3000\nA15=Total payments | B15=-22000\nA16=Net cash change | B16=2000\nA18=May ending cash | B18=17000 | C18=USD forecast\n\n[Drivers]\nA2=Editable assumptions\nA4=Line item | B4=April 2027 | C4=May 2027\nA5=Customer collections | B5=24000 | C5=20000\nA6=Payroll | B6=15000 | C6=11000\nA7=Rent | B7=4000 | C7=4000\nA8=Equipment | B8=3000 | C8=1000\nA9=Opening cash at start of April | B9=11000\n\n[Build]\nA2=Monthly calculation\nA4=Line item | B4=April 2027 | C4=May 2027\nA5=Opening cash | B5=11000 | C5=13000\nA6=Customer collections | B6=24000 | C6=20000\nA7=Payroll | B7=-15000 | C7=-11000\nA8=Rent | B8=-4000 | C8=-4000\nA9=Equipment | B9=-3000 | C9=-1000\nA10=Total payments | B10=-22000 | C10=-16000\nA11=Net cash change | B11=2000 | C11=4000\nA12=Ending cash | B12=13000 | C12=17000",
+    "headline_cells": [
+      "B2"
+    ],
+    "cached_outputs": {
+      "B12": 13000,
+      "C12": 17000
+    },
+    "checks": {
+      "expected_tabs": true,
+      "drivers_retained": true,
+      "schedule_retained": true,
+      "saved_outputs": true,
+      "no_saved_formula_errors": true,
+      "artifact_tool_base_and_edits": true,
+      "libreoffice_primary_and_secondary_edits": true,
+      "published_headline_recalculates": true
+    },
+    "libreoffice": {
+      "primary": {
+        "B12": 17000,
+        "C12": 21000
+      },
+      "secondary": {
+        "B12": 13000,
+        "C12": 16500
+      }
+    },
+    "artifact_tool": {
+      "base": {
+        "B12": 13000,
+        "C12": 17000
+      },
+      "primary": {
+        "B12": 17000,
+        "C12": 21000
+      },
+      "secondary": {
+        "B12": 13000,
+        "C12": 16500
+      },
+      "headline_before": {
+        "B2": 13000
+      },
+      "headline_after": {
+        "B2": 17000
+      }
+    }
+  },
+  "cash-review-2-baseline": {
+    "opening_sheet": "Review notes",
+    "opening_view": "[Review notes]\nA1=Cash forecast | April–May 2027\nA2=Ending cash (USD) | B2=April forecast | C2=May forecast\nA3=Forecast ending cash | B3=13000 | C3=17000\nA5=Cash roll-forward (USD)\nA6=Opening cash | B6=11000 | C6=13000\nA7=Customer collections | B7=24000 | C7=20000\nA8=Payroll | B8=-15000 | C8=-11000\nA9=Rent | B9=-4000 | C9=-4000\nA10=Equipment | B10=-3000 | C10=-1000\nA11=Total payments | B11=-22000 | C11=-16000\nA12=Net cash change | B12=2000 | C12=4000\nA14=Test customer collections\nA15=1. Edit the blue collections inputs on Drivers (B5 for April, C5 for May).\nA16=2. Check ending cash above. April ending cash becomes May opening cash.\nA17=3. Restore the base forecast after testing ($24,000 April, $20,000 May).",
+    "full_view": "[Review notes]\nA1=Cash forecast | April–May 2027\nA2=Ending cash (USD) | B2=April forecast | C2=May forecast\nA3=Forecast ending cash | B3=13000 | C3=17000\nA5=Cash roll-forward (USD)\nA6=Opening cash | B6=11000 | C6=13000\nA7=Customer collections | B7=24000 | C7=20000\nA8=Payroll | B8=-15000 | C8=-11000\nA9=Rent | B9=-4000 | C9=-4000\nA10=Equipment | B10=-3000 | C10=-1000\nA11=Total payments | B11=-22000 | C11=-16000\nA12=Net cash change | B12=2000 | C12=4000\nA14=Test customer collections\nA15=1. Edit the blue collections inputs on Drivers (B5 for April, C5 for May).\nA16=2. Check ending cash above. April ending cash becomes May opening cash.\nA17=3. Restore the base forecast after testing ($24,000 April, $20,000 May).\n\n[Drivers]\nA2=Editable assumptions\nA4=Line item | B4=April 2027 | C4=May 2027\nA5=Customer collections | B5=24000 | C5=20000\nA6=Payroll | B6=15000 | C6=11000\nA7=Rent | B7=4000 | C7=4000\nA8=Equipment | B8=3000 | C8=1000\nA9=Opening cash at start of April | B9=11000\n\n[Build]\nA2=Monthly calculation\nA4=Line item | B4=April 2027 | C4=May 2027\nA5=Opening cash | B5=11000 | C5=13000\nA6=Customer collections | B6=24000 | C6=20000\nA7=Payroll | B7=-15000 | C7=-11000\nA8=Rent | B8=-4000 | C8=-4000\nA9=Equipment | B9=-3000 | C9=-1000\nA10=Total payments | B10=-22000 | C10=-16000\nA11=Net cash change | B11=2000 | C11=4000\nA12=Ending cash | B12=13000 | C12=17000",
+    "headline_cells": [
+      "B3"
+    ],
+    "cached_outputs": {
+      "B12": 13000,
+      "C12": 17000
+    },
+    "checks": {
+      "expected_tabs": true,
+      "drivers_retained": true,
+      "schedule_retained": true,
+      "saved_outputs": true,
+      "no_saved_formula_errors": true,
+      "artifact_tool_base_and_edits": true,
+      "libreoffice_primary_and_secondary_edits": true,
+      "published_headline_recalculates": true
+    },
+    "libreoffice": {
+      "primary": {
+        "B12": 17000,
+        "C12": 21000
+      },
+      "secondary": {
+        "B12": 13000,
+        "C12": 16500
+      }
+    },
+    "artifact_tool": {
+      "base": {
+        "B12": 13000,
+        "C12": 17000
+      },
+      "primary": {
+        "B12": 17000,
+        "C12": 21000
+      },
+      "secondary": {
+        "B12": 13000,
+        "C12": 16500
+      },
+      "headline_before": {
+        "B3": 13000
+      },
+      "headline_after": {
+        "B3": 17000
+      }
+    }
+  },
+  "cash-review-2-good-enough": {
+    "opening_sheet": "Review notes",
+    "opening_view": "[Review notes]\nA2=April 2027 cash forecast · USD\nA3=April ending cash | B3=13000\nA5=Test April customer collections\nA6=Enter the test amount in Drivers!B5 (April customer collections).\nA7=Check April ending cash in B3 and May ending cash in Build!C12.\nA8=Undo the edit after the test to restore the prior forecast.\nA10=How April ending cash is calculated\nA11=Opening cash | B11=11000\nA12=Customer collections | B12=24000\nA13=Payroll | B13=-15000\nA14=Rent | B14=-4000\nA15=Equipment | B15=-3000\nA16=Total payments | B16=-22000\nA17=Net cash change | B17=2000",
+    "full_view": "[Review notes]\nA2=April 2027 cash forecast · USD\nA3=April ending cash | B3=13000\nA5=Test April customer collections\nA6=Enter the test amount in Drivers!B5 (April customer collections).\nA7=Check April ending cash in B3 and May ending cash in Build!C12.\nA8=Undo the edit after the test to restore the prior forecast.\nA10=How April ending cash is calculated\nA11=Opening cash | B11=11000\nA12=Customer collections | B12=24000\nA13=Payroll | B13=-15000\nA14=Rent | B14=-4000\nA15=Equipment | B15=-3000\nA16=Total payments | B16=-22000\nA17=Net cash change | B17=2000\nA19=Opening cash plus net cash change gives April ending cash in B3.\n\n[Drivers]\nA2=Editable assumptions\nA4=Line item | B4=April 2027 | C4=May 2027\nA5=Customer collections | B5=24000 | C5=20000\nA6=Payroll | B6=15000 | C6=11000\nA7=Rent | B7=4000 | C7=4000\nA8=Equipment | B8=3000 | C8=1000\nA9=Opening cash at start of April | B9=11000\n\n[Build]\nA2=Monthly calculation\nA4=Line item | B4=April 2027 | C4=May 2027\nA5=Opening cash | B5=11000 | C5=13000\nA6=Customer collections | B6=24000 | C6=20000\nA7=Payroll | B7=-15000 | C7=-11000\nA8=Rent | B8=-4000 | C8=-4000\nA9=Equipment | B9=-3000 | C9=-1000\nA10=Total payments | B10=-22000 | C10=-16000\nA11=Net cash change | B11=2000 | C11=4000\nA12=Ending cash | B12=13000 | C12=17000",
+    "headline_cells": [
+      "B3"
+    ],
+    "cached_outputs": {
+      "B12": 13000,
+      "C12": 17000
+    },
+    "checks": {
+      "expected_tabs": true,
+      "drivers_retained": true,
+      "schedule_retained": true,
+      "saved_outputs": true,
+      "no_saved_formula_errors": true,
+      "artifact_tool_base_and_edits": true,
+      "libreoffice_primary_and_secondary_edits": true,
+      "published_headline_recalculates": true
+    },
+    "libreoffice": {
+      "primary": {
+        "B12": 17000,
+        "C12": 21000
+      },
+      "secondary": {
+        "B12": 13000,
+        "C12": 16500
+      }
+    },
+    "artifact_tool": {
+      "base": {
+        "B12": 13000,
+        "C12": 17000
+      },
+      "primary": {
+        "B12": 17000,
+        "C12": 21000
+      },
+      "secondary": {
+        "B12": 13000,
+        "C12": 16500
+      },
+      "headline_before": {
+        "B3": 13000
+      },
+      "headline_after": {
+        "B3": 17000
+      }
+    }
+  },
+  "margin-review-1-baseline": {
+    "opening_sheet": "Reporting guide",
+    "opening_view": "[Reporting guide]\nA1=June 2027 gross profit review\nA2=Gross profit (USD) | B2=18500 | C2=Net sales less total cost\nA4=June drivers | B4=June 2027 | C4=Calculation\nA5=Units sold | B5=1000 | C5=Units\nA6=Selling price per unit | B6=35 | C6=USD per unit\nA7=Gross sales | B7=35000 | C7=Units sold × selling price\nA8=Sales returns | B8=-1500 | C8=Deduction from gross sales\nA9=Net sales | B9=33500 | C9=Gross sales after returns\nA10=Product cost per unit | B10=14 | C10=USD per unit · editable in Inputs!C7\nA11=Product cost | B11=14000 | C11=Units sold × product cost per unit\nA12=Freight | B12=1000 | C12=Added to product cost\nA13=Total cost | B13=15000 | C13=Product cost + freight\nA14=Gross margin | B14=0.5522388059701493 | C14=Gross profit ÷ net sales\nA16=Test a June unit-cost change\nA17=1. For a $1.00 increase from the source assumptions, change Inputs!C7 from $14.00 to $15.00.\nA18=2. Check gross profit above. It should fall from $18,500 to $17,500 with other inputs fixed.",
+    "full_view": "[Reporting guide]\nA1=June 2027 gross profit review\nA2=Gross profit (USD) | B2=18500 | C2=Net sales less total cost\nA4=June drivers | B4=June 2027 | C4=Calculation\nA5=Units sold | B5=1000 | C5=Units\nA6=Selling price per unit | B6=35 | C6=USD per unit\nA7=Gross sales | B7=35000 | C7=Units sold × selling price\nA8=Sales returns | B8=-1500 | C8=Deduction from gross sales\nA9=Net sales | B9=33500 | C9=Gross sales after returns\nA10=Product cost per unit | B10=14 | C10=USD per unit · editable in Inputs!C7\nA11=Product cost | B11=14000 | C11=Units sold × product cost per unit\nA12=Freight | B12=1000 | C12=Added to product cost\nA13=Total cost | B13=15000 | C13=Product cost + freight\nA14=Gross margin | B14=0.5522388059701493 | C14=Gross profit ÷ net sales\nA16=Test a June unit-cost change\nA17=1. For a $1.00 increase from the source assumptions, change Inputs!C7 from $14.00 to $15.00.\nA18=2. Check gross profit above. It should fall from $18,500 to $17,500 with other inputs fixed.\nA19=3. Restore Inputs!C7 to $14.00 after the test.\n\n[Inputs]\nA2=Editable assumptions\nA4=Line item | B4=May 2027 | C4=June 2027\nA5=Units sold | B5=800 | C5=1000\nA6=Selling price per unit | B6=34 | C6=35\nA7=Product cost per unit | B7=13 | C7=14\nA8=Sales returns | B8=800 | C8=1500\nA9=Freight | B9=600 | C9=1000\nA11=Change highlighted C7 to test June product cost per unit.\n\n[Calculation]\nA2=Monthly calculation\nA4=Line item | B4=May 2027 | C4=June 2027\nA5=Units sold | B5=800 | C5=1000\nA6=Selling price per unit | B6=34 | C6=35\nA7=Product cost per unit | B7=13 | C7=14\nA8=Gross sales | B8=27200 | C8=35000\nA9=Sales returns | B9=-800 | C9=-1500\nA10=Net sales | B10=26400 | C10=33500\nA11=Product cost | B11=10400 | C11=14000\nA12=Freight | B12=600 | C12=1000\nA13=Total cost | B13=11000 | C13=15000\nA14=Gross margin | B14=0.5833333333333334 | C14=0.5522388059701493\nA15=Gross margin basis | B15=26400 | C15=33500\nA16=Gross profit basis | B16=11000 | C16=15000\nA17=Gross profit | B17=15400 | C17=18500",
+    "headline_cells": [
+      "B2"
+    ],
+    "cached_outputs": {
+      "B17": 15400,
+      "C17": 18500
+    },
+    "checks": {
+      "expected_tabs": true,
+      "drivers_retained": true,
+      "schedule_retained": true,
+      "saved_outputs": true,
+      "no_saved_formula_errors": true,
+      "artifact_tool_base_and_edits": true,
+      "libreoffice_primary_and_secondary_edits": true,
+      "published_headline_recalculates": true
+    },
+    "libreoffice": {
+      "primary": {
+        "B17": 15400,
+        "C17": 16500
+      },
+      "secondary": {
+        "B17": 15400,
+        "C17": 19500
+      }
+    },
+    "artifact_tool": {
+      "base": {
+        "B17": 15400,
+        "C17": 18500
+      },
+      "primary": {
+        "B17": 15400,
+        "C17": 16500
+      },
+      "secondary": {
+        "B17": 15400,
+        "C17": 19500
+      },
+      "headline_before": {
+        "B2": 18500
+      },
+      "headline_after": {
+        "B2": 16500
+      }
+    }
+  },
+  "margin-review-1-good-enough": {
+    "opening_sheet": "Reporting guide",
+    "opening_view": "[Reporting guide]\nA1=June 2027 gross profit review\nA2=June gross profit | B2=18500 | C2=Net sales less total cost · One product · USD\nA4=June gross profit components | E4=Test a different June unit cost\nA5=Units sold | B5=1000 | C5=Units | E5=Modeled unit cost | F5=14 | G5=Inputs!C7\nA6=Selling price per unit | B6=35 | C6=USD per unit | E6=Test unit cost | G6=Editable · USD per unit\nA7=Gross sales | B7=35000 | C7=Units sold × selling price | E7=Scenario gross profit | F7=18500\nA8=Sales returns | B8=-1500 | C8=Deduction from gross sales | E8=Change in gross profit | F8=0\nA9=Net sales | B9=33500 | C9=Gross sales less returns\nA10=Product cost per unit | B10=14 | C10=USD per unit | E10=Enter a test cost in F6. Clear F6 to reset.\nA11=Product cost | B11=14000 | C11=Units sold × product unit cost | E11=The test holds units sold and all other inputs fixed.\nA12=Freight | B12=1000 | C12=Added to product cost | E12=Change = (modeled cost − test cost) × units sold.\nA13=Total cost | B13=15000 | C13=Product cost plus freight\nA15=Model detail is in Calculation!C5:C17.",
+    "full_view": "[Reporting guide]\nA1=June 2027 gross profit review\nA2=June gross profit | B2=18500 | C2=Net sales less total cost · One product · USD\nA4=June gross profit components | E4=Test a different June unit cost\nA5=Units sold | B5=1000 | C5=Units | E5=Modeled unit cost | F5=14 | G5=Inputs!C7\nA6=Selling price per unit | B6=35 | C6=USD per unit | E6=Test unit cost | G6=Editable · USD per unit\nA7=Gross sales | B7=35000 | C7=Units sold × selling price | E7=Scenario gross profit | F7=18500\nA8=Sales returns | B8=-1500 | C8=Deduction from gross sales | E8=Change in gross profit | F8=0\nA9=Net sales | B9=33500 | C9=Gross sales less returns\nA10=Product cost per unit | B10=14 | C10=USD per unit | E10=Enter a test cost in F6. Clear F6 to reset.\nA11=Product cost | B11=14000 | C11=Units sold × product unit cost | E11=The test holds units sold and all other inputs fixed.\nA12=Freight | B12=1000 | C12=Added to product cost | E12=Change = (modeled cost − test cost) × units sold.\nA13=Total cost | B13=15000 | C13=Product cost plus freight\nA15=Model detail is in Calculation!C5:C17.\n\n[Inputs]\nA2=Editable assumptions\nA4=Line item | B4=May 2027 | C4=June 2027\nA5=Units sold | B5=800 | C5=1000\nA6=Selling price per unit | B6=34 | C6=35\nA7=Product cost per unit | B7=13 | C7=14\nA8=Sales returns | B8=800 | C8=1500\nA9=Freight | B9=600 | C9=1000\n\n[Calculation]\nA2=Monthly calculation\nA4=Line item | B4=May 2027 | C4=June 2027\nA5=Units sold | B5=800 | C5=1000\nA6=Selling price per unit | B6=34 | C6=35\nA7=Product cost per unit | B7=13 | C7=14\nA8=Gross sales | B8=27200 | C8=35000\nA9=Sales returns | B9=-800 | C9=-1500\nA10=Net sales | B10=26400 | C10=33500\nA11=Product cost | B11=10400 | C11=14000\nA12=Freight | B12=600 | C12=1000\nA13=Total cost | B13=11000 | C13=15000\nA14=Gross margin | B14=0.5833333333333334 | C14=0.5522388059701493\nA15=Gross margin basis | B15=26400 | C15=33500\nA16=Gross profit basis | B16=11000 | C16=15000\nA17=Gross profit | B17=15400 | C17=18500",
+    "headline_cells": [
+      "B2"
+    ],
+    "cached_outputs": {
+      "B17": 15400,
+      "C17": 18500
+    },
+    "checks": {
+      "expected_tabs": true,
+      "drivers_retained": true,
+      "schedule_retained": true,
+      "saved_outputs": true,
+      "no_saved_formula_errors": true,
+      "artifact_tool_base_and_edits": true,
+      "libreoffice_primary_and_secondary_edits": true,
+      "published_headline_recalculates": true
+    },
+    "libreoffice": {
+      "primary": {
+        "B17": 15400,
+        "C17": 16500
+      },
+      "secondary": {
+        "B17": 15400,
+        "C17": 19500
+      }
+    },
+    "artifact_tool": {
+      "base": {
+        "B17": 15400,
+        "C17": 18500
+      },
+      "primary": {
+        "B17": 15400,
+        "C17": 16500
+      },
+      "secondary": {
+        "B17": 15400,
+        "C17": 19500
+      },
+      "headline_before": {
+        "B2": 18500
+      },
+      "headline_after": {
+        "B2": 16500
+      }
+    }
+  },
+  "margin-review-2-baseline": {
+    "opening_sheet": "Reporting guide",
+    "opening_view": "[Reporting guide]\nA1=June 2027 gross profit | B1=18500 | C1=One product · USD\nA2=Gross margin | B2=0.5522388059701493 | C2=Gross profit ÷ net sales\nA4=June profit calculation | B4=Amount (USD) | C4=How it is calculated\nA5=Gross sales | B5=35000 | C5=Units sold × selling price per unit\nA6=Sales returns | B6=-1500 | C6=Deducted from gross sales\nA7=Net sales | B7=33500 | C7=Gross sales less returns\nA8=Product cost | B8=14000 | C8=Units sold × product cost per unit\nA9=Freight | B9=1000 | C9=Added to product cost\nA10=Total cost | B10=15000 | C10=Product cost plus freight\nA11=Gross profit | B11=18500 | C11=Net sales less total cost\nA12=Units sold | B12=1000 | C12=June volume used for sales and product cost\nA14=June unit-cost test | B14=Amount (USD) | C14=Volume, selling price, returns and freight stay fixed\nA15=Model cost per unit | B15=14 | C15=From Inputs!C7\nA16=Change in cost per unit | B16=1 | C16=Edit the blue cell. Use a negative value for a decrease.\nA17=Test cost per unit | B17=15 | C17=Model cost plus the entered change\nA18=Change in gross profit | B18=-1000 | C18=Cost increase × units sold, with the sign reversed",
+    "full_view": "[Reporting guide]\nA1=June 2027 gross profit | B1=18500 | C1=One product · USD\nA2=Gross margin | B2=0.5522388059701493 | C2=Gross profit ÷ net sales\nA4=June profit calculation | B4=Amount (USD) | C4=How it is calculated\nA5=Gross sales | B5=35000 | C5=Units sold × selling price per unit\nA6=Sales returns | B6=-1500 | C6=Deducted from gross sales\nA7=Net sales | B7=33500 | C7=Gross sales less returns\nA8=Product cost | B8=14000 | C8=Units sold × product cost per unit\nA9=Freight | B9=1000 | C9=Added to product cost\nA10=Total cost | B10=15000 | C10=Product cost plus freight\nA11=Gross profit | B11=18500 | C11=Net sales less total cost\nA12=Units sold | B12=1000 | C12=June volume used for sales and product cost\nA14=June unit-cost test | B14=Amount (USD) | C14=Volume, selling price, returns and freight stay fixed\nA15=Model cost per unit | B15=14 | C15=From Inputs!C7\nA16=Change in cost per unit | B16=1 | C16=Edit the blue cell. Use a negative value for a decrease.\nA17=Test cost per unit | B17=15 | C17=Model cost plus the entered change\nA18=Change in gross profit | B18=-1000 | C18=Cost increase × units sold, with the sign reversed\nA19=Gross profit at test cost | B19=17500 | C19=June gross profit plus the change\nA21=Selling price per unit | B21=35 | C21=From Inputs!C6\nA23=Include the reporting period when sharing the workbook.\n\n[Inputs]\nA2=Editable assumptions\nA4=Line item | B4=May 2027 | C4=June 2027\nA5=Units sold | B5=800 | C5=1000\nA6=Selling price per unit | B6=34 | C6=35\nA7=Product cost per unit | B7=13 | C7=14\nA8=Sales returns | B8=800 | C8=1500\nA9=Freight | B9=600 | C9=1000\n\n[Calculation]\nA2=Monthly calculation\nA4=Line item | B4=May 2027 | C4=June 2027\nA5=Units sold | B5=800 | C5=1000\nA6=Selling price per unit | B6=34 | C6=35\nA7=Product cost per unit | B7=13 | C7=14\nA8=Gross sales | B8=27200 | C8=35000\nA9=Sales returns | B9=-800 | C9=-1500\nA10=Net sales | B10=26400 | C10=33500\nA11=Product cost | B11=10400 | C11=14000\nA12=Freight | B12=600 | C12=1000\nA13=Total cost | B13=11000 | C13=15000\nA14=Gross margin | B14=0.5833333333333334 | C14=0.5522388059701493\nA15=Gross margin basis | B15=26400 | C15=33500\nA16=Gross profit basis | B16=11000 | C16=15000\nA17=Gross profit | B17=15400 | C17=18500",
+    "headline_cells": [
+      "B1",
+      "B11"
+    ],
+    "cached_outputs": {
+      "B17": 15400,
+      "C17": 18500
+    },
+    "checks": {
+      "expected_tabs": true,
+      "drivers_retained": true,
+      "schedule_retained": true,
+      "saved_outputs": true,
+      "no_saved_formula_errors": true,
+      "artifact_tool_base_and_edits": true,
+      "libreoffice_primary_and_secondary_edits": true,
+      "published_headline_recalculates": true
+    },
+    "libreoffice": {
+      "primary": {
+        "B17": 15400,
+        "C17": 16500
+      },
+      "secondary": {
+        "B17": 15400,
+        "C17": 19500
+      }
+    },
+    "artifact_tool": {
+      "base": {
+        "B17": 15400,
+        "C17": 18500
+      },
+      "primary": {
+        "B17": 15400,
+        "C17": 16500
+      },
+      "secondary": {
+        "B17": 15400,
+        "C17": 19500
+      },
+      "headline_before": {
+        "B1": 18500,
+        "B11": 18500
+      },
+      "headline_after": {
+        "B1": 16500,
+        "B11": 16500
+      }
+    }
+  },
+  "margin-review-2-good-enough": {
+    "opening_sheet": "Reporting guide",
+    "opening_view": "[Reporting guide]\nA2=June 2027 gross profit review\nA3=One product  |  US dollars\nA5=June gross profit | B5=18500 | D5=Test a different June unit cost\nD6=Enter a test cost in the blue cell (E7).\nA7=How June gross profit is calculated | D7=Test product cost per unit | E7=15\nA8=Units sold | B8=1000 | D8=Current cost (Inputs!C7) | E8=14\nA9=Selling price per unit | B9=35\nA10=Gross sales | B10=35000 | D10=Gross profit at test cost | E10=17500\nA11=Less sales returns | B11=-1500 | D11=Change in gross profit | E11=-1000\nA12=Net sales | B12=33500\nA13=Product cost per unit | B13=14 | D13=Only June unit cost varies in this test. Each $1 increase lowers gross profit by $1 per unit sold.\nA14=Product cost | B14=14000\nA15=Freight | B15=1000\nA16=Total cost | B16=15000 | D16=Source detail is in Calculation!C5:C17. June model assumptions are in Inputs!C5:C9.\nA17=Gross margin | B17=0.5522388059701493",
+    "full_view": "[Reporting guide]\nA2=June 2027 gross profit review\nA3=One product  |  US dollars\nA5=June gross profit | B5=18500 | D5=Test a different June unit cost\nD6=Enter a test cost in the blue cell (E7).\nA7=How June gross profit is calculated | D7=Test product cost per unit | E7=15\nA8=Units sold | B8=1000 | D8=Current cost (Inputs!C7) | E8=14\nA9=Selling price per unit | B9=35\nA10=Gross sales | B10=35000 | D10=Gross profit at test cost | E10=17500\nA11=Less sales returns | B11=-1500 | D11=Change in gross profit | E11=-1000\nA12=Net sales | B12=33500\nA13=Product cost per unit | B13=14 | D13=Only June unit cost varies in this test. Each $1 increase lowers gross profit by $1 per unit sold.\nA14=Product cost | B14=14000\nA15=Freight | B15=1000\nA16=Total cost | B16=15000 | D16=Source detail is in Calculation!C5:C17. June model assumptions are in Inputs!C5:C9.\nA17=Gross margin | B17=0.5522388059701493\n\n[Inputs]\nA2=Editable assumptions\nA4=Line item | B4=May 2027 | C4=June 2027\nA5=Units sold | B5=800 | C5=1000\nA6=Selling price per unit | B6=34 | C6=35\nA7=Product cost per unit | B7=13 | C7=14\nA8=Sales returns | B8=800 | C8=1500\nA9=Freight | B9=600 | C9=1000\n\n[Calculation]\nA2=Monthly calculation\nA4=Line item | B4=May 2027 | C4=June 2027\nA5=Units sold | B5=800 | C5=1000\nA6=Selling price per unit | B6=34 | C6=35\nA7=Product cost per unit | B7=13 | C7=14\nA8=Gross sales | B8=27200 | C8=35000\nA9=Sales returns | B9=-800 | C9=-1500\nA10=Net sales | B10=26400 | C10=33500\nA11=Product cost | B11=10400 | C11=14000\nA12=Freight | B12=600 | C12=1000\nA13=Total cost | B13=11000 | C13=15000\nA14=Gross margin | B14=0.5833333333333334 | C14=0.5522388059701493\nA15=Gross margin basis | B15=26400 | C15=33500\nA16=Gross profit basis | B16=11000 | C16=15000\nA17=Gross profit | B17=15400 | C17=18500",
+    "headline_cells": [
+      "B5"
+    ],
+    "cached_outputs": {
+      "B17": 15400,
+      "C17": 18500
+    },
+    "checks": {
+      "expected_tabs": true,
+      "drivers_retained": true,
+      "schedule_retained": true,
+      "saved_outputs": true,
+      "no_saved_formula_errors": true,
+      "artifact_tool_base_and_edits": true,
+      "libreoffice_primary_and_secondary_edits": true,
+      "published_headline_recalculates": true
+    },
+    "libreoffice": {
+      "primary": {
+        "B17": 15400,
+        "C17": 16500
+      },
+      "secondary": {
+        "B17": 15400,
+        "C17": 19500
+      }
+    },
+    "artifact_tool": {
+      "base": {
+        "B17": 15400,
+        "C17": 18500
+      },
+      "primary": {
+        "B17": 15400,
+        "C17": 16500
+      },
+      "secondary": {
+        "B17": 15400,
+        "C17": 19500
+      },
+      "headline_before": {
+        "B5": 18500
+      },
+      "headline_after": {
+        "B5": 16500
+      }
+    }
+  }
+}

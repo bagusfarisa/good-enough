@@ -11,7 +11,7 @@ from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from openpyxl.workbook.properties import CalcProperties
 
-from run import HERE, VARIANTS, common
+from run import HERE, common, evaluation_trials
 
 OPENING_ROWS, OPENING_COLUMNS = 18, 8
 HEADLINE = {'cash-review': ('ending cash', 'B12'), 'margin-review': ('gross profit', 'C17')}
@@ -70,7 +70,7 @@ def main():
     case_list = [case for case in json.loads((HERE / 'cases.json').read_text())
                  if case.get('source') == 'xlsx']
     out = args.out.resolve()
-    repeats = json.loads((out / 'run.json').read_text())['repeats']
+    manifest = json.loads((out / 'run.json').read_text())
     subprocess.run([args.soffice, '--version'], check=True)
     checks = {}
     requests = []
@@ -88,9 +88,7 @@ def main():
             expected_primary = {key: pair[1] for key, pair in case['outputs'].items()}
             expected_secondary = case['secondary_outputs']
             label, headline_output = HEADLINE[case['id']]
-            for repeat, variant in [(0, 'source')] + [
-                (i, v) for i in range(1, repeats + 1) for v in VARIANTS
-            ]:
+            for repeat, variant in evaluation_trials(manifest):
                 identifier = f'{case["id"]}-{repeat}-{variant}'
                 path = source_path if repeat == 0 else out / 'artifacts' / f'{identifier}.xlsx'
                 book = load_workbook(path)
