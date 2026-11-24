@@ -99,6 +99,8 @@ A follow-up compared two skill versions and scored the first action separately f
 
 Two fresh rounds tested whether an explicit exception and restart check helps readers complete the task while preserving the source. The test also included a new SOP with overlapping exceptions. [Procedure recovery and preservation check](evals/finish-check/)
 
+A follow-up separated SOP source fidelity, usability, reader answers, and citations. It used the published revisions to check the evaluator, then compared two skill versions on three new procedures. [SOP restart and source fidelity](evals/procedure-restart/)
+
 ## Cash forecast benchmark
 
 Try the same task in both workbooks. Change **Payroll** from **$6,000** to **$7,000** and verify that **Ending cash** changes from **$7,000** to **$6,000**.

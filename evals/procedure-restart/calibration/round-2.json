@@ -1,0 +1,399 @@
+{
+  "skill_commit": "ed9c6adb728424817c9429e55ccfa91abdce55c6",
+  "harness": "codex-cli 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning": "low",
+  "repeats": 2,
+  "reader_source": "revised artifact only",
+  "cases_sha256": "5b70fbf8d5e3507f1d6c8d8eb50ab09cbcb5094bea9024074946b04836e650b6",
+  "baseline_skill_commit": "367af6a9bdea09cb047f038212e257336bb4816d",
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "archived_readers": true,
+  "runs": [
+    {
+      "case": "price-import",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/price-import-1-baseline.md",
+      "reader_response": {
+        "answer": "Stop and ask the usual supplier contact for a corrected CSV. Do not edit the file by hand. Obtain approval for the corrected CSV, then restart at step 1: go to Admin → Catalog → Bulk price import, upload the approved CSV, and open Preview.",
+        "evidence": [
+          "Check Preview for missing required fields and duplicate SKUs. If either appears, stop. Ask your usual supplier contact for a corrected CSV. Do not edit the supplier file by hand. Obtain approval for the corrected CSV, then start again at step 1.",
+          "In Admin, go to **Catalog → Bulk price import**. Upload the approved CSV and open **Preview**."
+        ],
+        "evidence_verified": true
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 11 says to stop on a duplicate SKU, request a corrected CSV from the supplier, obtain approval, and restart at step 1 without editing the file by hand. Step 1 on line 10 directs the operator to upload the approved CSV and open Preview.",
+        "artifact_lines": [
+          10,
+          11
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives all required actions and identifies exactly where to resume by describing the upload and Preview in Admin."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The first quote identifies the duplicate-SKU condition and supports stopping, requesting a supplier correction, obtaining approval, and restarting at step 1. The second quote supplies that step’s upload and Preview instructions."
+        }
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact line 13 adds a mandatory wait for Catalog Operations instructions after a Failed batch. Source line 17 requires reporting the failed batch ID and prohibits an automatic rerun. Its instruction to await a response applies to an Applied price mismatch.",
+        "source_lines": [
+          17
+        ],
+        "artifact_lines": [
+          13
+        ]
+      }
+    },
+    {
+      "case": "price-import",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/price-import-1-good-enough.md",
+      "reader_response": {
+        "answer": "Stop and ask the supplier to correct the file through the normal supplier contact; do not edit the CSV by hand. Obtain approval for the corrected CSV and repeat its pre-import checks. Then restart at step 1 with a fresh upload and Preview.",
+        "evidence": [
+          "If Preview finds a missing required field or a duplicate SKU, stop.",
+          "Ask the supplier to correct the file through your normal supplier contact.",
+          "Do not edit the supplier CSV by hand.",
+          "Obtain approval for the corrected CSV, repeat the pre-import checks for that file, then restart at step 1 with a fresh upload and Preview."
+        ],
+        "evidence_verified": true
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 14 gives the full duplicate-SKU response: stop, request a supplier correction, obtain approval for the corrected CSV, and restart at step 1 with a fresh upload and Preview. It also prohibits hand edits. Lines 10 and 12 identify step 1 and its upload and Preview actions.",
+        "artifact_lines": [
+          10,
+          12,
+          14
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader says to stop, request a supplier correction, obtain approval for the corrected CSV, then upload it afresh and rerun Preview."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes explicitly identify a duplicate SKU as a reason to stop and support every required action through the fresh upload and Preview."
+        }
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "For a Failed batch, artifact line 21 requires the operator to wait for instructions and prohibits an independent rerun. Source line 17 requires sending the batch ID to Catalog Operations and prohibits automatic reruns. It expressly requires waiting for instructions only after an Applied price mismatch. The revision extends that restriction to Failed batches.",
+        "source_lines": [
+          17
+        ],
+        "artifact_lines": [
+          21
+        ]
+      }
+    },
+    {
+      "case": "price-import",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/price-import-2-baseline.md",
+      "reader_response": {
+        "answer": "Stop and ask the supplier to correct the file through your normal supplier contact. Obtain approval for the corrected CSV, then restart with a fresh upload and Preview. Use the corrected file without editing it by hand.",
+        "evidence": [
+          "If either appears, stop and ask the supplier to correct the file through your normal supplier contact.",
+          "Obtain approval for the corrected CSV, then start again with a fresh upload and Preview.",
+          "Use the supplier’s corrected file without editing it by hand."
+        ],
+        "evidence_verified": true
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 13 says to stop on a duplicate SKU, ask the supplier to correct the CSV, obtain approval for the corrected file, and resume with a fresh upload and Preview. It prohibits hand edits. Line 12 gives the upload and Preview instructions.",
+        "artifact_lines": [
+          12,
+          13
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives every required action, including a fresh upload and Preview after approval of the corrected CSV."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes support every action, but “If either appears” has no quoted antecedent identifying a duplicate SKU as a reason to stop."
+        }
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The procedure preserves the effective-date check, approval threshold and exact-10% exception, supplier correction process, and conditions for publishing once. Artifact line 18 makes logging conditional on both prices matching and gives the full mismatch response. Artifact line 19 preserves the separate Failed response, including the prohibition on automatic reruns.",
+        "source_lines": [
+          5,
+          9,
+          13,
+          17,
+          21
+        ],
+        "artifact_lines": [
+          7,
+          8,
+          12,
+          13,
+          14,
+          18,
+          19
+        ]
+      }
+    },
+    {
+      "case": "price-import",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/price-import-2-good-enough.md",
+      "reader_response": {
+        "answer": "Stop and ask the supplier through the usual contact to correct all reported issues. Obtain approval for the corrected CSV, repeat the checks under Before opening Admin, and restart at step 1 by uploading the approved CSV in Admin. Do not edit the CSV by hand.",
+        "evidence": [
+          "If Preview reports duplicate SKUs or missing required fields, stop and ask the supplier through the usual contact to correct all reported issues.",
+          "Obtain approval for the corrected CSV, repeat the checks under **Before opening Admin**, and restart at step 1.",
+          "Do not edit the supplier CSV by hand.",
+          "1. **Upload the approved CSV.** In Admin, go to **Catalog → Bulk price import**, upload the file, and open **Preview**."
+        ],
+        "evidence_verified": true
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 11 says to stop on a duplicate SKU, ask the supplier to correct the CSV, obtain approval for the corrected file, and restart at step 1 without editing it by hand. Step 1 on line 10 directs the operator to upload the file and open Preview.",
+        "artifact_lines": [
+          10,
+          11
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The reader covers stopping, supplier correction, approval, and uploading the replacement. The answer omits reopening Preview after the upload."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes cover the duplicate-SKU condition, stop, supplier correction, and approval. The quoted restart instruction points to step 1, whose quoted text includes both uploading the file and opening Preview."
+        }
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact line 15 adds a mandatory wait for instructions after reporting a Failed batch. Source line 17 requires that wait for an Applied price mismatch and gives a separate Failed rule. The pauses for a date mismatch and pending Merchandising approval are consistent with the source prerequisites.",
+        "source_lines": [
+          5,
+          9,
+          17
+        ],
+        "artifact_lines": [
+          5,
+          12,
+          15
+        ]
+      }
+    },
+    {
+      "case": "device-return",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/device-return-1-baseline.md",
+      "reader_response": {
+        "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set its status to **Safety hold**, and call Facilities on extension **221**. Record the asset tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears it.",
+        "evidence": [
+          "Do not power on or charge the laptop.",
+          "Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension **221**.",
+          "Record the asset tag, cabinet location, and time in the incident log.",
+          "Keep the loan open until Facilities clears it."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact line 11 directs staff who see swelling during a tag mismatch to follow artifact line 13, which requires the isolation cabinet and Safety hold status. Source line 9 requires intake storage and Check required for a mismatch. Source line 13 gives the swelling instructions, but neither passage establishes which location and status take precedence when both conditions apply. The cross-reference selects a priority the source leaves unresolved.",
+        "source_lines": [
+          9,
+          13
+        ],
+        "artifact_lines": [
+          11,
+          13
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 12 directs the operator to inspect the matching laptop before power-on. Line 13 supplies every required action: keep it off and uncharged, move it to the battery isolation cabinet, set Safety hold, call Facilities at 221, record the tag, cabinet location, and time in the incident log, and keep the loan open until Facilities clears it.",
+        "artifact_lines": [
+          12,
+          13
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives every required action, including recording the asset tag, cabinet location, and time and keeping the loan open until Facilities clears it."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The four quotes support the power and charging restrictions, cabinet placement, Safety hold status, call to Facilities on 221, incident log entry, and open-loan condition."
+        }
+      }
+    },
+    {
+      "case": "device-return",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/device-return-1-good-enough.md",
+      "reader_response": {
+        "answer": "Keep the laptop off and uncharged, and move it to the designated battery isolation cabinet. Set the status to Safety hold, record the tag, location, and time in the incident log, and keep the loan open. Call Facilities on extension 221. After Facilities clears the hold, return to the inspection step and follow its handling instructions.",
+        "evidence": [
+          "**Visible battery swelling:** Keep the laptop off and uncharged. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension 221. Record the tag, location, and time in the incident log. Keep the loan open. After Facilities clears the hold, return to step 2 and follow any handling instructions from Facilities."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact line 11 requires continuation at step 2 after the Asset Desk confirms the correct record. Artifact line 16 prescribes a return to step 2 and gives Facilities authority to issue further handling instructions. Source lines 9 and 13 specify discrepancy resolution and safety clearance without assigning those restart steps or that additional authority. Artifact line 20 also prescribes step 4 as the recovery route, while source line 17 allows cleanup during recovery and specifies the conditions for closure. The request for an owner decision on combined status and location in artifact line 13 is appropriate.",
+        "source_lines": [
+          9,
+          13,
+          17
+        ],
+        "artifact_lines": [
+          11,
+          13,
+          16,
+          20
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Step 2 calls for inspection before power-on (line 15). Its swelling branch directs the operator to keep the laptop off and uncharged, move it to the battery isolation cabinet, set Safety hold, call Facilities at 221, log the tag, location, and time in the incident log, and keep the loan open pending Facilities clearance (line 16).",
+        "artifact_lines": [
+          15,
+          16
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives the device precautions, cabinet placement, Safety hold status, Facilities extension, and all three incident log fields. The loan stays open, and processing resumes after Facilities clears the hold."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quoted swelling instruction supports every required action. It explicitly directs the operator to keep the loan open and ties resumption to Facilities clearance."
+        }
+      }
+    },
+    {
+      "case": "device-return",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/device-return-2-baseline.md",
+      "reader_response": {
+        "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the loan status to Safety hold, and record the tag, location, and time in the incident log. Keep the loan open until Facilities clears it. Call Facilities at extension 221.",
+        "evidence": [
+          "Do not power on or charge the laptop.",
+          "Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities at extension **221**.",
+          "Record the tag, location, and time in the incident log.",
+          "Keep the loan open until Facilities clears it."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The revision preserves the mismatch referral and open loan, the swelling precautions and Facilities clearance, and the photograph-and-continue rule for scratches. It keeps acknowledgment conditional on a matching tag and no swelling, permits cleanup during charger recovery, and limits closure to a complete return with a successful reset. It also preserves the end-of-day status-or-owner check and existing-record rules.",
+        "source_lines": [
+          5,
+          9,
+          13,
+          17,
+          21
+        ],
+        "artifact_lines": [
+          5,
+          6,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          20
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 11 requires inspection before power-on. Line 12 directs the operator to keep the swollen laptop off and uncharged, move it to the battery isolation cabinet, set Safety hold, call Facilities at 221, enter the tag, location, and time in the incident log, and keep the loan open until Facilities clears it.",
+        "artifact_lines": [
+          11,
+          12
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives all required device and record actions and identifies Facilities at extension 221."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The four quotes cover every required action, including keeping the loan open until Facilities clears it. The question already establishes visible swelling."
+        }
+      }
+    },
+    {
+      "case": "device-return",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/device-return-2-good-enough.md",
+      "reader_response": {
+        "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set its status to Safety hold, and call Facilities on extension 221. Record the tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears the hold, then repeat the charger and laptop inspection before continuing.",
+        "evidence": [
+          "**Visible battery swelling.** Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension **221**. Record the tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears the hold. After clearance, repeat step 2 before continuing to step 3.",
+          "**Check the charger and inspect the laptop before powering it on.**"
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact lines 10 and 12 require staff to repeat tag verification and inspection after the respective holds clear. Source lines 9 and 13 specify when the waits end but prescribe no restart step. Artifact line 14 correctly leaves the combined status and location for the owner to resolve, but invents a restart at step 1 after both teams resolve their holds. Artifact line 15 also makes Asset Desk confirmation a condition for resuming at step 4. Source line 17 assigns recovery to the Asset Desk and allows cleanup during recovery without requiring that confirmation or restart.",
+        "source_lines": [
+          9,
+          13,
+          17
+        ],
+        "artifact_lines": [
+          10,
+          12,
+          14,
+          15
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Step 2 requires inspection before power-on (line 11). The swelling branch says to keep the laptop off and uncharged, move it to the battery isolation cabinet, set Safety hold, call Facilities at 221, record the tag, cabinet location, and time in the incident log, and keep the loan open until Facilities clears the hold (line 12).",
+        "artifact_lines": [
+          11,
+          12
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader says to leave the laptop off and uncharged, move it to the battery isolation cabinet, set Safety hold, call Facilities on 221, log the tag, cabinet location, and time, and keep the loan open until Facilities clears the hold."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The first quote supports every required action, including the incident log fields and the Facilities clearance condition."
+        }
+      }
+    }
+  ]
+}

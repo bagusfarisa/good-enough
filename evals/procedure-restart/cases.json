@@ -1,0 +1,41 @@
+[
+  {
+    "id": "handout-print",
+    "task": "Revise the existing SOP for the person preparing the workshop handout print run. Return the revised SOP in Markdown.",
+    "question": "The proof has the wrong room and the paper tray is empty. What should the operator do, which named step do they restart at, and what must they verify before asking Print Services to start?",
+    "answer": "Pause the print run. Ask the Programs coordinator for a corrected, approved agenda PDF and resolve that mismatch first. Then load the stock listed on the print ticket and return to Build proof. Import the replacement, export a fresh proof, and repeat Check proof by comparing session titles, room names, and times with the approved agenda. All three must match before asking Print Services to start.",
+    "checks": {
+      "setup": "Programs coordinator approves agenda PDF. Keep approved agenda and layout draft in print folder. Use approved layout and keep draft private.",
+      "known_restart": "For titles, rooms, or times that differ, pause, obtain corrected approved PDF from Programs coordinator, return to Build proof, import replacement, export fresh proof, repeat Check proof. Retain superseded proof marked Superseded.",
+      "known_precedence": "For an empty tray, use stock on print ticket. When it coincides with an agenda mismatch, do agenda correction first, then load stock and build replacement proof.",
+      "quality": "Compare session titles, room names and times with approved agenda before authorizing Print Services. Mark proof with agenda version.",
+      "completion": "Sign only after count matches ticket and first and last copies match approved proof. Refer any print or count issue to Print Services and keep ticket unsigned."
+    }
+  },
+  {
+    "id": "library-pickup",
+    "task": "Revise the existing SOP for a library clerk preparing pickup holds. Return the revised SOP in Markdown.",
+    "question": "An item cannot be located after printing its label, and the reservation expires before sending the notice. What can the clerk do under each rule, who decides what happens when they overlap, and when is a restart at the barcode check supported?",
+    "answer": "Do not send the notice. The missing-item path pauses the reservation, keeps the label at the desk, sets Search pending, and refers the search to Collections. The expired path stops preparation, sets Expired review, refers reinstatement to Member Services, and keeps any item behind the desk. The source leaves the combined status or priority unresolved, so refer the overlap to the Circulation process owner. The documented missing-item restart is at the item barcode check only after Collections confirms a replacement and the reservation is cleared to proceed.",
+    "checks": {
+      "normal_flow": "Check barcode against reservation. A matched item with an active reservation goes on pickup shelf. Scan slot and send notice only after slot appears.",
+      "search": "Keep printed label at desk, pause, set Search pending, and notify Collections, which decides whether a replacement is available.",
+      "restart": "After replacement confirmation and reservation clearance, restart at item barcode check using confirmed replacement barcode. Retain old label until new shelf slot records.",
+      "expiry": "Set Expired review, stop, do not send notice, ask Member Services about reinstatement, and keep any item behind desk while waiting.",
+      "ownership": "Circulation process owner handles unresolved overlaps. Preserve both paths without assigning a new priority or combined status. Hand off every open search or review with ID and owner at shift end."
+    }
+  },
+  {
+    "id": "schedule-translation",
+    "task": "Revise the existing SOP for an analyst publishing a regional workshop schedule. Return the revised SOP in Markdown.",
+    "question": "A wording dispute is the only issue at Review draft. What should the analyst do during the hold, and what can they say about where to restart after the editor confirms a disposition?",
+    "answer": "Set Editorial hold and leave the last published schedule live. Send the disputed phrase and workbook version to the Regional editor, wait for written confirmation of the disposition, and keep that confirmation with the workbook. The source does not establish a restart step after this hold. Ask the Schedule procedure owner where to resume. The broken-link restart applies to the link path only.",
+    "checks": {
+      "normal_flow": "Use Localization-approved translation workbook and match its version to approval. Build schedule, then Review draft and compare dates, venues, links. Keep last published schedule live until replacement passes review.",
+      "editorial_hold": "Set Editorial hold on disputed wording, keep current schedule live, send disputed phrase and workbook version to the Regional editor, retain written disposition with workbook.",
+      "restart_authority": "Schedule procedure owner handles unresolved procedure questions. Preserve the absence of a specified restart after an editorial-only hold.",
+      "link_path": "Keep broken-link draft unpublished, notify Registration, replace with approved URL, and resume at Review draft to repeat all three comparisons. Keep Editorial hold when wording is also disputed until written confirmation.",
+      "completion": "Publish once, check the public dates, venue names, and links against approved source, then record version and publication time."
+    }
+  }
+]

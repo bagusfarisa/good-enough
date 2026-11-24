@@ -1,0 +1,417 @@
+{
+  "skill_commit": "ed9c6adb728424817c9429e55ccfa91abdce55c6",
+  "harness": "codex-cli 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning": "low",
+  "repeats": 2,
+  "reader_source": "revised artifact only",
+  "cases_sha256": "5b70fbf8d5e3507f1d6c8d8eb50ab09cbcb5094bea9024074946b04836e650b6",
+  "baseline_skill_commit": "367af6a9bdea09cb047f038212e257336bb4816d",
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "archived_readers": true,
+  "runs": [
+    {
+      "case": "price-import",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/price-import-1-baseline.md",
+      "reader_response": {
+        "answer": "Stop and ask the supplier to correct the file through the usual supplier contact. Do not edit the CSV by hand. Obtain approval for the corrected CSV, then start again with a fresh upload in Admin under Catalog → Bulk price import and rerun Preview.",
+        "evidence": [
+          "In Admin, open **Catalog → Bulk price import**. Upload the approved CSV and open **Preview**.",
+          "Check Preview for missing required fields and duplicate SKUs. If either appears, stop. Ask the supplier to correct the file through the usual supplier contact. Do not edit the supplier CSV by hand. Obtain approval for the corrected CSV, start again with a fresh upload, and rerun Preview."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader says to stop, request supplier correction, obtain approval, and resume at Bulk price import with a fresh upload and Preview."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The first quote identifies the upload location. The second directly connects the duplicate-SKU condition to stopping, supplier correction, approval, a fresh upload, and rerunning Preview."
+        }
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The procedure requires the approved file to match the scheduled date and gives Publish as the deadline for written Merchandising approval. It preserves the exact 10% exception, the supplier correction and fresh Preview sequence, and the single Publish action. Both matching prices are required for logging, and the mismatch and Failed branches preserve the required escalation and restrictions.",
+        "source_lines": [
+          5,
+          9,
+          13,
+          17,
+          21
+        ],
+        "artifact_lines": [
+          5,
+          6,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          19,
+          20,
+          21
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 11 gives the full sequence for a duplicate SKU. Stop, ask the supplier to correct the file, avoid hand edits, obtain approval for the replacement, then upload it afresh and rerun Preview. Line 10 identifies where to upload it.",
+        "artifact_lines": [
+          10,
+          11
+        ]
+      }
+    },
+    {
+      "case": "price-import",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/price-import-1-good-enough.md",
+      "reader_response": {
+        "answer": "Stop and ask the supplier through the usual contact to correct the CSV; leave the edits to the supplier. Once the corrected CSV is approved, return to step 1, then upload it and run a fresh Preview.",
+        "evidence": [
+          "If Preview reports either issue, stop. Ask the supplier through the usual contact to correct the CSV. Leave the edits to the supplier.",
+          "Once the corrected CSV is approved, return to step 1 and run a fresh upload and Preview."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader says to stop, request a supplier correction, wait for approval, then upload the corrected CSV and run a fresh Preview."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The first quote supports stopping and requesting supplier correction. The second supports approval, a fresh upload, and Preview."
+        }
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The procedure preserves the file and approval prerequisites, supplier correction process, and conditions for publishing once. Obtaining an approved file for the scheduled date follows from the date requirement. The status branches preserve the two-price check, conditional logging, mismatch escalation, and hold on rerunning a failed batch.",
+        "source_lines": [
+          5,
+          9,
+          13,
+          17,
+          21
+        ],
+        "artifact_lines": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 4 identifies a duplicate SKU as a Preview issue. Line 5 tells the operator to stop, leave the correction to the supplier, and resume once the corrected CSV is approved. It points back to step 1 (line 3) and explicitly requires a fresh upload and Preview (line 4).",
+        "artifact_lines": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "case": "price-import",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/price-import-2-baseline.md",
+      "reader_response": {
+        "answer": "Stop and ask the supplier through the normal supplier contact for a corrected CSV. Obtain approval for the corrected file, then restart at step 1 of the SOP with that file. Do not edit the supplier CSV by hand.",
+        "evidence": [
+          "Check for missing required fields and duplicate SKUs. Either error means you must stop.",
+          "Ask the supplier through the normal supplier contact for a corrected CSV.",
+          "Obtain approval for the corrected file, then start again at step 1 of this SOP with that file.",
+          "Do not edit the supplier CSV by hand."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The reader covers stopping, supplier correction, and approval, but ends at restarting step 1. Step 1 concerns the file and approvals. The answer omits the fresh upload and Preview."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes support stopping, supplier correction, approval, and restarting step 1. They omit the later instruction to upload the corrected CSV and open Preview."
+        }
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "The instruction “Before opening Admin” on artifact line 7 applies to the Merchandising approval on artifact line 11. This makes approval a prerequisite for even previewing the file. Source lines 5 and 9 allow Preview first and require approval by Publish. Artifact line 21 states the correct publishing condition, but the earlier restriction still applies.",
+        "source_lines": [
+          5,
+          9
+        ],
+        "artifact_lines": [
+          7,
+          11,
+          21
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 17 requires the operator to stop, request a supplier correction, obtain approval, and avoid hand edits. It sends the operator back to step 1 of the SOP (lines 5 and 9) with the corrected file. Lines 15–16 then direct the operator to upload that file and open Preview again.",
+        "artifact_lines": [
+          5,
+          9,
+          15,
+          16,
+          17
+        ]
+      }
+    },
+    {
+      "case": "price-import",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/price-import-2-good-enough.md",
+      "reader_response": {
+        "answer": "Stop and ask the supplier through the normal supplier contact for a corrected CSV. Keep the supplier file as received and obtain approval for the corrected CSV. Then return to **Before you start** and repeat the upload and Preview with the corrected file.",
+        "evidence": [
+          "If Preview reports a duplicate SKU or a missing required field, stop.",
+          "Ask the supplier through the normal supplier contact for a corrected CSV.",
+          "Keep the supplier file as received.",
+          "Obtain approval for the corrected CSV, then return to **Before you start** and repeat the upload and Preview with that file."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader says to stop, request a supplier correction, obtain approval, return to “Before you start,” and repeat the upload and Preview with the corrected file."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes identify a duplicate SKU as a reason to stop and explicitly cover supplier correction, approval, and repeating the upload and Preview."
+        }
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Stopping before upload when the dates differ follows from the date check. Artifact line 5 adds a mandatory consultation with the catalog lead. Source line 5 identifies the lead as the person who uses the file and gives no authority or required consultation for resolving a date discrepancy.",
+        "source_lines": [
+          5
+        ],
+        "artifact_lines": [
+          5
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 12 tells the operator to stop, keep the supplier file as received, request a supplier correction, and obtain approval for the replacement. It directs the operator back to “Before you start” (lines 3 and 5), then explicitly requires a fresh upload and Preview as described in line 10.",
+        "artifact_lines": [
+          3,
+          5,
+          10,
+          12
+        ]
+      }
+    },
+    {
+      "case": "device-return",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/device-return-1-baseline.md",
+      "reader_response": {
+        "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the loan status to Safety hold, and record the asset tag, location, and time in the incident log. Stop processing and leave the loan open until Facilities clears it. Call Facilities on extension 221.",
+        "evidence": [
+          "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension **221**.",
+          "Record the asset tag, location, and time in the incident log. Stop processing and leave the loan open until Facilities clears it."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The opening rule accurately collects the conditions for setting Returned. The intake steps preserve mismatch and swelling handling, the scratch exception, and the acknowledgment condition. Staff can continue cleanup while a charger is missing, and the procedure retains the reset-success requirement and end-of-day checks.",
+        "source_lines": [
+          5,
+          9,
+          13,
+          17,
+          21
+        ],
+        "artifact_lines": [
+          3,
+          7,
+          8,
+          9,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          22
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 15 covers every required action. It prohibits powering on or charging the laptop, directs the operator to move it to the battery isolation cabinet, set Safety hold, and call Facilities on extension 221, and requires recording the asset tag, location, and time in the incident log. The loan stays open until Facilities clears it.",
+        "artifact_lines": [
+          15
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives every required action. The final sentence explicitly directs the operator to call Facilities on 221."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes support every action and the clearance condition, but omit the visible battery swelling heading that links those instructions to this scenario."
+        }
+      }
+    },
+    {
+      "case": "device-return",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/device-return-1-good-enough.md",
+      "reader_response": {
+        "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the record’s status to `Safety hold`, and call Facilities on extension 221. Record the tag, cabinet location, and time in the incident log, and leave the loan open. Once Facilities clears it, attach the clearance to the existing record, follow Facilities’ handling instructions, and resume at step 2.",
+        "evidence": [
+          "**Visible battery swelling.** Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to `Safety hold`, and call Facilities on extension 221. Record the tag, cabinet location, and time in the incident log. Leave the loan open until Facilities clears it. Attach the clearance to the existing record and follow Facilities’ handling instructions before resuming at step 2."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact line 10 requires a repeat tag scan after the Asset Desk resolves a discrepancy. Source line 9 requires staff to wait for resolution but does not require another scan. Artifact line 15 also makes Facilities’ handling instructions and a restart at step 2 part of the post-clearance process. Source line 13 gives Facilities clearance authority without prescribing either step. Attaching the clearance is supported by the hold-update rule in source line 21.",
+        "source_lines": [
+          9,
+          13,
+          21
+        ],
+        "artifact_lines": [
+          10,
+          15
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 15 directs the operator to leave the laptop unpowered and uncharged, move it to the battery isolation cabinet, set Safety hold, and call Facilities on extension 221. It also requires logging the tag, cabinet location, and time in the incident log and keeping the loan open until Facilities clears it.",
+        "artifact_lines": [
+          15
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives every required action. The instruction to leave the loan open, followed by what to do once Facilities clears it, conveys the hold duration."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quote names visible battery swelling and supports the full response, including extension 221, all three incident log fields, and the clearance condition."
+        }
+      }
+    },
+    {
+      "case": "device-return",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/device-return-2-baseline.md",
+      "reader_response": {
+        "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set its status to **Safety hold**, and call Facilities at extension 221. Record the asset tag, location, and time in the incident log. Stop processing the return and keep the loan open until Facilities clears it.",
+        "evidence": [
+          "If the tag matches, check for the charger and inspect the laptop for damage before powering it on.",
+          "**Visible battery swelling.** Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities at extension 221. Record the asset tag, location, and time in the incident log. Stop processing the return and keep the loan open until Facilities clears it."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The procedure preserves both holds, their responsible desks, and the required safety actions. It limits acknowledgment to a matching tag with no swelling, permits cleanup while charger recovery is pending, and requires reset success before closure. It also retains the end-of-day status or owner check and the single-record rule.",
+        "source_lines": [
+          5,
+          9,
+          13,
+          17,
+          21
+        ],
+        "artifact_lines": [
+          5,
+          6,
+          7,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          21
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 12 directs the operator to inspect the laptop when the tag matches. For visible swelling, line 13 prohibits powering on or charging it and requires moving it to the battery isolation cabinet, setting Safety hold, calling Facilities on extension 221, recording the asset tag, location, and time in the incident log, and keeping the loan open until Facilities clears it.",
+        "artifact_lines": [
+          12,
+          13
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader covers the power and charging restriction, isolation cabinet, Safety hold, Facilities call on 221, incident log details, and open loan pending clearance."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The first quote establishes the matching-tag inspection step. The second identifies visible swelling and supports every required action."
+        }
+      }
+    },
+    {
+      "case": "device-return",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/device-return-2-good-enough.md",
+      "reader_response": {
+        "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set its status to Safety hold, and call Facilities on extension 221. Record the tag, cabinet location, and time in the incident log, and keep the loan open until Facilities clears it. Attach the clearance to the existing record, then resume at step 3 once the laptop is cleared for normal handling.",
+        "evidence": [
+          "**Verify the asset tag.** Scan the tag and compare it with the loan record.",
+          "**Visible battery swelling.** Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension 221. Record the tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears it. Attach the clearance to the existing record, then resume at step 3 once the laptop is cleared for normal handling."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact line 16 directs staff to resume at step 3 after Facilities clears the laptop for normal handling. Source line 13 identifies who clears the safety hold but gives no restart step. Step 3 would also trigger an acknowledgment without checking the no-swelling condition in source line 17. Artifact line 12 appropriately leaves the competing hold locations and statuses for the owner to resolve.",
+        "source_lines": [
+          13,
+          17
+        ],
+        "artifact_lines": [
+          12,
+          16,
+          19
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 16 directs the operator to leave the laptop unpowered and uncharged, move it to the battery isolation cabinet, set Safety hold, and call Facilities on extension 221. It requires recording the tag, cabinet location, and time in the incident log and keeping the loan open until Facilities clears it.",
+        "artifact_lines": [
+          16
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives every required action, including calling Facilities on 221, logging the tag, cabinet location, and time, and keeping the loan open until Facilities clearance."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The second quote explicitly links visible battery swelling to every required device, record, and contact action."
+        }
+      }
+    }
+  ]
+}

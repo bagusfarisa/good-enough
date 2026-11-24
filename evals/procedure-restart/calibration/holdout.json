@@ -1,0 +1,224 @@
+{
+  "skill_commit": "ed9c6adb728424817c9429e55ccfa91abdce55c6",
+  "harness": "codex-cli 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning": "low",
+  "repeats": 2,
+  "reader_source": "revised artifact only",
+  "cases_sha256": "b57cfb1055a0afc31e18b2c30c4420bfa406fd7471737c7b865eb8409de473d9",
+  "baseline_skill_commit": "367af6a9bdea09cb047f038212e257336bb4816d",
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "archived_readers": true,
+  "runs": [
+    {
+      "case": "dashboard-refresh",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/dashboard-refresh-1-baseline.md",
+      "reader_response": {
+        "answer": "The analyst can keep the currently published dashboard live, leave the draft unpublished, notify Sales Operations, and request a corrected roster from Data Operations. The blank account IDs require the analyst to stop the refresh; publication must wait for both a revised slot and a zero-error Validate result.\n\nThe two documented recovery paths are: (1) for the late adjustment file, wait for Sales Operations to confirm a revised publication slot; and (2) for the blank IDs, resume only when the corrected roster is available and the refresh is cleared to proceed, then replace the draft roster and rerun Validate. Keep the adjustment file already in the draft unless Sales Operations supplies a replacement.\n\nThe SOP does not specify how to apply the restart rule when these conditions overlap. Direct that question to the Reporting process owner.",
+        "evidence": [
+          "If it arrives later, keep the last published dashboard live, notify Sales Operations, and wait for the revised publication slot they confirm before publishing.",
+          "If Validate flags any of these errors, keep the draft unpublished and request a corrected roster from Data Operations. Use their corrected roster without editing upstream IDs by hand.",
+          "If any account ID is blank, stop the refresh. Resume only when the corrected roster is available and the refresh is cleared to proceed.",
+          "Replace the draft roster and rerun **Validate**. Keep the adjustment file already in the draft unless Sales Operations supplies a replacement.",
+          "Proceed to publication only when **Validate** reports zero errors.",
+          "When the applicable publication slot begins and **Validate** has reported zero errors, select **Publish** once.",
+          "Direct questions this procedure does not resolve to the Reporting process owner."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "The draft preparation step specifies Data Operations and Sales Operations as suppliers of the initial approved files. The source requires approved inputs and assigns correction and approval authority, but does not require either team to supply the initial file.",
+        "source_lines": [
+          5,
+          19,
+          23
+        ],
+        "artifact_lines": [
+          7
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer explicitly stops the refresh, keeps the published dashboard live, gives both recovery paths, and directs the unresolved restart question to the Reporting process owner."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quote begins with “If it arrives later” and omits the Monday 11:30 UTC cutoff needed to establish that noon triggers the revised-slot procedure."
+        }
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Noon is after the cutoff. Keep the published dashboard live, notify Sales Operations, and wait for its revised slot (line 8). For blank IDs, stop, keep the draft unpublished, and request a corrected roster from Data Operations. Once the roster is available and the refresh is cleared, replace the roster and rerun Validate (lines 13–16). Line 21 requires both zero errors and the applicable slot. The procedure leaves priority and combined restart clearance unresolved, so line 26 routes that decision to the Reporting process owner.",
+        "artifact_lines": [
+          8,
+          13,
+          14,
+          15,
+          16,
+          21,
+          26
+        ]
+      }
+    },
+    {
+      "case": "dashboard-refresh",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/dashboard-refresh-1-good-enough.md",
+      "reader_response": {
+        "answer": "The analyst should keep the last published dashboard live and the draft unpublished. They can notify Sales Operations about the late adjustment file and ask Data Operations for a corrected roster.\n\nThe two documented recovery paths are:\n1. For the late file, wait for Sales Operations to confirm a revised publication slot.\n2. For the blank IDs, once the correction is available and the refresh is cleared to proceed, replace the roster and rerun Validate. Keep the adjustment file unless Sales Operations supplies a replacement.\n\nThe Reporting process owner should settle the unresolved restart rule for the overlap. The artifact does not specify when the refresh is cleared to proceed or how the two recovery paths interact. If the roster correction causes the analyst to miss the applicable slot, they must also ask that owner which slot to use. Publication requires zero validation errors and the applicable slot to have begun.",
+        "evidence": [
+          "Keep the last published dashboard live until the replacement passes validation and the applicable publication slot begins.",
+          "If it arrives after the cutoff, keep the last published dashboard live, notify Sales Operations, and wait for them to confirm a revised slot.",
+          "**Blank account IDs.** Stop the refresh, keep the draft unpublished, and ask Data Operations for a corrected roster. Once the correction is available and the refresh is cleared to proceed, replace the roster and rerun step 3. Keep the adjustment file in the draft unless Sales Operations supplies a replacement.",
+          "Continue to step 4 only when Validate reports zero errors.",
+          "**Publish once** when Validate reports zero errors and the slot from step 1 has begun.",
+          "If a roster correction makes you miss the applicable slot, ask the Reporting process owner which slot to use before proceeding to step 4. Direct other unresolved procedure questions to the same owner."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "The prerequisites require the analyst to obtain both initial files from named teams. The source assigns roster corrections to Data Operations and adjustment approvals to Sales Operations, but leaves the delivery channel for the initial approved files unspecified.",
+        "source_lines": [
+          5,
+          19,
+          23
+        ],
+        "artifact_lines": [
+          7
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The answer explains both recovery paths and names the Reporting process owner, but omits the instruction to stop the refresh immediately for blank IDs."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes omit the Monday 11:30 UTC cutoff. They also say to rerun step 3 without quoting the instruction that identifies step 3 as “Run Validate.”"
+        }
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 12 directs the analyst to keep the published dashboard live, notify Sales Operations, and wait for its revised slot. It points to step 4 (line 18), which requires that slot to begin and Validate to report zero errors. For blank IDs, line 15 says to stop, keep the draft unpublished, and ask Data Operations for a corrected roster. Once corrected and cleared, replace the roster and rerun step 3, identified as Validate on line 14. Priority and combined restart clearance remain unresolved. Line 23 routes other unresolved questions to the Reporting process owner, including this overlap.",
+        "artifact_lines": [
+          12,
+          14,
+          15,
+          18,
+          23
+        ]
+      }
+    },
+    {
+      "case": "dashboard-refresh",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/dashboard-refresh-2-baseline.md",
+      "reader_response": {
+        "answer": "The analyst can keep the current dashboard live, leave the draft unpublished, notify Sales Operations, and request a corrected roster from Data Operations. They must wait for Sales Operations to confirm a revised publication slot.\n\nThe two documented recovery paths are: (1) for the late adjustment file, use the revised slot confirmed by Sales Operations; and (2) for the validation errors, replace the roster with Data Operations’ corrected version and rerun Validate once the refresh is cleared to proceed. Keep the existing adjustment file unless Sales Operations supplies an approved replacement.\n\nThe SOP does not specify the restart rule when both conditions overlap. The Reporting process owner should settle that unresolved question. Publish only after Validate reports zero errors and the applicable slot has begun.",
+        "evidence": [
+          "If it arrived by **Monday at 11:30 UTC**, use the normal publication slot. If it arrived later, keep the current dashboard live, notify Sales Operations, and wait for the revised publication slot they confirm.",
+          "It checks for blank account IDs, duplicate account IDs, and missing required columns.",
+          "If Validate flags any of these errors, stop the refresh, leave the draft unpublished, and request a corrected roster from Data Operations.",
+          "Once the corrected roster is available and the refresh is cleared to proceed, replace the roster in the draft and rerun **Validate**.",
+          "Keep the existing adjustment file unless Sales Operations has supplied an approved replacement.",
+          "When **Validate reports zero errors** and the applicable publication slot has begun, select **Publish** once.",
+          "Direct unresolved questions to the Reporting process owner."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "The procedure makes every validation error trigger a stop and requires clearance before replacing the roster. The source applies that clearance condition only to blank IDs. For duplicate IDs or missing columns alone, the analyst replaces the roster with the Data Operations correction and reruns Validate. The procedure also omits Sales Operations’ explicit authority over adjustment approvals.",
+        "source_lines": [
+          9,
+          11,
+          23
+        ],
+        "artifact_lines": [
+          7,
+          12,
+          13
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The answer says to leave the draft unpublished and wait for a revised slot, but omits the required action to stop the refresh when Validate finds blank IDs."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes establish the Monday 11:30 UTC cutoff, identify blank IDs as a validation error, require stopping the refresh, describe both recovery paths, and route unresolved questions to the Reporting process owner."
+        }
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 7 covers the noon arrival. Keep the current dashboard live, notify Sales Operations, and wait for its revised slot. Line 11 identifies blank IDs as a validation error, so line 12 requires the analyst to stop, leave the draft unpublished, and request a corrected roster from Data Operations. Once corrected and cleared, replace the roster and rerun Validate (line 13). Publication requires zero errors and the applicable slot (line 17). Priority and combined restart clearance remain unresolved, so line 22 directs the analyst to the Reporting process owner.",
+        "artifact_lines": [
+          7,
+          11,
+          12,
+          13,
+          17,
+          22
+        ]
+      }
+    },
+    {
+      "case": "dashboard-refresh",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/dashboard-refresh-2-good-enough.md",
+      "reader_response": {
+        "answer": "The analyst should stop the refresh, keep the draft unpublished and the last published dashboard live, request a corrected roster from Data Operations, and notify Sales Operations of the late adjustment file. Sales Operations will confirm a revised publication slot.\n\nThe two documented recovery paths are: (1) use the revised slot confirmed by Sales Operations for the late adjustment file; and (2) once a corrected roster is available and the refresh is cleared to proceed, replace the roster and rerun Validate. Leave the adjustment file in the draft unless Sales Operations supplies a replacement. Publish only after Validate reports zero errors and the applicable slot begins.\n\nThe SOP does not specify a restart rule for this overlap. Ask the Reporting process owner to resolve the unclear clearance to resume before proceeding.",
+        "evidence": [
+          "The approved adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot.",
+          "If it arrives after the cutoff, keep the last published dashboard live and notify Sales Operations. Sales Operations owns adjustment approvals and will confirm a revised publication slot. Use that slot in step 3.",
+          "**Blank account IDs.** Stop the refresh, keep the draft unpublished, and request a corrected roster from Data Operations. When the corrected roster is available and the refresh is cleared to proceed, replace the roster in the draft and rerun Validate.",
+          "Use the corrected roster from Data Operations as provided. Leave the adjustment file in the draft unless Sales Operations supplies a replacement.",
+          "If a roster correction leaves the publication slot or clearance to resume unclear, ask the Reporting process owner to resolve it before proceeding.",
+          "When Validate reports **zero errors** and the applicable publication slot begins, select **Publish** once."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "The procedure names the Reporting process owner for two questions arising from a roster correction. It omits that owner’s broader responsibility for any question the procedure leaves unresolved.",
+        "source_lines": [
+          23
+        ],
+        "artifact_lines": [
+          18
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer gives the immediate stop and notification actions, explains how to recover from each exception, and asks the Reporting process owner to resolve the unclear restart clearance."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes establish the cutoff, the revised-slot requirement, and the blank-ID stop and recovery steps. They also direct the analyst to the Reporting process owner when clearance to resume is unclear."
+        }
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 9 directs the analyst to keep the published dashboard live, notify Sales Operations, and use its revised slot in step 3 (lines 20 and 22). Line 15 says to stop for blank IDs, keep the draft unpublished, and request a corrected roster from Data Operations. Once the roster is available and the refresh is cleared, replace the roster and rerun Validate. The procedure leaves priority and combined restart clearance open. Line 18 explicitly sends unclear resume clearance or slot decisions to the Reporting process owner before proceeding.",
+        "artifact_lines": [
+          9,
+          15,
+          18,
+          20,
+          22
+        ]
+      }
+    }
+  ]
+}
