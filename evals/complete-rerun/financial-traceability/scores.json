@@ -1,0 +1,919 @@
+{
+  "task": "January\u2013March 2027 cash forecast and receipt timing shift",
+  "harness": "Codex CLI 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning_effort": "low",
+  "previous_skill_commit": "73ea3f720f07fcf57a87cdebdf98c220f9fd3b23",
+  "skill_commit": "369a27c30fdd9182deaf41da621da3dcc018ff16",
+  "runs": [
+    {
+      "pair": 1,
+      "variant": "baseline",
+      "cli_exit_code": 0,
+      "skill_file_read": true,
+      "workbook": "workbooks/01-baseline.xlsx",
+      "opening_sheet": "Cash Forecast",
+      "visible_sheets": 1,
+      "visible_march_bridge": true,
+      "visible_march_payments_subtotal": true,
+      "march_bridge_references": {
+        "opening": {
+          "sheet": "Cash Forecast",
+          "address": "D8",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C16"
+        },
+        "net": {
+          "sheet": "Cash Forecast",
+          "address": "D14",
+          "label": "Net cash change",
+          "value": 3000,
+          "formula": "=D9-D13"
+        },
+        "ending": {
+          "sheet": "Cash Forecast",
+          "address": "D16",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D8+D14"
+        },
+        "payments": {
+          "sheet": "Cash Forecast",
+          "address": "D13",
+          "label": "Total cash outflows",
+          "value": 8000,
+          "formula": "=SUM(D10:D12)"
+        }
+      },
+      "ending_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B16",
+          "label": "Ending cash",
+          "value": 10000,
+          "formula": "=B8+B14"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C16",
+          "label": "Ending cash",
+          "value": 9000,
+          "formula": "=C8+C14"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D16",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D8+D14"
+        }
+      ],
+      "opening_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B8",
+          "label": "Opening cash",
+          "value": 12000,
+          "formula": null
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C8",
+          "label": "Opening cash",
+          "value": 10000,
+          "formula": "=B16"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D8",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C16"
+        }
+      ],
+      "receipt_changes": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "C9",
+          "label": "Customer receipts",
+          "value": 7000,
+          "formula": null,
+          "scenario_value": 4000
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D9",
+          "label": "Customer receipts",
+          "value": 11000,
+          "formula": null,
+          "scenario_value": 14000
+        }
+      ],
+      "saved_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_opening_cash": [
+        12000,
+        10000,
+        9000
+      ],
+      "artifact_tool_ending_cash_shifted": [
+        10000,
+        6000,
+        12000
+      ],
+      "artifact_tool_opening_cash_shifted": [
+        12000,
+        10000,
+        6000
+      ],
+      "checks": {
+        "expected_inputs": true,
+        "expected_saved_and_calculated_ending_cash": true,
+        "expected_opening_roll_forward": true,
+        "all_monthly_closing_balances_are_formulas": true,
+        "shifting_receipts_recalculates_ending_cash": true,
+        "shifting_receipts_recalculates_march_opening": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_receipt_shift": true
+      },
+      "failures": [],
+      "correctness_pass": true,
+      "libreoffice_ending_cash_shifted": [
+        10000.0,
+        6000.0,
+        12000.0
+      ],
+      "libreoffice_opening_cash_shifted": [
+        12000.0,
+        10000.0,
+        6000.0
+      ]
+    },
+    {
+      "pair": 1,
+      "variant": "good-enough",
+      "cli_exit_code": 0,
+      "skill_file_read": true,
+      "workbook": "workbooks/01-good-enough.xlsx",
+      "opening_sheet": "Cash Forecast",
+      "visible_sheets": 1,
+      "visible_march_bridge": true,
+      "visible_march_payments_subtotal": false,
+      "march_bridge_references": {
+        "opening": {
+          "sheet": "Cash Forecast",
+          "address": "D7",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C13"
+        },
+        "net": {
+          "sheet": "Cash Forecast",
+          "address": "D12",
+          "label": "Net cash movement",
+          "value": 3000,
+          "formula": "=D8-SUM(D9:D11)"
+        },
+        "ending": {
+          "sheet": "Cash Forecast",
+          "address": "D13",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D7+D12"
+        }
+      },
+      "ending_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B13",
+          "label": "Ending cash",
+          "value": 10000,
+          "formula": "=B7+B12"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C13",
+          "label": "Ending cash",
+          "value": 9000,
+          "formula": "=C7+C12"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D13",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D7+D12"
+        }
+      ],
+      "opening_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B7",
+          "label": "Opening cash",
+          "value": 12000,
+          "formula": null
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C7",
+          "label": "Opening cash",
+          "value": 10000,
+          "formula": "=B13"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D7",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C13"
+        }
+      ],
+      "receipt_changes": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "C8",
+          "label": "Customer receipts",
+          "value": 7000,
+          "formula": null,
+          "scenario_value": 4000
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D8",
+          "label": "Customer receipts",
+          "value": 11000,
+          "formula": null,
+          "scenario_value": 14000
+        }
+      ],
+      "saved_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_opening_cash": [
+        12000,
+        10000,
+        9000
+      ],
+      "artifact_tool_ending_cash_shifted": [
+        10000,
+        6000,
+        12000
+      ],
+      "artifact_tool_opening_cash_shifted": [
+        12000,
+        10000,
+        6000
+      ],
+      "checks": {
+        "expected_inputs": true,
+        "expected_saved_and_calculated_ending_cash": true,
+        "expected_opening_roll_forward": true,
+        "all_monthly_closing_balances_are_formulas": true,
+        "shifting_receipts_recalculates_ending_cash": true,
+        "shifting_receipts_recalculates_march_opening": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_receipt_shift": true
+      },
+      "failures": [],
+      "correctness_pass": true,
+      "libreoffice_ending_cash_shifted": [
+        10000.0,
+        6000.0,
+        12000.0
+      ],
+      "libreoffice_opening_cash_shifted": [
+        12000.0,
+        10000.0,
+        6000.0
+      ]
+    },
+    {
+      "pair": 2,
+      "variant": "baseline",
+      "cli_exit_code": 0,
+      "skill_file_read": true,
+      "workbook": "workbooks/02-baseline.xlsx",
+      "opening_sheet": "Cash Forecast",
+      "visible_sheets": 1,
+      "visible_march_bridge": true,
+      "visible_march_payments_subtotal": true,
+      "march_bridge_references": {
+        "opening": {
+          "sheet": "Cash Forecast",
+          "address": "D7",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C5"
+        },
+        "net": {
+          "sheet": "Cash Forecast",
+          "address": "D13",
+          "label": "Net cash movement",
+          "value": 3000,
+          "formula": "=D8-D12"
+        },
+        "ending": {
+          "sheet": "Cash Forecast",
+          "address": "D5",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D7+D13"
+        },
+        "payments": {
+          "sheet": "Cash Forecast",
+          "address": "D12",
+          "label": "Total cash outflows",
+          "value": 8000,
+          "formula": "=SUM(D9:D11)"
+        }
+      },
+      "ending_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B5",
+          "label": "Ending cash",
+          "value": 10000,
+          "formula": "=B7+B13"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C5",
+          "label": "Ending cash",
+          "value": 9000,
+          "formula": "=C7+C13"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D5",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D7+D13"
+        }
+      ],
+      "opening_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B7",
+          "label": "Opening cash",
+          "value": 12000,
+          "formula": null
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C7",
+          "label": "Opening cash",
+          "value": 10000,
+          "formula": "=B5"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D7",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C5"
+        }
+      ],
+      "receipt_changes": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "C8",
+          "label": "Customer receipts",
+          "value": 7000,
+          "formula": null,
+          "scenario_value": 4000
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D8",
+          "label": "Customer receipts",
+          "value": 11000,
+          "formula": null,
+          "scenario_value": 14000
+        }
+      ],
+      "saved_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_opening_cash": [
+        12000,
+        10000,
+        9000
+      ],
+      "artifact_tool_ending_cash_shifted": [
+        10000,
+        6000,
+        12000
+      ],
+      "artifact_tool_opening_cash_shifted": [
+        12000,
+        10000,
+        6000
+      ],
+      "checks": {
+        "expected_inputs": true,
+        "expected_saved_and_calculated_ending_cash": true,
+        "expected_opening_roll_forward": true,
+        "all_monthly_closing_balances_are_formulas": true,
+        "shifting_receipts_recalculates_ending_cash": true,
+        "shifting_receipts_recalculates_march_opening": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_receipt_shift": true
+      },
+      "failures": [],
+      "correctness_pass": true,
+      "libreoffice_ending_cash_shifted": [
+        10000.0,
+        6000.0,
+        12000.0
+      ],
+      "libreoffice_opening_cash_shifted": [
+        12000.0,
+        10000.0,
+        6000.0
+      ]
+    },
+    {
+      "pair": 2,
+      "variant": "good-enough",
+      "cli_exit_code": 0,
+      "skill_file_read": true,
+      "workbook": "workbooks/02-good-enough.xlsx",
+      "opening_sheet": "Cash Forecast",
+      "visible_sheets": 1,
+      "visible_march_bridge": true,
+      "visible_march_payments_subtotal": true,
+      "march_bridge_references": {
+        "opening": {
+          "sheet": "Cash Forecast",
+          "address": "D5",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C12"
+        },
+        "net": {
+          "sheet": "Cash Forecast",
+          "address": "D11",
+          "label": "Net cash movement",
+          "value": 3000,
+          "formula": "=D6-D10"
+        },
+        "ending": {
+          "sheet": "Cash Forecast",
+          "address": "D12",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D5+D11"
+        },
+        "payments": {
+          "sheet": "Cash Forecast",
+          "address": "D10",
+          "label": "Total payments",
+          "value": 8000,
+          "formula": "=SUM(D7:D9)"
+        }
+      },
+      "ending_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B12",
+          "label": "Ending cash",
+          "value": 10000,
+          "formula": "=B5+B11"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C12",
+          "label": "Ending cash",
+          "value": 9000,
+          "formula": "=C5+C11"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D12",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D5+D11"
+        }
+      ],
+      "opening_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B5",
+          "label": "Opening cash",
+          "value": 12000,
+          "formula": null
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C5",
+          "label": "Opening cash",
+          "value": 10000,
+          "formula": "=B12"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D5",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C12"
+        }
+      ],
+      "receipt_changes": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "C6",
+          "label": "Customer receipts",
+          "value": 7000,
+          "formula": null,
+          "scenario_value": 4000
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D6",
+          "label": "Customer receipts",
+          "value": 11000,
+          "formula": null,
+          "scenario_value": 14000
+        }
+      ],
+      "saved_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_opening_cash": [
+        12000,
+        10000,
+        9000
+      ],
+      "artifact_tool_ending_cash_shifted": [
+        10000,
+        6000,
+        12000
+      ],
+      "artifact_tool_opening_cash_shifted": [
+        12000,
+        10000,
+        6000
+      ],
+      "checks": {
+        "expected_inputs": true,
+        "expected_saved_and_calculated_ending_cash": true,
+        "expected_opening_roll_forward": true,
+        "all_monthly_closing_balances_are_formulas": true,
+        "shifting_receipts_recalculates_ending_cash": true,
+        "shifting_receipts_recalculates_march_opening": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_receipt_shift": true
+      },
+      "failures": [],
+      "correctness_pass": true,
+      "libreoffice_ending_cash_shifted": [
+        10000.0,
+        6000.0,
+        12000.0
+      ],
+      "libreoffice_opening_cash_shifted": [
+        12000.0,
+        10000.0,
+        6000.0
+      ]
+    },
+    {
+      "pair": 3,
+      "variant": "baseline",
+      "cli_exit_code": 0,
+      "skill_file_read": true,
+      "workbook": "workbooks/03-baseline.xlsx",
+      "opening_sheet": "Cash Forecast",
+      "visible_sheets": 1,
+      "visible_march_bridge": true,
+      "visible_march_payments_subtotal": true,
+      "march_bridge_references": {
+        "opening": {
+          "sheet": "Cash Forecast",
+          "address": "D9",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C16"
+        },
+        "net": {
+          "sheet": "Cash Forecast",
+          "address": "D15",
+          "label": "Net cash movement",
+          "value": 3000,
+          "formula": "=D10-D14"
+        },
+        "ending": {
+          "sheet": "Cash Forecast",
+          "address": "D16",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D9+D15"
+        },
+        "payments": {
+          "sheet": "Cash Forecast",
+          "address": "D14",
+          "label": "Total cash payments",
+          "value": 8000,
+          "formula": "=SUM(D11:D13)"
+        }
+      },
+      "ending_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B16",
+          "label": "Ending cash",
+          "value": 10000,
+          "formula": "=B9+B15"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C16",
+          "label": "Ending cash",
+          "value": 9000,
+          "formula": "=C9+C15"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D16",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=D9+D15"
+        }
+      ],
+      "opening_cash_cells": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "B9",
+          "label": "Opening cash",
+          "value": 12000,
+          "formula": null
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "C9",
+          "label": "Opening cash",
+          "value": 10000,
+          "formula": "=B16"
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D9",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C16"
+        }
+      ],
+      "receipt_changes": [
+        {
+          "sheet": "Cash Forecast",
+          "address": "C10",
+          "label": "Customer receipts",
+          "value": 7000,
+          "formula": null,
+          "scenario_value": 4000
+        },
+        {
+          "sheet": "Cash Forecast",
+          "address": "D10",
+          "label": "Customer receipts",
+          "value": 11000,
+          "formula": null,
+          "scenario_value": 14000
+        }
+      ],
+      "saved_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_opening_cash": [
+        12000,
+        10000,
+        9000
+      ],
+      "artifact_tool_ending_cash_shifted": [
+        10000,
+        6000,
+        12000
+      ],
+      "artifact_tool_opening_cash_shifted": [
+        12000,
+        10000,
+        6000
+      ],
+      "checks": {
+        "expected_inputs": true,
+        "expected_saved_and_calculated_ending_cash": true,
+        "expected_opening_roll_forward": true,
+        "all_monthly_closing_balances_are_formulas": true,
+        "shifting_receipts_recalculates_ending_cash": true,
+        "shifting_receipts_recalculates_march_opening": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_receipt_shift": true
+      },
+      "failures": [],
+      "correctness_pass": true,
+      "libreoffice_ending_cash_shifted": [
+        10000.0,
+        6000.0,
+        12000.0
+      ],
+      "libreoffice_opening_cash_shifted": [
+        12000.0,
+        10000.0,
+        6000.0
+      ]
+    },
+    {
+      "pair": 3,
+      "variant": "good-enough",
+      "cli_exit_code": 0,
+      "skill_file_read": true,
+      "workbook": "workbooks/03-good-enough.xlsx",
+      "opening_sheet": "Cash forecast",
+      "visible_sheets": 1,
+      "visible_march_bridge": true,
+      "visible_march_payments_subtotal": true,
+      "march_bridge_references": {
+        "opening": {
+          "sheet": "Cash forecast",
+          "address": "D8",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C15"
+        },
+        "net": {
+          "sheet": "Cash forecast",
+          "address": "D14",
+          "label": "Net cash movement",
+          "value": 3000,
+          "formula": "=D9-D13"
+        },
+        "ending": {
+          "sheet": "Cash forecast",
+          "address": "D15",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=SUM(D8,D14)"
+        },
+        "payments": {
+          "sheet": "Cash forecast",
+          "address": "D13",
+          "label": "Total payments",
+          "value": 8000,
+          "formula": "=SUM(D10:D12)"
+        }
+      },
+      "ending_cash_cells": [
+        {
+          "sheet": "Cash forecast",
+          "address": "B15",
+          "label": "Ending cash",
+          "value": 10000,
+          "formula": "=SUM(B8,B14)"
+        },
+        {
+          "sheet": "Cash forecast",
+          "address": "C15",
+          "label": "Ending cash",
+          "value": 9000,
+          "formula": "=SUM(C8,C14)"
+        },
+        {
+          "sheet": "Cash forecast",
+          "address": "D15",
+          "label": "Ending cash",
+          "value": 12000,
+          "formula": "=SUM(D8,D14)"
+        }
+      ],
+      "opening_cash_cells": [
+        {
+          "sheet": "Cash forecast",
+          "address": "B8",
+          "label": "Opening cash",
+          "value": 12000,
+          "formula": null
+        },
+        {
+          "sheet": "Cash forecast",
+          "address": "C8",
+          "label": "Opening cash",
+          "value": 10000,
+          "formula": "=B15"
+        },
+        {
+          "sheet": "Cash forecast",
+          "address": "D8",
+          "label": "Opening cash",
+          "value": 9000,
+          "formula": "=C15"
+        }
+      ],
+      "receipt_changes": [
+        {
+          "sheet": "Cash forecast",
+          "address": "C9",
+          "label": "Customer receipts",
+          "value": 7000,
+          "formula": null,
+          "scenario_value": 4000
+        },
+        {
+          "sheet": "Cash forecast",
+          "address": "D9",
+          "label": "Customer receipts",
+          "value": 11000,
+          "formula": null,
+          "scenario_value": 14000
+        }
+      ],
+      "saved_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_ending_cash": [
+        10000,
+        9000,
+        12000
+      ],
+      "artifact_tool_opening_cash": [
+        12000,
+        10000,
+        9000
+      ],
+      "artifact_tool_ending_cash_shifted": [
+        10000,
+        6000,
+        12000
+      ],
+      "artifact_tool_opening_cash_shifted": [
+        12000,
+        10000,
+        6000
+      ],
+      "checks": {
+        "expected_inputs": true,
+        "expected_saved_and_calculated_ending_cash": true,
+        "expected_opening_roll_forward": true,
+        "all_monthly_closing_balances_are_formulas": true,
+        "shifting_receipts_recalculates_ending_cash": true,
+        "shifting_receipts_recalculates_march_opening": true,
+        "no_saved_formula_errors": true,
+        "libreoffice_recalculates_receipt_shift": true
+      },
+      "failures": [],
+      "correctness_pass": true,
+      "libreoffice_ending_cash_shifted": [
+        10000.0,
+        6000.0,
+        12000.0
+      ],
+      "libreoffice_opening_cash_shifted": [
+        12000.0,
+        10000.0,
+        6000.0
+      ]
+    }
+  ],
+  "calculation_engines": [
+    "Artifact Tool",
+    "LibreOffice 26.8.3.1"
+  ]
+}

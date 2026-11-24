@@ -1,0 +1,722 @@
+{
+  "skill_commit": "369a27c30fdd9182deaf41da621da3dcc018ff16",
+  "harness": "codex-cli 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning": "low",
+  "repeats": 2,
+  "reader_source": "revised artifact only",
+  "cases_sha256": "090ce82afdcdeab6fd22120e5174a9c8aad9a21dee23965474af21a6d3b52a71",
+  "baseline_skill_commit": "73ea3f720f07fcf57a87cdebdf98c220f9fd3b23",
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "archived_readers": false,
+  "runs": [
+    {
+      "case": "handout-print",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/handout-print-1-baseline.md",
+      "reader_response": {
+        "answer": "Wait for the corrected, approved agenda PDF, then load the stock listed on the print ticket. Keep the previous proof in the print folder marked **Superseded**. Return to step 1, **Build and check one proof**, using the replacement PDF. Before asking Print Services to start, verify that the printed session titles, room names, and times all match the approved agenda.",
+        "evidence": [
+          "**Both occur.** Wait for the corrected, approved agenda PDF first. Then load the stock listed on the print ticket and return to step 1 with the replacement PDF. Keep the previous proof in the print folder marked **Superseded**.",
+          "## 1. Build and check one proof",
+          "Compare the printed session titles, room names, and times with the approved agenda.",
+          "Ask Print Services to start the run only after all three match."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The reader says to wait for the replacement PDF but omits two required actions: pause the run and ask the Programs coordinator for the correction. The stock, restart step, and three-field release check are correct."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes support waiting, loading the ticketed stock, restarting “Build and check one proof,” and requiring all three fields to match. They omit the instruction to pause and request the corrected PDF from the Programs coordinator."
+        }
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Source line 13 directs the operator to resume at export after refilling an empty tray. Artifact line 16 sends the operator back to step 1, which begins by importing the PDF on artifact line 9. That adds a restart even when the approved agenda has not changed.",
+        "source_lines": [
+          13
+        ],
+        "artifact_lines": [
+          9,
+          16
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 15 directs the operator to pause and ask the Programs coordinator for a corrected, approved PDF. With both issues present, line 17 says to wait for that PDF, then load the ticketed stock and return to step 1, “Build and check one proof” (line 7). Line 9 covers importing the replacement and exporting a fresh proof. Lines 10–11 require session titles, room names, and times to match the approved agenda before asking Print Services to start.",
+        "artifact_lines": [
+          7,
+          9,
+          10,
+          11,
+          15,
+          17
+        ]
+      }
+    },
+    {
+      "case": "handout-print",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/handout-print-1-good-enough.md",
+      "reader_response": {
+        "answer": "Pause the run and ask the Programs coordinator for a corrected, approved agenda PDF. When it arrives, mark the previous proof **Superseded** and leave it in the print folder. Load the stock listed on the print ticket, then return to step 1, “Build the proof,” with the replacement PDF and build a new proof. Before asking Print Services to start, verify that the printed session titles, room names, and times all match the approved agenda.",
+        "evidence": [
+          "If any item differs, pause the run and ask the Programs coordinator for a corrected, approved agenda PDF.",
+          "When it arrives, mark the previous proof **Superseded** and leave it in the print folder.",
+          "Return to step 1 with the replacement PDF, then check the new proof before releasing the run.",
+          "## 1. Build the proof",
+          "If you also found an agenda mismatch, obtain the corrected, approved PDF before loading the stock and building the replacement proof.",
+          "If the paper tray is empty, load the stock listed on the print ticket, then export one proof from the same approved agenda.",
+          "Compare the printed session titles, room names, and times with the approved agenda. Ask Print Services to start the run only when all three match."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader pauses, requests the corrected and approved PDF, then loads the ticketed stock and rebuilds from the replacement at “Build the proof.” They verify that titles, rooms, and times all match before asking Print Services to start."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The combined-issue quote establishes that the correction comes before loading stock and rebuilding. The other quotes support the pause and request, identify the ticketed stock and named restart step, and require all three fields on the new proof to match before release."
+        }
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The empty-tray instruction resumes at export. When both issues occur, agenda correction comes before loading stock. The mismatch instruction identifies the Programs coordinator, retains the marked previous proof, and returns the replacement PDF to the import step for a fresh proof and check. The setup, release, and sign-off conditions are preserved.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          13,
+          17
+        ],
+        "artifact_lines": [
+          3,
+          7,
+          9,
+          13,
+          15,
+          19,
+          21
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 15 directs the operator to pause and ask the Programs coordinator for a corrected, approved PDF. Line 9 requires obtaining it before loading the ticketed stock and rebuilding. Line 15 sends the operator back to step 1, “Build the proof” (line 5), where line 7 covers importing the replacement and exporting a fresh proof. The repeated check on line 13 requires session titles, room names, and times to match the approved agenda before asking Print Services to start.",
+        "artifact_lines": [
+          5,
+          7,
+          9,
+          13,
+          15
+        ]
+      }
+    },
+    {
+      "case": "handout-print",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/handout-print-2-baseline.md",
+      "reader_response": {
+        "answer": "Pause the run and ask the Programs coordinator for a corrected, approved agenda PDF. Once it arrives, load the stock listed on the print ticket, mark the previous proof Superseded, and keep it in the print folder. Restart at step 1, “Build the proof,” using the replacement PDF, then check the fresh proof. Before asking Print Services to start, verify that its printed session titles, room names, and times all match the approved agenda.",
+        "evidence": [
+          "**Both issues.** Obtain the corrected, approved agenda PDF first. Then load the stock listed on the print ticket and follow the agenda mismatch steps to build and check the replacement proof.",
+          "**Agenda mismatch.** Pause the run and ask the Programs coordinator for a corrected, approved agenda PDF. When it arrives, mark the previous proof **Superseded** and keep it in the print folder. Return to step 1 with the replacement PDF, then check the fresh proof.",
+          "## 1. Build the proof",
+          "Compare the printed session titles, room names, and times with the approved agenda. Ask Print Services to start the run only when all three match."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader pauses the run, requests the corrected and approved PDF from the Programs coordinator, then loads the ticketed stock. They restart “Build the proof” with the replacement PDF and require the fresh proof’s titles, rooms, and times to match before release."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The exception quotes establish the pause, request, and order of operations. The return instruction and quoted step heading identify how to rebuild the proof. The release quote requires all three fields to match."
+        }
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "Printing the proof for review follows from the required comparison of printed titles, room names, and times. The empty-tray branch resumes at export, and the combined branch obtains the corrected PDF before loading stock and building the replacement. The mismatch steps preserve coordinator authority, proof retention, and rechecking. Setup and final sign-off also match the source.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          13,
+          17
+        ],
+        "artifact_lines": [
+          3,
+          7,
+          11,
+          13,
+          14,
+          15,
+          19
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 15 gives the order for both issues: obtain the corrected, approved PDF first, then load the ticketed stock. It points to the mismatch instructions on line 13, which direct the operator to pause, ask the Programs coordinator for the PDF, and restart at step 1, “Build the proof” (line 5). Line 7 covers importing the replacement and exporting a fresh proof. Line 11 requires session titles, room names, and times to match the approved agenda before asking Print Services to start.",
+        "artifact_lines": [
+          5,
+          7,
+          11,
+          13,
+          15
+        ]
+      }
+    },
+    {
+      "case": "handout-print",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/handout-print-2-good-enough.md",
+      "reader_response": {
+        "answer": "Pause the print run and ask the Programs coordinator for a corrected, approved agenda PDF. Mark the previous proof **Superseded** and keep it in the print folder. Obtain the replacement PDF before loading the stock listed on the print ticket. Then return to **1. Build proof** with the replacement, export a new proof, and repeat the proof check. Before asking Print Services to start, verify that the printed session titles, room names, and times all match the approved agenda PDF.",
+        "evidence": [
+          "If the paper tray is empty, load the stock listed on the print ticket.",
+          "If you also found an agenda mismatch, obtain the corrected, approved agenda PDF before loading the stock and building the replacement proof.",
+          "If any title, room name, or time differs, pause the print run and ask the Programs coordinator for a corrected, approved agenda PDF.",
+          "Mark the previous proof **Superseded** and keep it in the print folder.",
+          "When the replacement PDF arrives, return to **1. Build proof** with the replacement and repeat the proof check.",
+          "Export one proof copy and mark it with the agenda version.",
+          "Compare the printed session titles, room names, and times with the approved agenda PDF. Ask Print Services to start the run only when all three match."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader pauses and requests the correction, obtains the approved replacement before loading the ticketed stock, restarts “1. Build proof” with the replacement, and exports a new proof. They require titles, rooms, and times to match before release."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes establish the pause and request, the replacement-before-stock sequence, the named restart, and the fresh export and recheck. The release quote identifies all three fields and requires all three to match."
+        }
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The revision preserves approval, storage, proof marking, and all three release checks. An empty tray resumes at export with the same agenda. A mismatch requires the coordinator’s corrected PDF, retention of the superseded proof, and a fresh import and check. Correction takes priority when both issues occur. The final checks, reporting, and signature conditions match the source.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          13,
+          17
+        ],
+        "artifact_lines": [
+          3,
+          7,
+          9,
+          13,
+          15,
+          19
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 15 directs the operator to pause and ask the Programs coordinator for a corrected, approved PDF. Line 9 requires obtaining it before loading the ticketed stock and rebuilding. Line 15 explicitly names “1. Build proof” (line 5) as the restart, and line 7 covers importing the replacement and exporting a fresh proof. Line 15 also directs the operator to repeat “Check proof” (line 11). Line 13 requires session titles, room names, and times to match the approved agenda before asking Print Services to start.",
+        "artifact_lines": [
+          5,
+          7,
+          9,
+          11,
+          13,
+          15
+        ]
+      }
+    },
+    {
+      "case": "library-pickup",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/library-pickup-1-baseline.md",
+      "reader_response": {
+        "answer": "For the missing item, pause preparation, keep the printed label at the desk, set the reservation to **Search pending**, and ask Collections to investigate. Collections decides whether a replacement is available.\n\nFor the expired reservation, stop preparation, set the reservation to **Expired review**, and ask Member Services whether it can be reinstated. Keep any item behind the desk and do not send a pickup notice while the reservation is expired.\n\nThe artifact does not specify which status takes precedence or who decides between the two rules when they overlap. It directs the clerk to ask the Circulation process owner about unresolved exceptions. At shift end, hand off any open search or review with the reservation ID and recorded owner.\n\nA restart at the barcode check is supported once Collections confirms a replacement and the reservation is cleared to proceed. Restart at step 1 with the confirmed replacement barcode, and keep the old label at the desk until the new shelf slot appears in the reservation record. Step 1 also requires the reservation to be active; the artifact does not say whether Member Services will reinstate it in this case.",
+        "evidence": [
+          "1. Pause preparation, keep the printed label at the desk, and set the reservation status to **Search pending**.",
+          "2. Ask the Collections desk to investigate. Collections decides whether a replacement is available.",
+          "1. Stop preparation, set the reservation status to **Expired review**, and ask Member Services whether the reservation can be reinstated.",
+          "2. Keep any item behind the desk until Member Services responds. Do not send a pickup notice while the reservation is expired.",
+          "At the end of your shift, hand off every open search or review with the reservation ID and its recorded owner. Ask the Circulation process owner about unresolved exceptions.",
+          "3. Once Collections confirms a replacement and the reservation is cleared to proceed, restart at step 1 with the confirmed replacement barcode. Keep the old label at the desk until the new shelf slot appears in the reservation record.",
+          "1. Check that the item barcode matches the reservation and that the reservation is active."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The normal flow, search, replacement restart, expiration steps, and handoff preserve the source requirements. Access to the pickup system follows from the required slot scan. The instruction to ask the Circulation process owner about unresolved exceptions covers an overlap or an unclear restart after reinstatement.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "artifact_lines": [
+          3,
+          5,
+          6,
+          7,
+          11,
+          12,
+          13,
+          17,
+          18,
+          22
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives both exception procedures, including withholding the notice. The reader identifies the unresolved status priority, refers it to the Circulation process owner, and states both conditions for restarting at the barcode check."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes support both procedures and referral of unresolved exceptions to the process owner. The restart quote requires Collections confirmation and clearance, and the quoted step 1 identifies the barcode check."
+        }
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Lines 11–12 give all missing-item actions. Lines 17–18 give all expiration actions and prohibit the notice. The rules leave the combined status unresolved, and line 22 directs the clerk to ask the Circulation process owner about unresolved exceptions. Line 13 directs the clerk back to the barcode check on line 5 once Collections confirms a replacement and the reservation is cleared to proceed.",
+        "artifact_lines": [
+          5,
+          11,
+          12,
+          13,
+          17,
+          18,
+          22
+        ]
+      }
+    },
+    {
+      "case": "library-pickup",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/library-pickup-1-good-enough.md",
+      "reader_response": {
+        "answer": "For the missing item, pause work, keep the printed label at the desk, set the reservation to Search pending, and ask Collections to investigate. Collections decides whether a replacement is available. If Collections confirms a replacement and the reservation is cleared to proceed, restart at the barcode check using the confirmed replacement barcode; keep the old label until the new shelf slot appears in the record.\n\nFor expiry, stop preparation, set the reservation to Expired review, and ask Member Services whether it can be reinstated. Keep any item behind the desk until Member Services responds, and do not send a notice while the reservation is expired. If it is reinstated, ask the Circulation process owner where to restart.\n\nWhen expiry occurs during an open search, ask the Circulation process owner how to handle both exceptions. The artifact does not say that replacement confirmation alone determines the restart when the exceptions overlap; the process owner must provide direction. At shift end, hand off any open search or review with its reservation ID and recorded owner, and refer unresolved exceptions to the process owner.",
+        "evidence": [
+          "Pause work on the reservation. Keep the printed label at the desk, set the reservation to **Search pending**, and ask the Collections desk to investigate.",
+          "Collections decides whether a replacement is available.",
+          "When Collections confirms a replacement and the reservation is cleared to proceed, restart at step 1 using the confirmed replacement barcode.",
+          "Keep the old label at the desk until the new shelf slot appears in the reservation record.",
+          "1. **Check the item barcode.** Verify that it matches the reservation.",
+          "Stop preparation and set the reservation to **Expired review**.",
+          "Ask Member Services whether the reservation can be reinstated.",
+          "Keep any item behind the desk until Member Services responds.",
+          "Do not send a pickup notice while the reservation is expired.",
+          "Ask the Circulation process owner where to restart if Member Services reinstates the reservation.",
+          "If a reservation expires during an open item search, stop preparation and ask the process owner how to handle the two open exceptions.",
+          "Hand off every open search or review with its reservation ID and recorded owner.",
+          "Refer any unresolved exception to the Circulation process owner."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "Shelving and notice retain their prerequisites, and the replacement path restarts at the barcode check after confirmation and clearance. The expiration steps apply during an open search as well. Asking the Circulation process owner how to handle both exceptions or where to restart after reinstatement preserves the assigned authority. The handoff retains the required scope, ID, and recorded owner.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "artifact_lines": [
+          3,
+          7,
+          8,
+          9,
+          13,
+          15,
+          19,
+          21,
+          25
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives both exception procedures and directs the clerk to ask the Circulation process owner how to handle both exceptions. The reader states both conditions for the missing-item restart and identifies who advises where to restart after reinstatement."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes cover all actions under both rules and explicitly address expiry during an open search. They establish both conditions for the missing-item restart, identify step 1 as the barcode check, and support seeking restart direction after reinstatement."
+        }
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 13 gives all missing-item actions. Line 19 gives all expiration actions and prohibits the notice. Line 21 explicitly directs the clerk to stop and ask the Circulation process owner how to handle the overlap. Line 15 directs the clerk back to the barcode check on line 7 once Collections confirms a replacement and the reservation is cleared to proceed.",
+        "artifact_lines": [
+          7,
+          13,
+          15,
+          19,
+          21
+        ]
+      }
+    },
+    {
+      "case": "library-pickup",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/library-pickup-2-baseline.md",
+      "reader_response": {
+        "answer": "Under the missing-item rule, the clerk pauses preparation, keeps the printed label at the desk, sets the status to Search pending, and asks Collections to investigate. Collections decides whether a replacement is available.\n\nUnder the expiry rule, the clerk stops preparation, sets the status to Expired review, does not send a pickup notice while the reservation is expired, and asks Member Services whether it can be reinstated. Any item stays behind the desk until Member Services responds.\n\nThe artifact does not specify who decides how to apply the two status instructions when they overlap. It directs the clerk to refer unresolved exceptions to the Circulation process owner and to hand off open searches or reviews at shift end with the reservation ID and recorded owner.\n\nA restart at the barcode check is supported when Collections confirms a replacement and the reservation is cleared to proceed. The clerk uses the confirmed replacement barcode and keeps the old label at the desk until the new shelf slot appears in the reservation record. If the reservation has expired, the artifact does not say what clearance is required to proceed; Member Services must be asked whether it can be reinstated.",
+        "evidence": [
+          "Pause preparation, keep the printed label at the desk, and set the reservation status to **Search pending**.",
+          "Ask the Collections desk to investigate. Collections decides whether a replacement item is available.",
+          "Stop preparation and set the reservation status to **Expired review**. Do not send a pickup notice while the reservation is expired.",
+          "Ask Member Services whether the reservation can be reinstated. Keep any item behind the desk until Member Services responds.",
+          "Refer unresolved exceptions to the Circulation process owner.",
+          "At the end of the shift, hand off every open search or review with its reservation ID and recorded owner.",
+          "When Collections confirms a replacement and the reservation is cleared to proceed, restart at step 1 using the confirmed replacement barcode. Keep the old label at the desk until the new shelf slot appears in the reservation record.",
+          "Check that the item barcode matches the reservation and that the reservation is active."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The completion statement follows from the required sequence of recording the slot and sending the notice. The replacement restart requires confirmation and clearance, uses the confirmed barcode, and retains the old label until the new slot is recorded. The expiration instructions apply at any point before notice, and the handoff directs unresolved exceptions to the Circulation process owner.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "artifact_lines": [
+          3,
+          5,
+          6,
+          7,
+          9,
+          13,
+          14,
+          15,
+          19,
+          20,
+          24
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives all required actions under each rule, refers the unresolved overlap to the Circulation process owner, and requires both a confirmed replacement and clearance before restarting at the barcode check."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes cover both statuses, desk handling, referrals, and withholding the notice. They also support escalation to the process owner and link both restart conditions to step 1, quoted as the barcode check."
+        }
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 5 directs the clerk to the missing-item rule on lines 11–14, which gives all required search actions. Line 7 directs the clerk to the expiration rule on lines 17–20, which gives all required expiration actions and prohibits the notice. The rules leave the combined status unresolved, and line 24 refers unresolved exceptions to the Circulation process owner. Line 15 directs the clerk back to the barcode check on line 5 once Collections confirms a replacement and the reservation is cleared to proceed.",
+        "artifact_lines": [
+          5,
+          7,
+          11,
+          13,
+          14,
+          15,
+          17,
+          19,
+          20,
+          24
+        ]
+      }
+    },
+    {
+      "case": "library-pickup",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/library-pickup-2-good-enough.md",
+      "reader_response": {
+        "answer": "For the missing item, the clerk pauses preparation, keeps the label at the desk, sets the status to **Search pending**, and asks Collections to investigate. Collections decides whether a replacement is available.\n\nFor the expired reservation, the clerk stops preparation, sets the status to **Expired review**, asks Member Services about reinstatement, and keeps any item behind the desk. The clerk must not send a pickup notice while the reservation is expired.\n\nWhen expiration occurs during an open search, the clerk follows the expiration steps and asks the Circulation process owner how to handle the search. If Member Services reinstates the reservation, the clerk also asks the process owner where to restart.\n\nA restart at the barcode check in step 1 is supported once Collections confirms a replacement and the reservation is cleared to proceed, using the confirmed replacement barcode. In this overlapping case, the process owner must also advise where to restart after reinstatement; the artifact does not say that reinstatement alone clears the reservation to proceed. The old label stays at the desk until the new shelf slot is recorded.",
+        "evidence": [
+          "Check that the item barcode matches the reservation. Confirm the reservation is active before shelving the item.",
+          "Pause preparation for that reservation. Keep the printed label at the desk, set the reservation status to **Search pending**, and ask the Collections desk to investigate. Collections decides whether a replacement is available.",
+          "Once Collections confirms a replacement and the reservation is cleared to proceed, restart at step 1 using the confirmed replacement barcode. Keep the old label at the desk until the new shelf slot is recorded.",
+          "Stop preparation and set the reservation status to **Expired review**. Ask Member Services whether the reservation can be reinstated. Keep any item behind the desk until Member Services responds. Do not send a pickup notice for an expired reservation.",
+          "If Member Services reinstates the reservation, ask the Circulation process owner where to restart. If a reservation expires during an open item search, follow the expiration steps above and ask the process owner how to handle the open search."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The procedure preserves the barcode check, notice conditions, and both conditions for restarting with a replacement. If a reservation expires during a search, the expiration steps still apply and the Circulation process owner resolves what happens to the search. Asking that owner where to restart after reinstatement also respects the source’s division of authority. The shift handoff includes every open search or review, its ID, and its recorded owner.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "artifact_lines": [
+          5,
+          6,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives both procedures, including withholding the notice. For the overlap, the reader correctly applies the expiry steps and refers the open search to the process owner. The reader states both missing-item restart conditions and seeks restart direction after reinstatement."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The overlap quote directs the clerk to follow the expiration steps, which are also quoted, and to consult the process owner about the search. The remaining quotes cover the missing-item actions, both restart conditions, the barcode check, and restart guidance after reinstatement."
+        }
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 11 gives all missing-item actions. For an expiration during an open search, line 19 directs the clerk to line 17, which gives all expiration actions and prohibits the notice. Line 19 assigns the open-search decision to the Circulation process owner. Line 13 directs the clerk back to the barcode check on line 5 once Collections confirms a replacement and the reservation is cleared to proceed.",
+        "artifact_lines": [
+          5,
+          11,
+          13,
+          17,
+          19
+        ]
+      }
+    },
+    {
+      "case": "schedule-translation",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/schedule-translation-1-baseline.md",
+      "reader_response": {
+        "answer": "Set Editorial hold and send the disputed phrase and workbook version to the Regional editor. Keep the hold in place until the editor confirms the disposition in writing, and retain that confirmation with the workbook. Keep the last published schedule live during the hold.\n\nThe procedure does not say where to restart after a wording-only hold is cleared. Direct that question to the Schedule procedure owner.",
+        "evidence": [
+          "Keep the last published schedule live until the replacement passes review and any editorial hold is cleared.",
+          "| Disputed wording | Set **Editorial hold**. Send the disputed phrase and workbook version to the Regional editor, who owns the wording decision. Keep the hold in place until the Regional editor confirms the disposition in writing. Retain the confirmation with the workbook. |",
+          "Direct questions this procedure leaves unresolved to the Schedule procedure owner."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "The revision preserves the workbook check, all three comparisons, both teams’ authority, and the written-confirmation requirement. It specifies the review restart after a link correction, leaves the editorial-only restart open, and keeps publication, public verification, and recording in order.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "artifact_lines": [
+          3,
+          7,
+          11,
+          12,
+          16,
+          17,
+          19,
+          20,
+          22
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 3 keeps the last published schedule live. Line 16 directs the analyst to set Editorial hold, send the disputed phrase and workbook version to the Regional editor, wait for written confirmation, and retain it with the workbook. The wording row leaves the restart open, so line 22 directs the analyst to ask the Schedule procedure owner where to resume. The return to Review draft in line 17 points to line 12 and applies only to the broken-link path.",
+        "artifact_lines": [
+          3,
+          12,
+          16,
+          17,
+          22
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader keeps the published schedule live, completes the required editorial actions through retention of the written confirmation, and directs the unresolved wording-only restart question to the Schedule procedure owner."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes establish how long to keep the published schedule live and what to do through written confirmation. The quoted wording row ends without a restart step, and the final quote directs unresolved questions to the Schedule procedure owner."
+        }
+      }
+    },
+    {
+      "case": "schedule-translation",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/schedule-translation-1-good-enough.md",
+      "reader_response": {
+        "answer": "Set Editorial hold and send the disputed phrase and workbook version to the Regional editor. Keep the hold until the editor confirms the disposition in writing, and retain that confirmation with the workbook. Because wording is the only issue, ask the Schedule procedure owner where to resume after confirmation; the artifact does not specify the restart point.",
+        "evidence": [
+          "Set **Editorial hold** and send the disputed phrase and workbook version to the Regional editor, who owns the wording decision.",
+          "Keep the hold in place until the editor confirms the disposition in writing. Retain the confirmation with the workbook.",
+          "If disputed wording is the only issue, ask the Schedule procedure owner where to resume after confirmation."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact line 8 directs the publisher to record the workbook version. Source lines 3 and 15 place the version in the publication record, and the workbook version can differ from the published schedule version. The editorial-only restart question on artifact line 12 appropriately goes to the procedure owner.",
+        "source_lines": [
+          3,
+          7,
+          15
+        ],
+        "artifact_lines": [
+          8,
+          12
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 5 keeps the last published schedule live. For a wording-only dispute, line 12 directs the analyst to set Editorial hold, send the phrase and workbook version to the Regional editor, wait for written confirmation, retain it with the workbook, and ask the Schedule procedure owner where to resume. The restart at Review draft in line 13 points to line 6 and applies only to the broken-link path.",
+        "artifact_lines": [
+          5,
+          6,
+          12,
+          13
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The reader covers the editorial actions and the restart question but omits the instruction to keep the last published schedule live."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes cover the editorial actions and the wording-only referral. None supports keeping the last published schedule live."
+        }
+      }
+    },
+    {
+      "case": "schedule-translation",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/schedule-translation-2-baseline.md",
+      "reader_response": {
+        "answer": "Set Editorial hold and send the disputed phrase and workbook version to the Regional editor. Keep the hold until the editor confirms the disposition in writing, and retain that confirmation with the workbook. Keep the current schedule live during the hold.\n\nThe procedure does not specify where to restart after a wording-only hold. Refer that question to the Schedule procedure owner. The draft can be published once it passes review and the hold is cleared.",
+        "evidence": [
+          "Keep the current schedule live until the replacement passes review.",
+          "| Disputed wording | Set **Editorial hold**. Send the disputed phrase and workbook version to the Regional editor, who owns the wording decision. Keep the hold until the editor confirms the disposition in writing. Retain the confirmation with the workbook. |",
+          "Refer questions this procedure leaves unresolved to the Schedule procedure owner.",
+          "Publish the replacement once it passes review and any **Editorial hold** is cleared."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": false,
+        "reason": "Artifact lines 12 and 18 require testing whether registration links work, both during initial review and after correction. Source lines 3 and 11 require comparing URLs and handling a broken link when found. Testing each link adds a distinct review requirement.",
+        "source_lines": [
+          3,
+          11
+        ],
+        "artifact_lines": [
+          12,
+          18
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 3 keeps the current schedule live. Line 17 directs the analyst to set Editorial hold, send the disputed phrase and workbook version to the Regional editor, wait for written confirmation, and retain it with the workbook. Line 17 leaves the restart open. The general instruction in the second sentence of line 20 routes that question to the Schedule procedure owner. The restart in line 18 points to Review draft at line 12 and applies only to the broken-link path.",
+        "artifact_lines": [
+          3,
+          12,
+          17,
+          18,
+          20
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader gives all required hold actions, keeps the current schedule live, and correctly refers the unspecified wording-only restart to the Schedule procedure owner."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The current-schedule quote and disputed-wording row support all required hold actions. The row gives no restart step, and the referral quote identifies who handles that unresolved question."
+        }
+      }
+    },
+    {
+      "case": "schedule-translation",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/schedule-translation-2-good-enough.md",
+      "reader_response": {
+        "answer": "Keep the draft unpublished and the last published schedule live. Set Editorial hold, send the disputed phrase and workbook version to the Regional editor, and keep the hold until the editor confirms the disposition in writing. Retain that confirmation with the workbook. Then ask the Schedule procedure owner where to resume; the procedure leaves the restart point open, so it cannot be determined from the artifact.",
+        "evidence": [
+          "Keep the last published schedule live until the replacement passes **Review draft**.",
+          "If you find disputed wording or a broken registration link, keep the draft unpublished",
+          "Set **Editorial hold**.",
+          "Send the disputed phrase and workbook version to the Regional editor, who owns the wording decision.",
+          "Keep **Editorial hold** until the Regional editor confirms the disposition in writing. Retain the confirmation with the workbook.",
+          "Ask the Schedule procedure owner where to resume after the written confirmation. The procedure leaves this restart point open."
+        ],
+        "evidence_verified": true
+      },
+      "source_fidelity": {
+        "passed": true,
+        "reason": "Artifact line 25 preserves the required restart and all three comparisons after link correction. Lines 19 and 27 refer the open questions about editorial restart and coordination to the procedure owner while preserving the written-confirmation condition. The revision also retains the normal review flow, single publication, public check, and publication record.",
+        "source_lines": [
+          3,
+          7,
+          11,
+          15
+        ],
+        "artifact_lines": [
+          3,
+          7,
+          11,
+          12,
+          16,
+          17,
+          18,
+          19,
+          23,
+          24,
+          25,
+          27,
+          31,
+          32,
+          33
+        ]
+      },
+      "artifact_usability": {
+        "passed": true,
+        "reason": "Line 3 keeps the last published schedule live. Lines 16–18 direct the analyst to set Editorial hold, send the disputed phrase and workbook version to the Regional editor, wait for written confirmation, and retain it with the workbook. Line 19 explicitly leaves the restart open and directs the analyst to ask the Schedule procedure owner where to resume. The restart in line 25 points to Review draft at line 12 and belongs to the broken-link section headed at line 21.",
+        "artifact_lines": [
+          3,
+          12,
+          16,
+          17,
+          18,
+          19,
+          21,
+          25
+        ]
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader keeps the last published schedule live, sets Editorial hold, sends the phrase and workbook version to the Regional editor, and retains the written disposition with the workbook. They identify the restart point as open and ask the Schedule procedure owner where to resume."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes support every hold action and explicitly say to ask the Schedule procedure owner because the restart point is open."
+        }
+      }
+    }
+  ]
+}

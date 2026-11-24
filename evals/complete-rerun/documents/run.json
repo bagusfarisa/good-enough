@@ -1,0 +1,8 @@
+{
+  "skill_commit": "369a27c30fdd9182deaf41da621da3dcc018ff16",
+  "generator": "gpt-6.2-sol",
+  "judge": "gpt-6.2-astra",
+  "reasoning_effort": "low",
+  "repeats": 3,
+  "baseline_skill_commit": "73ea3f720f07fcf57a87cdebdf98c220f9fd3b23"
+}

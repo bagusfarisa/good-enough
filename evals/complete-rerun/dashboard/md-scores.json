@@ -1,0 +1,403 @@
+{
+  "skill_commit": "369a27c30fdd9182deaf41da621da3dcc018ff16",
+  "harness": "codex-cli 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning": "low",
+  "repeats": 2,
+  "reader_source": "revised artifact only",
+  "cases_sha256": "b57cfb1055a0afc31e18b2c30c4420bfa406fd7471737c7b865eb8409de473d9",
+  "baseline_skill_commit": "73ea3f720f07fcf57a87cdebdf98c220f9fd3b23",
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "opening_words": null,
+  "runs": [
+    {
+      "case": "dashboard-refresh",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/dashboard-refresh-1-baseline.md",
+      "workbook_checks": {},
+      "word_count": 325,
+      "full_grade": {
+        "answer": {
+          "answer": "The file arrived 30 minutes after the cutoff. The analyst should keep the current dashboard live and the draft unpublished, notify Sales Operations, and ask Data Operations for a corrected roster.\n\nThe two documented recovery paths are:\n1. Late adjustment file: obtain a revised publication slot from Sales Operations and wait until it begins before publishing.\n2. Blank account IDs: obtain a corrected roster from Data Operations, resume once the refresh is cleared, replace the roster in the draft, and rerun Validate. Keep the adjustment file unless Sales Operations supplies a replacement.\n\nPublish only after Validate reports zero errors and the applicable slot begins. The SOP does not specify how the restart rule works when both conditions overlap; the Reporting process owner should settle that question.",
+          "evidence": [
+            "The approved territory adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot.",
+            "Keep the currently published dashboard live until the replacement passes validation and its publication slot begins.",
+            "If the adjustment file arrives after the cutoff, keep the last published dashboard live and notify Sales Operations. Wait for Sales Operations to confirm a revised publication slot, then wait until that slot begins before publishing.",
+            "**Blank account ID.** Stop the refresh, keep the draft unpublished, and ask Data Operations for a corrected roster. Resume once the corrected roster is available and the refresh is cleared to proceed.",
+            "Use the roster supplied by Data Operations and leave upstream account ID corrections to that team. Replace the roster in the draft, keep the adjustment file unless Sales Operations supplies a replacement, and rerun **Validate**.",
+            "When **Validate** reports zero errors and the applicable publication slot begins, select **Publish** once.",
+            "Direct questions this SOP leaves unresolved to the Reporting process owner."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The answer keeps the dashboard live and the draft unpublished, with work resuming after clearance. The quotes support the 30-minute delay, both teams’ actions and the publication conditions. The answer identifies the open restart question and routes it to the documented owner."
+      },
+      "retained": {
+        "normal_flow": {
+          "passed": true,
+          "reason": "Both approved files go into the draft before Validate checks blank IDs, duplicate IDs and required columns. The analyst publishes once after zero errors and the start of the applicable slot.",
+          "evidence_lines": [
+            7,
+            13,
+            22
+          ],
+          "evidence": [
+            "Create a draft in the Refresh workspace. Upload the approved roster and the approved territory adjustment file when each is available. Retain the approved files used for publication with the draft for the publication log.",
+            "With both approved files in the draft, run **Validate**. It checks for blank account IDs, duplicate account IDs, and missing required columns.",
+            "1. When **Validate** reports zero errors and the applicable publication slot begins, select **Publish** once."
+          ]
+        },
+        "missing_account_ids": {
+          "passed": true,
+          "reason": "The analyst stops, leaves the draft unpublished and requests a corrected roster from Data Operations, which makes the ID corrections. After clearance, the analyst replaces the roster and reruns Validate, keeping the adjustment file unless Sales Operations supplies a replacement.",
+          "evidence_lines": [
+            15,
+            18
+          ],
+          "evidence": [
+            "- **Blank account ID.** Stop the refresh, keep the draft unpublished, and ask Data Operations for a corrected roster. Resume once the corrected roster is available and the refresh is cleared to proceed.",
+            "Use the roster supplied by Data Operations and leave upstream account ID corrections to that team. Replace the roster in the draft, keep the adjustment file unless Sales Operations supplies a replacement, and rerun **Validate**."
+          ]
+        },
+        "late_adjustments": {
+          "passed": true,
+          "reason": "The cutoff is Monday at 11:30 UTC. A late file keeps the last dashboard live. The analyst notifies Sales Operations and waits for its revised slot to begin.",
+          "evidence_lines": [
+            3,
+            9
+          ],
+          "evidence": [
+            "Refresh the territory dashboard on Monday. Keep the currently published dashboard live until the replacement passes validation and its publication slot begins. The approved territory adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot.",
+            "If the adjustment file arrives after the cutoff, keep the last published dashboard live and notify Sales Operations. Wait for Sales Operations to confirm a revised publication slot, then wait until that slot begins before publishing."
+          ]
+        },
+        "overlap_and_ownership": {
+          "passed": true,
+          "reason": "Data Operations owns roster corrections, and Sales Operations supplies replacement adjustments and confirms revised slots. Both exception paths apply, with no assigned priority or combined clearance authority. Unresolved questions go to the Reporting process owner.",
+          "evidence_lines": [
+            7,
+            9,
+            15,
+            18,
+            27
+          ],
+          "evidence": [
+            "Create a draft in the Refresh workspace. Upload the approved roster and the approved territory adjustment file when each is available. Retain the approved files used for publication with the draft for the publication log.",
+            "If the adjustment file arrives after the cutoff, keep the last published dashboard live and notify Sales Operations. Wait for Sales Operations to confirm a revised publication slot, then wait until that slot begins before publishing.",
+            "- **Blank account ID.** Stop the refresh, keep the draft unpublished, and ask Data Operations for a corrected roster. Resume once the corrected roster is available and the refresh is cleared to proceed.",
+            "Use the roster supplied by Data Operations and leave upstream account ID corrections to that team. Replace the roster in the draft, keep the adjustment file unless Sales Operations supplies a replacement, and rerun **Validate**.",
+            "Direct questions this SOP leaves unresolved to the Reporting process owner."
+          ]
+        },
+        "verify_published": {
+          "passed": true,
+          "reason": "The analyst compares the published count with Validate and records the version, count and publication time on a match. On mismatch, the version stays unconfirmed and Reporting Support receives the version and both counts. Completion waits for its response.",
+          "evidence_lines": [
+            23,
+            24,
+            25
+          ],
+          "evidence": [
+            "2. Open the published dashboard and compare its roster count with the count reported by **Validate**.",
+            "3. If the counts match, record the version, roster count, and publication time in the publication log. This completes the refresh.",
+            "4. If the counts differ, keep the version unconfirmed. Send the version and both counts to Reporting Support and wait for their response before marking the version complete."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "dashboard-refresh",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/dashboard-refresh-1-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 346,
+      "full_grade": {
+        "answer": {
+          "answer": "The file arrived 30 minutes after the cutoff. The analyst should stop the refresh, keep the draft unpublished and the last published dashboard live, ask Data Operations for a corrected roster, and notify Sales Operations.\n\nThe two documented recovery paths are:\n\n1. For blank account IDs, once the corrected roster is available and the refresh is cleared to proceed, replace the draft roster and rerun Validate. Keep the existing adjustments unless Sales Operations supplies a replacement.\n2. For the late adjustment file, wait for Sales Operations to confirm a revised publication slot and for that slot to begin before publishing. Publishing also requires Validate to report zero errors.\n\nAsk the Reporting process owner where to resume because the late file coincides with a roster correction. The SOP does not specify which exception takes precedence.",
+          "evidence": [
+            "The adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot.",
+            "**Blank account IDs.** Stop the refresh, keep the draft unpublished, and ask Data Operations for a corrected roster. When the corrected roster is available and the refresh is cleared to proceed, replace the draft roster and rerun **Validate**. Keep the existing adjustments unless Sales Operations has supplied a replacement.",
+            "If the approved adjustment file arrives **after Monday at 11:30 UTC**, keep the last published dashboard live and notify Sales Operations. Wait for Sales Operations to confirm the revised publication slot and for that slot to begin before publishing. Ask the Reporting process owner where to resume if the late file coincides with a roster correction. The procedure does not specify which exception takes precedence.",
+            "Once **Validate** reports **zero errors** and the applicable publication slot has begun, select **Publish** once."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quoted cutoff supports the 30-minute delay. The answer covers the immediate stop, both recovery paths and the publication conditions. Its evidence explicitly leaves precedence unresolved and directs the analyst to the Reporting process owner."
+      },
+      "retained": {
+        "normal_flow": {
+          "passed": true,
+          "reason": "The analyst uploads both approved files, runs all three validation checks and publishes once after zero errors when the applicable slot begins.",
+          "evidence_lines": [
+            11,
+            12,
+            21
+          ],
+          "evidence": [
+            "1. Create a draft in the Refresh workspace. Upload the approved roster and adjustment file, and retain both files with the draft for the publication log.",
+            "2. Run **Validate**. It checks for blank account IDs, duplicate account IDs, and missing required columns.",
+            "1. Once **Validate** reports **zero errors** and the applicable publication slot has begun, select **Publish** once."
+          ]
+        },
+        "missing_account_ids": {
+          "passed": true,
+          "reason": "The analyst stops, keeps the draft unpublished and requests a corrected roster. After clearance, the analyst replaces the roster and reruns Validate, keeping the adjustments unless Sales Operations supplies a replacement. Data Operations makes the ID corrections.",
+          "evidence_lines": [
+            13,
+            16
+          ],
+          "evidence": [
+            "   - **Blank account IDs.** Stop the refresh, keep the draft unpublished, and ask Data Operations for a corrected roster. When the corrected roster is available and the refresh is cleared to proceed, replace the draft roster and rerun **Validate**. Keep the existing adjustments unless Sales Operations has supplied a replacement.",
+            "   Use the corrected roster from Data Operations for all roster errors. Leave upstream ID corrections to Data Operations."
+          ]
+        },
+        "late_adjustments": {
+          "passed": true,
+          "reason": "The Monday 11:30 UTC cutoff is explicit. A late arrival keeps the last dashboard live and requires Sales Operations notification, confirmation of a revised slot and a wait until it begins.",
+          "evidence_lines": [
+            7,
+            17
+          ],
+          "evidence": [
+            "Use the approved roster and the approved territory adjustment file. The adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot.",
+            "3. If the approved adjustment file arrives **after Monday at 11:30 UTC**, keep the last published dashboard live and notify Sales Operations. Wait for Sales Operations to confirm the revised publication slot and for that slot to begin before publishing. Ask the Reporting process owner where to resume if the late file coincides with a roster correction. The procedure does not specify which exception takes precedence."
+          ]
+        },
+        "overlap_and_ownership": {
+          "passed": true,
+          "reason": "Data Operations corrects the roster. Sales Operations supplies replacement adjustments and confirms revised slots. The Reporting process owner handles the overlap question, with precedence and combined restart clearance left open.",
+          "evidence_lines": [
+            7,
+            13,
+            16,
+            17
+          ],
+          "evidence": [
+            "Use the approved roster and the approved territory adjustment file. The adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot.",
+            "   - **Blank account IDs.** Stop the refresh, keep the draft unpublished, and ask Data Operations for a corrected roster. When the corrected roster is available and the refresh is cleared to proceed, replace the draft roster and rerun **Validate**. Keep the existing adjustments unless Sales Operations has supplied a replacement.",
+            "   Use the corrected roster from Data Operations for all roster errors. Leave upstream ID corrections to Data Operations.",
+            "3. If the approved adjustment file arrives **after Monday at 11:30 UTC**, keep the last published dashboard live and notify Sales Operations. Wait for Sales Operations to confirm the revised publication slot and for that slot to begin before publishing. Ask the Reporting process owner where to resume if the late file coincides with a roster correction. The procedure does not specify which exception takes precedence."
+          ]
+        },
+        "verify_published": {
+          "passed": true,
+          "reason": "The analyst compares the published count with Validate and logs the version, count and publication time on a match. A mismatch stays unconfirmed while Reporting Support receives the version and both counts and the analyst awaits a response.",
+          "evidence_lines": [
+            22,
+            23,
+            24
+          ],
+          "evidence": [
+            "2. Open the published dashboard and compare its roster count with the count reported by **Validate**.",
+            "   - **Counts match.** Record the published version, roster count, and publication time in the publication log. The refresh is complete.",
+            "   - **Counts differ.** Keep the version unconfirmed and send the version and both counts to Reporting Support. Wait for their response before marking the version complete."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "dashboard-refresh",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/dashboard-refresh-2-baseline.md",
+      "workbook_checks": {},
+      "word_count": 318,
+      "full_grade": {
+        "answer": {
+          "answer": "The analyst can keep the current dashboard live, leave the draft unpublished, notify Sales Operations about the missed cutoff, and request a corrected roster from Data Operations. The file arrived 30 minutes after the cutoff.\n\nThe two documented recovery paths are: wait for Sales Operations to confirm a revised publication slot; and, for the validation errors, use Data Operations’ corrected roster, replace the draft roster once the refresh is cleared to proceed, and rerun Validate. Keep the existing adjustment file unless Sales Operations provides an approved replacement. Publish only after Validate reports zero errors and the applicable slot begins.\n\nThe SOP does not say what clears the refresh to proceed when the late-file and blank-ID conditions overlap. The Reporting process owner should settle that restart rule.",
+          "evidence": [
+            "The approved adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot.",
+            "If it misses the cutoff, keep the current dashboard live, notify Sales Operations, and wait for the revised publication slot they confirm.",
+            "If Validate flags any of these errors, stop the refresh, keep the draft unpublished, and request a corrected roster from Data Operations.",
+            "Use their corrected roster without editing account IDs by hand.",
+            "If any account ID was blank, wait until the refresh is cleared to proceed before replacing the roster and rerunning Validate.",
+            "Replace the draft roster and rerun **Validate**. Keep the existing adjustment file in the draft unless Sales Operations provides an approved replacement. Proceed only when Validate reports zero errors.",
+            "Once Validate reports zero errors and the applicable publication slot begins, select **Publish** once.",
+            "Direct questions this procedure leaves unresolved to the Reporting process owner."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "Leaving the draft unpublished and waiting for clearance before replacing the roster conveys the stop. The quotes support the cutoff arithmetic, both recovery paths and the publication conditions. They leave the clearance decision open and route unresolved questions to the Reporting process owner."
+      },
+      "retained": {
+        "normal_flow": {
+          "passed": true,
+          "reason": "The draft takes both approved files. Validate checks blank IDs, duplicate IDs and required columns. Publication occurs once after zero errors and the start of the applicable slot.",
+          "evidence_lines": [
+            7,
+            13,
+            21
+          ],
+          "evidence": [
+            "Create a draft in the Refresh workspace. Use the approved roster and approved territory adjustment file. Retain both files with the draft for the publication log.",
+            "Upload both approved files to the draft and run **Validate**. It checks the roster for blank account IDs, duplicate account IDs, and missing required columns.",
+            "1. Once Validate reports zero errors and the applicable publication slot begins, select **Publish** once."
+          ]
+        },
+        "missing_account_ids": {
+          "passed": true,
+          "reason": "A blank ID stops the refresh and keeps the draft unpublished. Data Operations supplies the correction without hand edits by the analyst. Clearance precedes roster replacement and revalidation, and the adjustment file stays unless Sales Operations provides an approved replacement.",
+          "evidence_lines": [
+            15,
+            17
+          ],
+          "evidence": [
+            "If Validate flags any of these errors, stop the refresh, keep the draft unpublished, and request a corrected roster from Data Operations. Use their corrected roster without editing account IDs by hand. If any account ID was blank, wait until the refresh is cleared to proceed before replacing the roster and rerunning Validate.",
+            "Replace the draft roster and rerun **Validate**. Keep the existing adjustment file in the draft unless Sales Operations provides an approved replacement. Proceed only when Validate reports zero errors."
+          ]
+        },
+        "late_adjustments": {
+          "passed": true,
+          "reason": "Missing Monday’s 11:30 UTC cutoff keeps the current dashboard live. The analyst notifies Sales Operations and waits for its revised slot to begin before publishing.",
+          "evidence_lines": [
+            9,
+            21
+          ],
+          "evidence": [
+            "The approved adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot. If it misses the cutoff, keep the current dashboard live, notify Sales Operations, and wait for the revised publication slot they confirm.",
+            "1. Once Validate reports zero errors and the applicable publication slot begins, select **Publish** once."
+          ]
+        },
+        "overlap_and_ownership": {
+          "passed": true,
+          "reason": "Data Operations supplies roster corrections, and Sales Operations provides approved adjustment replacements and confirms revised slots. The clearance condition names no decision-maker or precedence rule. Unresolved questions go to the Reporting process owner.",
+          "evidence_lines": [
+            9,
+            15,
+            17,
+            26
+          ],
+          "evidence": [
+            "The approved adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot. If it misses the cutoff, keep the current dashboard live, notify Sales Operations, and wait for the revised publication slot they confirm.",
+            "If Validate flags any of these errors, stop the refresh, keep the draft unpublished, and request a corrected roster from Data Operations. Use their corrected roster without editing account IDs by hand. If any account ID was blank, wait until the refresh is cleared to proceed before replacing the roster and rerunning Validate.",
+            "Replace the draft roster and rerun **Validate**. Keep the existing adjustment file in the draft unless Sales Operations provides an approved replacement. Proceed only when Validate reports zero errors.",
+            "Direct questions this procedure leaves unresolved to the Reporting process owner."
+          ]
+        },
+        "verify_published": {
+          "passed": true,
+          "reason": "The published count is compared with Validate. A match requires logging the version, count and publication time. A mismatch remains unconfirmed pending Reporting Support’s response after it receives the version and both counts.",
+          "evidence_lines": [
+            22,
+            23,
+            24
+          ],
+          "evidence": [
+            "2. Open the published dashboard and compare its roster count with the count reported by Validate.",
+            "3. If the counts match, record the version, roster count, and publication time in the publication log. The refresh is complete.",
+            "4. If the counts differ, keep the version unconfirmed and send the version and both counts to Reporting Support. Wait for their response before marking the version complete. Record the publication details only once the counts match."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "dashboard-refresh",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/dashboard-refresh-2-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 328,
+      "full_grade": {
+        "answer": {
+          "answer": "The adjustment file is 30 minutes late. The analyst should stop the refresh, keep the draft unpublished and the last published dashboard live, notify Sales Operations, and request a corrected roster from Data Operations. Ask the Reporting process owner when validation can resume because the blank-ID stop overlaps with the late file.\n\nThe two recovery paths are to obtain the revised publication slot confirmed by Sales Operations, and to replace the roster with Data Operations’ corrected roster once the refresh is cleared to proceed, then rerun Validate. Keep the existing adjustments unless Sales Operations supplies a replacement. Publication requires zero validation errors and the start of the revised slot. The Reporting process owner must settle the restart rule for this overlap.",
+          "evidence": [
+            "The approved territory adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot.",
+            "If it arrives after the cutoff, notify Sales Operations and wait for the revised slot they confirm.",
+            "Keep the last published dashboard live until the replacement passes validation and its publication slot begins.",
+            "**Blank account IDs.** Stop the refresh, keep the draft unpublished, and request a corrected roster from Data Operations.",
+            "Once the corrected roster is available and the refresh is cleared to proceed, replace the roster in the draft and rerun **Validate**.",
+            "Keep the existing adjustments unless Sales Operations has supplied a replacement.",
+            "Use the roster supplied by Data Operations for all corrections.",
+            "If a blank-ID stop overlaps with a late adjustment file, ask the Reporting process owner to confirm when validation can resume.",
+            "The draft still requires zero validation errors and the start of the revised slot before publication."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quotes support the 30-minute delay, the immediate stop, both recovery paths and the publication conditions. Asking the Reporting process owner when validation can resume identifies the unresolved overlap without claiming the owner personally grants clearance."
+      },
+      "retained": {
+        "normal_flow": {
+          "passed": true,
+          "reason": "The analyst creates a draft, uploads both approved files and runs Validate for blank IDs, duplicate IDs and required columns. Publication occurs once after zero errors and the start of the applicable slot.",
+          "evidence_lines": [
+            7,
+            8,
+            12,
+            21
+          ],
+          "evidence": [
+            "1. Create a draft in the Refresh workspace.",
+            "2. Upload the approved roster and the approved territory adjustment file. Retain both files with the draft for the publication log.",
+            "Run **Validate**. It checks for blank account IDs, duplicate account IDs, and missing required columns.",
+            "1. Once **Validate** reports zero errors and the applicable publication slot has begun, select **Publish** once."
+          ]
+        },
+        "missing_account_ids": {
+          "passed": true,
+          "reason": "Blank IDs stop the refresh and keep the draft unpublished. Data Operations supplies the corrected roster, and hand edits are prohibited. After clearance, the analyst replaces the roster and reruns Validate, retaining adjustments unless Sales Operations supplies a replacement.",
+          "evidence_lines": [
+            14,
+            17
+          ],
+          "evidence": [
+            "- **Blank account IDs.** Stop the refresh, keep the draft unpublished, and request a corrected roster from Data Operations. Once the corrected roster is available and the refresh is cleared to proceed, replace the roster in the draft and rerun **Validate**. Keep the existing adjustments unless Sales Operations has supplied a replacement.",
+            "Use the roster supplied by Data Operations for all corrections. Do not edit upstream roster IDs by hand. If a blank-ID stop overlaps with a late adjustment file, ask the Reporting process owner to confirm when validation can resume. The draft still requires zero validation errors and the start of the revised slot before publication."
+          ]
+        },
+        "late_adjustments": {
+          "passed": true,
+          "reason": "Monday’s 11:30 UTC cutoff, keeping the last dashboard live, notifying Sales Operations and waiting for its revised slot to begin are all documented.",
+          "evidence_lines": [
+            3,
+            17
+          ],
+          "evidence": [
+            "Refresh the territory dashboard each Monday. Keep the last published dashboard live until the replacement passes validation and its publication slot begins. The approved territory adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot. If it arrives after the cutoff, notify Sales Operations and wait for the revised slot they confirm.",
+            "Use the roster supplied by Data Operations for all corrections. Do not edit upstream roster IDs by hand. If a blank-ID stop overlaps with a late adjustment file, ask the Reporting process owner to confirm when validation can resume. The draft still requires zero validation errors and the start of the revised slot before publication."
+          ]
+        },
+        "overlap_and_ownership": {
+          "passed": true,
+          "reason": "Data Operations corrects the roster. Sales Operations supplies replacement adjustments and confirms revised slots. The analyst asks the Reporting process owner when validation can resume. That referral preserves both paths and leaves priority and the authority to grant clearance unspecified.",
+          "evidence_lines": [
+            3,
+            8,
+            14,
+            17
+          ],
+          "evidence": [
+            "Refresh the territory dashboard each Monday. Keep the last published dashboard live until the replacement passes validation and its publication slot begins. The approved territory adjustment file must arrive by **Monday at 11:30 UTC** to use the normal publication slot. If it arrives after the cutoff, notify Sales Operations and wait for the revised slot they confirm.",
+            "2. Upload the approved roster and the approved territory adjustment file. Retain both files with the draft for the publication log.",
+            "- **Blank account IDs.** Stop the refresh, keep the draft unpublished, and request a corrected roster from Data Operations. Once the corrected roster is available and the refresh is cleared to proceed, replace the roster in the draft and rerun **Validate**. Keep the existing adjustments unless Sales Operations has supplied a replacement.",
+            "Use the roster supplied by Data Operations for all corrections. Do not edit upstream roster IDs by hand. If a blank-ID stop overlaps with a late adjustment file, ask the Reporting process owner to confirm when validation can resume. The draft still requires zero validation errors and the start of the revised slot before publication."
+          ]
+        },
+        "verify_published": {
+          "passed": true,
+          "reason": "The published roster count is compared with Validate. A match requires logging the version, count and publication time. On mismatch, the version stays unconfirmed, Reporting Support receives the version and both counts, and completion waits for its response.",
+          "evidence_lines": [
+            22,
+            23,
+            24
+          ],
+          "evidence": [
+            "2. Open the published dashboard and compare its roster count with the count reported by **Validate**.",
+            "3. If the counts match, record the version, roster count, and publication time in the publication log. The refresh is complete.",
+            "4. If the counts differ, keep the version unconfirmed and send the version and both counts to Reporting Support. Wait for their response before marking the version complete."
+          ]
+        }
+      },
+      "preserved": true
+    }
+  ]
+}

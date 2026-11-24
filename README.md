@@ -101,6 +101,8 @@ Two fresh rounds tested whether an explicit exception and restart check helps re
 
 A follow-up separated SOP source fidelity, usability, reader answers, and citations. It used the published revisions to check the evaluator, then compared two skill versions on three new procedures. [SOP restart and source fidelity](evals/procedure-restart/)
 
+The complete rerun compared the published skill with the restart candidate on all 16 creation and revision fixtures. [76 artifacts, scores, and findings](evals/complete-rerun/)
+
 ## Cash forecast benchmark
 
 Try the same task in both workbooks. Change **Payroll** from **$6,000** to **$7,000** and verify that **Ending cash** changes from **$7,000** to **$6,000**.

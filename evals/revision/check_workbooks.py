@@ -55,7 +55,7 @@ def opening_headlines(sheet, label, base_value):
             if isinstance(value, str):
                 current_label = value.lower()
             elif (value == base_value and label in current_label
-                  and not re.search(r'\b(?:test|scenario|basis|change|may)\b', current_label)):
+                  and not re.search(r'\b(?:test|trial|scenario|basis|change|may)\b', current_label)):
                 matches.append(address)
     return matches
 

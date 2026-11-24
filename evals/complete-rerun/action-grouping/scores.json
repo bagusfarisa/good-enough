@@ -1,0 +1,325 @@
+{
+  "skill_commit": "369a27c30fdd9182deaf41da621da3dcc018ff16",
+  "generator": "gpt-6.2-sol",
+  "judge": "gpt-6.2-astra",
+  "reasoning_effort": "low",
+  "repeats": 3,
+  "baseline_skill_commit": "73ea3f720f07fcf57a87cdebdf98c220f9fd3b23",
+  "cases_sha256": "cf96a34d5acfcd9588cb1a040e7a1527b9026a3b45f051b077781db3713da1ec",
+  "opening_words": 100,
+  "harness": "codex-cli 0.172.0",
+  "summary": {
+    "baseline": {
+      "documents_passing": 3,
+      "documents": 3,
+      "checks_passing": 15,
+      "checks": 15,
+      "median_words": 115,
+      "judge_preferences": 3
+    },
+    "good-enough": {
+      "documents_passing": 3,
+      "documents": 3,
+      "checks_passing": 15,
+      "checks": 15,
+      "median_words": 119,
+      "judge_preferences": 0
+    }
+  },
+  "ties": 0,
+  "runs": [
+    {
+      "case": "dispatch-pilot",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/dispatch-pilot-1-baseline.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "Approve the four-week pilot for a Monday start only if both readiness checks have passed by the Friday meeting.",
+          "reason": "The heading identifies Harbor Hub, the opening gives the Friday approval condition, and the cost paragraph states $28,400 all-in."
+        },
+        "safety_dependency": {
+          "passed": true,
+          "evidence": "Safety signs the revised loading plan | Leah Mensah | Wednesday, 5 p.m. | Pending",
+          "reason": "The row pairs the required sign-off with its owner, deadline, and pending status."
+        },
+        "integration_dependency": {
+          "passed": true,
+          "evidence": "Integrations verifies that the carrier-tracking replay delivers all required events end to end | Ravi Shah | Thursday, noon | Pending",
+          "reason": "The row specifies what Ravi must verify, when it is due, and its pending status."
+        },
+        "fallback": {
+          "passed": true,
+          "evidence": "If either check is pending or has failed, defer the pilot and keep the current dispatch process.",
+          "reason": "Either condition at the Friday meeting triggers both fallback actions."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The $3,600 budget margin is accurate, and a broader rollout requires a separate decision."
+        }
+      },
+      "passed": true,
+      "word_count": 115,
+      "usage": {
+        "input_tokens": 27201,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 172,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-pilot",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/dispatch-pilot-1-good-enough.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "Approve the four-week pilot to start Monday only if both readiness checks have passed by Friday’s meeting.",
+          "reason": "The heading names the Harbor Hub decision, the opening requires both checks to pass, and the budget gives the $28,400 cost."
+        },
+        "safety_dependency": {
+          "passed": true,
+          "evidence": "Safety signs the revised loading plan. | Leah Mensah | Wednesday, 5 p.m.",
+          "reason": "The row gives Leah’s sign-off and deadline. The opening explicitly says both checks are pending."
+        },
+        "integration_dependency": {
+          "passed": true,
+          "evidence": "Integrations verifies that a carrier-tracking replay delivers all required events end to end. | Ravi Shah | Thursday, noon",
+          "reason": "The row gives Ravi’s verification and deadline. The pending status in the opening applies to both checks."
+        },
+        "fallback": {
+          "passed": true,
+          "evidence": "If either check is pending or fails at the meeting, defer the pilot and keep the current dispatch process.",
+          "reason": "The sentence gives both triggers and both required actions at the Friday meeting."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The cost, readiness status, and scope of Friday’s decision agree with the notes."
+        }
+      },
+      "passed": true,
+      "word_count": 113,
+      "usage": {
+        "input_tokens": 27234,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 169,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-pilot",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/dispatch-pilot-2-good-enough.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "Approve the four-week pilot to start Monday only if both readiness checks have passed by the Friday meeting.",
+          "reason": "The heading identifies Harbor Hub, the recommendation states the Friday decision rule, and the final paragraph gives the $28,400 cost."
+        },
+        "safety_dependency": {
+          "passed": true,
+          "evidence": "Safety signs off on the revised loading plan | Leah Mensah | Wednesday, 5 p.m. | Pending",
+          "reason": "Leah’s row gives the required sign-off, deadline, and pending status."
+        },
+        "integration_dependency": {
+          "passed": true,
+          "evidence": "Integrations verifies that a carrier-tracking replay delivers all required events end to end | Ravi Shah | Thursday, noon | Pending",
+          "reason": "Ravi’s row gives the verification criterion, deadline, and pending status."
+        },
+        "fallback": {
+          "passed": true,
+          "evidence": "If either check is still pending or has failed, defer the pilot and keep the current dispatch process.",
+          "reason": "The Friday recommendation covers either unresolved or failed check and gives both fallback actions."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The budget calculation, pilot scope, and separate rollout decision agree with the notes."
+        }
+      },
+      "passed": true,
+      "word_count": 125,
+      "usage": {
+        "input_tokens": 27232,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 186,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-pilot",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/dispatch-pilot-2-baseline.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "Approve the four-week pilot to start Monday only if both readiness checks have passed by Friday’s meeting.",
+          "reason": "The brief names Harbor Hub, gives the $28,400 cost, and conditions Friday’s approval on both checks passing."
+        },
+        "safety_dependency": {
+          "passed": true,
+          "evidence": "Safety signs the revised loading plan | Leah Mensah | Wednesday at 5 p.m. | Pending",
+          "reason": "The row pairs Safety’s sign-off with Leah, the Wednesday deadline, and its pending status."
+        },
+        "integration_dependency": {
+          "passed": true,
+          "evidence": "Integrations verifies that a carrier-tracking replay delivers all required events end to end | Ravi Shah | Thursday at noon | Pending",
+          "reason": "The row pairs the replay verification with Ravi, the Thursday deadline, and its pending status."
+        },
+        "fallback": {
+          "passed": true,
+          "evidence": "If either check is pending or fails, defer the pilot and keep the current dispatch process.",
+          "reason": "The Friday decision rule specifies deferral and continued use of the current process for either trigger."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The brief accurately reports the budget, pending checks, and limit on rollout authorization."
+        }
+      },
+      "passed": true,
+      "word_count": 115,
+      "usage": {
+        "input_tokens": 27199,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 174,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-pilot",
+      "repeat": 3,
+      "variant": "baseline",
+      "artifact": "artifacts/dispatch-pilot-3-baseline.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "Approve the four-week pilot to start Monday only if both readiness checks have passed by the Friday meeting.",
+          "reason": "The heading names Harbor Hub, the opening gives the Friday approval condition, and the budget identifies the proposed cost as $28,400."
+        },
+        "safety_dependency": {
+          "passed": true,
+          "evidence": "Safety signs the revised loading plan. | Leah Mensah | Wednesday, 5 p.m. | Pending",
+          "reason": "The row identifies Leah’s pending sign-off and its deadline."
+        },
+        "integration_dependency": {
+          "passed": true,
+          "evidence": "Integrations verifies that a carrier-tracking replay delivers all required events end to end. | Ravi Shah | Thursday, noon | Pending",
+          "reason": "The row identifies Ravi’s pending verification, its scope, and its deadline."
+        },
+        "fallback": {
+          "passed": true,
+          "evidence": "If either check is pending or fails, defer the pilot and keep the current dispatch process.",
+          "reason": "At Friday’s decision, either trigger calls for deferral and continued use of the current process."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The checks, proposed cost, and scope of authorization match the notes."
+        }
+      },
+      "passed": true,
+      "word_count": 111,
+      "usage": {
+        "input_tokens": 27203,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 171,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-pilot",
+      "repeat": 3,
+      "variant": "good-enough",
+      "artifact": "artifacts/dispatch-pilot-3-good-enough.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "Approve the four-week pilot to start Monday only if both readiness checks have passed by the Friday meeting.",
+          "reason": "The heading identifies the Harbor Hub pilot, the opening states the approval rule, and the final paragraph gives the $28,400 cost."
+        },
+        "safety_dependency": {
+          "passed": true,
+          "evidence": "Safety signs the revised loading plan. | Leah Mensah | Wednesday, 5 p.m. | Pending",
+          "reason": "The row gives Safety’s required sign-off, Leah’s name, the deadline, and the pending status."
+        },
+        "integration_dependency": {
+          "passed": true,
+          "evidence": "Integrations verifies that a carrier-tracking replay delivers all required events end to end. | Ravi Shah | Thursday, noon | Pending",
+          "reason": "The row gives the full replay criterion, Ravi’s name, the deadline, and the pending status."
+        },
+        "fallback": {
+          "passed": true,
+          "evidence": "If either check is pending or has failed, defer the pilot and continue the current dispatch process.",
+          "reason": "The Friday rule covers both triggers and directs Operations to defer and continue current dispatch."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The stated purpose of collecting reliability data and the separate rollout decision agree with the notes."
+        }
+      },
+      "passed": true,
+      "word_count": 119,
+      "usage": {
+        "input_tokens": 27236,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 178,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "case": "dispatch-pilot",
+      "repeat": 1,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "baseline",
+      "reason": "Both pass every check. A makes the approval condition easy to spot and puts each pending status beside the corresponding owner and deadline."
+    },
+    {
+      "case": "dispatch-pilot",
+      "repeat": 2,
+      "blind_order": {
+        "A": "good-enough",
+        "B": "baseline"
+      },
+      "preference": "baseline",
+      "reason": "Both pass every check. B highlights the approval condition and fallback together, so the Director can find either course of action immediately."
+    },
+    {
+      "case": "dispatch-pilot",
+      "repeat": 3,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "baseline",
+      "reason": "Both pass every check and provide equally usable readiness tables. A gives the Friday approval condition visual emphasis, a slight advantage for a reader scanning the brief."
+    }
+  ],
+  "judge_usage": {
+    "dispatch-pilot": {
+      "input_tokens": 25589,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1883,
+      "reasoning_output_tokens": 0
+    }
+  }
+}

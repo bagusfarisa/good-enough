@@ -1,0 +1,603 @@
+{
+  "values_sha256": "68f5e99e36d807d288ee741733d35476c3631fca3c4845c20b6786590e683535",
+  "questions_sha256": "6217533895e0494f4080465d23ec9b6e3a0d3c71fede176e14756d75c33dab19",
+  "model": "gpt-6.1-terra",
+  "skill_commit": "369a27c30fdd9182deaf41da621da3dcc018ff16",
+  "previous_skill_commit": "73ea3f720f07fcf57a87cdebdf98c220f9fd3b23",
+  "runs": [
+    {
+      "pair": 1,
+      "variant": "baseline",
+      "workbook": "workbooks/01-baseline.xlsx",
+      "answers": {
+        "march_carry_forward": {
+          "answer": {
+            "opening_usd": 9000,
+            "preceding_month": "February",
+            "ending_usd": 12000
+          },
+          "evidence": [
+            "Cash Forecast!C7",
+            "Cash Forecast!D7",
+            "Cash Forecast!A8",
+            "Cash Forecast!D8",
+            "Cash Forecast!A16",
+            "Cash Forecast!C16",
+            "Cash Forecast!D16"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!C7",
+            "Cash Forecast!D7",
+            "Cash Forecast!A8",
+            "Cash Forecast!D8",
+            "Cash Forecast!A16",
+            "Cash Forecast!C16",
+            "Cash Forecast!D16"
+          ],
+          "supported": true
+        },
+        "march_cash_change": {
+          "answer": {
+            "receipts_usd": 11000,
+            "payroll_usd": 6000,
+            "rent_usd": 2000,
+            "equipment_usd": 0,
+            "net_change_usd": 3000
+          },
+          "evidence": [
+            "Cash Forecast!D7",
+            "Cash Forecast!A9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A10",
+            "Cash Forecast!D10",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A12",
+            "Cash Forecast!D12",
+            "Cash Forecast!A14",
+            "Cash Forecast!D14"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!D7",
+            "Cash Forecast!A9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A10",
+            "Cash Forecast!D10",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A12",
+            "Cash Forecast!D12",
+            "Cash Forecast!A14",
+            "Cash Forecast!D14"
+          ],
+          "supported": true
+        },
+        "january_equipment_payment": {
+          "answer": {
+            "payment": "Equipment payment",
+            "amount_usd": 3000,
+            "ending_usd": 10000
+          },
+          "evidence": [
+            "Cash Forecast!B7",
+            "Cash Forecast!C7",
+            "Cash Forecast!D7",
+            "Cash Forecast!A12",
+            "Cash Forecast!B12",
+            "Cash Forecast!C12",
+            "Cash Forecast!D12",
+            "Cash Forecast!A16",
+            "Cash Forecast!B16"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!B7",
+            "Cash Forecast!C7",
+            "Cash Forecast!D7",
+            "Cash Forecast!A12",
+            "Cash Forecast!B12",
+            "Cash Forecast!C12",
+            "Cash Forecast!D12",
+            "Cash Forecast!A16",
+            "Cash Forecast!B16"
+          ],
+          "supported": true
+        }
+      }
+    },
+    {
+      "pair": 2,
+      "variant": "good-enough",
+      "workbook": "workbooks/02-good-enough.xlsx",
+      "answers": {
+        "march_carry_forward": {
+          "answer": {
+            "opening_usd": 9000,
+            "preceding_month": "February 2027",
+            "ending_usd": 12000
+          },
+          "evidence": [
+            "Cash Forecast!A4",
+            "Cash Forecast!C4",
+            "Cash Forecast!D4",
+            "Cash Forecast!A5",
+            "Cash Forecast!D5",
+            "Cash Forecast!A12",
+            "Cash Forecast!C12",
+            "Cash Forecast!D12"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!A4",
+            "Cash Forecast!C4",
+            "Cash Forecast!D4",
+            "Cash Forecast!A5",
+            "Cash Forecast!D5",
+            "Cash Forecast!A12",
+            "Cash Forecast!C12",
+            "Cash Forecast!D12"
+          ],
+          "supported": true
+        },
+        "march_cash_change": {
+          "answer": {
+            "receipts_usd": 11000,
+            "payroll_usd": 6000,
+            "rent_usd": 2000,
+            "equipment_usd": 0,
+            "net_change_usd": 3000
+          },
+          "evidence": [
+            "Cash Forecast!D4",
+            "Cash Forecast!A6",
+            "Cash Forecast!D6",
+            "Cash Forecast!A7",
+            "Cash Forecast!D7",
+            "Cash Forecast!A8",
+            "Cash Forecast!D8",
+            "Cash Forecast!A9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!D4",
+            "Cash Forecast!A6",
+            "Cash Forecast!D6",
+            "Cash Forecast!A7",
+            "Cash Forecast!D7",
+            "Cash Forecast!A8",
+            "Cash Forecast!D8",
+            "Cash Forecast!A9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11"
+          ],
+          "supported": true
+        },
+        "january_equipment_payment": {
+          "answer": {
+            "payment": "Equipment payment",
+            "amount_usd": 3000,
+            "ending_usd": 10000
+          },
+          "evidence": [
+            "Cash Forecast!B4",
+            "Cash Forecast!A9",
+            "Cash Forecast!B9",
+            "Cash Forecast!C9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A12",
+            "Cash Forecast!B12"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!B4",
+            "Cash Forecast!A9",
+            "Cash Forecast!B9",
+            "Cash Forecast!C9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A12",
+            "Cash Forecast!B12"
+          ],
+          "supported": true
+        }
+      }
+    },
+    {
+      "pair": 1,
+      "variant": "good-enough",
+      "workbook": "workbooks/01-good-enough.xlsx",
+      "answers": {
+        "march_carry_forward": {
+          "answer": {
+            "opening_usd": 9000,
+            "preceding_month": "February 2027",
+            "ending_usd": 12000
+          },
+          "evidence": [
+            "Cash Forecast!C6",
+            "Cash Forecast!D6",
+            "Cash Forecast!A7",
+            "Cash Forecast!D7",
+            "Cash Forecast!A13",
+            "Cash Forecast!C13",
+            "Cash Forecast!D13"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!C6",
+            "Cash Forecast!D6",
+            "Cash Forecast!A7",
+            "Cash Forecast!D7",
+            "Cash Forecast!A13",
+            "Cash Forecast!C13",
+            "Cash Forecast!D13"
+          ],
+          "supported": true
+        },
+        "march_cash_change": {
+          "answer": {
+            "receipts_usd": 11000,
+            "payroll_usd": 6000,
+            "rent_usd": 2000,
+            "equipment_usd": 0,
+            "net_change_usd": 3000
+          },
+          "evidence": [
+            "Cash Forecast!D6",
+            "Cash Forecast!A8",
+            "Cash Forecast!D8",
+            "Cash Forecast!A9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A10",
+            "Cash Forecast!D10",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A12",
+            "Cash Forecast!D12"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!D6",
+            "Cash Forecast!A8",
+            "Cash Forecast!D8",
+            "Cash Forecast!A9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A10",
+            "Cash Forecast!D10",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A12",
+            "Cash Forecast!D12"
+          ],
+          "supported": true
+        },
+        "january_equipment_payment": {
+          "answer": {
+            "payment": "Equipment payment",
+            "amount_usd": 3000,
+            "ending_usd": 10000
+          },
+          "evidence": [
+            "Cash Forecast!B6",
+            "Cash Forecast!A11",
+            "Cash Forecast!B11",
+            "Cash Forecast!C11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A13",
+            "Cash Forecast!B13"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!B6",
+            "Cash Forecast!A11",
+            "Cash Forecast!B11",
+            "Cash Forecast!C11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A13",
+            "Cash Forecast!B13"
+          ],
+          "supported": true
+        }
+      }
+    },
+    {
+      "pair": 2,
+      "variant": "baseline",
+      "workbook": "workbooks/02-baseline.xlsx",
+      "answers": {
+        "march_carry_forward": {
+          "answer": {
+            "opening_usd": 9000,
+            "preceding_month": "February 2027",
+            "ending_usd": 12000
+          },
+          "evidence": [
+            "Cash Forecast!C4",
+            "Cash Forecast!D4",
+            "Cash Forecast!A5",
+            "Cash Forecast!C5",
+            "Cash Forecast!D5",
+            "Cash Forecast!A7",
+            "Cash Forecast!D7"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!C4",
+            "Cash Forecast!D4",
+            "Cash Forecast!A5",
+            "Cash Forecast!C5",
+            "Cash Forecast!D5",
+            "Cash Forecast!A7",
+            "Cash Forecast!D7"
+          ],
+          "supported": true
+        },
+        "march_cash_change": {
+          "answer": {
+            "receipts_usd": 11000,
+            "payroll_usd": 6000,
+            "rent_usd": 2000,
+            "equipment_usd": 0,
+            "net_change_usd": 3000
+          },
+          "evidence": [
+            "Cash Forecast!D4",
+            "Cash Forecast!A8",
+            "Cash Forecast!D8",
+            "Cash Forecast!A9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A10",
+            "Cash Forecast!D10",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A13",
+            "Cash Forecast!D13"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!D4",
+            "Cash Forecast!A8",
+            "Cash Forecast!D8",
+            "Cash Forecast!A9",
+            "Cash Forecast!D9",
+            "Cash Forecast!A10",
+            "Cash Forecast!D10",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A13",
+            "Cash Forecast!D13"
+          ],
+          "supported": true
+        },
+        "january_equipment_payment": {
+          "answer": {
+            "payment": "Equipment payment",
+            "amount_usd": 3000,
+            "ending_usd": 10000
+          },
+          "evidence": [
+            "Cash Forecast!B4",
+            "Cash Forecast!A11",
+            "Cash Forecast!B11",
+            "Cash Forecast!C11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A5",
+            "Cash Forecast!B5"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!B4",
+            "Cash Forecast!A11",
+            "Cash Forecast!B11",
+            "Cash Forecast!C11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A5",
+            "Cash Forecast!B5"
+          ],
+          "supported": true
+        }
+      }
+    },
+    {
+      "pair": 3,
+      "variant": "baseline",
+      "workbook": "workbooks/03-baseline.xlsx",
+      "answers": {
+        "march_carry_forward": {
+          "answer": {
+            "opening_usd": 9000,
+            "preceding_month": "February 2027",
+            "ending_usd": 12000
+          },
+          "evidence": [
+            "Cash Forecast!D8",
+            "Cash Forecast!D9",
+            "Cash Forecast!C8",
+            "Cash Forecast!C16",
+            "Cash Forecast!D16"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!D8",
+            "Cash Forecast!D9",
+            "Cash Forecast!C8",
+            "Cash Forecast!C16",
+            "Cash Forecast!D16"
+          ],
+          "supported": true
+        },
+        "march_cash_change": {
+          "answer": {
+            "receipts_usd": 11000,
+            "payroll_usd": 6000,
+            "rent_usd": 2000,
+            "equipment_usd": 0,
+            "net_change_usd": 3000
+          },
+          "evidence": [
+            "Cash Forecast!D8",
+            "Cash Forecast!A10",
+            "Cash Forecast!D10",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A12",
+            "Cash Forecast!D12",
+            "Cash Forecast!A13",
+            "Cash Forecast!D13",
+            "Cash Forecast!A15",
+            "Cash Forecast!D15"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!D8",
+            "Cash Forecast!A10",
+            "Cash Forecast!D10",
+            "Cash Forecast!A11",
+            "Cash Forecast!D11",
+            "Cash Forecast!A12",
+            "Cash Forecast!D12",
+            "Cash Forecast!A13",
+            "Cash Forecast!D13",
+            "Cash Forecast!A15",
+            "Cash Forecast!D15"
+          ],
+          "supported": true
+        },
+        "january_equipment_payment": {
+          "answer": {
+            "payment": "Equipment payment",
+            "amount_usd": 3000,
+            "ending_usd": 10000
+          },
+          "evidence": [
+            "Cash Forecast!B8",
+            "Cash Forecast!A13",
+            "Cash Forecast!B13",
+            "Cash Forecast!C13",
+            "Cash Forecast!D13",
+            "Cash Forecast!A16",
+            "Cash Forecast!B16"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash Forecast!B8",
+            "Cash Forecast!A13",
+            "Cash Forecast!B13",
+            "Cash Forecast!C13",
+            "Cash Forecast!D13",
+            "Cash Forecast!A16",
+            "Cash Forecast!B16"
+          ],
+          "supported": true
+        }
+      }
+    },
+    {
+      "pair": 3,
+      "variant": "good-enough",
+      "workbook": "workbooks/03-good-enough.xlsx",
+      "answers": {
+        "march_carry_forward": {
+          "answer": {
+            "opening_usd": 9000,
+            "preceding_month": "February 2027",
+            "ending_usd": 12000
+          },
+          "evidence": [
+            "Cash forecast!C7",
+            "Cash forecast!D7",
+            "Cash forecast!A8",
+            "Cash forecast!D8",
+            "Cash forecast!A15",
+            "Cash forecast!C15",
+            "Cash forecast!D15"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash forecast!C7",
+            "Cash forecast!D7",
+            "Cash forecast!A8",
+            "Cash forecast!D8",
+            "Cash forecast!A15",
+            "Cash forecast!C15",
+            "Cash forecast!D15"
+          ],
+          "supported": true
+        },
+        "march_cash_change": {
+          "answer": {
+            "receipts_usd": 11000,
+            "payroll_usd": 6000,
+            "rent_usd": 2000,
+            "equipment_usd": 0,
+            "net_change_usd": 3000
+          },
+          "evidence": [
+            "Cash forecast!D7",
+            "Cash forecast!A9",
+            "Cash forecast!D9",
+            "Cash forecast!A10",
+            "Cash forecast!D10",
+            "Cash forecast!A11",
+            "Cash forecast!D11",
+            "Cash forecast!A12",
+            "Cash forecast!D12",
+            "Cash forecast!A14",
+            "Cash forecast!D14"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash forecast!D7",
+            "Cash forecast!A9",
+            "Cash forecast!D9",
+            "Cash forecast!A10",
+            "Cash forecast!D10",
+            "Cash forecast!A11",
+            "Cash forecast!D11",
+            "Cash forecast!A12",
+            "Cash forecast!D12",
+            "Cash forecast!A14",
+            "Cash forecast!D14"
+          ],
+          "supported": true
+        },
+        "january_equipment_payment": {
+          "answer": {
+            "payment": "Equipment payment",
+            "amount_usd": 3000,
+            "ending_usd": 10000
+          },
+          "evidence": [
+            "Cash forecast!B7",
+            "Cash forecast!C7",
+            "Cash forecast!D7",
+            "Cash forecast!A12",
+            "Cash forecast!B12",
+            "Cash forecast!C12",
+            "Cash forecast!D12",
+            "Cash forecast!A15",
+            "Cash forecast!B15"
+          ],
+          "correct": true,
+          "verified_cells": [
+            "Cash forecast!B7",
+            "Cash forecast!C7",
+            "Cash forecast!D7",
+            "Cash forecast!A12",
+            "Cash forecast!B12",
+            "Cash forecast!C12",
+            "Cash forecast!D12",
+            "Cash forecast!A15",
+            "Cash forecast!B15"
+          ],
+          "supported": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,676 @@
+{
+  "skill_commit": "369a27c30fdd9182deaf41da621da3dcc018ff16",
+  "reader": "gpt-6.1-terra",
+  "runs": [
+    {
+      "case": "impact-analysis",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/impact-analysis-1-baseline.md",
+      "answers": {
+        "expiry_clock": {
+          "answer": "The clock starts when the request enters Awaiting customer documents and runs for seven calendar days in that status.",
+          "evidence": [
+            "expires after **seven calendar days in that status**",
+            "The clock starts when the request enters the status."
+          ],
+          "correct": true,
+          "supported": false,
+          "evidence_word": null
+        },
+        "customer_action": {
+          "answer": "The customer sees Expired in the portal and can submit a new return request.",
+          "evidence": [
+            "The portal shows **Expired**. The customer can submit a new request, and the expired request stays closed.",
+            "Support explains how to submit a new return request."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 136
+        },
+        "launch_decisions": {
+          "answer": "Product owns the decision on whether the rule applies to requests already open at launch. Communications owns the decision on whether to send an expiry email.",
+          "evidence": [
+            "**Launch-day decision for Product:** Decide whether the rule applies to requests already open at launch.",
+            "**Open decision for Communications:** Decide whether to send an expiry email."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 208
+        }
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 3,
+      "variant": "baseline",
+      "artifact": "artifacts/impact-analysis-3-baseline.md",
+      "answers": {
+        "expiry_clock": {
+          "answer": "The clock starts when the request enters Awaiting customer documents and runs for seven calendar days.",
+          "evidence": [
+            "After launch, an in-scope return request will expire after seven calendar days in **Awaiting customer documents**, counted from when it entered that status."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 29
+        },
+        "customer_action": {
+          "answer": "The customer sees Expired in the portal and can submit a new request. The expired request stays closed.",
+          "evidence": [
+            "The customer will see **Expired** in the portal and can submit a new request. The expired request stays closed."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 48
+        },
+        "launch_decisions": {
+          "answer": "Product owns the decision on whether requests already open on launch day are in scope. Communications owns the decision on whether customers also receive an expiry email.",
+          "evidence": [
+            "**Product’s launch decision:** Will the rule apply to requests already open on launch day?",
+            "**Communications** — Decide whether customers will also receive an expiry email."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 252
+        }
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 3,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-3-good-enough.md",
+      "answers": {
+        "duplicates": {
+          "answer": "Stop, request a corrected CSV from the supplier, and restart at the upload step.",
+          "evidence": [
+            "If the Preview flags duplicate SKUs, stop.",
+            "Request a corrected CSV from the supplier and restart at the upload step."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 68
+        },
+        "price_approval": {
+          "answer": "Before publishing, obtain written approval from Merchandising if any price changes by more than 10%. If duplicate SKUs are also flagged, ask the process owner when to obtain approval.",
+          "evidence": [
+            "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+            "Ask the process owner when to obtain Merchandising approval if both exceptions apply."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 145
+        },
+        "completion": {
+          "answer": "An Applied batch status confirms the import succeeded. Before recording the batch ID, confirm that status and verify that the prices of two affected SKUs match the approved CSV.",
+          "evidence": [
+            "Confirm that the batch status shows **Applied**.",
+            "Open two affected SKUs and compare their prices with the approved CSV.",
+            "After confirming **Applied** and verifying that both prices match, record the batch ID in the change log."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 195
+        }
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/impact-analysis-2-good-enough.md",
+      "answers": {
+        "expiry_clock": {
+          "answer": "The clock starts when the request enters Awaiting customer documents and runs for seven calendar days.",
+          "evidence": [
+            "an in-scope return request will expire after seven calendar days in **Awaiting customer documents**.",
+            "The clock starts when the request enters that status."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 34
+        },
+        "customer_action": {
+          "answer": "The customer sees Expired in the portal and can submit a new return request. The expired request stays closed.",
+          "evidence": [
+            "The customer will see **Expired** in the portal and can submit a new return request.",
+            "The expired request stays closed."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 54
+        },
+        "launch_decisions": {
+          "answer": "Product owns the decision on whether the rule applies to requests already open on launch day. Communications owns the decision on whether customers receive an expiry email.",
+          "evidence": [
+            "| Product | Does the rule apply to requests already open on launch day? |",
+            "| Communications | Will customers receive an expiry email? |"
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 98
+        }
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/impact-analysis-2-baseline.md",
+      "answers": {
+        "expiry_clock": {
+          "answer": "The clock starts when the request enters Awaiting customer documents and runs for seven calendar days.",
+          "evidence": [
+            "An in-scope request expires after seven calendar days, counted from when it entered this status."
+          ],
+          "correct": true,
+          "supported": false,
+          "evidence_word": null
+        },
+        "customer_action": {
+          "answer": "The customer sees Expired in the portal. The expired request stays closed, and they can submit a new return request.",
+          "evidence": [
+            "The customer sees **Expired** in the portal. The expired request stays closed, and the customer can submit a new one."
+          ],
+          "correct": true,
+          "supported": false,
+          "evidence_word": null
+        },
+        "launch_decisions": {
+          "answer": "Product owns the decision on whether requests already open on launch day are in scope. Communications owns the decision on whether to send an expiry email.",
+          "evidence": [
+            "**Product · Existing requests.** Decide whether requests already open on launch day are in scope.",
+            "**Communications · Expiry email.** Decide whether to send an expiry email."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 256
+        }
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/decision-brief-2-baseline.md",
+      "answers": {
+        "approval": {
+          "answer": "Authorize Atlas after Legal clears its DPA; otherwise, defer authorization.",
+          "evidence": [
+            "Authorize the $14,000 Atlas pilot if Legal has cleared its data processing agreement (DPA).",
+            "If clearance is still pending or Legal declines, defer authorization."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 32
+        },
+        "owner_and_date": {
+          "answer": "Maya owns the Legal check, and a decision is expected Tuesday.",
+          "evidence": [
+            "Maya owns the Legal check and expects a decision Tuesday."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 42
+        },
+        "alternative": {
+          "answer": "Nova does not meet the mandatory day-one company SSO requirement; it could meet it in week five.",
+          "evidence": [
+            "Atlas meets both mandatory requirements: US data residency and company SSO on day one.",
+            "| Company SSO | Day one | Week five |"
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 100
+        }
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-1-baseline.md",
+      "answers": {
+        "duplicates": {
+          "answer": "Stop and request a corrected file from the supplier. Once the corrected CSV is approved, return to the upload step.",
+          "evidence": [
+            "If Preview flags duplicate SKUs, stop. The active catalog is unchanged. Request a corrected file from the supplier. Once the corrected CSV is approved, return to the upload step."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 64
+        },
+        "price_approval": {
+          "answer": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "evidence": [
+            "If any price changes by more than 10%, obtain written approval from Merchandising before publishing."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 102
+        },
+        "completion": {
+          "answer": "A batch status of Applied confirms the import succeeded. Before recording the batch ID, verify that the prices of two affected SKUs both match the approved CSV.",
+          "evidence": [
+            "Select **Publish** and confirm that the batch status shows **Applied**.",
+            "Open two affected SKUs and verify that both prices match the approved CSV.",
+            "Once both prices match, record the batch ID in the change log."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 149
+        }
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-2-good-enough.md",
+      "answers": {
+        "duplicates": {
+          "answer": "Stop and request a corrected file from the supplier. Restart at step 2 by uploading the corrected, approved CSV.",
+          "evidence": [
+            "**Duplicate SKUs.** Stop. The active catalog is unchanged. Request a corrected file from the supplier, then restart at step 2 with the corrected, approved CSV."
+          ],
+          "correct": false,
+          "supported": false,
+          "evidence_word": null
+        },
+        "price_approval": {
+          "answer": "Any price change greater than 10% requires written approval from Merchandising before publishing. If the file also has duplicate SKUs, the process owner must confirm whether approval for the original file carries over to the corrected file.",
+          "evidence": [
+            "**Any price change greater than 10%.** Obtain written approval from Merchandising before publishing.",
+            "**Both conditions.** Follow the duplicate-SKU stop and restart at upload. The process owner needs to confirm whether written approval obtained for the original file carries over to the corrected file."
+          ],
+          "correct": false,
+          "supported": false,
+          "evidence_word": null
+        },
+        "completion": {
+          "answer": "A batch status of Applied confirms the import succeeded. Before recording the batch ID, check that the batch is Applied and that prices for two affected SKUs match the approved CSV.",
+          "evidence": [
+            "Confirm that the batch status shows **Applied**.",
+            "Open two affected SKUs and verify each price against the approved CSV.",
+            "Record the batch ID in the change log only after the batch shows **Applied** and both prices match the approved CSV."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 222
+        }
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/decision-brief-1-baseline.md",
+      "answers": {
+        "approval": {
+          "answer": "Authorize Atlas if Legal clears its data processing agreement by the Thursday meeting.",
+          "evidence": [
+            "Authorize the $14,000 Atlas pilot on Thursday if Legal clears its data processing agreement by the meeting."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 24
+        },
+        "owner_and_date": {
+          "answer": "Maya owns the Legal check and expects a decision Tuesday.",
+          "evidence": [
+            "Maya owns the Legal check and expects a decision Tuesday."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 34
+        },
+        "alternative": {
+          "answer": "Nova does not meet the mandatory day-one company SSO requirement; it could meet it in week five.",
+          "evidence": [
+            "Atlas meets both mandatory requirements: US data residency and company SSO on day one.",
+            "| Company SSO | Day one | Week five |"
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 105
+        }
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 3,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-3-baseline.md",
+      "answers": {
+        "duplicates": {
+          "answer": "Stop, request a corrected CSV from the supplier, and restart at the upload step with the approved corrected file.",
+          "evidence": [
+            "If the preview flags duplicate SKUs, stop.",
+            "Request a corrected CSV from the supplier and restart at the upload step with the approved corrected file."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 76
+        },
+        "price_approval": {
+          "answer": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "evidence": [
+            "If any price changes by more than 10%, obtain written approval from Merchandising before publishing."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 107
+        },
+        "completion": {
+          "answer": "A batch status of Applied confirms the import succeeded. Before recording the batch ID, confirm the status is Applied and verify that the prices of two affected SKUs both match the approved CSV.",
+          "evidence": [
+            "Select **Publish** and confirm that the batch status shows **Applied**.",
+            "Open two affected SKUs and verify both prices against the approved CSV.",
+            "Record the batch ID in the change log after confirming the batch is **Applied** and both prices match."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 162
+        }
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/decision-brief-1-good-enough.md",
+      "answers": {
+        "approval": {
+          "answer": "Authorize Atlas on Thursday if Legal first clears its data processing agreement. Otherwise, defer authorization.",
+          "evidence": [
+            "Authorize Atlas on Thursday if Legal has cleared its data processing agreement (DPA).",
+            "If clearance is still pending or Legal declines, defer authorization."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 29
+        },
+        "owner_and_date": {
+          "answer": "Maya owns the Legal check and expects a decision Tuesday.",
+          "evidence": [
+            "Maya owns the Legal check and expects a decision Tuesday."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 39
+        },
+        "alternative": {
+          "answer": "Nova does not meet the mandatory day-one company SSO requirement; it could meet it in week five.",
+          "evidence": [
+            "Atlas meets both mandatory requirements, US data residency and company SSO on day one",
+            "| Nova | $9,000 | 5 business days | Yes | Week five | 90 days |",
+            "Security has granted no exception."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 138
+        }
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 3,
+      "variant": "baseline",
+      "artifact": "artifacts/decision-brief-3-baseline.md",
+      "answers": {
+        "approval": {
+          "answer": "Authorize Atlas after Legal clears its data processing agreement by Thursday.",
+          "evidence": [
+            "Authorize Atlas for $14,000, including setup, if Legal clears its data processing agreement (DPA) by Thursday."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 23
+        },
+        "owner_and_date": {
+          "answer": "Maya owns the Legal check and expects a decision Tuesday.",
+          "evidence": [
+            "Maya owns the Legal check and expects a decision Tuesday."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 58
+        },
+        "alternative": {
+          "answer": "Nova does not meet the mandatory day-one company SSO requirement; it can enable company SSO in week five.",
+          "evidence": [
+            "Atlas meets both mandatory requirements: US data residency and company single sign-on (SSO) on day one.",
+            "Nova can enable company SSO in week five, and Security has granted no exception to the day-one requirement."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 90
+        }
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-1-good-enough.md",
+      "answers": {
+        "duplicates": {
+          "answer": "Stop, request a corrected file from the supplier, and restart at the upload in step 1.",
+          "evidence": [
+            "If the preview flags duplicate SKUs, stop.",
+            "Request a corrected file from the supplier and restart at the upload in step 1."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 72
+        },
+        "price_approval": {
+          "answer": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "evidence": [
+            "If any price changes by more than 10%, obtain written approval from Merchandising before publishing."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 103
+        },
+        "completion": {
+          "answer": "An Applied batch status confirms the import succeeded. Before recording the batch ID, check that both affected SKU prices match the approved CSV.",
+          "evidence": [
+            "Select **Publish** and confirm the batch status is **Applied**.",
+            "Open two affected SKUs and compare their prices with the approved CSV.",
+            "Once the batch shows **Applied** and both prices match, record the batch ID in the change log."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 154
+        }
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 3,
+      "variant": "good-enough",
+      "artifact": "artifacts/decision-brief-3-good-enough.md",
+      "answers": {
+        "approval": {
+          "answer": "Authorize the $14,000 Atlas pilot on Thursday, provided Legal has first cleared its DPA.",
+          "evidence": [
+            "Authorize the $14,000 Atlas pilot on Thursday if Legal has cleared its data processing agreement (DPA)."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 23
+        },
+        "owner_and_date": {
+          "answer": "Maya owns the Legal check and expects a decision Tuesday.",
+          "evidence": [
+            "Maya owns the Legal check and expects a decision Tuesday."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 71
+        },
+        "alternative": {
+          "answer": "Nova lacks company SSO on day one. Its earliest SSO availability is week five; it could also become eligible if Security grants an exception.",
+          "evidence": [
+            "Nova becomes eligible only if Security grants an exception to the day-one SSO requirement.",
+            "Its earliest SSO availability is week five of the six-week pilot."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 161
+        }
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/decision-brief-2-good-enough.md",
+      "answers": {
+        "approval": {
+          "answer": "Authorize Atlas after Legal clears its DPA. If clearance is pending or declined, defer authorization.",
+          "evidence": [
+            "Authorize the $14,000 Atlas pilot on Thursday if Legal has cleared its data processing agreement (DPA).",
+            "If the DPA is still pending or Legal declines to clear it, defer authorization."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 75
+        },
+        "owner_and_date": {
+          "answer": "Maya owns the Legal check and expects a decision Tuesday.",
+          "evidence": [
+            "Maya owns the Legal check and expects a decision Tuesday."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 61
+        },
+        "alternative": {
+          "answer": "Nova does not meet the mandatory day-one company SSO requirement. Its SSO becomes available in week five.",
+          "evidence": [
+            "Atlas meets both mandatory requirements—US data residency and company SSO on day one",
+            "Nova’s company SSO becomes available in week five, and Security has granted no exception."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 89
+        }
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/impact-analysis-1-good-enough.md",
+      "answers": {
+        "expiry_clock": {
+          "answer": "The clock starts when the request enters Awaiting customer documents and runs for seven calendar days in that status.",
+          "evidence": [
+            "return requests in **Awaiting customer documents** will expire after seven calendar days in that status.",
+            "The clock starts when the request enters the status."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 31
+        },
+        "customer_action": {
+          "answer": "The customer sees Expired in the portal and can submit a new request. The expired request stays closed.",
+          "evidence": [
+            "Customers will see **Expired** in the portal and can submit a new request. The expired request stays closed."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 49
+        },
+        "launch_decisions": {
+          "answer": "Product must decide whether the rule applies to requests already open on launch day. Communications must decide whether customers receive an expiry email.",
+          "evidence": [
+            "**Product must decide whether the rule applies to requests already open on launch day.**",
+            "Communications also needs to decide whether customers will receive an expiry email."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 89
+        }
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 3,
+      "variant": "good-enough",
+      "artifact": "artifacts/impact-analysis-3-good-enough.md",
+      "answers": {
+        "expiry_clock": {
+          "answer": "The clock starts when the request enters Awaiting customer documents and runs for seven calendar days.",
+          "evidence": [
+            "seven calendar days in Awaiting customer documents",
+            "counted from when the request enters that status"
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 29
+        },
+        "customer_action": {
+          "answer": "The customer sees Expired in the portal and can submit a new request. The expired request stays closed.",
+          "evidence": [
+            "Customers will see **Expired** in the portal and can submit a new request. The expired request stays closed."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 47
+        },
+        "launch_decisions": {
+          "answer": "Product must decide whether the rule applies to requests already open on launch day. Communications must decide whether to send an expiry email.",
+          "evidence": [
+            "Product needs to decide whether the rule applies to requests already open on launch day.",
+            "Communications still needs to decide whether to send an expiry email."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 94
+        }
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-2-baseline.md",
+      "answers": {
+        "duplicates": {
+          "answer": "Stop, request a corrected file from the supplier, and restart at the upload step with the approved corrected CSV.",
+          "evidence": [
+            "If it flags duplicate SKUs, stop.",
+            "Request a corrected file from the supplier and restart at the upload step with the approved corrected CSV."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 62
+        },
+        "price_approval": {
+          "answer": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "evidence": [
+            "If any price changes by more than 10%, obtain written approval from Merchandising before publishing."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 102
+        },
+        "completion": {
+          "answer": "An Applied batch status confirms the import succeeded. Before recording the batch ID, confirm that status and verify that both affected SKU prices match the approved CSV.",
+          "evidence": [
+            "Select **Publish** and confirm that the batch status is **Applied**.",
+            "Open two affected SKUs and verify both prices against the approved CSV.",
+            "Record the batch ID in the change log only after confirming the **Applied** status and verifying that both prices match."
+          ],
+          "correct": true,
+          "supported": true,
+          "evidence_word": 156
+        }
+      }
+    }
+  ]
+}
