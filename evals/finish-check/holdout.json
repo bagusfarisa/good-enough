@@ -1,0 +1,15 @@
+[
+  {
+    "id": "dashboard-refresh",
+    "task": "Revise the existing SOP for an analyst who runs the weekly territory dashboard refresh. Return the revised SOP in Markdown.",
+    "question": "The approved adjustment file arrived Monday at noon UTC and Validate also found blank account IDs. What can the analyst do now, what are the two documented recovery paths, and who should settle the restart rule for the overlap?",
+    "answer": "Stop the refresh and keep the last published dashboard live. Ask Data Operations for a corrected roster. Notify Sales Operations and wait for a revised publication slot before publishing. Once cleared to resume, replace the draft roster and rerun Validate. The source does not specify which exception takes priority or who grants the combined restart clearance. Ask the Reporting process owner to resolve that overlap. Equivalent wording that flags the unresolved coordination and routes it to that owner is sufficient.",
+    "checks": {
+      "normal_flow": "Upload the approved roster and adjustment file to a draft and run Validate, which checks blank IDs, duplicate IDs, and required columns. Publish once after zero errors and at the applicable slot.",
+      "missing_account_ids": "Stop and keep the draft unpublished, ask Data Operations for a corrected roster, replace the roster once cleared and rerun Validate. Keep existing draft adjustments unless Sales Operations supplies a replacement. Do not repair IDs by hand.",
+      "late_adjustments": "Monday 11:30 UTC cutoff. Keep the last dashboard live when the approved file is late. Notify Sales Operations and wait for its revised publication slot before publishing.",
+      "overlap_and_ownership": "Data Operations owns roster corrections. Sales Operations owns adjustment approvals and revised slots. Reporting process owner handles unresolved questions. Preserve both exception paths without inventing precedence, a required order of clearance, or authority to restart the combined case.",
+      "verify_published": "Compare published roster count to Validate. If they match, record version, roster count, and publication time. On mismatch, keep the version unconfirmed, send version and both counts to Reporting Support, and wait before marking complete."
+    }
+  }
+]

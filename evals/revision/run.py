@@ -12,6 +12,7 @@ import subprocess
 import tempfile
 
 HERE = Path(__file__).resolve().parent
+DEFAULT_CASES = HERE / 'cases.json'
 spec = importlib.util.spec_from_file_location('document_eval', HERE.parent / 'automated' / 'run.py')
 common = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(common)
@@ -37,14 +38,14 @@ def evaluation_trials(manifest):
     return source + trials(manifest)
 
 
-def generate(case, repeat, variant, output, skill, api, modules):
+def generate(case, repeat, variant, output, skill, api, modules, fixtures):
     identifier = f'{case["id"]}-{repeat}-{variant}'
     extension = 'xlsx' if case.get('source') == 'xlsx' else 'md'
     artifact = output / 'artifacts' / f'{identifier}.{extension}'
     metadata = output / 'runs' / f'{identifier}.json'
     if artifact.exists() and metadata.exists():
         return
-    source = HERE / 'fixtures' / f'{case["id"]}.{extension}'
+    source = fixtures / f'{case["id"]}.{extension}'
     guidance = CONCISE + '\n\n' if variant == 'concise' else ''
     if skill:
         guidance = f'Apply the following skill instructions.\n\n<skill>\n{skill}\n</skill>\n\n'
@@ -90,8 +91,9 @@ def main():
     parser.add_argument('--format', choices=['all', 'md', 'xlsx'], default='all')
     parser.add_argument('--api', type=Path)
     parser.add_argument('--node-modules', type=Path)
+    parser.add_argument('--cases', type=Path, default=DEFAULT_CASES, help='Case manifest beside its fixtures directory')
     args = parser.parse_args()
-    cases_path = HERE / 'cases.json'
+    cases_path = args.cases.resolve()
     cases = json.loads(cases_path.read_text())
     revision = subprocess.check_output(['git', 'rev-parse', args.revision], cwd=HERE, text=True).strip()
     revisions = {'good-enough': revision}
@@ -122,7 +124,8 @@ def main():
             continue
         if extension == 'xlsx' and (args.api is None or args.node_modules is None):
             parser.error('Workbook trials require --api and --node-modules.')
-        jobs.extend((case, repeat, variant, out, skills.get(variant), args.api, args.node_modules)
+        jobs.extend((case, repeat, variant, out, skills.get(variant), args.api, args.node_modules,
+                     cases_path.parent / 'fixtures')
                     for repeat, variant in trials(manifest))
     random.Random(284).shuffle(jobs)
     with ThreadPoolExecutor(max_workers=4) as pool:

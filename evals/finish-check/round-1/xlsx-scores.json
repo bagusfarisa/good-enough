@@ -1,0 +1,344 @@
+{
+  "skill_commit": "ed9c6adb728424817c9429e55ccfa91abdce55c6",
+  "harness": "codex-cli 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning": "low",
+  "repeats": 2,
+  "reader_source": "revised artifact only",
+  "cases_sha256": "5b70fbf8d5e3507f1d6c8d8eb50ab09cbcb5094bea9024074946b04836e650b6",
+  "baseline_skill_commit": "367af6a9bdea09cb047f038212e257336bb4816d",
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "opening_words": null,
+  "runs": [
+    {
+      "case": "cash-review",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/cash-review-1-baseline.xlsx",
+      "workbook_checks": {
+        "expected_tabs": true,
+        "drivers_retained": true,
+        "schedule_retained": true,
+        "saved_outputs": true,
+        "no_saved_formula_errors": true,
+        "artifact_tool_base_and_edits": true,
+        "libreoffice_primary_and_secondary_edits": true,
+        "published_headline_recalculates": true
+      },
+      "word_count": null,
+      "full_grade": {
+        "answer": {
+          "answer": "April ending cash is $13,000: $11,000 opening cash + $24,000 collections − $15,000 payroll − $4,000 rent − $3,000 equipment. If collections rise to $28,000 and the other amounts stay the same, ending cash should be $17,000. The editable April collections input is Drivers!B5.",
+          "evidence": [
+            "A4=April ending cash | B4=13000",
+            "A7=Opening cash | B7=11000",
+            "A8=Customer collections | B8=24000",
+            "A9=Payroll | B9=-15000",
+            "A10=Rent | B10=-4000",
+            "A11=Equipment | B11=-3000",
+            "A16=1. Enter a trial amount in Drivers!B5.",
+            "A17=2. Check April ending cash above and May opening cash in Build!C5.",
+            "A5=Customer collections | B5=24000 | C5=20000"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "Review notes A4 and A7–A11 support the $13,000 ending cash and all five signed amounts. Substituting $28,000 for $24,000 gives $17,000. The trial instruction at A16 names Drivers!B5, and Drivers A5 labels the input as customer collections."
+      },
+      "preserved": true
+    },
+    {
+      "case": "cash-review",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/cash-review-1-good-enough.xlsx",
+      "workbook_checks": {
+        "expected_tabs": true,
+        "drivers_retained": true,
+        "schedule_retained": true,
+        "saved_outputs": true,
+        "no_saved_formula_errors": true,
+        "artifact_tool_base_and_edits": true,
+        "libreoffice_primary_and_secondary_edits": true,
+        "published_headline_recalculates": true
+      },
+      "word_count": null,
+      "full_grade": {
+        "answer": {
+          "answer": "April ending cash is $13,000: $11,000 opening cash + $24,000 collections − $15,000 payroll − $4,000 rent − $3,000 equipment. Payments total −$22,000, so the net cash change is +$2,000.\n\nIf April collections rise to $28,000 and the other amounts stay the same, April ending cash should be $17,000. The editable April collections input is Drivers!B5.",
+          "evidence": [
+            "A2=April ending cash (USD) | B2=13000",
+            "A5=Opening cash | B5=11000 | C5=Build!B5",
+            "A6=Customer collections | B6=24000 | C6=Build!B6",
+            "A7=Payroll | B7=-15000 | C7=Build!B7",
+            "A8=Rent | B8=-4000 | C8=Build!B8",
+            "A9=Equipment | B9=-3000 | C9=Build!B9",
+            "A10=Total payments | B10=-22000 | C10=Build!B10",
+            "A11=Net cash change | B11=2000 | C11=Build!B11",
+            "A12=April ending cash equals opening cash plus net cash change.",
+            "A15=Edit April collections in Drivers!B5. Compare April and May ending cash here."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "Review notes A2 and A5–A11 support the $13,000 ending cash, all five signed amounts, the −$22,000 payment total, and the +$2,000 net change. Increasing collections by $4,000 gives $17,000. A15 identifies Drivers!B5 as the editable April collections input."
+      },
+      "preserved": true
+    },
+    {
+      "case": "cash-review",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/cash-review-2-baseline.xlsx",
+      "workbook_checks": {
+        "expected_tabs": true,
+        "drivers_retained": true,
+        "schedule_retained": true,
+        "saved_outputs": true,
+        "no_saved_formula_errors": true,
+        "artifact_tool_base_and_edits": true,
+        "libreoffice_primary_and_secondary_edits": true,
+        "published_headline_recalculates": true
+      },
+      "word_count": null,
+      "full_grade": {
+        "answer": {
+          "answer": "April ending cash is $13,000: $11,000 opening cash + $24,000 collections − $15,000 payroll − $4,000 rent − $3,000 equipment. If April collections rise to $28,000 and all other inputs stay fixed, ending cash should be $17,000. The editable April collections input is Drivers!B5.",
+          "evidence": [
+            "A4=Line item | B4=April 2027 | C4=May 2027",
+            "A5=Opening cash | B5=11000 | C5=13000",
+            "A6=Customer collections | B6=24000 | C6=20000",
+            "A7=Payroll | B7=-15000 | C7=-11000",
+            "A8=Rent | B8=-4000 | C8=-4000",
+            "A9=Equipment | B9=-3000 | C9=-1000",
+            "A12=Ending cash | B12=13000 | C12=17000",
+            "A12=1. Change the highlighted April collections input in Drivers!B5.",
+            "A5=Customer collections | B5=24000 | C5=20000 | D5=Edit April collections here to test ending cash."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "Build A4 identifies column B as April. Build B5–B9 and B12 support all five signed amounts and the $13,000 ending cash. Substituting $28,000 for collections in the April calculation gives $17,000. Review notes A12 explicitly identifies Drivers!B5 as the editable April collections input."
+      },
+      "preserved": true
+    },
+    {
+      "case": "cash-review",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/cash-review-2-good-enough.xlsx",
+      "workbook_checks": {
+        "expected_tabs": true,
+        "drivers_retained": true,
+        "schedule_retained": true,
+        "saved_outputs": true,
+        "no_saved_formula_errors": true,
+        "artifact_tool_base_and_edits": true,
+        "libreoffice_primary_and_secondary_edits": true,
+        "published_headline_recalculates": true
+      },
+      "word_count": null,
+      "full_grade": {
+        "answer": {
+          "answer": "April ending cash is $13,000: $11,000 opening cash + $24,000 collections − $15,000 payroll − $4,000 rent − $3,000 equipment. Total payments are −$22,000, giving a net cash increase of $2,000. If collections rise to $28,000 and the other amounts stay the same, ending cash should be $17,000. The editable April collections input is Drivers!B5.",
+          "evidence": [
+            "A1=April 2027 ending cash | B1=13000",
+            "A5=Opening cash | B5=11000 | C5=Build!B5",
+            "A6=Customer collections | B6=24000 | C6=Build!B6",
+            "A7=Payroll | B7=-15000 | C7=Build!B7",
+            "A8=Rent | B8=-4000 | C8=Build!B8",
+            "A9=Equipment | B9=-3000 | C9=Build!B9",
+            "A10=Total payments | B10=-22000 | C10=Build!B10",
+            "A11=Net cash change | B11=2000 | C11=Build!B11",
+            "A14=1. Record the current value in Drivers!B5, then enter the test amount in USD."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "Review notes A1 and A5–A11 support the $13,000 ending cash, all five signed amounts, and both stated totals. The $4,000 increase in collections gives $17,000. The cited A14 instruction explicitly names Drivers!B5 within the April customer collections test."
+      },
+      "preserved": true
+    },
+    {
+      "case": "margin-review",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/margin-review-1-baseline.xlsx",
+      "workbook_checks": {
+        "expected_tabs": true,
+        "drivers_retained": true,
+        "schedule_retained": true,
+        "saved_outputs": true,
+        "no_saved_formula_errors": true,
+        "artifact_tool_base_and_edits": true,
+        "libreoffice_primary_and_secondary_edits": true,
+        "published_headline_recalculates": true
+      },
+      "word_count": null,
+      "full_grade": {
+        "answer": {
+          "answer": "June gross profit is $18,500. Sales are 1,000 units × $35 = $35,000, less $1,500 in returns, giving $33,500 in net sales. Costs are 1,000 units × $14 = $14,000 in product cost, plus $1,000 in freight, for $15,000 total cost. Net sales less total cost is $18,500.\n\nIf unit cost rises to $16 and all other June assumptions stay constant, product cost becomes $16,000 and total cost becomes $17,000. Gross profit would be $16,500, a decrease of $2,000.\n\nThe editable baseline June unit cost is in Inputs!C7. For a sensitivity test, enter the test cost in Reporting guide!B16.",
+          "evidence": [
+            "A2=June 2027 gross profit | B2=18500 | C2=Net sales less total cost · One product · USD",
+            "A5=Units sold | B5=1000 | C5=June volume",
+            "A6=Selling price per unit | B6=35",
+            "A7=Gross sales | B7=35000 | C7=Units sold × selling price per unit",
+            "A8=Less sales returns | B8=-1500 | C8=Deduction from gross sales",
+            "A9=Net sales | B9=33500 | C9=Gross sales less returns",
+            "A10=Product cost per unit | B10=14 | C10=Baseline unit cost from Inputs",
+            "A11=Product cost | B11=14000 | C11=Units sold × product cost per unit",
+            "A12=Freight | B12=1000",
+            "A13=Total cost | B13=15000 | C13=Product cost plus freight",
+            "A15=Unit-cost sensitivity | B15=June 2027 | C15=All other June assumptions held constant",
+            "A16=Test product cost per unit | B16=15 | C16=Edit the blue cell to test another unit cost.",
+            "A17=Change in gross profit | B17=-1000 | C17=(Baseline unit cost − test unit cost) × units sold",
+            "A18=Gross profit at test cost | B18=17500 | C18=Baseline gross profit plus the change",
+            "[Inputs]",
+            "A2=Editable assumptions",
+            "A4=Line item | B4=May 2027 | C4=June 2027",
+            "A7=Product cost per unit | B7=13 | C7=14"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The cited rows show 1,000 × $35 − $1,500 = $33,500 in net sales and 1,000 × $14 + $1,000 = $15,000 in total cost, giving $18,500 gross profit. Raising unit cost by $2 adds $2,000 to cost and reduces profit to $16,500. The evidence identifies Inputs!C7 as the editable June assumption and Reporting guide!B16 as the test cost."
+      },
+      "preserved": true
+    },
+    {
+      "case": "margin-review",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/margin-review-1-good-enough.xlsx",
+      "workbook_checks": {
+        "expected_tabs": true,
+        "drivers_retained": true,
+        "schedule_retained": true,
+        "saved_outputs": true,
+        "no_saved_formula_errors": true,
+        "artifact_tool_base_and_edits": true,
+        "libreoffice_primary_and_secondary_edits": true,
+        "published_headline_recalculates": true
+      },
+      "word_count": null,
+      "full_grade": {
+        "answer": {
+          "answer": "June baseline gross profit is $18,500. Sales are 1,000 units × $35 = $35,000, less $1,500 in returns, for net sales of $33,500. Costs are 1,000 units × $14 = $14,000 in product cost, plus $1,000 freight, for total cost of $15,000. Net sales less total cost gives $18,500 gross profit.\n\nIf unit cost rises to $16 and the other June inputs stay fixed, product cost becomes $16,000 and total cost becomes $17,000. Gross profit would be $16,500, a decrease of $2,000.\n\nThe editable June baseline unit cost is on the Inputs sheet, cell C7. The Reporting guide also has a scenario adjustment in B7; set it to 2 to model the increase from $14 to $16.",
+          "evidence": [
+            "A10=Units sold | B10=1000 | C10=1000",
+            "A11=Selling price (USD/unit) | B11=35 | C11=35",
+            "A12=Gross sales | B12=35000 | C12=35000",
+            "A13=Sales returns | B13=-1500 | C13=-1500",
+            "A14=Net sales | B14=33500 | C14=33500",
+            "A15=Product cost (USD/unit) | B15=14 | C15=15",
+            "A16=Product cost | B16=14000 | C16=15000",
+            "A17=Freight | B17=1000 | C17=1000",
+            "A18=Total cost | B18=15000 | C18=16000",
+            "A19=Gross profit | B19=18500 | C19=17500",
+            "A5=Edit the blue cell to test a change in product cost per unit.",
+            "A6=Use a positive or negative amount. All other June inputs stay fixed.",
+            "A7=Unit cost change (USD/unit) | B7=1",
+            "A8=Baseline uses Calculation. Edit model assumptions on Inputs.",
+            "[Inputs]",
+            "A2=Editable assumptions",
+            "A4=Line item | B4=May 2027 | C4=June 2027",
+            "A7=Product cost per unit | B7=13 | C7=14"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The cited rows support each sales and cost component and the baseline profit of $33,500 − $15,000 = $18,500. With the other inputs fixed, 1,000 × $16 plus $1,000 freight gives $17,000 total cost and $16,500 profit. The evidence identifies Inputs!C7 as the editable June cost and Reporting guide!B7 as the adjustment cell, where entering 2 represents the increase."
+      },
+      "preserved": true
+    },
+    {
+      "case": "margin-review",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/margin-review-2-baseline.xlsx",
+      "workbook_checks": {
+        "expected_tabs": true,
+        "drivers_retained": true,
+        "schedule_retained": true,
+        "saved_outputs": true,
+        "no_saved_formula_errors": true,
+        "artifact_tool_base_and_edits": true,
+        "libreoffice_primary_and_secondary_edits": true,
+        "published_headline_recalculates": true
+      },
+      "word_count": null,
+      "full_grade": {
+        "answer": {
+          "answer": "June gross profit is $18,500. Gross sales are 1,000 units × $35 = $35,000; after $1,500 in returns, net sales are $33,500. Product cost is 1,000 × $14 = $14,000; adding $1,000 freight gives total cost of $15,000. Net sales less total cost gives $18,500.\n\nAt $16 per unit, holding units, net sales and freight constant, product cost would be $16,000 and total cost would be $17,000. Gross profit would be $16,500, a decrease of $2,000.\n\nThe editable June model assumption is in Inputs!C7. For the scenario, edit Reporting guide!C15.",
+          "evidence": [
+            "A4=Line item | B4=May 2027 | C4=June 2027",
+            "A5=Units sold | B5=800 | C5=1000",
+            "A6=Selling price per unit | B6=34 | C6=35",
+            "A7=Product cost per unit | B7=13 | C7=14",
+            "A8=Sales returns | B8=800 | C8=1500",
+            "A9=Freight | B9=600 | C9=1000",
+            "A6=Gross sales | B6=35000 | C6=Units × selling price",
+            "A7=Less sales returns | B7=-1500",
+            "A8=Net sales | B8=33500",
+            "A9=Product cost | B9=14000 | C9=Units × unit cost",
+            "A10=Freight | B10=1000",
+            "A11=Total cost | B11=15000 | C11=Product cost + freight",
+            "A3=Gross profit | B3=18500 | C3=June 2027",
+            "A19=Edit the highlighted scenario cost in C15. | C19=USD per unit",
+            "A20=The scenario holds units, net sales and freight constant.",
+            "[Inputs]\nA2=Editable assumptions"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The cited June inputs and calculation rows support the $35,000 gross sales, $1,500 returns, $14,000 product cost and $1,000 freight, yielding $18,500 gross profit. Holding units, net sales and freight constant gives $33,500 − (1,000 × $16 + $1,000) = $16,500. The evidence identifies Inputs!C7 as the editable June assumption and explicitly directs the reader to C15 on the Reporting guide for the scenario cost."
+      },
+      "preserved": true
+    },
+    {
+      "case": "margin-review",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/margin-review-2-good-enough.xlsx",
+      "workbook_checks": {
+        "expected_tabs": true,
+        "drivers_retained": true,
+        "schedule_retained": true,
+        "saved_outputs": true,
+        "no_saved_formula_errors": true,
+        "artifact_tool_base_and_edits": true,
+        "libreoffice_primary_and_secondary_edits": true,
+        "published_headline_recalculates": true
+      },
+      "word_count": null,
+      "full_grade": {
+        "answer": {
+          "answer": "June gross profit is $18,500. Gross sales are 1,000 units × $35 = $35,000; after $1,500 in returns, net sales are $33,500. Product cost is 1,000 × $14 = $14,000; adding $1,000 freight gives total cost of $15,000. Net sales less total cost is $18,500.\n\nIf unit cost rises to $16 and all other assumptions stay fixed, product cost becomes $16,000, total cost becomes $17,000, and gross profit becomes $16,500. The editable June product cost per unit is in Inputs!C7. For the sensitivity scenario, enter a change of 2 in Reporting guide!B16.",
+          "evidence": [
+            "A2=Gross profit (USD) | B2=18500 | C2=Net sales less total cost",
+            "A5=Units sold | B5=1000",
+            "A6=Selling price per unit | B6=35",
+            "A7=Gross sales | B7=35000 | C7=Units sold × selling price per unit",
+            "A8=Less sales returns | B8=-1500",
+            "A9=Net sales | B9=33500 | C9=Gross sales less returns",
+            "A10=Product cost per unit | B10=14",
+            "A11=Product cost | B11=14000 | C11=Units sold × product cost per unit",
+            "A12=Freight | B12=1000",
+            "A13=Total cost | B13=15000 | C13=Product cost plus freight",
+            "A15=Unit cost sensitivity | B15=June 2027 | C15=All other June assumptions held fixed",
+            "A16=Change in product cost per unit | B16=1 | C16=Edit the blue cell. Use a negative value for a decrease.",
+            "[Inputs]",
+            "A2=Editable assumptions",
+            "A4=Line item | B4=May 2027 | C4=June 2027",
+            "A7=Product cost per unit | B7=13 | C7=14"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The cited sales and cost rows support the full calculation from $35,000 gross sales to $33,500 net sales and from $14,000 product cost to $15,000 total cost, yielding $18,500 gross profit. At $16 per unit, total cost is $17,000 and profit is $16,500. The evidence locates the June assumption at Inputs!C7 and establishes that Reporting guide!B16 takes the $2 change."
+      },
+      "preserved": true
+    }
+  ]
+}

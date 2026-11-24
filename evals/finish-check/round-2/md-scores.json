@@ -1,0 +1,1326 @@
+{
+  "skill_commit": "ed9c6adb728424817c9429e55ccfa91abdce55c6",
+  "harness": "codex-cli 0.172.0",
+  "generator": "gpt-6.2-sol",
+  "reasoning": "low",
+  "repeats": 2,
+  "reader_source": "revised artifact only",
+  "cases_sha256": "5b70fbf8d5e3507f1d6c8d8eb50ab09cbcb5094bea9024074946b04836e650b6",
+  "baseline_skill_commit": "367af6a9bdea09cb047f038212e257336bb4816d",
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "opening_words": null,
+  "runs": [
+    {
+      "case": "returns-launch",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/returns-launch-1-baseline.md",
+      "workbook_checks": {},
+      "word_count": 285,
+      "full_grade": {
+        "answer": {
+          "answer": "Support should tell the customer that their current request stays open and they can upload documents there. Keep it out of the automation and do not ask the customer to start over while the decision is pending. Elena in Product owns the decision on whether expiry applies to requests already open at launch; the deadline is May 8 at 12:00 UTC.",
+          "evidence": [
+            "| The request was already open at launch and Elena’s decision is pending | Tell the customer their current request stays open and they can upload documents there. Keep these requests out of the automation and hold off on asking customers to start over. |",
+            "| Whether expiry applies to requests already open at launch | Elena, Product · May 8 at 12:00 UTC | Confirm the scope before advising affected customers. Some existing requests have already waited seven days or more and could expire at launch if included, requiring customers to submit a new request. |"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "Line 9 directly supports keeping the request open, accepting uploads there, and holding off on a restart. Line 21 identifies Elena in Product as the scope decision owner and gives the May 8 at 12:00 UTC deadline."
+      },
+      "retained": {
+        "timing": {
+          "passed": true,
+          "reason": "Launch is May 12 at 09:00 UTC. The hourly run checks only requests still in Awaiting customer documents after seven calendar days from status entry. Timely documents let the request continue normally.",
+          "evidence_lines": [
+            3,
+            11,
+            15
+          ],
+          "evidence": [
+            "Launch is **May 12 at 09:00 UTC**. Before briefing agents, check Elena’s decision on requests already open at launch and the launch tracker for Nia’s decision on expiry emails.",
+            "| Documents arrive before the request expires | The request leaves **Awaiting customer documents** and continues as usual. |",
+            "For requests opened after launch, count **seven calendar days** from when the request enters **Awaiting customer documents**. The next hourly run after the request reaches that threshold expires it if it is still in that status. All other statuses are outside the rule."
+          ]
+        },
+        "existing_requests": {
+          "passed": true,
+          "reason": "Existing requests stay outside automation and accept uploads pending Elena’s May 8 at 12:00 UTC decision. Including requests already at the threshold could force customers to start again.",
+          "evidence_lines": [
+            9,
+            21
+          ],
+          "evidence": [
+            "| The request was already open at launch and Elena’s decision is pending | Tell the customer their current request stays open and they can upload documents there. Keep these requests out of the automation and hold off on asking customers to start over. |",
+            "| Whether expiry applies to requests already open at launch | Elena, Product · May 8 at 12:00 UTC | Confirm the scope before advising affected customers. Some existing requests have already waited seven days or more and could expire at launch if included, requiring customers to submit a new request. |"
+          ]
+        },
+        "after_expiry": {
+          "passed": true,
+          "reason": "The portal shows Expired, the customer can submit a new request, and the original stays closed.",
+          "evidence_lines": [
+            10
+          ],
+          "evidence": [
+            "| The portal shows **Expired** | Tell the customer the original request stays closed. They can submit a new return request through the portal. |"
+          ]
+        },
+        "email": {
+          "passed": true,
+          "reason": "Nia owns the email decision, due May 9 at 15:00 UTC. The portal shows Expired either way.",
+          "evidence_lines": [
+            22
+          ],
+          "evidence": [
+            "| Whether expiry also sends an email | Nia, Communications · May 9 at 15:00 UTC | Communications will record the decision in the launch tracker. The portal shows **Expired** either way. |"
+          ]
+        },
+        "operations": {
+          "passed": true,
+          "reason": "During the first week, Operations checks the exception queue each weekday at 16:00 UTC and logs mismatches in the launch tracker.",
+          "evidence_lines": [
+            24
+          ],
+          "evidence": [
+            "During the first week, Operations will check the exception queue each weekday at **16:00 UTC** and log mismatches in the launch tracker."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "returns-launch",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/returns-launch-1-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 293,
+      "full_grade": {
+        "answer": {
+          "answer": "Support should tell the customer that their current return request remains open and ask them to upload their documents and continue using that request. Elena in Product owns the decision on whether automation will apply to requests already open at launch; the stated deadline is May 8 at 12:00 UTC.",
+          "evidence": [
+            "While Product’s decision is pending, requests already open at launch are excluded from automation.",
+            "Tell affected customers their current request stays open and they can upload documents there.",
+            "| Already open at launch, with Product’s decision still pending | Tell the customer to upload documents to their current request. Ask them to continue using that request. |",
+            "| **Elena, Product · May 8 at 12:00 UTC** | Decides whether automation applies to requests already open at launch. Some have already spent seven or more days awaiting documents. If included, they could expire on the first launch run and require customers to submit a new request. |"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "Lines 3 and 9 support telling the customer to upload documents and continue using the same open request, which conveys that no restart is needed. Line 19 confirms Elena’s Product role, the scope decision, and the May 8 at 12:00 UTC deadline."
+      },
+      "retained": {
+        "timing": {
+          "passed": true,
+          "reason": "Launch is May 12 at 09:00 UTC. The hourly run checks only requests still in Awaiting customer documents after seven calendar days from status entry. Documents received before expiry continue through the usual process.",
+          "evidence_lines": [
+            3,
+            10,
+            13
+          ],
+          "evidence": [
+            "**Launch: May 12 at 09:00 UTC.** Check the launch tracker for the Product and Communications decisions before briefing agents. While Product’s decision is pending, requests already open at launch are excluded from automation. Tell affected customers their current request stays open and they can upload documents there.",
+            "| Opened after launch and awaiting customer documents | The customer can upload documents to the current request before it expires. If documents arrive before expiry, the request leaves **Awaiting customer documents** and continues as usual. |",
+            "For requests opened after launch, count seven calendar days from entry into **Awaiting customer documents**. The next hourly automation run expires requests that reach the threshold and are still in that status. Requests in every other status are outside the rule."
+          ]
+        },
+        "existing_requests": {
+          "passed": true,
+          "reason": "Already-open requests accept uploads and stay outside automation pending Elena’s May 8 at 12:00 UTC decision. Including them could cause first-run expiry and require a new request.",
+          "evidence_lines": [
+            3,
+            19
+          ],
+          "evidence": [
+            "**Launch: May 12 at 09:00 UTC.** Check the launch tracker for the Product and Communications decisions before briefing agents. While Product’s decision is pending, requests already open at launch are excluded from automation. Tell affected customers their current request stays open and they can upload documents there.",
+            "| **Elena, Product · May 8 at 12:00 UTC** | Decides whether automation applies to requests already open at launch. Some have already spent seven or more days awaiting documents. If included, they could expire on the first launch run and require customers to submit a new request. |"
+          ]
+        },
+        "after_expiry": {
+          "passed": true,
+          "reason": "The portal displays Expired, permits a new return request, and keeps the original closed.",
+          "evidence_lines": [
+            11
+          ],
+          "evidence": [
+            "| Expired | The portal displays **Expired**. Direct the customer to submit a new return request in the portal. The original request stays closed. |"
+          ]
+        },
+        "email": {
+          "passed": true,
+          "reason": "Nia decides whether to send an email by May 9 at 15:00 UTC. The Expired label applies either way.",
+          "evidence_lines": [
+            20
+          ],
+          "evidence": [
+            "| **Nia, Communications · May 9 at 15:00 UTC** | Decides whether expiry also sends an email and records the decision in the launch tracker. The portal displays **Expired** either way. |"
+          ]
+        },
+        "operations": {
+          "passed": true,
+          "reason": "During the first week, Operations checks the exception queue each weekday at 16:00 UTC and logs mismatches in the launch tracker.",
+          "evidence_lines": [
+            22
+          ],
+          "evidence": [
+            "During the first week, Operations checks the exception queue each weekday at **16:00 UTC** and logs mismatches in the launch tracker."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "returns-launch",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/returns-launch-2-baseline.md",
+      "workbook_checks": {},
+      "word_count": 277,
+      "full_grade": {
+        "answer": {
+          "answer": "Tell the customer: “Your current return request is still open. You can upload your documents there.” Keep the request out of the automation while the decision is pending. Elena in Product owns the decision on whether expiry applies to requests already open at launch; the deadline is May 8 at 12:00 UTC.",
+          "evidence": [
+            "**While Product’s decision is pending, keep already-open requests out of the automation.**",
+            "| Already open at launch and Product’s decision is pending | “Your current return request is still open. You can upload your documents there.” |",
+            "| Whether expiry applies to requests already open at launch | Elena, Product · May 8 at 12:00 UTC | Some requests have already waited seven days or more. If included, they could expire on the first run and customers would need to submit a new request. |"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quoted guidance in lines 3 and 9 keeps the request outside automation and tells the customer they can upload to the still-open request, conveying that they can proceed without restarting. Line 19 confirms Elena in Product owns the decision due May 8 at 12:00 UTC."
+      },
+      "retained": {
+        "timing": {
+          "passed": true,
+          "reason": "Launch is May 12 at 09:00 UTC. Only Awaiting customer documents is eligible for the hourly run, with seven calendar days counted from status entry. Documents received before expiry allow normal processing.",
+          "evidence_lines": [
+            3,
+            11,
+            13
+          ],
+          "evidence": [
+            "The rollout starts **May 12 at 09:00 UTC**. Before briefing the team, check the launch tracker for Product’s decision on requests already open at launch and Communications’ decision on expiry emails. **While Product’s decision is pending, keep already-open requests out of the automation.** Tell affected customers their current request stays open and they can upload documents there.",
+            "| Documents arrive before expiry | The request leaves **Awaiting customer documents** and continues as usual. |",
+            "For requests opened after launch, the seven-calendar-day clock starts when the request enters **Awaiting customer documents**. If it is still in that status when it reaches seven days, the next hourly run expires it. The automation applies only to that status."
+          ]
+        },
+        "existing_requests": {
+          "passed": true,
+          "reason": "Existing requests remain outside automation and accept uploads pending Elena’s May 8 at 12:00 UTC decision. Including requests already at the threshold could require their customers to submit a new request.",
+          "evidence_lines": [
+            3,
+            19
+          ],
+          "evidence": [
+            "The rollout starts **May 12 at 09:00 UTC**. Before briefing the team, check the launch tracker for Product’s decision on requests already open at launch and Communications’ decision on expiry emails. **While Product’s decision is pending, keep already-open requests out of the automation.** Tell affected customers their current request stays open and they can upload documents there.",
+            "| Whether expiry applies to requests already open at launch | Elena, Product · May 8 at 12:00 UTC | Some requests have already waited seven days or more. If included, they could expire on the first run and customers would need to submit a new request. |"
+          ]
+        },
+        "after_expiry": {
+          "passed": true,
+          "reason": "The portal shows Expired, the original stays closed, and the customer can submit a new request.",
+          "evidence_lines": [
+            10
+          ],
+          "evidence": [
+            "| Portal shows **Expired** | “This request is closed and will stay closed. You can submit a new return request from the portal.” |"
+          ]
+        },
+        "email": {
+          "passed": true,
+          "reason": "Nia owns the email decision, due May 9 at 15:00 UTC. The portal shows Expired either way.",
+          "evidence_lines": [
+            20
+          ],
+          "evidence": [
+            "| Whether expiry sends an email | Nia, Communications · May 9 at 15:00 UTC | Communications will record the decision in the launch tracker. The portal shows **Expired** either way. |"
+          ]
+        },
+        "operations": {
+          "passed": true,
+          "reason": "During the first week, Operations checks the exception queue each weekday at 16:00 UTC and logs mismatches in the launch tracker.",
+          "evidence_lines": [
+            22
+          ],
+          "evidence": [
+            "During the first week, Operations will check the exception queue each weekday at **16:00 UTC** and log mismatches in the launch tracker."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "returns-launch",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/returns-launch-2-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 285,
+      "full_grade": {
+        "answer": {
+          "answer": "Tell the customer their request is still open and ask them to upload the documents to their current request. Until Product decides, already-open requests are excluded from the automation. If Product includes them, a request that has spent eight days in Awaiting customer documents could expire at launch, and the customer would need to submit a new request.\n\nElena in Product owns the scope decision, due May 8 at 12:00 UTC. The artifact does not establish whether the eight days were spent in Awaiting customer documents, so Support cannot determine the request’s expiry risk from its age alone. Do not promise an expiry email without checking Nia’s decision in the launch tracker.",
+          "evidence": [
+            "Until Product decides, already-open requests stay out of the automation.",
+            "Tell affected customers to upload documents to their current request.",
+            "| Whether expiry applies to requests already open at launch | Elena, Product · May 8 at 12:00 UTC | Confirm the scope with Elena. If she includes these requests, customers whose requests have already spent seven or more calendar days in **Awaiting customer documents** could have their requests expire at launch and need to submit a new one. |",
+            "**The request is still open and awaiting documents.** Ask the customer to upload documents to their current request.",
+            "Check the launch tracker for Nia’s decision before telling customers to expect an email."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "Lines 3 and 12 support continuing with an upload to the same open request. Line 7 names Elena in Product and gives the May 8 at 12:00 UTC deadline. Its seven-day threshold supports the conditional eight-day example, and the question leaves the time in that specific status unspecified. Line 8 supports checking Nia’s decision before promising an email."
+      },
+      "retained": {
+        "timing": {
+          "passed": true,
+          "reason": "Launch is May 12 at 09:00 UTC. The hourly run applies only to requests still in Awaiting customer documents after seven calendar days from status entry. Timely documents allow the request to continue normally.",
+          "evidence_lines": [
+            3,
+            12,
+            17
+          ],
+          "evidence": [
+            "**Launch May 12 at 09:00 UTC.** Before briefing the team, confirm whether Product has approved expiry for requests already open at launch and check the launch tracker for the email decision. Until Product decides, already-open requests stay out of the automation. Tell affected customers to upload documents to their current request.",
+            "- **The request is still open and awaiting documents.** Ask the customer to upload documents to their current request. If the documents arrive before expiry, the request leaves **Awaiting customer documents** and continues as usual.",
+            "For requests opened after launch, count seven calendar days from when the request entered **Awaiting customer documents**. The next hourly run expires the request if it is still in that status. The automation leaves requests in all other statuses alone."
+          ]
+        },
+        "existing_requests": {
+          "passed": true,
+          "reason": "Existing requests stay outside automation and can receive uploads pending Elena’s May 8 at 12:00 UTC decision. Including requests already at the threshold could cause launch-day expiry and require a new request.",
+          "evidence_lines": [
+            3,
+            7
+          ],
+          "evidence": [
+            "**Launch May 12 at 09:00 UTC.** Before briefing the team, confirm whether Product has approved expiry for requests already open at launch and check the launch tracker for the email decision. Until Product decides, already-open requests stay out of the automation. Tell affected customers to upload documents to their current request.",
+            "| Whether expiry applies to requests already open at launch | Elena, Product · May 8 at 12:00 UTC | Confirm the scope with Elena. If she includes these requests, customers whose requests have already spent seven or more calendar days in **Awaiting customer documents** could have their requests expire at launch and need to submit a new one. |"
+          ]
+        },
+        "after_expiry": {
+          "passed": true,
+          "reason": "The portal shows Expired, the customer can submit a new request, and the original stays closed.",
+          "evidence_lines": [
+            13
+          ],
+          "evidence": [
+            "- **The portal shows Expired.** Tell the customer to submit a new return request in the portal. The original request stays closed."
+          ]
+        },
+        "email": {
+          "passed": true,
+          "reason": "Nia owns the email decision, due May 9 at 15:00 UTC. The portal shows Expired either way.",
+          "evidence_lines": [
+            8
+          ],
+          "evidence": [
+            "| Whether expiry sends an email | Nia, Communications · May 9 at 15:00 UTC | Check the launch tracker for Nia’s decision before telling customers to expect an email. The portal shows **Expired** either way. |"
+          ]
+        },
+        "operations": {
+          "passed": true,
+          "reason": "During the first week, Operations checks the exception queue each weekday at 16:00 UTC and logs mismatches in the launch tracker.",
+          "evidence_lines": [
+            19
+          ],
+          "evidence": [
+            "During the first week, Operations will check the exception queue each weekday at 16:00 UTC and log mismatches in the launch tracker."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "dispatch-brief",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/dispatch-brief-1-baseline.md",
+      "workbook_checks": {},
+      "word_count": 277,
+      "full_grade": {
+        "answer": {
+          "answer": "The COO can reserve up to $4,800 for Atlas now. The May 18 launch is authorized only if both tests receive explicit approval by their deadlines:\n\n- Manual override drill — Priya, Safety; May 14 at 12:00 UTC.\n- East-facing scanner feed test — Luis, Integrations; May 15 at 16:00 UTC.\n\nIf only one clears by its deadline, continue manual dispatch; the launch requires both gates to clear.",
+          "evidence": [
+            "**Reserve up to $4,800 for Atlas. Authorize the May 18 launch only if both launch gates receive explicit approval by their deadlines.** If either gate fails or misses its deadline, continue manual dispatch.",
+            "| Manual override drill | Priya, Safety · May 14, 12:00 UTC | A shift leader can restore the manual dispatch queue within 10 minutes. |",
+            "| East-facing scanner feed test | Luis, Integrations · May 15, 16:00 UTC | Every scan in the sample reaches Atlas exactly once. |"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quoted decision supports the immediate Atlas reservation of up to $4,800, the conditional May 18 launch, and continued manual dispatch if only one gate clears. The quoted rows verify Priya’s drill and Luis’s scanner test with their respective deadlines."
+      },
+      "retained": {
+        "decision": {
+          "passed": true,
+          "reason": "The group recommends Atlas. Up to $4,800 can be reserved now, and May 18 launch requires explicit approval of both gates by their deadlines.",
+          "evidence_lines": [
+            5,
+            7
+          ],
+          "evidence": [
+            "**Reserve up to $4,800 for Atlas. Authorize the May 18 launch only if both launch gates receive explicit approval by their deadlines.** If either gate fails or misses its deadline, continue manual dispatch.",
+            "The working group recommends Atlas to test whether a routing check reduces missed route assignments when the queue changes close to shift handover. The pilot covers the North warehouse weekday morning shift for two weeks. Shift leaders keep manual review in place until launch and available as a fallback throughout the pilot. Record the COO’s decision in the normal decision register."
+          ]
+        },
+        "gates": {
+          "passed": true,
+          "reason": "Priya owns the manual restore drill due May 14 at 12:00 UTC, with a 10-minute limit. Luis owns the scanner feed test due May 15 at 16:00 UTC, with exactly one arrival required per sample scan. Either failure or missed deadline triggers manual dispatch.",
+          "evidence_lines": [
+            5,
+            13,
+            14
+          ],
+          "evidence": [
+            "**Reserve up to $4,800 for Atlas. Authorize the May 18 launch only if both launch gates receive explicit approval by their deadlines.** If either gate fails or misses its deadline, continue manual dispatch.",
+            "| Manual override drill | Priya, Safety · May 14, 12:00 UTC | A shift leader can restore the manual dispatch queue within 10 minutes. |",
+            "| East-facing scanner feed test | Luis, Integrations · May 15, 16:00 UTC | Every scan in the sample reaches Atlas exactly once. |"
+          ]
+        },
+        "alternatives": {
+          "passed": true,
+          "reason": "Beacon costs $3,200 and its required audit-log export starts June 8. Manual dispatch costs $0 and leaves the shift without the proposed check.",
+          "evidence_lines": [
+            21,
+            22
+          ],
+          "evidence": [
+            "| Beacon | $3,200 | Can export the required audit log starting June 8, too late for the May 18 start. |",
+            "| Continue manual dispatch | $0 | Keeps the current process and leaves the shift without the proposed routing check. |"
+          ]
+        },
+        "scope": {
+          "passed": true,
+          "reason": "The pilot covers the North warehouse weekday morning shift for two weeks.",
+          "evidence_lines": [
+            7
+          ],
+          "evidence": [
+            "The working group recommends Atlas to test whether a routing check reduces missed route assignments when the queue changes close to shift handover. The pilot covers the North warehouse weekday morning shift for two weeks. Shift leaders keep manual review in place until launch and available as a fallback throughout the pilot. Record the COO’s decision in the normal decision register."
+          ]
+        },
+        "outcome": {
+          "passed": true,
+          "reason": "The comparison uses the two preceding weeks. Continuation requires at least 20% fewer missed assignments and a gap-free audit log. Broader rollout requires separate COO approval.",
+          "evidence_lines": [
+            28
+          ],
+          "evidence": [
+            "After two weeks, compare missed assignments during the pilot with the two preceding weeks. Continue only if missed assignments fall by at least 20% and the audit log has no gaps. Any broader rollout requires a separate COO approval."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "dispatch-brief",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/dispatch-brief-1-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 272,
+      "full_grade": {
+        "answer": {
+          "answer": "The COO can approve a funding reservation of up to $4,800 for the Atlas two-week pilot now. Launch on May 18 requires both test owners to explicitly approve their tests by their deadlines:\n\n- Manual override drill: Priya, Safety — May 14 at 12:00 UTC.\n- East-facing scanner feed test: Luis, Integrations — May 15 at 16:00 UTC.\n\nIf only one test clears by its deadline and the other fails or lacks approval at its deadline, continue manual dispatch; the pilot does not launch.",
+          "evidence": [
+            "Reserve up to **$4,800 for Atlas** for a two-week pilot on weekday morning shifts at the North warehouse.",
+            "Launch on May 18 requires both owners to explicitly approve their tests by the deadlines below.",
+            "If either test fails or its approval is missing at the deadline, continue manual dispatch.",
+            "| Manual override drill | Priya, Safety · May 14 at 12:00 UTC | A shift leader restores the manual dispatch queue within 10 minutes. |",
+            "| East-facing scanner feed test | Luis, Integrations · May 15 at 16:00 UTC | Every scan in the sample reaches Atlas exactly once. |"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quotations support reserving up to $4,800 for Atlas now. They identify Priya’s manual override drill deadline as May 14 at 12:00 UTC and Luis’s scanner feed test deadline as May 15 at 16:00 UTC. Both approvals are required for May 18 launch, so manual dispatch continues if only one clears."
+      },
+      "retained": {
+        "decision": {
+          "passed": true,
+          "reason": "The working group recommends Atlas. The COO can reserve up to $4,800 now, with May 18 launch conditional on both timely approvals.",
+          "evidence_lines": [
+            3,
+            5
+          ],
+          "evidence": [
+            "**Decision requested.** Reserve up to **$4,800 for Atlas** for a two-week pilot on weekday morning shifts at the North warehouse. The working group recommends Atlas to address missed route assignments when the dispatch queue changes close to shift handover.",
+            "**Launch condition.** The funding reservation is for the pilot. Launch on May 18 requires both owners to explicitly approve their tests by the deadlines below. If either test fails or its approval is missing at the deadline, continue manual dispatch. Shift leaders keep manual review in place until launch and available as a fallback throughout the pilot."
+          ]
+        },
+        "gates": {
+          "passed": true,
+          "reason": "Priya’s May 14 12:00 UTC drill requires manual restoration within 10 minutes. Luis’s May 15 16:00 UTC test requires every sample scan to reach Atlas exactly once. Failure or missing approval at either deadline keeps manual dispatch in place.",
+          "evidence_lines": [
+            5,
+            9,
+            10
+          ],
+          "evidence": [
+            "**Launch condition.** The funding reservation is for the pilot. Launch on May 18 requires both owners to explicitly approve their tests by the deadlines below. If either test fails or its approval is missing at the deadline, continue manual dispatch. Shift leaders keep manual review in place until launch and available as a fallback throughout the pilot.",
+            "| Manual override drill | Priya, Safety · May 14 at 12:00 UTC | A shift leader restores the manual dispatch queue within 10 minutes. |",
+            "| East-facing scanner feed test | Luis, Integrations · May 15 at 16:00 UTC | Every scan in the sample reaches Atlas exactly once. |"
+          ]
+        },
+        "alternatives": {
+          "passed": true,
+          "reason": "Beacon costs $3,200 and can export the required audit log starting June 8. Manual dispatch has no pilot fee and lacks the proposed routing check.",
+          "evidence_lines": [
+            17,
+            18
+          ],
+          "evidence": [
+            "| Beacon | $3,200 | Can export the required audit log starting June 8, after the required May 18 start. |",
+            "| Manual dispatch | No pilot fee | Keeps the current process in place without the proposed routing check. |"
+          ]
+        },
+        "scope": {
+          "passed": true,
+          "reason": "The pilot covers weekday morning shifts at the North warehouse for two weeks.",
+          "evidence_lines": [
+            3
+          ],
+          "evidence": [
+            "**Decision requested.** Reserve up to **$4,800 for Atlas** for a two-week pilot on weekday morning shifts at the North warehouse. The working group recommends Atlas to address missed route assignments when the dispatch queue changes close to shift handover."
+          ]
+        },
+        "outcome": {
+          "passed": true,
+          "reason": "Continuation requires at least 20% fewer missed assignments than in the preceding two weeks and a gap-free audit log. Broader rollout requires separate COO approval.",
+          "evidence_lines": [
+            24
+          ],
+          "evidence": [
+            "After two weeks, compare missed assignments with the preceding two weeks. Continue only if missed assignments fall by at least **20%** and the audit log has **no gaps**. Any broader rollout requires separate COO approval."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "dispatch-brief",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/dispatch-brief-2-baseline.md",
+      "workbook_checks": {},
+      "word_count": 266,
+      "full_grade": {
+        "answer": {
+          "answer": "The COO can approve reserving up to $4,800 for a two-week Atlas pilot starting May 18 at the North warehouse, weekday morning shift. Launch depends on both tests clearing by their deadlines:\n\n- Manual override drill — Priya, Safety; May 14 at 12:00 UTC. A shift leader must restore the manual dispatch queue within 10 minutes.\n- East-facing scanner feed test — Luis, Integrations; May 15 at 16:00 UTC. Every scan in the sample must reach Atlas exactly once.\n\nIf only one test clears by its deadline, the other gate has failed or lacks approval at its deadline, so the team continues manual dispatch.",
+          "evidence": [
+            "Reserve up to **$4,800** for a two-week Atlas pilot starting **May 18**.",
+            "The working group recommends Atlas for the **North warehouse, weekday morning shift**.",
+            "Launch requires both approvals below by their deadlines. If either gate fails or lacks approval at its deadline, continue manual dispatch.",
+            "| Manual override drill | Priya, Safety · May 14, 12:00 UTC | A shift leader restores the manual dispatch queue within 10 minutes. |",
+            "| East-facing scanner feed test | Luis, Integrations · May 15, 16:00 UTC | Every scan in the sample reaches Atlas exactly once. |"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quotations support the $4,800 reservation limit, pilot scope, conditional May 18 start, and manual fallback. Both quoted gate rows support the test names, owners, UTC deadlines, and pass criteria given in the answer."
+      },
+      "retained": {
+        "decision": {
+          "passed": true,
+          "reason": "The brief recommends Atlas and requests a reservation of up to $4,800. Both approvals must arrive by their deadlines for the May 18 start.",
+          "evidence_lines": [
+            3
+          ],
+          "evidence": [
+            "**Decision requested.** Reserve up to **$4,800** for a two-week Atlas pilot starting **May 18**. The working group recommends Atlas for the **North warehouse, weekday morning shift**. Launch requires both approvals below by their deadlines. If either gate fails or lacks approval at its deadline, continue manual dispatch."
+          ]
+        },
+        "gates": {
+          "passed": true,
+          "reason": "Priya’s manual override drill is due May 14 at 12:00 UTC and requires restoration within 10 minutes. Luis’s scanner feed test is due May 15 at 16:00 UTC and requires exactly one arrival per sample scan. Manual dispatch continues if either fails or lacks timely approval.",
+          "evidence_lines": [
+            3,
+            11,
+            12
+          ],
+          "evidence": [
+            "**Decision requested.** Reserve up to **$4,800** for a two-week Atlas pilot starting **May 18**. The working group recommends Atlas for the **North warehouse, weekday morning shift**. Launch requires both approvals below by their deadlines. If either gate fails or lacks approval at its deadline, continue manual dispatch.",
+            "| Manual override drill | Priya, Safety · May 14, 12:00 UTC | A shift leader restores the manual dispatch queue within 10 minutes. |",
+            "| East-facing scanner feed test | Luis, Integrations · May 15, 16:00 UTC | Every scan in the sample reaches Atlas exactly once. |"
+          ]
+        },
+        "alternatives": {
+          "passed": true,
+          "reason": "Beacon costs $3,200 and offers the required audit-log export starting June 8. Continuing manual dispatch avoids the fee and omits the proposed routing check.",
+          "evidence_lines": [
+            21,
+            22
+          ],
+          "evidence": [
+            "| Beacon | $3,200 | Can export the required audit log starting June 8, after the required May 18 start. |",
+            "| Continue manual dispatch | No pilot fee | Dispatch continues without the proposed routing check. |"
+          ]
+        },
+        "scope": {
+          "passed": true,
+          "reason": "The two-week pilot covers the North warehouse weekday morning shift.",
+          "evidence_lines": [
+            3
+          ],
+          "evidence": [
+            "**Decision requested.** Reserve up to **$4,800** for a two-week Atlas pilot starting **May 18**. The working group recommends Atlas for the **North warehouse, weekday morning shift**. Launch requires both approvals below by their deadlines. If either gate fails or lacks approval at its deadline, continue manual dispatch."
+          ]
+        },
+        "outcome": {
+          "passed": true,
+          "reason": "The baseline is the two weeks immediately before the pilot. Continuation requires at least 20% fewer missed assignments and no audit-log gaps. Broader rollout needs separate COO approval.",
+          "evidence_lines": [
+            28
+          ],
+          "evidence": [
+            "After two weeks, compare missed assignments with the two weeks immediately before the pilot. Continue only if missed assignments fall by **at least 20%** and the audit log has **no gaps**. Any broader rollout requires separate COO approval."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "dispatch-brief",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/dispatch-brief-2-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 283,
+      "full_grade": {
+        "answer": {
+          "answer": "The COO can approve a funding reservation of up to $4,800 for the Atlas pilot now. Launch also requires explicit approval from both gate owners by their deadlines:\n\n- Manual override drill: Priya, Safety — May 14 at 12:00 UTC.\n- East-facing scanner feed test: Luis, Integrations — May 15 at 16:00 UTC.\n\nIf only one test clears by its deadline, continue manual dispatch; both gates must clear for launch.",
+          "evidence": [
+            "Reserve up to **$4,800** for the Atlas pilot and record the decision in the normal decision register.",
+            "Launch requires explicit approval from both gate owners by their deadlines. If either gate fails or misses its deadline, continue manual dispatch.",
+            "| Manual override drill | Priya, Safety · May 14 at 12:00 UTC | A shift leader restores the manual dispatch queue within 10 minutes. |",
+            "| East-facing scanner feed test | Luis, Integrations · May 15 at 16:00 UTC | Every scan in the sample reaches Atlas exactly once. |"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quotations support reserving up to $4,800 for Atlas and continuing manual dispatch unless both owners approve on time. The gate rows verify the manual override drill with Priya by May 14 at 12:00 UTC and the scanner feed test with Luis by May 15 at 16:00 UTC."
+      },
+      "retained": {
+        "decision": {
+          "passed": true,
+          "reason": "The group recommends Atlas for May 18. The reservation covers up to $4,800 in funding, and launch requires both owners’ timely approvals.",
+          "evidence_lines": [
+            3
+          ],
+          "evidence": [
+            "**Decision requested.** Reserve up to **$4,800** for the Atlas pilot and record the decision in the normal decision register. The working group recommends Atlas for a **May 18** start at the North warehouse, on the weekday morning shift only, for two weeks. The reservation covers funding. Launch requires explicit approval from both gate owners by their deadlines. If either gate fails or misses its deadline, continue manual dispatch."
+          ]
+        },
+        "gates": {
+          "passed": true,
+          "reason": "Priya’s May 14 12:00 UTC drill requires restoration within 10 minutes. Luis’s May 15 16:00 UTC test requires every sample scan to reach Atlas exactly once. Manual dispatch continues if either gate fails or misses its deadline.",
+          "evidence_lines": [
+            3,
+            11,
+            12
+          ],
+          "evidence": [
+            "**Decision requested.** Reserve up to **$4,800** for the Atlas pilot and record the decision in the normal decision register. The working group recommends Atlas for a **May 18** start at the North warehouse, on the weekday morning shift only, for two weeks. The reservation covers funding. Launch requires explicit approval from both gate owners by their deadlines. If either gate fails or misses its deadline, continue manual dispatch.",
+            "| Manual override drill | Priya, Safety · May 14 at 12:00 UTC | A shift leader restores the manual dispatch queue within 10 minutes. |",
+            "| East-facing scanner feed test | Luis, Integrations · May 15 at 16:00 UTC | Every scan in the sample reaches Atlas exactly once. |"
+          ]
+        },
+        "alternatives": {
+          "passed": true,
+          "reason": "Beacon costs $3,200 and its required audit-log export starts June 8. The pilot would test the proposed routing check, while continuing manual dispatch costs $0 and leaves that check untested.",
+          "evidence_lines": [
+            5,
+            21,
+            22
+          ],
+          "evidence": [
+            "Dispatch can miss a route assignment when the queue changes close to shift handover. The pilot will test whether the proposed routing check reduces missed assignments.",
+            "| Beacon | $3,200 | Can export the required audit log starting June 8, too late for the May 18 start. |",
+            "| Continue manual dispatch | $0 | Avoids a pilot fee and leaves the proposed routing check untested. |"
+          ]
+        },
+        "scope": {
+          "passed": true,
+          "reason": "The two-week pilot is limited to the North warehouse weekday morning shift.",
+          "evidence_lines": [
+            3
+          ],
+          "evidence": [
+            "**Decision requested.** Reserve up to **$4,800** for the Atlas pilot and record the decision in the normal decision register. The working group recommends Atlas for a **May 18** start at the North warehouse, on the weekday morning shift only, for two weeks. The reservation covers funding. Launch requires explicit approval from both gate owners by their deadlines. If either gate fails or misses its deadline, continue manual dispatch."
+          ]
+        },
+        "outcome": {
+          "passed": true,
+          "reason": "The pilot is compared with the two preceding weeks. Continuation requires at least 20% fewer missed assignments and no audit-log gaps. Broader rollout needs separate COO approval.",
+          "evidence_lines": [
+            26
+          ],
+          "evidence": [
+            "Compare missed assignments during the two-week pilot with the two preceding weeks. Continue only if missed assignments fall by **at least 20%** and the audit log has **no gaps**. Any broader rollout requires a separate COO approval."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "price-import",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/price-import-1-baseline.md",
+      "workbook_checks": {},
+      "word_count": 277,
+      "full_grade": {
+        "answer": {
+          "answer": "Stop and ask the usual supplier contact for a corrected CSV. Do not edit the file by hand. Obtain approval for the corrected CSV, then restart at step 1: go to Admin → Catalog → Bulk price import, upload the approved CSV, and open Preview.",
+          "evidence": [
+            "Check Preview for missing required fields and duplicate SKUs. If either appears, stop. Ask your usual supplier contact for a corrected CSV. Do not edit the supplier file by hand. Obtain approval for the corrected CSV, then start again at step 1.",
+            "In Admin, go to **Catalog → Bulk price import**. Upload the approved CSV and open **Preview**."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The first quotation supports stopping, requesting a supplier correction, leaving the file unedited and obtaining approval. The second confirms that restarting at step 1 means uploading the file and opening Preview."
+      },
+      "retained": {
+        "prerequisites": {
+          "passed": true,
+          "reason": "The approved CSV must match the scheduled date. Written Merchandising approval is required before Publish for increases or decreases over 10%. Exactly 10% requires only standard CSV approval.",
+          "evidence_lines": [
+            5,
+            6
+          ],
+          "evidence": [
+            "- Obtain the approved supplier CSV and confirm that its effective date matches the scheduled import date. Keep the approved copy for the post-import price check.",
+            "- Obtain written approval from Merchandising before publishing any price increase or decrease greater than 10%. A change of exactly 10% requires only the standard CSV approval."
+          ]
+        },
+        "preview": {
+          "passed": true,
+          "reason": "Catalog → Bulk price import leads to upload and Preview. A missing required field or duplicate SKU requires a supplier correction, approval and a restart at the upload step. Hand editing is prohibited.",
+          "evidence_lines": [
+            10,
+            11
+          ],
+          "evidence": [
+            "1. In Admin, go to **Catalog → Bulk price import**. Upload the approved CSV and open **Preview**. Preview checks the file without changing catalog prices.",
+            "2. Check Preview for missing required fields and duplicate SKUs. If either appears, stop. Ask your usual supplier contact for a corrected CSV. Do not edit the supplier file by hand. Obtain approval for the corrected CSV, then start again at step 1."
+          ]
+        },
+        "publish": {
+          "passed": true,
+          "reason": "Publish once after zero errors and required approvals. Wait for Applied, compare two affected SKU prices with the approved CSV, and log the batch ID and effective date only if both match.",
+          "evidence_lines": [
+            12,
+            13,
+            17,
+            18,
+            19
+          ],
+          "evidence": [
+            "3. When Preview shows zero errors and all required Merchandising approvals are in place, select **Publish** once. Keep the batch ID that Admin returns.",
+            "4. While the batch is **Processing**, wait. When it reaches **Applied**, continue to the price check. If it reaches **Failed**, send the batch ID to the Catalog Operations queue and wait for instructions. Do not automatically rerun the batch.",
+            "1. In **Catalog**, look up two SKUs affected by the batch. Compare each displayed price with the price for that SKU in the approved CSV.",
+            "2. If both prices match, record the batch ID and effective date in the **Import log**. The import is complete once this entry is recorded.",
+            "3. If either price differs, send the batch ID and both observed prices to the Catalog Operations queue and wait for instructions. Do not publish again or log completion."
+          ]
+        },
+        "mismatch": {
+          "passed": true,
+          "reason": "After an Applied mismatch, send the batch ID and both observed prices to Catalog Operations and await instructions. Republishing and logging completion are prohibited.",
+          "evidence_lines": [
+            13,
+            19
+          ],
+          "evidence": [
+            "4. While the batch is **Processing**, wait. When it reaches **Applied**, continue to the price check. If it reaches **Failed**, send the batch ID to the Catalog Operations queue and wait for instructions. Do not automatically rerun the batch.",
+            "3. If either price differs, send the batch ID and both observed prices to the Catalog Operations queue and wait for instructions. Do not publish again or log completion."
+          ]
+        },
+        "failed": {
+          "passed": true,
+          "reason": "For Failed, send the batch ID to Catalog Operations and await instructions without automatically rerunning.",
+          "evidence_lines": [
+            13
+          ],
+          "evidence": [
+            "4. While the batch is **Processing**, wait. When it reaches **Applied**, continue to the price check. If it reaches **Failed**, send the batch ID to the Catalog Operations queue and wait for instructions. Do not automatically rerun the batch."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "price-import",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/price-import-1-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 316,
+      "full_grade": {
+        "answer": {
+          "answer": "Stop and ask the supplier to correct the file through the normal supplier contact; do not edit the CSV by hand. Obtain approval for the corrected CSV and repeat its pre-import checks. Then restart at step 1 with a fresh upload and Preview.",
+          "evidence": [
+            "If Preview finds a missing required field or a duplicate SKU, stop.",
+            "Ask the supplier to correct the file through your normal supplier contact.",
+            "Do not edit the supplier CSV by hand.",
+            "Obtain approval for the corrected CSV, repeat the pre-import checks for that file, then restart at step 1 with a fresh upload and Preview."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quotations explicitly support the stop, supplier correction through the normal contact, prohibition on hand editing, approval, repeated pre-import checks, fresh upload and Preview."
+      },
+      "retained": {
+        "prerequisites": {
+          "passed": true,
+          "reason": "The approved CSV must match the scheduled date. Written Merchandising approval is required before Publish for changes over 10% in either direction, with exactly 10% exempt from additional approval.",
+          "evidence_lines": [
+            7,
+            8
+          ],
+          "evidence": [
+            "- Obtain the approved supplier CSV and confirm its effective date matches the scheduled import date. Keep that approved copy for the post-import check.",
+            "- Obtain written approval from Merchandising before publishing any price change of more than 10% in either direction. A change of exactly 10% can proceed without this additional approval."
+          ]
+        },
+        "preview": {
+          "passed": true,
+          "reason": "Catalog → Bulk price import leads to upload and Preview. Both specified errors require supplier correction, approval, fresh upload and Preview. Hand editing is prohibited.",
+          "evidence_lines": [
+            12,
+            14
+          ],
+          "evidence": [
+            "In Admin, go to **Catalog → Bulk price import**, upload the approved CSV, and open **Preview**. Preview checks for missing required fields and duplicate SKUs without changing prices.",
+            "If Preview finds a missing required field or a duplicate SKU, stop. Ask the supplier to correct the file through your normal supplier contact. Do not edit the supplier CSV by hand. Obtain approval for the corrected CSV, repeat the pre-import checks for that file, then restart at step 1 with a fresh upload and Preview."
+          ]
+        },
+        "publish": {
+          "passed": true,
+          "reason": "Publish once after zero errors and all approvals. Applied leads to a comparison of two affected SKU prices with the approved CSV. Only a match for both permits logging the batch ID and effective date.",
+          "evidence_lines": [
+            18,
+            20,
+            25,
+            27,
+            28
+          ],
+          "evidence": [
+            "When Preview shows **zero errors** and all required approvals are in place, select **Publish** once. Keep the batch ID returned by Admin and wait while the batch is **Processing**.",
+            "- **Applied** → Continue to step 3.",
+            "Look up two affected SKUs in **Catalog**. Compare each displayed price with the price for that SKU in the approved CSV you uploaded.",
+            "- **Both prices match** → Record the batch ID and effective date in the Import log.",
+            "- **Either price differs** → Send the batch ID and both observed Catalog prices to the Catalog Operations queue and wait for instructions. Do not publish again or log completion."
+          ]
+        },
+        "mismatch": {
+          "passed": true,
+          "reason": "If either price differs after Applied, send the batch ID and both observed prices to Catalog Operations and await instructions. Republishing and logging completion are prohibited.",
+          "evidence_lines": [
+            20,
+            25,
+            28
+          ],
+          "evidence": [
+            "- **Applied** → Continue to step 3.",
+            "Look up two affected SKUs in **Catalog**. Compare each displayed price with the price for that SKU in the approved CSV you uploaded.",
+            "- **Either price differs** → Send the batch ID and both observed Catalog prices to the Catalog Operations queue and wait for instructions. Do not publish again or log completion."
+          ]
+        },
+        "failed": {
+          "passed": true,
+          "reason": "For Failed, send the batch ID to Catalog Operations and wait for instructions before any rerun.",
+          "evidence_lines": [
+            21
+          ],
+          "evidence": [
+            "- **Failed** → Send the batch ID to the Catalog Operations queue and wait for instructions. Do not rerun the batch on your own."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "price-import",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/price-import-2-baseline.md",
+      "workbook_checks": {},
+      "word_count": 287,
+      "full_grade": {
+        "answer": {
+          "answer": "Stop and ask the supplier to correct the file through your normal supplier contact. Obtain approval for the corrected CSV, then restart with a fresh upload and Preview. Use the corrected file without editing it by hand.",
+          "evidence": [
+            "If either appears, stop and ask the supplier to correct the file through your normal supplier contact.",
+            "Obtain approval for the corrected CSV, then start again with a fresh upload and Preview.",
+            "Use the supplier’s corrected file without editing it by hand."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quotations support stopping, using the normal supplier contact for correction, obtaining approval, uploading the corrected file afresh and rerunning Preview without hand editing."
+      },
+      "retained": {
+        "prerequisites": {
+          "passed": true,
+          "reason": "The approved supplier CSV must match the scheduled date. Written Merchandising approval is required before Publish for increases or decreases over 10%, with exactly 10% exempt from additional approval.",
+          "evidence_lines": [
+            7,
+            8
+          ],
+          "evidence": [
+            "- Obtain the approved supplier CSV. Confirm that its effective date matches the scheduled import date. Keep the approved file for the post-import check.",
+            "- Identify any price increase or decrease greater than 10% and obtain written approval from Merchandising before publishing. A change of exactly 10% requires no additional approval."
+          ]
+        },
+        "preview": {
+          "passed": true,
+          "reason": "The artifact gives the Catalog → Bulk price import path, upload and Preview. Missing required fields and duplicate SKUs both require supplier correction, approval, fresh upload and Preview without hand editing.",
+          "evidence_lines": [
+            12,
+            13
+          ],
+          "evidence": [
+            "1. In Admin, open **Catalog → Bulk price import**. Upload the approved CSV and open **Preview**. Preview checks the rows without changing catalog prices.",
+            "2. Check Preview for missing required fields and duplicate SKUs. If either appears, stop and ask the supplier to correct the file through your normal supplier contact. Obtain approval for the corrected CSV, then start again with a fresh upload and Preview. Use the supplier’s corrected file without editing it by hand."
+          ]
+        },
+        "publish": {
+          "passed": true,
+          "reason": "Publish once after zero errors and required approvals, then wait through Processing. On Applied, compare two affected SKU prices with the approved CSV and log the batch ID and effective date only if both match.",
+          "evidence_lines": [
+            12,
+            14,
+            18
+          ],
+          "evidence": [
+            "1. In Admin, open **Catalog → Bulk price import**. Upload the approved CSV and open **Preview**. Preview checks the rows without changing catalog prices.",
+            "3. When Preview reports zero errors and all required Merchandising approvals are in place, select **Publish** once. Keep the batch ID returned by Admin and wait for the batch to leave **Processing**.",
+            "- **Applied.** Open two affected SKUs in **Catalog** and compare each displayed price with the price for that SKU in the approved CSV. If both match, record the batch ID and effective date in the **Import log**. If either price differs, send the batch ID and both observed prices to the **Catalog Operations** queue. Wait for instructions before taking further action. Do not publish again or log completion."
+          ]
+        },
+        "mismatch": {
+          "passed": true,
+          "reason": "The Applied branch requires sending the batch ID and both observed prices to Catalog Operations and awaiting instructions. It prohibits republishing and logging completion on a mismatch.",
+          "evidence_lines": [
+            18
+          ],
+          "evidence": [
+            "- **Applied.** Open two affected SKUs in **Catalog** and compare each displayed price with the price for that SKU in the approved CSV. If both match, record the batch ID and effective date in the **Import log**. If either price differs, send the batch ID and both observed prices to the **Catalog Operations** queue. Wait for instructions before taking further action. Do not publish again or log completion."
+          ]
+        },
+        "failed": {
+          "passed": true,
+          "reason": "The Failed branch requires sending the batch ID to Catalog Operations and prohibits an automatic rerun.",
+          "evidence_lines": [
+            19
+          ],
+          "evidence": [
+            "- **Failed.** Send the batch ID to the **Catalog Operations** queue. Do not automatically rerun the batch."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "price-import",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/price-import-2-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 302,
+      "full_grade": {
+        "answer": {
+          "answer": "Stop and ask the supplier through the usual contact to correct all reported issues. Obtain approval for the corrected CSV, repeat the checks under Before opening Admin, and restart at step 1 by uploading the approved CSV in Admin. Do not edit the CSV by hand.",
+          "evidence": [
+            "If Preview reports duplicate SKUs or missing required fields, stop and ask the supplier through the usual contact to correct all reported issues.",
+            "Obtain approval for the corrected CSV, repeat the checks under **Before opening Admin**, and restart at step 1.",
+            "Do not edit the supplier CSV by hand.",
+            "1. **Upload the approved CSV.** In Admin, go to **Catalog → Bulk price import**, upload the file, and open **Preview**."
+          ],
+          "evidence_verified": true
+        },
+        "passed": false,
+        "reason": "The answer ends its restart instructions at uploading the approved CSV. Rerunning Preview is required and appears in the quotation, but the answer omits that action."
+      },
+      "retained": {
+        "prerequisites": {
+          "passed": true,
+          "reason": "The approved CSV must match the scheduled date. Written Merchandising approval is required before Publish for increases or decreases over 10%, with exactly 10% exempt from additional approval.",
+          "evidence_lines": [
+            5,
+            12
+          ],
+          "evidence": [
+            "- Obtain the approved supplier CSV and confirm its effective date matches the scheduled import date. If the dates differ, pause until you have an approved CSV for the scheduled date.",
+            "3. **Check for price changes over 10%.** Obtain written approval from Merchandising before publishing any increase or decrease greater than 10%. A change of exactly 10% in either direction requires no additional approval. If approval is pending, pause and resume at step 4 once you have it."
+          ]
+        },
+        "preview": {
+          "passed": true,
+          "reason": "Step 1 gives the Catalog → Bulk price import path, upload and Preview. Step 2 sends both errors to the supplier for correction, requires approval and restarts step 1. It prohibits hand editing.",
+          "evidence_lines": [
+            10,
+            11
+          ],
+          "evidence": [
+            "1. **Upload the approved CSV.** In Admin, go to **Catalog → Bulk price import**, upload the file, and open **Preview**.",
+            "2. **Check Preview for errors.** Proceed only when Preview shows zero errors. If Preview reports duplicate SKUs or missing required fields, stop and ask the supplier through the usual contact to correct all reported issues. Obtain approval for the corrected CSV, repeat the checks under **Before opening Admin**, and restart at step 1. Do not edit the supplier CSV by hand."
+          ]
+        },
+        "publish": {
+          "passed": true,
+          "reason": "Publish once after zero errors and required approval. Wait for Applied, compare two affected SKU prices with the approved CSV, and record the batch ID and effective date only after both match.",
+          "evidence_lines": [
+            13,
+            14,
+            16,
+            17
+          ],
+          "evidence": [
+            "4. **Publish once.** With zero Preview errors and any required written approval in place, select **Publish** once. Keep the batch ID returned by Admin and wait while the batch is **Processing**.",
+            "   - **Applied** — Continue to step 5.",
+            "5. **Verify two affected SKUs.** In **Catalog**, compare the current price of each SKU with its price in the approved CSV. If either price differs, send the batch ID and both observed prices to the **Catalog Operations** queue and wait for instructions. Do not publish again or log completion.",
+            "6. **Record completion.** Once both prices match, enter the batch ID and the CSV’s effective date in the **Import log**."
+          ]
+        },
+        "mismatch": {
+          "passed": true,
+          "reason": "Applied leads to step 5. If either price differs, send the batch ID and both observed prices to Catalog Operations and await instructions without republishing or logging completion.",
+          "evidence_lines": [
+            14,
+            16
+          ],
+          "evidence": [
+            "   - **Applied** — Continue to step 5.",
+            "5. **Verify two affected SKUs.** In **Catalog**, compare the current price of each SKU with its price in the approved CSV. If either price differs, send the batch ID and both observed prices to the **Catalog Operations** queue and wait for instructions. Do not publish again or log completion."
+          ]
+        },
+        "failed": {
+          "passed": true,
+          "reason": "For Failed, send the batch ID to Catalog Operations, wait for instructions and avoid an automatic rerun.",
+          "evidence_lines": [
+            15
+          ],
+          "evidence": [
+            "   - **Failed** — Send the batch ID to the **Catalog Operations** queue and wait for instructions. Do not automatically rerun the batch."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "device-return",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/device-return-1-baseline.md",
+      "workbook_checks": {},
+      "word_count": 313,
+      "full_grade": {
+        "answer": {
+          "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set its status to **Safety hold**, and call Facilities on extension **221**. Record the asset tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears it.",
+          "evidence": [
+            "Do not power on or charge the laptop.",
+            "Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension **221**.",
+            "Record the asset tag, cabinet location, and time in the incident log.",
+            "Keep the loan open until Facilities clears it."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The four quotations from line 13 support the power and charging prohibition, cabinet placement, Safety hold, Facilities extension 221, all three incident-log fields, and the requirement to keep the loan open until Facilities clearance."
+      },
+      "retained": {
+        "tag": {
+          "passed": true,
+          "reason": "Compare the tag with the loan record. On mismatch, set Check required, refer it to the Asset Desk, keep the laptop in intake, and leave the loan open.",
+          "evidence_lines": [
+            11
+          ],
+          "evidence": [
+            "1. Scan the laptop’s asset tag and compare it with the loan record. If it differs, stop the ordinary return. Set the status to **Check required**, refer the discrepancy to the Asset Desk, and keep the laptop in intake and the loan open pending resolution. If you see battery swelling, follow the safety hold steps below."
+          ]
+        },
+        "swelling": {
+          "passed": true,
+          "reason": "Keep the laptop off and uncharged, use the battery isolation cabinet, set Safety hold, and call Facilities at 221. Log the asset tag, cabinet location, and time, and keep the loan open until Facilities clears it.",
+          "evidence_lines": [
+            13
+          ],
+          "evidence": [
+            "   - **Visible battery swelling.** Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension **221**. Record the asset tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears it."
+          ]
+        },
+        "scratches": {
+          "passed": true,
+          "reason": "Photograph surface scratches and continue.",
+          "evidence_lines": [
+            14
+          ],
+          "evidence": [
+            "   - **Surface scratches only.** Photograph the scratches and continue."
+          ]
+        },
+        "accessories": {
+          "passed": true,
+          "reason": "For a missing charger, set Accessories pending, record it in the asset register, and keep the loan open for Asset Desk recovery. Normal cleanup may proceed.",
+          "evidence_lines": [
+            16
+          ],
+          "evidence": [
+            "   - **Charger missing.** Set the status to **Accessories pending** and record the missing charger in the asset register. Keep the loan open while the Asset Desk arranges recovery. The laptop may go through normal cleanup."
+          ]
+        },
+        "completion": {
+          "passed": true,
+          "reason": "Acknowledge receipt when the tag matches and there is no swelling. The charger-present branch requires Reset successful before setting Returned, recording the receipt timestamp, and shelving. At close of day, check every open intake loan for a current status or recorded owner.",
+          "evidence_lines": [
+            15,
+            17,
+            21
+          ],
+          "evidence": [
+            "3. For a matching tag with no visible battery swelling, give the borrower an acknowledgment.",
+            "   - **Charger present.** Clear the borrower profile with the approved reset tool. Wait for **Reset successful** before setting the status to **Returned**, recording the receipt timestamp, and placing the laptop on the ready shelf.",
+            "Check the daily return list. Verify that every open loan in intake has a current status or a recorded owner. Attach any hold update to the existing record. Use the existing asset register and incident log, and keep a single loan record for each return."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "device-return",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/device-return-1-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 407,
+      "full_grade": {
+        "answer": {
+          "answer": "Keep the laptop off and uncharged, and move it to the designated battery isolation cabinet. Set the status to Safety hold, record the tag, location, and time in the incident log, and keep the loan open. Call Facilities on extension 221. After Facilities clears the hold, return to the inspection step and follow its handling instructions.",
+          "evidence": [
+            "**Visible battery swelling:** Keep the laptop off and uncharged. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension 221. Record the tag, location, and time in the incident log. Keep the loan open. After Facilities clears the hold, return to step 2 and follow any handling instructions from Facilities."
+          ],
+          "evidence_verified": true
+        },
+        "passed": false,
+        "reason": "The quotation supports every required action and the instruction to return to step 2 after clearance. The answer also identifies step 2 as the inspection step. That detail appears on line 15, outside the reader’s quoted evidence."
+      },
+      "retained": {
+        "tag": {
+          "passed": true,
+          "reason": "Compare the tag with the loan record. On mismatch, set Check required, refer it to the Asset Desk, keep the laptop in intake, and leave the loan open.",
+          "evidence_lines": [
+            11
+          ],
+          "evidence": [
+            "1. **Verify the asset tag.** Scan it and compare it with the loan record. If it differs, stop processing the return, set the status to **Check required**, and refer the discrepancy to the Asset Desk. Keep the laptop in intake and the loan open. Once the Asset Desk resolves the discrepancy and confirms the correct record, continue at step 2."
+          ]
+        },
+        "swelling": {
+          "passed": true,
+          "reason": "Keep the laptop off and uncharged, use the battery isolation cabinet, set Safety hold, and call Facilities at 221. Log the tag, location, and time, keep the loan open, and resume processing after Facilities clears the hold.",
+          "evidence_lines": [
+            16
+          ],
+          "evidence": [
+            "   - **Visible battery swelling:** Keep the laptop off and uncharged. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension 221. Record the tag, location, and time in the incident log. Keep the loan open. After Facilities clears the hold, return to step 2 and follow any handling instructions from Facilities."
+          ]
+        },
+        "scratches": {
+          "passed": true,
+          "reason": "Photograph surface scratches and continue to step 3.",
+          "evidence_lines": [
+            17
+          ],
+          "evidence": [
+            "   - **Surface scratches only:** Photograph the scratches and continue to step 3."
+          ]
+        },
+        "accessories": {
+          "passed": true,
+          "reason": "For a missing charger, set Accessories pending, note it in the asset register, and keep the loan open for Asset Desk recovery. The reset may proceed during recovery.",
+          "evidence_lines": [
+            20
+          ],
+          "evidence": [
+            "   - **Charger missing:** Set the status to **Accessories pending**, note the missing charger in the asset register, and keep the loan open while the Asset Desk arranges recovery. You can run the reset in step 4 while recovery is pending. Once the charger is recovered, continue at step 4 and use the successful reset result if cleanup is already complete."
+          ]
+        },
+        "completion": {
+          "passed": true,
+          "reason": "Acknowledge receipt when the tag matches and there is no swelling. Verify Reset successful before setting Returned, recording the receipt timestamp, and shelving. At close of day, check every open intake loan for a current status or recorded owner.",
+          "evidence_lines": [
+            19,
+            22,
+            26
+          ],
+          "evidence": [
+            "3. **Acknowledge receipt.** Give the borrower an acknowledgment once the tag matches and the laptop has no visible battery swelling.",
+            "4. **Reset and close the return.** Clear the borrower profile with the approved reset tool and verify that it displays **Reset successful**. Once the return is complete and the reset has succeeded, set the status to **Returned**, record the receipt timestamp, and place the laptop on the ready shelf.",
+            "Review the daily return list. Verify that every open loan in intake has a current status or a recorded owner. Attach hold updates to the existing record and use the existing incident log and asset register. Keep one loan record per return."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "device-return",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/device-return-2-baseline.md",
+      "workbook_checks": {},
+      "word_count": 303,
+      "full_grade": {
+        "answer": {
+          "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the loan status to Safety hold, and record the tag, location, and time in the incident log. Keep the loan open until Facilities clears it. Call Facilities at extension 221.",
+          "evidence": [
+            "Do not power on or charge the laptop.",
+            "Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities at extension **221**.",
+            "Record the tag, location, and time in the incident log.",
+            "Keep the loan open until Facilities clears it."
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The four quotations from line 12 support every device-handling and recordkeeping instruction, including all three incident-log fields, Facilities extension 221, and keeping the loan open until Facilities clears it."
+      },
+      "retained": {
+        "tag": {
+          "passed": true,
+          "reason": "Compare the tag with the loan record. On mismatch, set Check required, refer it to the Asset Desk, keep the laptop in intake, and leave the loan open.",
+          "evidence_lines": [
+            10
+          ],
+          "evidence": [
+            "1. **Match the asset tag.** Scan the laptop’s tag and compare it with the loan record. If it differs, stop the return. Set the status to **Check required**, refer the discrepancy to the Asset Desk, and keep the laptop in intake and the loan open pending resolution."
+          ]
+        },
+        "swelling": {
+          "passed": true,
+          "reason": "Keep the laptop off and uncharged, use the battery isolation cabinet, set Safety hold, and call Facilities at 221. Log the tag, location, and time, and keep the loan open until Facilities clears it.",
+          "evidence_lines": [
+            12
+          ],
+          "evidence": [
+            "   - **Visible battery swelling.** Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities at extension **221**. Record the tag, location, and time in the incident log. Keep the loan open until Facilities clears it."
+          ]
+        },
+        "scratches": {
+          "passed": true,
+          "reason": "Photograph surface scratches and continue.",
+          "evidence_lines": [
+            13
+          ],
+          "evidence": [
+            "   - **Surface scratches only.** Photograph the scratches and continue."
+          ]
+        },
+        "accessories": {
+          "passed": true,
+          "reason": "For a missing charger, set Accessories pending, note it in the asset register, and keep the loan open for Asset Desk recovery. Normal cleanup may proceed.",
+          "evidence_lines": [
+            15
+          ],
+          "evidence": [
+            "4. **Record a missing charger.** Set the status to **Accessories pending**, note the missing charger in the asset register, and keep the loan open while the Asset Desk arranges recovery. The laptop can still go through normal cleanup."
+          ]
+        },
+        "completion": {
+          "passed": true,
+          "reason": "Acknowledge the return when the tag matches and there is no swelling. Wait for Reset successful before setting Returned, recording the receipt timestamp, and shelving. At close of day, check every open intake loan for a current status or recorded owner.",
+          "evidence_lines": [
+            14,
+            16,
+            20
+          ],
+          "evidence": [
+            "3. **Acknowledge the return** to the borrower once the tag matches and you have confirmed there is no visible battery swelling.",
+            "5. **Close a complete return.** Clear the borrower profile with the approved reset tool. Wait for **Reset successful**, then set the status to **Returned**, record the receipt timestamp, and place the laptop on the ready shelf.",
+            "Review the daily return list and confirm that every open loan in intake has a current status or a recorded owner. Attach any hold updates to the existing record. Use the existing asset register and incident log, and keep one loan record per return."
+          ]
+        }
+      },
+      "preserved": true
+    },
+    {
+      "case": "device-return",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/device-return-2-good-enough.md",
+      "workbook_checks": {},
+      "word_count": 412,
+      "full_grade": {
+        "answer": {
+          "answer": "Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set its status to Safety hold, and call Facilities on extension 221. Record the tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears the hold, then repeat the charger and laptop inspection before continuing.",
+          "evidence": [
+            "**Visible battery swelling.** Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension **221**. Record the tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears the hold. After clearance, repeat step 2 before continuing to step 3.",
+            "**Check the charger and inspect the laptop before powering it on.**"
+          ],
+          "evidence_verified": true
+        },
+        "passed": true,
+        "reason": "The quotation from line 12 supports every required action. It also directs the operator to repeat step 2 after clearance, and the second quotation identifies the charger check and laptop inspection."
+      },
+      "retained": {
+        "tag": {
+          "passed": true,
+          "reason": "Compare the tag with the loan record. On mismatch, set Check required, refer it to the Asset Desk, keep the laptop in intake, and leave the loan open.",
+          "evidence_lines": [
+            10
+          ],
+          "evidence": [
+            "1. **Verify the asset tag.** Scan the tag and compare it with the loan record. If it differs, stop the ordinary return. Set the status to **Check required**, refer the discrepancy to the Asset Desk, and keep the laptop in intake and the loan open. Once the Asset Desk resolves the discrepancy, repeat step 1 using the confirmed record."
+          ]
+        },
+        "swelling": {
+          "passed": true,
+          "reason": "Keep the laptop off and uncharged, move it to the battery isolation cabinet, set Safety hold, and call Facilities at 221. Log the tag, cabinet location, and time, and keep the loan open until Facilities clears the hold.",
+          "evidence_lines": [
+            12
+          ],
+          "evidence": [
+            "   - **Visible battery swelling.** Do not power on or charge the laptop. Move it to the designated battery isolation cabinet, set the status to **Safety hold**, and call Facilities on extension **221**. Record the tag, cabinet location, and time in the incident log. Keep the loan open until Facilities clears the hold. After clearance, repeat step 2 before continuing to step 3."
+          ]
+        },
+        "scratches": {
+          "passed": true,
+          "reason": "Photograph surface scratches and continue to step 3.",
+          "evidence_lines": [
+            13
+          ],
+          "evidence": [
+            "   - **Surface scratches alone.** Photograph the scratches and continue to step 3."
+          ]
+        },
+        "accessories": {
+          "passed": true,
+          "reason": "For a missing charger, set Accessories pending, note it in the asset register, and keep the loan open for Asset Desk recovery. The reset may proceed during recovery.",
+          "evidence_lines": [
+            15
+          ],
+          "evidence": [
+            "3. **Acknowledge receipt.** Give the borrower an acknowledgment once the tag matches and the laptop has no visible battery swelling. If the charger is missing, set the status to **Accessories pending**, record the missing charger in the asset register, and keep the loan open while the Asset Desk arranges recovery. You may perform the reset in step 4 while recovery is pending. Once the Asset Desk confirms recovery, resume at step 4."
+          ]
+        },
+        "completion": {
+          "passed": true,
+          "reason": "Acknowledge receipt when the tag matches and there is no swelling. Verify Reset successful before setting Returned, recording the receipt timestamp, and shelving. At close of day, check every open intake loan for a current status or recorded owner.",
+          "evidence_lines": [
+            15,
+            16,
+            20
+          ],
+          "evidence": [
+            "3. **Acknowledge receipt.** Give the borrower an acknowledgment once the tag matches and the laptop has no visible battery swelling. If the charger is missing, set the status to **Accessories pending**, record the missing charger in the asset register, and keep the loan open while the Asset Desk arranges recovery. You may perform the reset in step 4 while recovery is pending. Once the Asset Desk confirms recovery, resume at step 4.",
+            "4. **Reset the laptop and close the return.** Use the approved reset tool to clear the borrower profile and verify that it displays **Reset successful**. Once the return is complete and the reset has succeeded, set the status to **Returned**, record the receipt timestamp, and place the laptop on the ready shelf.",
+            "Check the daily return list. Verify that every open loan in intake has a current status or a recorded owner. Attach any hold updates to the existing record and use the existing incident log and asset register. Keep one loan record per return."
+          ]
+        }
+      },
+      "preserved": true
+    }
+  ]
+}

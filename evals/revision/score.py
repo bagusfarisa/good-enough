@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import random
 
-from run import HERE, common, evaluation_trials
+from run import DEFAULT_CASES, common, evaluation_trials
 
 READER = 'gpt-6.1-terra'
 OPENING_WORDS = 120
@@ -109,14 +109,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--format', choices=['md', 'xlsx'], required=True)
-    parser.add_argument('--first-actions', type=Path, help='Question and expected answer per fixture for the opening view')
+    parser.add_argument('--cases', type=Path, default=DEFAULT_CASES, help='Case manifest used for generation')
+    scope = parser.add_mutually_exclusive_group()
+    scope.add_argument('--first-actions', type=Path, help='Question and expected answer per fixture for the opening view')
+    scope.add_argument('--full-only', action='store_true', help='Score the complete answer and preservation only')
     args = parser.parse_args()
     output = args.out.resolve()
-    cases = {c['id']: c for c in json.loads((HERE / 'cases.json').read_text())
+    cases_file = args.cases.resolve()
+    case_bytes = cases_file.read_bytes()
+    cases = {c['id']: c for c in json.loads(case_bytes)
              if c.get('source', 'md') == args.format}
     manifest = json.loads((output / 'run.json').read_text())
+    if manifest['cases_sha256'] != sha256(case_bytes).hexdigest():
+        parser.error('Use the same case manifest as generation.')
     first_actions = {}
-    views = ('opening', 'full')
+    views = ('full',) if args.full_only else ('opening', 'full')
     if args.first_actions:
         question_bytes = args.first_actions.read_bytes()
         first_actions = json.loads(question_bytes)
@@ -139,7 +146,7 @@ def main():
     for case in cases:
         for trial, variant in evaluation_trials(manifest):
             identifier = f'{case}-{trial}-{variant}'
-            folder = (HERE / 'fixtures') if trial == 0 else output / 'artifacts'
+            folder = (cases_file.parent / 'fixtures') if trial == 0 else output / 'artifacts'
             full = folder / f'{case if trial == 0 else identifier}.{args.format}'
             if args.format == 'md':
                 complete = full.read_text()
@@ -184,7 +191,7 @@ def main():
             del run[f'{view}_answer']
     common.dump(output / f'{args.format}-scores.json', {
         **manifest, 'reader': READER, 'judge': common.JUDGE,
-        'opening_words': OPENING_WORDS if args.format == 'md' else None, 'runs': runs})
+        'opening_words': OPENING_WORDS if args.format == 'md' and 'opening' in views else None, 'runs': runs})
 
 
 if __name__ == '__main__':

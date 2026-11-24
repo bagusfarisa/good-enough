@@ -1,0 +1,8 @@
+# Weekly catalog price import
+
+1. **Get the approved supplier CSV.** Confirm that its effective date matches the scheduled import date. If the dates differ, stop and obtain an approved CSV for the scheduled date before continuing. Keep the approved copy for the post-import check.
+2. **Upload the CSV and run Preview.** In Admin, go to **Catalog → Bulk price import**, upload the approved CSV, and open **Preview**. Check for missing required fields and duplicate SKUs. Preview leaves catalog prices unchanged.
+   - If Preview reports either issue, stop. Ask the supplier through the usual contact to correct the CSV. Leave the edits to the supplier. Once the corrected CSV is approved, return to step 1 and run a fresh upload and Preview.
+3. **Publish once.** Publish only when Preview reports zero errors and you have written approval from Merchandising for every price increase or decrease greater than 10%. A change of exactly 10% does not require this additional approval. After selecting **Publish**, keep the returned batch ID handy.
+4. **Wait for the batch result.** While the status is **Processing**, wait. When it shows **Applied**, go to step 5. If it shows **Failed**, send the batch ID to the **Catalog Operations** queue and wait for instructions before rerunning the import.
+5. **Verify two prices and log completion.** In **Catalog**, look up two affected SKUs and compare each displayed price with the price for that SKU in the approved CSV. If both prices match, record the batch ID and effective date in the **Import log**. If either price differs, send the batch ID and both observed prices to the **Catalog Operations** queue. Wait for instructions before publishing again or logging completion.

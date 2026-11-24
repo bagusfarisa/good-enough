@@ -97,6 +97,8 @@ In 36 revisions of six synthetic artifacts, Good Enough passed both the full rea
 
 A follow-up compared two skill versions and scored the first action separately from the complete answer. [Opening-view check](evals/first-action/)
 
+Two fresh rounds tested whether an explicit exception and restart check helps readers complete the task while preserving the source. The test also included a new SOP with overlapping exceptions. [Procedure recovery and preservation check](evals/finish-check/)
+
 ## Cash forecast benchmark
 
 Try the same task in both workbooks. Change **Payroll** from **$6,000** to **$7,000** and verify that **Ending cash** changes from **$7,000** to **$6,000**.
