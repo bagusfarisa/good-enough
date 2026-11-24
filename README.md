@@ -112,7 +112,9 @@ Tested with Codex CLI **0.172.0**, model **`gpt-6.2-sol`** at low reasoning effo
 
 ## Automated document evaluation
 
-In the inverted-pyramid rerun, both conditions passed all nine documents and supported all 27 reader answers. A blinded judge preferred Good Enough in six pairs and the baseline in three. The impact analyses surfaced the customer’s next step earlier. Overall evidence placement was tied. [Latest results and rerun instructions](evals/inverted-pyramid/) · [Original evaluation](evals/automated/)
+In the inverted-pyramid rerun, both conditions passed all nine documents and supported all 27 reader answers. A blinded judge preferred Good Enough in six pairs and the baseline in three. The impact analyses surfaced the customer’s next step earlier. Overall evidence placement was tied. [Full rerun results and instructions](evals/inverted-pyramid/) · [Original evaluation](evals/automated/)
+
+A follow-up compared two skill revisions on a decision brief with separate owners and deadlines. Both revisions put the required details in the first 100 words in all three runs. [Two-dependency brief results](evals/action-grouping/)
 
 ## Inspiration
 

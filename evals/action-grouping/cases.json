@@ -1,0 +1,14 @@
+[
+  {
+    "id": "dispatch-pilot",
+    "task": "Turn these notes into a Markdown decision brief for the Operations Director's Friday meeting. Use only the supplied notes.",
+    "source": "The Operations Director has a Friday go/no-go meeting for a four-week Harbor Hub dispatch pilot starting Monday. The proposed pilot costs $28,400 all-in, against a $32,000 cap. Approve the pilot on Friday only if both readiness checks have passed. Safety must sign the revised loading plan. Leah Mensah owns that sign-off and is due Wednesday at 5 p.m. Integrations must verify that a carrier-tracking replay delivers all required events end to end. Ravi Shah owns that check and is due Thursday at noon. Both checks are still pending. If either check is still pending or fails at the Friday meeting, defer the pilot and keep the current dispatch process. The pilot uses one hub and existing shift coverage. It would give Operations data on delivery reliability before any broader rollout, which requires a separate decision. The team also discussed a new dashboard color and an internal launch announcement. Those are separate from the approval decision.",
+    "checks": {
+      "decision": "States that Friday's decision is whether to authorize the four-week Harbor Hub pilot at $28,400, and makes approval conditional on both readiness checks passing.",
+      "safety_dependency": "Clearly pairs Safety's loading-plan sign-off with Leah Mensah and Wednesday at 5 p.m., and represents the check as pending.",
+      "integration_dependency": "Clearly pairs Integrations' carrier-tracking replay verification with Ravi Shah and Thursday at noon, and represents the check as pending.",
+      "fallback": "Says to defer the pilot and keep the current dispatch process if either check is pending or has failed at the Friday meeting.",
+      "source_fidelity": "Does not state any material fact that contradicts the source, such as a readiness check already passing or a broader rollout being authorized."
+    }
+  }
+]
