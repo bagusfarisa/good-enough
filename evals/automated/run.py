@@ -24,6 +24,17 @@ def dump(path, value):
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n')
 
 
+def artifact_only(response):
+    body, _, last_line = response.rstrip().rpartition('\n')
+    footer = last_line.strip()
+    if (body and footer.startswith('*') and footer.endswith('*') and
+            re.search(r'\bObsidian\b', footer, re.IGNORECASE) and
+            re.search(r'\b(?:note|vault)\b', footer, re.IGNORECASE) and
+            re.search(r'could not be saved|prevented saving', footer, re.IGNORECASE)):
+        return body.rstrip()
+    return response.rstrip()
+
+
 def cli(prompt, model, response_schema=None):
     with tempfile.TemporaryDirectory(prefix='good-enough-eval-') as directory:
         workspace = Path(directory)
@@ -69,7 +80,7 @@ def generate(output, revision):
                   'Complete this self-contained exercise using the supplied material without tools.\n\n'
                   f'{case["task"]}\n\n<source>\n{case["source"]}\n</source>')
         artifact, usage = cli(prompt, GENERATOR)
-        path.write_text(artifact + '\n')
+        path.write_text(artifact_only(artifact) + '\n')
         dump(usage_path, {'usage': usage})
         print('generated', name, flush=True)
 

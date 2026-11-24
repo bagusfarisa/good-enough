@@ -1,0 +1,900 @@
+{
+  "skill_commit": "1b391a77d96cbe3fb06af028fde121e49e6edaec",
+  "generator": "gpt-6.2-sol",
+  "judge": "gpt-6.2-astra",
+  "reasoning_effort": "low",
+  "repeats": 3,
+  "harness": "codex-cli 0.172.0",
+  "summary": {
+    "baseline": {
+      "documents_passing": 9,
+      "documents": 9,
+      "checks_passing": 45,
+      "checks": 45,
+      "median_words": 159,
+      "judge_preferences": 3
+    },
+    "good-enough": {
+      "documents_passing": 9,
+      "documents": 9,
+      "checks_passing": 45,
+      "checks": 45,
+      "median_words": 156,
+      "judge_preferences": 6
+    }
+  },
+  "ties": 0,
+  "runs": [
+    {
+      "case": "decision-brief",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/decision-brief-1-baseline.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "**Thursday decision**  \nAuthorize the six-week Atlas pilot",
+          "reason": "The opening gives the VP a specific authorization decision for Thursday."
+        },
+        "recommendation": {
+          "passed": true,
+          "evidence": "if Legal has cleared Atlas’s data processing agreement (DPA).",
+          "reason": "Atlas authorization requires Legal clearance."
+        },
+        "tradeoff": {
+          "passed": true,
+          "evidence": "| Total cost, including setup | $14,000 | $9,000 |\n| Time to start | 10 business days | 5 business days |\n| US data residency (mandatory) | Meets | Meets |\n| Company SSO on day one (mandatory) | Meets | Available in week five |",
+          "reason": "The table gives both prices and start times and shows why Nova misses mandatory day-one SSO."
+        },
+        "open_dependency": {
+          "passed": true,
+          "evidence": "Maya owns the Legal check and expects a decision Tuesday.",
+          "reason": "Maya owns the outstanding DPA check, and Tuesday is the expected decision date."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The figures match the notes, Legal clearance remains conditional, and the brief accurately reports that Security has granted no exception."
+        }
+      },
+      "passed": true,
+      "word_count": 150,
+      "usage": {
+        "input_tokens": 26220,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 242,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/decision-brief-1-good-enough.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "# Thursday decision brief — Six-week help-desk pilot\n\n**Authorize the Atlas pilot",
+          "reason": "The heading and opening request identify the Thursday decision, pilot duration, and vendor."
+        },
+        "recommendation": {
+          "passed": true,
+          "evidence": "if Legal has cleared its data processing agreement by Thursday.",
+          "reason": "The recommendation makes DPA clearance a condition of authorization."
+        },
+        "tradeoff": {
+          "passed": true,
+          "evidence": "| Cost including setup | $14,000 | $9,000 |\n| Time to start | 10 business days | 5 business days |",
+          "reason": "The table gives both prices and start times. The preceding paragraph explains that Nova’s week-five SSO makes it ineligible under the day-one requirement."
+        },
+        "open_dependency": {
+          "passed": true,
+          "evidence": "Maya owns the Legal check and expects a decision Tuesday.",
+          "reason": "The brief identifies the owner and expected timing while leaving clearance open."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The vendor comparisons match the notes, and the brief preserves the status of both the DPA and the possible exception."
+        }
+      },
+      "passed": true,
+      "word_count": 154,
+      "usage": {
+        "input_tokens": 27070,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 233,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/decision-brief-2-good-enough.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "# Help-desk pilot decision for Thursday\n\n**Authorize the six-week Atlas pilot",
+          "reason": "The heading and request identify what the VP needs to authorize on Thursday."
+        },
+        "recommendation": {
+          "passed": true,
+          "evidence": "if Legal clears Atlas’s data processing agreement before the meeting. If clearance is pending or denied, defer authorization.",
+          "reason": "The brief recommends Atlas and states how to proceed if clearance is unavailable."
+        },
+        "tradeoff": {
+          "passed": true,
+          "evidence": "| All-in cost, including setup | $14,000 | $9,000 |\n| Time to start | 10 business days | 5 business days |",
+          "reason": "The table supplies the absolute figures, and the text explains that Nova’s week-five SSO misses the day-one requirement."
+        },
+        "open_dependency": {
+          "passed": true,
+          "evidence": "Maya owns the Legal check and expects a decision Tuesday. Use her confirmation of clearance as the approval condition on Thursday.",
+          "reason": "Maya owns the pending check, Tuesday is the expected decision date, and confirmation is still required."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The requirements, vendor figures, and pending approvals agree with the notes."
+        }
+      },
+      "passed": true,
+      "word_count": 158,
+      "usage": {
+        "input_tokens": 27070,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 240,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/decision-brief-2-baseline.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "# Thursday decision brief — Six-week help-desk pilot\n\n**Decision requested.** Authorize the Atlas pilot on Thursday",
+          "reason": "The opening explicitly requests Thursday authorization for the six-week pilot."
+        },
+        "recommendation": {
+          "passed": true,
+          "evidence": "Authorize the Atlas pilot on Thursday if Legal has cleared its data processing agreement (DPA).",
+          "reason": "The Atlas recommendation is conditional on Legal clearing the DPA."
+        },
+        "tradeoff": {
+          "passed": true,
+          "evidence": "| Cost including setup | $14,000 | $9,000 |\n| Time to start | 10 business days | 5 business days |\n| US data residency | Meets | Meets |\n| Company SSO on day one | Meets | Available in week five. Security has granted no exception. |",
+          "reason": "The figures match both vendors, and the SSO row explains why Nova cannot meet the mandatory start condition."
+        },
+        "open_dependency": {
+          "passed": true,
+          "evidence": "Maya owns the Atlas DPA check and expects a decision Tuesday.",
+          "reason": "The brief names the owner, the outstanding agreement, and the expected decision date."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The figures and eligibility judgment follow the notes. Legal clearance is pending, and no Security exception is claimed."
+        }
+      },
+      "passed": true,
+      "word_count": 159,
+      "usage": {
+        "input_tokens": 26218,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 251,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 3,
+      "variant": "baseline",
+      "artifact": "artifacts/decision-brief-3-baseline.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "# Thursday decision brief — Six-week help-desk pilot\n\n**Decision requested.** Authorize the six-week Atlas pilot",
+          "reason": "The brief opens with the six-week pilot authorization requested for Thursday."
+        },
+        "recommendation": {
+          "passed": true,
+          "evidence": "contingent on Legal clearing its data processing agreement (DPA).",
+          "reason": "The recommendation requires Legal clearance before Atlas can be authorized."
+        },
+        "tradeoff": {
+          "passed": true,
+          "evidence": "| Total cost including setup | $14,000 | $9,000 |\n| Time to start | 10 business days | 5 business days |\n| US data residency, mandatory | Meets | Meets |\n| Company SSO on day one, mandatory | Meets | Available in week five |",
+          "reason": "The table gives the exact costs and lead times and directly compares Nova’s SSO timing with the mandatory deadline."
+        },
+        "open_dependency": {
+          "passed": true,
+          "evidence": "Maya owns the Atlas DPA check and expects Legal’s decision Tuesday.",
+          "reason": "The agreement remains under review, with Maya responsible and Legal’s decision expected Tuesday."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The brief preserves both vendors’ capabilities, the budget, and the unresolved approval status."
+        }
+      },
+      "passed": true,
+      "word_count": 144,
+      "usage": {
+        "input_tokens": 26220,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 233,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 3,
+      "variant": "good-enough",
+      "artifact": "artifacts/decision-brief-3-good-enough.md",
+      "checks": {
+        "decision": {
+          "passed": true,
+          "evidence": "# Thursday decision brief: Six-week help-desk pilot\n\n**Authorize the $14,000 Atlas pilot on Thursday",
+          "reason": "The heading establishes the pilot duration, and the opening specifies the vendor and Thursday action."
+        },
+        "recommendation": {
+          "passed": true,
+          "evidence": "if Legal has cleared Atlas’s data processing agreement (DPA).",
+          "reason": "The brief makes Legal clearance a condition of authorization."
+        },
+        "tradeoff": {
+          "passed": true,
+          "evidence": "| All-in cost, including setup | $14,000 | $9,000 |\n| Time to start | 10 business days | 5 business days |",
+          "reason": "The table gives both prices and start times, and the text explains that Nova is ineligible because its SSO arrives in week five."
+        },
+        "open_dependency": {
+          "passed": true,
+          "evidence": "Maya owns the Legal check and expects a decision Tuesday. Confirm the DPA clearance with Maya before Thursday’s authorization.",
+          "reason": "The final paragraph names the owner, expected timing, and confirmation still needed."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The vendor differences are accurate, and the brief treats DPA clearance as conditional and the Security exception as ungranted."
+        }
+      },
+      "passed": true,
+      "word_count": 156,
+      "usage": {
+        "input_tokens": 27072,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 244,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/impact-analysis-1-good-enough.md",
+      "checks": {
+        "before_after_and_clock": {
+          "passed": true,
+          "evidence": "The request stays open indefinitely unless someone closes it. | An in-scope request expires after seven calendar days in this status.",
+          "reason": "The row gives the old and new rules. The opening identifies Awaiting customer documents and says the clock starts on entry."
+        },
+        "affected_customer": {
+          "passed": true,
+          "evidence": "The portal shows **Expired**. The customer can submit a new request, and the expired request stays closed. | Support should explain how to submit a new request.",
+          "reason": "The row gives the portal label, the outcome for the original request, the customer's next step, and Support's responsibility."
+        },
+        "unaffected_cases": {
+          "passed": true,
+          "evidence": "This status is unaffected by the expiry rule.",
+          "reason": "This statement covers Internal review. The next row says completed or cancelled records remain untouched."
+        },
+        "open_decisions": {
+          "passed": true,
+          "evidence": "Product still needs to decide whether the rule applies to requests already open on launch day.",
+          "reason": "Product owns the pending launch-day scope decision. The closing paragraph assigns the pending expiry email decision to Communications."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": "If the request is in scope, it has five calendar days left in that status.",
+          "reason": "R-82's timing is correct and conditional. Both launch decisions remain open, and the other material claims agree with the notes."
+        }
+      },
+      "passed": true,
+      "word_count": 256,
+      "usage": {
+        "input_tokens": 27080,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 351,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/impact-analysis-1-baseline.md",
+      "checks": {
+        "before_after_and_clock": {
+          "passed": true,
+          "evidence": "Return requests will expire after **seven calendar days in Awaiting customer documents**. Today, open requests stay open indefinitely unless someone closes them. The seven-day clock starts when the request enters that status.",
+          "reason": "The opening gives the previous behavior, the affected status, the duration, and the event that starts the clock."
+        },
+        "affected_customer": {
+          "passed": true,
+          "evidence": "When a customer sees **Expired**, explain how to submit a new return request and that the expired request stays closed.",
+          "reason": "The Support row assigns the explanation, and the customer section identifies the portal as the place where Expired appears."
+        },
+        "unaffected_cases": {
+          "passed": true,
+          "evidence": "Requests in **Internal review** are unaffected. Completed and cancelled records remain untouched.",
+          "reason": "Both sentences explicitly cover all three unaffected cases."
+        },
+        "open_decisions": {
+          "passed": true,
+          "evidence": "| Product | Does the expiry rule apply to requests already open on launch day? |\n| Communications | Will customers receive an expiry email?",
+          "reason": "The decision table presents both questions as open and names the correct owners."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": "If the rule applies to R-82, it has **five calendar days left** in that status before it expires.",
+          "reason": "The example preserves the scope condition and the five-day remainder. The artifact makes no unsupported commitment on scope or email."
+        }
+      },
+      "passed": true,
+      "word_count": 241,
+      "usage": {
+        "input_tokens": 26228,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 360,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/impact-analysis-2-baseline.md",
+      "checks": {
+        "before_after_and_clock": {
+          "passed": true,
+          "evidence": "After launch, a return request in **Awaiting customer documents** will expire after seven calendar days in that status. The clock starts when the request enters the status. Today, an open request stays open indefinitely unless someone closes it.",
+          "reason": "The opening states the baseline, the new deadline, and its starting event."
+        },
+        "affected_customer": {
+          "passed": true,
+          "evidence": "the portal shows **Expired**. The customer can submit a new return request, and the expired request stays closed.",
+          "reason": "The status row gives the customer-visible outcome and next step. The Support row explicitly assigns responsibility for explaining how to submit the new request."
+        },
+        "unaffected_cases": {
+          "passed": true,
+          "evidence": "| Internal review | The expiry rule does not apply. |\n| Completed or cancelled | Existing records remain unchanged. |",
+          "reason": "The two rows account for all three unaffected cases."
+        },
+        "open_decisions": {
+          "passed": true,
+          "evidence": "| Product | Will the rule apply to requests already open on launch day? |\n| Communications | Will customers receive an email when a request expires? |",
+          "reason": "Both decisions appear as open questions with their respective owners."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": "It has five calendar days left before expiry if it is in scope at launch.",
+          "reason": "The R-82 calculation is conditional and correct. The status and team tables preserve the facts and leave both rollout decisions open."
+        }
+      },
+      "passed": true,
+      "word_count": 227,
+      "usage": {
+        "input_tokens": 26226,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 348,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/impact-analysis-2-good-enough.md",
+      "checks": {
+        "before_after_and_clock": {
+          "passed": true,
+          "evidence": "After launch, in-scope return requests expire after seven calendar days in **Awaiting customer documents**, counted from when they enter that status.",
+          "reason": "The opening gives the duration and trigger. The Today column says open requests previously stayed open indefinitely unless someone closed them."
+        },
+        "affected_customer": {
+          "passed": true,
+          "evidence": "The customer sees **Expired** in the portal and can submit a new request. The expired request stays closed.",
+          "reason": "The opening gives the portal outcome and both request outcomes. The team action column directs Support to explain the submission path."
+        },
+        "unaffected_cases": {
+          "passed": true,
+          "evidence": "| Internal review | Stays open indefinitely unless someone closes it. | Continues under the same rules. | Operations continues the existing review process. |\n| Completed or cancelled | Already closed. | Records remain untouched.",
+          "reason": "The table explicitly preserves the current handling of Internal review and both closed statuses."
+        },
+        "open_decisions": {
+          "passed": true,
+          "evidence": "Communications still needs to decide whether to send an expiry email.",
+          "reason": "The closing paragraph identifies the email owner and pending question. The highlighted Product decision asks whether already-open requests are in scope."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": "If it is in scope, it has five calendar days left in that status.",
+          "reason": "The example uses the correct remaining time and scope condition. The artifact preserves uncertainty about backfill and email."
+        }
+      },
+      "passed": true,
+      "word_count": 210,
+      "usage": {
+        "input_tokens": 27078,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 307,
+        "reasoning_output_tokens": 11
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 3,
+      "variant": "good-enough",
+      "artifact": "artifacts/impact-analysis-3-good-enough.md",
+      "checks": {
+        "before_after_and_clock": {
+          "passed": true,
+          "evidence": "The request stays open until someone closes it. | In-scope requests expire after seven calendar days in this status.",
+          "reason": "The row compares the old and new behavior for Awaiting customer documents. The opening specifies that entry into that status starts the clock."
+        },
+        "affected_customer": {
+          "passed": true,
+          "evidence": "Customers will see **Expired** in their portal and can submit a new request. The expired request stays closed.",
+          "reason": "The opening explains what the customer sees and can do. The affected-status row assigns Support the task of explaining how to submit the new request."
+        },
+        "unaffected_cases": {
+          "passed": true,
+          "evidence": "The request continues through the existing review process.",
+          "reason": "The Internal review row preserves its existing handling. The completed or cancelled row says each record retains its status and requires no action."
+        },
+        "open_decisions": {
+          "passed": true,
+          "evidence": "| Product | Does the rule apply to requests already open on launch day? | Determines which existing requests Operations should include and what Support tells those customers. |\n| Communications | Will customers receive an expiry email?",
+          "reason": "The launch table names both owners and states both pending decisions as questions."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": "If it is in scope, it has five calendar days left before expiry.",
+          "reason": "R-82's remaining time depends on scope as required. The material claims agree with the source, including the pending email decision."
+        }
+      },
+      "passed": true,
+      "word_count": 273,
+      "usage": {
+        "input_tokens": 27082,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 388,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 3,
+      "variant": "baseline",
+      "artifact": "artifacts/impact-analysis-3-baseline.md",
+      "checks": {
+        "before_after_and_clock": {
+          "passed": true,
+          "evidence": "After launch, a return request in **Awaiting customer documents** will expire after seven calendar days in that status. Today, open requests stay open indefinitely unless someone closes them.",
+          "reason": "The opening states the before-and-after behavior. The next section identifies status entry as the start of the seven-day clock."
+        },
+        "affected_customer": {
+          "passed": true,
+          "evidence": "When the request expires, the portal shows **Expired**. The customer can submit a new request, and the expired request stays closed.",
+          "reason": "The customer section covers visibility, closure, and resubmission. The Support row directs staff to guide customers through submission."
+        },
+        "unaffected_cases": {
+          "passed": true,
+          "evidence": "Requests in **Internal review** are unaffected. Completed and cancelled records remain untouched.",
+          "reason": "The text explicitly covers Internal review and both closed statuses."
+        },
+        "open_decisions": {
+          "passed": true,
+          "evidence": "| Product | Will the expiry rule apply to requests already open on launch day? |\n| Communications | Will customers receive an email when their request expires?",
+          "reason": "The open-decisions table assigns launch-day scope to Product and the email decision to Communications."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": "If R-82 is in scope, it has **five calendar days left** in that status before expiry.",
+          "reason": "The example uses status-entry timing and preserves the scope condition. Neither pending decision is presented as settled."
+        }
+      },
+      "passed": true,
+      "word_count": 249,
+      "usage": {
+        "input_tokens": 26228,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 351,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-1-baseline.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare the preview’s new-item and updated-item counts with the corresponding counts in the approved CSV.",
+          "reason": "Lists all three prerequisites and orders supplier selection, upload, count comparison, and publication correctly."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "If the preview flags any duplicate SKUs, stop. The active catalog is unchanged. Request a corrected CSV from the supplier, then restart at step 2 with the corrected, approved file.",
+          "reason": "The stop occurs before Publish, and step 2 is the upload step."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "Specifies the correct threshold, approver, written form, and timing."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "If either price differs, contact Catalog Support. Do not republish the batch.\n4. After both prices match, record the batch ID in the change log.",
+          "reason": "The operator confirms Applied and checks two affected SKUs against the approved CSV before logging. The mismatch instruction gives the correct contact and recovery rule."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The sequence, threshold, approval role, and recovery instructions agree with the source."
+        }
+      },
+      "passed": true,
+      "word_count": 163,
+      "usage": {
+        "input_tokens": 26207,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 229,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-1-good-enough.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare the new-item count and the updated-item count with the approved CSV. Proceed only if both counts match.",
+          "reason": "Lists all three prerequisites and places the count review after supplier selection and upload and before Publish."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "If the preview flags duplicate SKUs, stop. The active catalog is unchanged. Request a corrected file from the supplier, then restart at step 2.",
+          "reason": "The operator stops before publication and returns to the upload step with the supplier’s correction."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "Specifies the correct threshold, approver, written form, and timing."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "Record the batch ID in the change log only after the batch shows **Applied** and both prices match the approved CSV.",
+          "reason": "The preceding step identifies two affected SKUs and directs the operator to Catalog Support without republishing if either price differs."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The procedure preserves the source’s sequence and both exception rules."
+        }
+      },
+      "passed": true,
+      "word_count": 152,
+      "usage": {
+        "input_tokens": 27059,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 218,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-2-good-enough.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "In **Catalog Admin**, open **Imports**, select the supplier ID, and upload the approved CSV.\n2. Open **Preview**. Compare the new and updated item counts with the approved CSV.",
+          "reason": "The prerequisite list includes the approved CSV, supplier ID, and Catalog Admin access. Publish follows the preview checks."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "If Preview flags duplicate SKUs, stop. The active catalog is unchanged. Request a corrected file from the supplier and restart at the upload step with the corrected, approved CSV.",
+          "reason": "The operator stops the flagged batch before Publish and restarts at upload with the supplier’s correction."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "Specifies the correct threshold, approver, written form, and timing."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "Once the batch shows **Applied** and both prices match, record the batch ID in the change log.",
+          "reason": "The procedure checks two affected SKUs against the approved CSV, directs mismatches to Catalog Support without republishing, and logs only after success."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The sequence and exception handling agree with the source."
+        }
+      },
+      "passed": true,
+      "word_count": 147,
+      "usage": {
+        "input_tokens": 27061,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 210,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-2-baseline.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare the preview’s new-item and updated-item counts with the corresponding counts in the approved CSV. Continue only if both counts match.",
+          "reason": "Lists all three prerequisites. The numbered sections place supplier selection and upload before preview review, followed by publication."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "If it flags duplicate SKUs, stop. The active catalog is unchanged. Request a corrected file from the supplier, then restart at the upload step.",
+          "reason": "The preview instruction stops the flagged batch before Publish and identifies the supplier and restart point."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "Specifies the correct threshold, approver, written form, and timing."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "If either price differs from the approved CSV, contact Catalog Support and do not republish.\n4. Record the batch ID in the change log only after both prices match.",
+          "reason": "The first two verification steps require Applied status and price checks for two affected SKUs. The last two cover mismatch handling and logging."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The sequence, approval requirement, and recovery actions agree with the source."
+        }
+      },
+      "passed": true,
+      "word_count": 159,
+      "usage": {
+        "input_tokens": 26207,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 229,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 3,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-3-baseline.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "In Catalog Admin, open **Imports**, select the supplier ID, and upload the approved pricing CSV.\n2. Review the **Preview**. Compare the counts of new and updated items with the corresponding counts in the approved CSV.",
+          "reason": "Lists all three prerequisites and places Publish after supplier selection, upload, and review of both counts."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "If the preview flags duplicate SKUs, stop. The active catalog is unchanged. Request a corrected file from the supplier, then restart at the upload step.",
+          "reason": "The operator stops before Publish and returns to upload with the supplier’s correction."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before proceeding.",
+          "reason": "Publish is the next step, so written Merchandising approval must precede publication when the threshold is exceeded."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "If either price differs, contact Catalog Support without republishing.\n7. After both prices are verified, record the batch ID in the change log.",
+          "reason": "The preceding instructions require Applied status and comparison of two affected SKU prices with the approved CSV. The mismatch branch and final logging step distinguish failure from successful verification."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The sequence, threshold, approval role, and mismatch handling agree with the source."
+        }
+      },
+      "passed": true,
+      "word_count": 144,
+      "usage": {
+        "input_tokens": 26207,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 202,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 3,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-3-good-enough.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Review the **Preview** before publishing. Compare the new and updated item counts against the approved CSV. Proceed only if both counts match.",
+          "reason": "Lists all three prerequisites and places the preview check between supplier selection and upload in step 1 and publication in step 3."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "If the preview flags duplicate SKUs, stop. The active catalog is unchanged. Request a corrected file from the supplier, then restart at the upload step with the corrected, approved CSV.",
+          "reason": "The operator stops the flagged batch before publication and restarts at upload with the supplier’s correction."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "Specifies the correct threshold, approver, written form, and timing."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "Record the batch ID in the change log only after the batch shows **Applied** and both price checks pass.",
+          "reason": "The preceding step requires two affected SKU prices to match the approved CSV and directs the operator to stop, contact Catalog Support, and avoid republishing on a mismatch."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The procedure preserves the source’s sequence, approval requirement, and recovery rules."
+        }
+      },
+      "passed": true,
+      "word_count": 155,
+      "usage": {
+        "input_tokens": 27061,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 217,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "case": "decision-brief",
+      "repeat": 1,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "good-enough",
+      "reason": "Both pass every check. B puts the authorization condition, fallback, owner, and expected decision date together in the opening paragraph, so the VP can find the full decision in one place."
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 2,
+      "blind_order": {
+        "A": "good-enough",
+        "B": "baseline"
+      },
+      "preference": "baseline",
+      "reason": "Both pass every check. B’s labeled Legal dependency groups Maya, Tuesday, and the instruction to defer, making the follow-up easy to locate during the meeting."
+    },
+    {
+      "case": "decision-brief",
+      "repeat": 3,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "good-enough",
+      "reason": "Both pass every check. B quantifies Nova’s advantages for the VP and explicitly says to defer if Legal either denies clearance or has yet to decide."
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 1,
+      "blind_order": {
+        "A": "good-enough",
+        "B": "baseline"
+      },
+      "preference": "baseline",
+      "reason": "Both pass every check. B puts the two pending questions and their owners in adjacent rows, so the launch group can review them together. Its team table also lets each audience find its action directly."
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 2,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "good-enough",
+      "reason": "Both pass every check. B puts Product's scope decision and its consequence for Support and Operations directly below the summary. Its status table connects the old behavior, new behavior, and team action in one row. A repeats the scope decision across three nearby table rows."
+    },
+    {
+      "case": "impact-analysis",
+      "repeat": 3,
+      "blind_order": {
+        "A": "good-enough",
+        "B": "baseline"
+      },
+      "preference": "good-enough",
+      "reason": "Both pass every check. A brings Product's launch-day decision forward and explains why Support and Operations need it. The closing table pairs each open question with its owner and the practical consequence of the answer, giving readers a ready agenda for the discussion."
+    },
+    {
+      "case": "sop",
+      "repeat": 1,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "good-enough",
+      "reason": "Both pass every check. B uses one numbered procedure, so “restart at step 2” points to a unique step. Its final instruction also puts both conditions for logging in one place."
+    },
+    {
+      "case": "sop",
+      "repeat": 2,
+      "blind_order": {
+        "A": "good-enough",
+        "B": "baseline"
+      },
+      "preference": "baseline",
+      "reason": "Both pass every check. B’s section headings make the upload restart point and the verification steps easy to find. The duplicate stop appears exactly where the operator opens Preview."
+    },
+    {
+      "case": "sop",
+      "repeat": 3,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "good-enough",
+      "reason": "Both pass every check. B groups the exceptions under Preview and explicitly tells the operator to stop on a price mismatch. Its logging instruction makes clear that completing the comparisons is insufficient unless both prices match."
+    }
+  ],
+  "judge_usage": {
+    "decision-brief": {
+      "input_tokens": 26013,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1940,
+      "reasoning_output_tokens": 0
+    },
+    "impact-analysis": {
+      "input_tokens": 26738,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2382,
+      "reasoning_output_tokens": 0
+    },
+    "sop": {
+      "input_tokens": 25932,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2252,
+      "reasoning_output_tokens": 0
+    }
+  }
+}

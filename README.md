@@ -2,7 +2,7 @@
 
 **Ponytail for knowledge worker**
 
-Good Enough is an agent skill for making documents, spreadsheets, financial models, and presentations that are complete, correct, and easy to use. Every section, tab, slide, and visual should help the reader do something.
+Good Enough is an agent skill for making documents, spreadsheets, financial models, and presentations that are complete, correct, and easy to use. It uses the inverted pyramid to put what the reader needs first and supporting detail where they will use it.
 
 [See the cash forecast benchmark](#cash-forecast-benchmark) for an example with downloadable workbooks.
 
@@ -95,23 +95,24 @@ Try the same task in both workbooks. Change **Payroll** from **$6,000** to **$7,
 
 | Baseline | With Good Enough |
 | --- | --- |
-| ![Baseline workbook with separate assumptions and cash forecast sections](evals/cash-forecast/01-baseline.png) | ![Good Enough workbook with ending cash directly below the four inputs](evals/cash-forecast/01-good-enough.png) |
-| [Open the baseline workbook](evals/cash-forecast/workbooks/01-baseline.xlsx) | [Open the Good Enough workbook](evals/cash-forecast/workbooks/01-good-enough.xlsx) |
+| ![Baseline workbook with ending cash below the inputs and intermediate totals](evals/inverted-pyramid/cash-forecast/01-baseline.png) | ![Good Enough workbook with ending cash in row 2 above the editable assumptions](evals/inverted-pyramid/cash-forecast/01-good-enough.png) |
+| [Open the baseline workbook](evals/inverted-pyramid/cash-forecast/workbooks/01-baseline.xlsx) | [Open the Good Enough workbook](evals/inverted-pyramid/cash-forecast/workbooks/01-good-enough.xlsx) |
 
 | Result across three pairs | Baseline | With Good Enough |
 | --- | ---: | ---: |
 | Scripted payroll task completed | 3/3 | 3/3 |
 | Workbooks passing all correctness checks | 3/3 | 3/3 |
 | Workbook failures | 0 | 0 |
+| Median row of ending cash | 12 | 2 |
 | Median filled rows on the opening sheet | 11 | 9 |
 
-Good Enough used fewer filled rows in all three pairs. In the example above, the baseline shows two intermediate cash totals. Good Enough puts the result directly below its inputs. This pilot measured workbook behavior and layout. Reader completion time remains unmeasured.
+Good Enough put ending cash in row 2 in every run. The baseline workbooks included intermediate cash totals. Good Enough calculated ending cash directly from the four editable inputs. This pilot measured workbook behavior and layout. Reader completion time remains unmeasured.
 
-Tested with Codex CLI **0.172.0**, model **`gpt-6.2-sol`** at low reasoning effort, and skill commit [`01eb485`](https://github.com/bagusfarisa/good-enough/blob/01eb48510be3bbbcffc88263268865b5448098eb/skills/good-enough/SKILL.md). [Method and all workbooks](evals/cash-forecast/) · [Prompt](evals/cash-forecast/prompt.txt) · [Inputs](evals/cash-forecast/cash-inputs.csv) · [Raw scores](evals/cash-forecast/scores.json)
+Tested with Codex CLI **0.172.0**, model **`gpt-6.2-sol`** at low reasoning effort, and skill commit [`1b391a7`](https://github.com/bagusfarisa/good-enough/blob/1b391a77d96cbe3fb06af028fde121e49e6edaec/skills/good-enough/SKILL.md). [Method](evals/inverted-pyramid/) · [All six workbooks](evals/inverted-pyramid/cash-forecast/workbooks/) · [Raw scores](evals/inverted-pyramid/cash-forecast/scores.json) · [Original pilot and inputs](evals/cash-forecast/)
 
 ## Automated document evaluation
 
-Both conditions passed all nine document runs. A blinded model judge preferred Good Enough in five pairs, the baseline in two, and called two ties. The tasks covered decision briefs, impact analyses, and SOPs. [Results, rubric, artifacts, and rerun instructions](evals/automated/)
+In the inverted-pyramid rerun, both conditions passed all nine documents and supported all 27 reader answers. A blinded judge preferred Good Enough in six pairs and the baseline in three. The impact analyses surfaced the customer’s next step earlier. Overall evidence placement was tied. [Latest results and rerun instructions](evals/inverted-pyramid/) · [Original evaluation](evals/automated/)
 
 ## Inspiration
 
