@@ -11,21 +11,52 @@ Good Enough is an agent skill for making documents, spreadsheets, financial mode
 | Financial model | Label the assumptions and show how they drive the results a human needs to understand. |
 | Slide deck | Give each slide one main takeaway and keep the evidence that supports it. |
 
-## Try it in Codex
+## Install
 
-Paste this into Codex to install the skill. [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills#install-curated-skills-for-local-use)
+From your project, run the [Skills CLI](https://github.com/vercel-labs/skills) (Node.js 22.20+) and select your agents when prompted. Add `-g` to install for your user account.
+
+```sh
+npx skills add bagusfarisa/good-enough --skill good-enough
+```
+
+In [Codex](https://learn.chatgpt.com/docs/build-skills#install-curated-skills-for-local-use), you can also paste this into a chat:
 
 ```text
 $skill-installer https://github.com/bagusfarisa/good-enough/tree/main/skills/good-enough
 ```
 
-Use `$good-enough` in a task. For example:
+In [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md), you can install directly from Git. Add `--local` for the current project.
 
-```text
-Use $good-enough to build a 12-month cash forecast. Make it easy for a reviewer to trace the ending cash balance back to the assumptions.
+```sh
+pi install git:github.com/bagusfarisa/good-enough
 ```
 
-The full instructions are in [SKILL.md](skills/good-enough/SKILL.md).
+### Install manually
+
+Copy the [`good-enough` folder](skills/good-enough) into one of the locations below. For example, a project install in Claude Code should end up at `.claude/skills/good-enough/SKILL.md`.
+
+| Agent | Project directory | Personal directory |
+| --- | --- | --- |
+| [Claude Code](https://code.claude.com/docs/en/skills#choose-where-skills-load) | `.claude/skills/` | `~/.claude/skills/` |
+| [Antigravity](https://antigravity.google/docs/skills) | `.agents/skills/` | `~/.gemini/config/skills/` |
+| [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/skills.md#add-it-to-pi) | `.agents/skills/` | `~/.agents/skills/` |
+| [OpenCode](https://opencode.ai/docs/skills/#discovery) | `.opencode/skills/` | `~/.config/opencode/skills/` |
+| [Codex](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills) | `.agents/skills/` | `~/.agents/skills/` |
+| [Cursor](https://cursor.com/docs/skills#skill-directories) | `.cursor/skills/` | `~/.cursor/skills/` |
+| [GitHub Copilot](https://docs.github.com/en/copilot/concepts/customizations/agent-skills#finding-and-storing-skills) | `.github/skills/` | `~/.copilot/skills/` |
+| [Gemini CLI](https://geminicli.com/docs/cli/skills/) | `.gemini/skills/` | `~/.gemini/skills/` |
+
+For any other agent that supports the [Agent Skills format](https://agentskills.io/specification), use its documented skills directory and the same [`SKILL.md`](skills/good-enough/SKILL.md).
+
+## Use it
+
+Ask your agent to use the `good-enough` skill. Codex also accepts `$good-enough`, Claude Code and Antigravity offer `/good-enough`, and Pi offers `/skill:good-enough`.
+
+```text
+Use the good-enough skill to build a 12-month cash forecast. Make it easy for a reviewer to trace the ending cash balance back to the assumptions.
+```
+
+The skill guides how the agent structures and reviews the work. The file formats it can produce depend on its available tools.
 
 ## Inspiration
 
