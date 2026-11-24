@@ -1,0 +1,83 @@
+{
+  "approval-deck-1-candidate": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 2
+  },
+  "approval-deck-1-current": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 3
+  },
+  "approval-deck-1-plain": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 3
+  },
+  "approval-deck-2-candidate": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 2
+  },
+  "approval-deck-2-current": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 3
+  },
+  "approval-deck-2-plain": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 3
+  },
+  "approval-deck-3-candidate": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 2
+  },
+  "approval-deck-3-current": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 3
+  },
+  "approval-deck-3-plain": {
+    "checks": {
+      "package_integrity": true,
+      "geometry": true,
+      "rendered": true,
+      "editable_visible_text": true
+    },
+    "slides": 3
+  }
+}

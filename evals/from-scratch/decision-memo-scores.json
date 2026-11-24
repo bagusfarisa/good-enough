@@ -1,0 +1,486 @@
+{
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "manifest": {
+    "current_commit": "9b826364e21b4b439231076e9e8b8fe260c1076d",
+    "candidate_sha256": "71ab5037f300e171325b5d5206711ac3dee50be2391a3934b0ab806a5e815e1c",
+    "fixtures_sha256": "4f13e0bfb1074c62ef036b7a57e3e4f3430c0ecefd254c6092c93e7de2ef2674",
+    "repeats": 3,
+    "variants": [
+      "plain",
+      "current",
+      "candidate"
+    ],
+    "generator": "gpt-6.2-sol",
+    "reasoning": "low",
+    "harness": "codex-cli 0.172.0"
+  },
+  "runs": [
+    {
+      "case": "decision-memo",
+      "repeat": 1,
+      "variant": "candidate",
+      "artifact": "artifacts/decision-memo-1-candidate.md",
+      "sha256": "46fdf67df1547b107015b985c890b314bd72fe81515e253d822f6efaf5f26325",
+      "usage": {
+        "input_tokens": 27201,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 277,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Monday staffing decision | Renewals intake pilot\n\n**Recommendation for the Operations Director:** Reserve up to **$6,400** for one four-week pilot at North Desk. Keep manual triage in place until the written data retention plan is in place. The spending approval covers the budget reservation only. The written plan is required before launch.\n\nOver the past four weeks, **12 of 40 renewals requests (30%)** missed the one-business-day response target. The pilot would test whether a dedicated intake queue reduces those misses.\n\n| Option | What Monday’s decision would authorize |\n|---|---|\n| Reserve funding for the North Desk pilot | Cap spending at $6,400 for four weeks. North Desk can start June 8 with existing shift coverage if the written data retention plan is in place. The plan owner and clearance date are unconfirmed. If the plan is still pending on June 8, continue manual triage and defer launch. |\n| Extend manual triage | Keep the current handoff in place with no pilot spend. |\n\nA second desk is outside the scope of Monday’s decision.\n\n**Four-week review.** At the end of the pilot, the director will review the number and share of requests that missed the response target, using the same one-business-day definition and the baseline of 12 misses out of 40 requests.\n",
+      "units": [
+        "1. Opening"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "Monday’s approval reserves funding for one four-week North Desk pilot. The memo makes June 8 conditional, identifies both unknowns and preserves the manual alternative, second-desk exclusion and director’s review against the baseline."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The director can reserve up to $6,400 for four weeks at North Desk only. The table says to defer the June 8 launch if the written plan is pending, identifies its unconfirmed owner and clearance date, and gives manual triage as the no-spend option."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The recommendation identifies the authorization, and the table keeps the June 8 contingency alongside the relevant option."
+      },
+      "reader_response": {
+        "answer": "The director can authorize a budget reservation of up to $6,400 for one four-week North Desk pilot. The approval does not itself authorize launch. A written data retention plan must be in place before launch; its owner and clearance date are unconfirmed. If the plan is still pending on June 8, continue manual triage and defer the launch. The director can also choose to extend manual triage with no pilot spend.",
+        "evidence": [
+          "“The spending approval covers the budget reservation only. The written plan is required before launch.”",
+          "“North Desk can start June 8 with existing shift coverage if the written data retention plan is in place. The plan owner and clearance date are unconfirmed. If the plan is still pending on June 8, continue manual triage and defer launch.”",
+          "“Extend manual triage | Keep the current handoff in place with no pilot spend.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer limits approval to one four-week North Desk pilot at up to $6,400. Its instruction to defer launch if the plan is pending on June 8 conveys the planned date. It also gives both unconfirmed details and the no-spend fallback."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes support the conditional June 8 start, unresolved plan details, and fallback. They omit the $6,400 cap and four-week duration."
+        }
+      }
+    },
+    {
+      "case": "decision-memo",
+      "repeat": 1,
+      "variant": "current",
+      "artifact": "artifacts/decision-memo-1-current.md",
+      "sha256": "287ef026c4e8377ef7cdbab4731e09d948e390a7afb60f59348e35121b859fd0",
+      "usage": {
+        "input_tokens": 27157,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 248,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Decision memo — Renewals staffing\n\n**To:** Operations Director  \n**For:** Monday’s staffing meeting\n\nApprove up to **$6,400** for one four-week intake queue pilot at North Desk. Authorize the budget reservation on Monday. Make launch conditional on a written data retention plan being in place.\n\nNorth Desk can launch on **June 8** with its existing shift coverage if the plan is ready. The plan owner and clearance date are still unconfirmed. Assign an owner and set a clearance date at the meeting. If the plan is still pending on June 8, continue manual triage until the launch condition is met.\n\nOver the last four weeks, Renewals missed the one-business-day response target on **12 of 40 requests (30%)**. The pilot gives North Desk a way to test a new intake queue with its current staffing. Extending manual triage requires no pilot spend and keeps the current handoff in place. A second desk is outside Monday’s decision.\n\nAfter four weeks of the pilot, review the number and share of requests that missed the one-business-day response target. Use the same definition and compare the results with the baseline of 12 misses in 40 requests.\n",
+      "units": [
+        "1. Opening"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The memo preserves the baseline, funding cap, launch condition, manual alternative, scope and review. Assigning an owner and setting a clearance date are proposed meeting actions. Both remain explicitly unconfirmed."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The memo limits Monday’s approval to a reservation of up to $6,400 for one four-week North Desk pilot. It makes June 8 conditional on the written plan, flags the unconfirmed owner and date, and directs continued manual triage with no pilot spend."
+        },
+        "avoidable_units": [],
+        "structure_reason": "Short paragraphs keep the decision, launch condition, alternative, and review readable within the single unit."
+      },
+      "reader_response": {
+        "answer": "The director can authorize a budget reservation today for one four-week North Desk intake queue pilot, up to **$6,400**.\n\nBefore launch, a written data retention plan must be in place. The meeting must also assign its owner and set a clearance date; both are currently unconfirmed. North Desk can launch on **June 8** with existing shift coverage if the plan is ready.\n\nIf the plan is still pending on June 8, continue manual triage until the launch condition is met. This requires no pilot spend and keeps the current handoff in place.",
+        "evidence": [
+          "“Approve up to **$6,400** for one four-week intake queue pilot at North Desk. Authorize the budget reservation on Monday. Make launch conditional on a written data retention plan being in place.”",
+          "“North Desk can launch on **June 8** with its existing shift coverage if the plan is ready. The plan owner and clearance date are still unconfirmed. Assign an owner and set a clearance date at the meeting.”",
+          "“If the plan is still pending on June 8, continue manual triage until the launch condition is met.”",
+          "“Extending manual triage requires no pilot spend and keeps the current handoff in place.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer gives the full North Desk reservation, conditional June 8 start, written-plan requirement, both unresolved details, and no-spend fallback. It correctly places owner assignment and clearance scheduling at the meeting."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes support the reservation for one pilot at North Desk, the conditional June 8 launch, the outstanding owner and clearance date, and continued manual triage with no pilot spend."
+        }
+      }
+    },
+    {
+      "case": "decision-memo",
+      "repeat": 1,
+      "variant": "plain",
+      "artifact": "artifacts/decision-memo-1-plain.md",
+      "sha256": "8591449cf9cf5619502b0b7ec8d75be5a9cee907d101c7f6a68d07a74f091a2b",
+      "usage": {
+        "input_tokens": 26167,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 232,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Decision memo: Renewals intake staffing\n\n**To:** Operations Director  \n**For:** Monday’s staffing meeting\n\n## Decision requested\n\nReserve up to **$6,400** for one four-week intake pilot at North Desk. Continue manual triage until the written data retention plan is in place. Authorize the queue launch separately once that requirement is met. A second desk is outside the scope of this decision.\n\n## Why reserve the pilot budget\n\nRenewals missed the one-business-day response target on **12 of 40 requests (30%)** over the last four weeks. North Desk can run the new intake queue with its existing shift coverage and is available to start June 8. The start date depends on the written data retention plan. The plan owner and clearance date are still unconfirmed.\n\nThe alternative is to extend manual triage. That requires no pilot spending and keeps the current handoff in place.\n\n## Four-week review\n\nAt the end of the pilot, review the number and share of requests that missed the response target against the baseline of 12 of 40. Use the same one-business-day definition for both periods.\n",
+      "units": [
+        "1. Opening",
+        "2. Decision requested",
+        "3. Why reserve the pilot budget",
+        "4. Four-week review"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "Separate launch authorization is proposed as part of the decision request. The memo assigns no sign-off authority or clearance date and preserves the conditional June 8 start, baseline, alternatives, scope and review."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The director can reserve up to $6,400 for four weeks at North Desk only. June 8 depends on the written retention plan. Its owner and clearance date are unconfirmed, and manual triage can continue with no pilot spending."
+        },
+        "avoidable_units": [
+          "1. Opening"
+        ],
+        "structure_reason": "The addressee and meeting details can sit directly above the decision request in the same unit."
+      },
+      "reader_response": {
+        "answer": "The director can reserve up to **$6,400** today for one four-week North Desk pilot. The queue launch requires a separate authorization after the written data retention plan is in place. The plan owner and clearance date are unconfirmed, so the June 8 start is not established. If the condition remains unresolved, continue manual triage; it requires no pilot spending and keeps the current handoff.",
+        "evidence": [
+          "“Reserve up to **$6,400** for one four-week intake pilot at North Desk.”",
+          "“Continue manual triage until the written data retention plan is in place. Authorize the queue launch separately once that requirement is met.”",
+          "“North Desk can run the new intake queue with its existing shift coverage and is available to start June 8. The start date depends on the written data retention plan. The plan owner and clearance date are still unconfirmed.”",
+          "“The alternative is to extend manual triage. That requires no pilot spending and keeps the current handoff in place.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer gives the full reservation and its North Desk scope. It identifies June 8 as a tentative start, explains the plan requirement and unresolved details, and gives the no-spend fallback."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes limit the reservation to one four-week pilot at North Desk and directly support the amount, June 8 availability, launch condition, unconfirmed details, and fallback."
+        }
+      }
+    },
+    {
+      "case": "decision-memo",
+      "repeat": 2,
+      "variant": "candidate",
+      "artifact": "artifacts/decision-memo-2-candidate.md",
+      "sha256": "4dde55bf32c7e957c05a76abedeeb0b12635459378a0c113e1ca7dc023ed64c7",
+      "usage": {
+        "input_tokens": 27199,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 221,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Monday staffing decision: Renewals intake pilot\n\n**Recommendation:** Reserve up to **$6,400** for one four-week pilot at North Desk. Continue manual triage until the written data retention plan is in place. North Desk can run the new queue on June 8 with existing shift coverage if the plan is ready. The plan owner and clearance date are still unconfirmed. Use Monday’s meeting to assign an owner and confirm when clearance is expected.\n\nRenewals missed the one-business-day response target on **12 of 40 requests (30%)** over the last four weeks.\n\n| Option | What Monday’s decision authorizes |\n|---|---|\n| Reserve pilot funding | Reserve up to $6,400 for a single four-week pilot. Launch depends on having the written retention plan in place. |\n| Extend manual triage | Continue the current handoff with no pilot spend. |\n\nAt the end of the four-week pilot, the Operations Director will review the number and share of missed responses against the 30% baseline, using the same one-business-day definition.\n",
+      "units": [
+        "1. Opening"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The recommendation limits the reservation to one North Desk pilot. Resolving ownership and timing on Monday is a proposed action, and June 8 remains conditional. The stated 30% review baseline matches the supplied 12 misses in 40 requests."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "“One four-week pilot at North Desk” limits the $6,400 reservation to that desk. The recommendation gives the conditional June 8 start and both unresolved plan details. The table confirms that continuing manual triage incurs no pilot spend."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The single unit uses a bold recommendation and a short table to distinguish the funding decision from the fallback."
+      },
+      "reader_response": {
+        "answer": "The director can authorize a reservation of up to $6,400 for one four-week pilot at North Desk today. Before launch, the written data retention plan must be in place; Monday’s meeting should assign its owner and confirm when clearance is expected. The owner and clearance date are still unconfirmed. If the plan is ready, North Desk can launch June 8 using existing shift coverage. If the condition remains unresolved, the alternative is to continue manual triage with no pilot spend.",
+        "evidence": [
+          "“Reserve up to **$6,400** for one four-week pilot at North Desk.”",
+          "“Launch depends on having the written retention plan in place.”",
+          "“The plan owner and clearance date are still unconfirmed. Use Monday’s meeting to assign an owner and confirm when clearance is expected.”",
+          "“North Desk can run the new queue on June 8 with existing shift coverage if the plan is ready.”",
+          "“Continue the current handoff with no pilot spend.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer gives the scoped reservation, conditional June 8 launch, written-plan requirement, unconfirmed owner and clearance date, and no-spend manual fallback."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes support the reservation for one North Desk pilot, the written-plan prerequisite, the conditional start date, the unconfirmed owner and clearance date, and the no-spend handoff."
+        }
+      }
+    },
+    {
+      "case": "decision-memo",
+      "repeat": 2,
+      "variant": "current",
+      "artifact": "artifacts/decision-memo-2-current.md",
+      "sha256": "aeefe4d916bcf372da0a591af826583a0d42c86ef674d05a68a7bc08026de05a",
+      "usage": {
+        "input_tokens": 27151,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 207,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Renewals staffing decision for Monday\n\n**Authorize a spending cap of $6,400 for one four-week North Desk intake queue pilot.** This reserves the funds. Authorize launch only once the written data retention plan is in place. North Desk can launch on June 8 with its existing shift coverage if the plan is ready. The plan owner and clearance date are still unconfirmed. If the plan is pending on June 8, continue manual triage until the launch condition is met.\n\nOver the last four weeks, 12 of 40 renewal requests (30%) missed the one-business-day response target. The pilot would test whether a new intake queue reduces missed responses using existing coverage. The alternative is to extend manual triage, which requires no pilot spend and keeps the current handoff in place.\n\nAt the end of the four-week pilot, the Operations Director will review the number and share of requests that missed the target, using the same one-business-day definition and the 12-of-40 baseline.\n",
+      "units": [
+        "1. Opening"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "Authorizing one four-week North Desk pilot limits the scope to that desk. The memo preserves the cap, conditional launch, unresolved plan details, manual alternative and director’s review using the original response definition."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The bold authorization covers one four-week North Desk pilot capped at $6,400, which excludes a second desk. The opening gives the June 8 condition, the unconfirmed owner and clearance date, and the manual-triage fallback. The next paragraph confirms its cost."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The bold approval sentence and adjacent launch condition make the decision easy to retrieve, with the fallback cost in the next paragraph."
+      },
+      "reader_response": {
+        "answer": "The director can authorize the **$6,400 spending cap today**, reserving funds for one four-week pilot. Launch requires a written data retention plan; its owner and clearance date are unconfirmed. If the plan is still pending on June 8, continue manual triage until the launch condition is met. Manual triage requires no pilot spend and keeps the current handoff.",
+        "evidence": [
+          "“**Authorize a spending cap of $6,400 for one four-week North Desk intake queue pilot.** This reserves the funds.”",
+          "“Authorize launch only once the written data retention plan is in place.”",
+          "“The plan owner and clearance date are still unconfirmed.”",
+          "“If the plan is pending on June 8, continue manual triage until the launch condition is met.”",
+          "“The alternative is to extend manual triage, which requires no pilot spend and keeps the current handoff in place.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The answer omits North Desk, so the reader cannot identify which desk the reservation covers. It also presents June 8 only as a date to check whether the plan is pending."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes establish the North Desk scope and the other decision terms, but the June 8 quote gives only the fallback on that date. It does not establish June 8 as the planned start."
+        }
+      }
+    },
+    {
+      "case": "decision-memo",
+      "repeat": 2,
+      "variant": "plain",
+      "artifact": "artifacts/decision-memo-2-plain.md",
+      "sha256": "e033c21c0e764eb233565e6f0b9456e1d5ade17d9a3b3dcfa9b978af79cefc1f",
+      "usage": {
+        "input_tokens": 26165,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 244,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Decision memo for Monday’s staffing meeting\n\n**To:** Operations Director  \n**Decision:** Whether to reserve up to **$6,400** for one four-week renewals intake pilot at North Desk.\n\n## Recommendation\n\nReserve the pilot budget on Monday and make launch conditional on a written data retention plan. Assign a plan owner and confirm a clearance date. Keep manual triage in place until the launch requirement is met.\n\n## Basis for the decision\n\nRenewals missed the one-business-day response target on **12 of 40 requests (30%)** over the last four weeks. North Desk can run the new intake queue as early as **June 8** with its existing shift coverage. No owner or clearance date has been confirmed for the written retention plan, so June 8 remains conditional.\n\nThe alternative is to extend manual triage. It requires no pilot spend and leaves the current handoff in place. A second desk is outside the scope of Monday’s decision.\n\n## Review after four weeks\n\nAt the end of the pilot, review the count and share of missed responses using the same one-business-day definition. Compare the results with the baseline of **12 misses out of 40 requests**.\n",
+      "units": [
+        "1. Opening",
+        "2. Recommendation",
+        "3. Basis for the decision",
+        "4. Review after four weeks"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The recommendation to assign an owner and confirm a date follows from the two identified gaps. The memo keeps June 8 conditional and retains the funding limit, manual alternative, desk boundary and baseline for review."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The memo gives the $6,400 reservation, four-week duration, and single-desk scope. It identifies the written plan as the condition for June 8, calls for an owner and clearance date, and specifies continued manual triage with no pilot spend."
+        },
+        "avoidable_units": [
+          "1. Opening"
+        ],
+        "structure_reason": "The opening decision line can merge with the recommendation, carrying over the amount, duration, and desk into the approval sentence."
+      },
+      "reader_response": {
+        "answer": "The director can reserve up to **$6,400** today for one four-week renewals intake pilot at North Desk. Before launch, the team needs a written data retention plan, an assigned owner, and a confirmed clearance date. June 8 is the earliest possible start, but remains conditional because no owner or clearance date has been confirmed. If the launch condition remains unresolved, extend manual triage; it requires no pilot spend and keeps the current handoff in place. A second desk is outside today’s decision.",
+        "evidence": [
+          "“**Decision:** Whether to reserve up to **$6,400** for one four-week renewals intake pilot at North Desk.”",
+          "“Reserve the pilot budget on Monday and make launch conditional on a written data retention plan. Assign a plan owner and confirm a clearance date. Keep manual triage in place until the launch requirement is met.”",
+          "“North Desk can run the new intake queue as early as **June 8** with its existing shift coverage. No owner or clearance date has been confirmed for the written retention plan, so June 8 remains conditional.”",
+          "“The alternative is to extend manual triage. It requires no pilot spend and leaves the current handoff in place. A second desk is outside the scope of Monday’s decision.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The answer makes an assigned owner and a confirmed clearance date additional prerequisites for launch. The memo identifies the written plan as the launch requirement and directs the team to resolve those two open items."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes support every expected fact, including June 8 as the conditional start, the two unconfirmed details, the no-spend fallback, and the exclusion of a second desk."
+        }
+      }
+    },
+    {
+      "case": "decision-memo",
+      "repeat": 3,
+      "variant": "candidate",
+      "artifact": "artifacts/decision-memo-3-candidate.md",
+      "sha256": "be320f3cbdda2c40faf065199558ebbb96bd7ddb5236e68feea666ddf1a549fd",
+      "usage": {
+        "input_tokens": 27201,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 213,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Monday staffing decision: North Desk renewals pilot\n\n**Recommendation.** Reserve up to **$6,400** for one four-week pilot at North Desk. Keep manual triage in place until the written data retention plan is ready. North Desk can launch the new queue on June 8 with existing shift coverage if the plan is ready by then. The plan owner and clearance date are still unconfirmed.\n\nRenewals missed the one-business-day response target on **12 of 40 requests (30%)** over the last four weeks.\n\n| Option | What Monday’s decision authorizes |\n|---|---|\n| Reserve pilot funding | Set aside up to $6,400 for the four-week North Desk pilot. Launch remains conditional on the written data retention plan. |\n| Extend manual triage | Continue the current handoff with no pilot spend. |\n\nA second desk is outside Monday’s decision. At the end of the four-week pilot, the Operations Director will review missed responses against the current baseline using the same one-business-day definition.\n",
+      "units": [
+        "1. Opening"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The memo gives the full four-week baseline and calls for the director to review misses using the same one-business-day definition. It also preserves the funding reservation, launch condition, unknowns, no-spend option and desk limit."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The recommendation gives the cap, duration, conditional June 8 start, and unresolved plan details. The table identifies manual triage as the no-spend option, and the closing paragraph excludes a second desk."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The recommendation, two-row comparison, and closing scope statement are easy to locate within the single unit."
+      },
+      "reader_response": {
+        "answer": "The director can authorize a reserve of up to **$6,400** for a four-week North Desk pilot today. Launch requires a written data retention plan; manual triage stays in place until it is ready. North Desk can launch on June 8 using existing shift coverage if the plan is ready by then.\n\nIf the plan is unresolved, the alternative is to extend the current manual handoff with no pilot spend. The plan owner and clearance date are unconfirmed.",
+        "evidence": [
+          "“Set aside up to $6,400 for the four-week North Desk pilot. Launch remains conditional on the written data retention plan.”",
+          "“Keep manual triage in place until the written data retention plan is ready. North Desk can launch the new queue on June 8 with existing shift coverage if the plan is ready by then. The plan owner and clearance date are still unconfirmed.”",
+          "“Continue the current handoff with no pilot spend.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer scopes the $6,400 reservation to the four-week North Desk pilot and covers the conditional June 8 start, written plan, unconfirmed owner and clearance date, and no-spend manual handoff."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes identify the specific North Desk pilot covered by the reservation and support its amount, duration, conditional start, outstanding plan details, and no-spend alternative."
+        }
+      }
+    },
+    {
+      "case": "decision-memo",
+      "repeat": 3,
+      "variant": "current",
+      "artifact": "artifacts/decision-memo-3-current.md",
+      "sha256": "23215ec531f5ad0d1711a7c403a45b97bff77f77fc4d2ab92f2da55ee18e3ed5",
+      "usage": {
+        "input_tokens": 27155,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 254,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Decision memo for Monday’s staffing meeting\n\n**To** Operations Director  \n**Subject** Four-week renewals intake pilot\n\n## Recommended decision\n\nApprove a budget reservation of up to **$6,400** for one four-week pilot at North Desk. North Desk can start the new intake queue on June 8 with existing shift coverage, provided the written data retention plan has been cleared. The plan owner and clearance date are still unconfirmed. Keep manual triage in place until the queue is cleared to launch.\n\n## Options\n\n| Option | Cost and operational effect |\n|---|---|\n| Reserve funding for the North Desk pilot | Caps pilot spend at $6,400 and allows North Desk to test a new intake queue using existing shift coverage once the retention plan is cleared. |\n| Extend manual triage | Requires no pilot spend and keeps the current handoff in place. |\n\nMonday’s approval reserves funding only. The decision covers North Desk only.\n\n## Four-week review\n\nOver the last four weeks, **12 of 40 renewals requests (30%)** missed the one-business-day response target. At the end of the four-week pilot, the Operations Director will review missed responses against that baseline using the same one-business-day definition.\n",
+      "units": [
+        "1. Opening",
+        "2. Recommended decision",
+        "3. Options",
+        "4. Four-week review"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The memo limits approval to a $6,400 reservation for North Desk and keeps manual triage in place pending the written plan. It gives the full baseline and directs the director to use the same definition at the four-week review."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "Monday’s approval reserves up to $6,400 for four weeks at North Desk only. The June 8 start requires clearance of the written plan, whose owner and clearance date are unconfirmed. The options table gives the no-spend fallback."
+        },
+        "avoidable_units": [
+          "1. Opening"
+        ],
+        "structure_reason": "The recipient and subject can accompany the recommended decision. The options table and review each serve a distinct purpose."
+      },
+      "reader_response": {
+        "answer": "The director can approve a budget reservation of up to $6,400 today for one four-week North Desk pilot. The approval reserves funding only; it does not authorize launch before the written data retention plan is cleared.\n\nBefore launch, the written plan must be cleared. The memo says North Desk can start on June 8 using existing shift coverage if that condition is met, but the plan owner and clearance date are unconfirmed.\n\nIf clearance remains unresolved, keep manual triage in place. Extending it requires no pilot spend and preserves the current handoff.",
+        "evidence": [
+          "“Approve a budget reservation of up to **$6,400** for one four-week pilot at North Desk.”",
+          "“Monday’s approval reserves funding only. The decision covers North Desk only.”",
+          "“North Desk can start the new intake queue on June 8 with existing shift coverage, provided the written data retention plan has been cleared. The plan owner and clearance date are still unconfirmed.”",
+          "“Keep manual triage in place until the queue is cleared to launch.”",
+          "“Requires no pilot spend and keeps the current handoff in place.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer limits the reservation to $6,400 for one four-week North Desk pilot and gives the conditional June 8 start, written-plan requirement, unresolved owner and clearance date, and no-spend manual fallback."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes establish the amount, duration, North Desk-only scope, conditional June 8 start, unresolved owner and clearance date, and cost of continuing manual triage."
+        }
+      }
+    },
+    {
+      "case": "decision-memo",
+      "repeat": 3,
+      "variant": "plain",
+      "artifact": "artifacts/decision-memo-3-plain.md",
+      "sha256": "887b1a9e17f7148e92fda79df3dccd4673d0bb9bd68c6948621ddbc7a8b0a937",
+      "usage": {
+        "input_tokens": 26167,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 243,
+        "reasoning_output_tokens": 0
+      },
+      "view": "# Decision memo for Monday’s staffing meeting\n\n**To** Operations Director  \n**Decision requested** Reserve up to $6,400 for one four-week renewal intake pilot at North Desk. Keep manual triage in place until the written data retention plan is ready and the queue can launch.\n\nOver the last four weeks, 12 of 40 renewal requests (30%) missed the one-business-day response target. North Desk can run the new intake queue on June 8 with existing shift coverage. June 8 is conditional on the written data retention plan being ready before launch. The plan owner and clearance date are both unconfirmed.\n\n| Option | What Monday’s decision authorizes |\n| --- | --- |\n| **Reserve pilot funding** | Cap spending at $6,400 for one four-week pilot at North Desk. Launch remains gated on the written data retention plan. |\n| **Extend manual triage** | Continue the current handoff with no pilot spend. |\n\nThe decision covers North Desk only. At the end of the four-week pilot, review the number and share of renewal requests that missed the target against the baseline of 12 of 40, using the same one-business-day definition.\n",
+      "units": [
+        "1. Opening"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The memo explicitly qualifies June 8 on plan readiness and identifies the unknown owner and clearance date. It limits funding to one North Desk pilot and preserves the no-spend alternative and four-week comparison with the 12-of-40 baseline."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The request defines the four-week North Desk reservation and $6,400 cap. The next paragraph makes June 8 conditional on the written plan and identifies both unknowns. The table gives the no-spend fallback, and the final paragraph limits approval to North Desk."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The bold decision request and option labels let the reader find the authorization and fallback within one unit."
+      },
+      "reader_response": {
+        "answer": "The director can authorize reserving up to $6,400 for one four-week renewal intake pilot at North Desk. Manual triage stays in place until the written data retention plan is ready and the queue can launch.\n\nBefore launch, the written data retention plan must be ready. June 8 is the proposed launch date, but the plan owner and clearance date are unconfirmed.\n\nIf the launch condition remains unresolved, the alternative is to extend manual triage with no pilot spend.",
+        "evidence": [
+          "“**Reserve pilot funding** | Cap spending at $6,400 for one four-week pilot at North Desk. Launch remains gated on the written data retention plan.”",
+          "“Keep manual triage in place until the written data retention plan is ready and the queue can launch.”",
+          "“North Desk can run the new intake queue on June 8 with existing shift coverage. June 8 is conditional on the written data retention plan being ready before launch. The plan owner and clearance date are both unconfirmed.”",
+          "“**Extend manual triage** | Continue the current handoff with no pilot spend.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer identifies one four-week North Desk intake pilot, the $6,400 cap, the proposed June 8 start, the written-plan requirement, both unconfirmed details, and manual triage with no pilot spend."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The funding quote defines the authorized pilot and its scope. The remaining quotes substantiate the conditional date, unresolved plan details, and no-spend fallback."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1191 @@
+{
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "manifest": {
+    "current_commit": "9b826364e21b4b439231076e9e8b8fe260c1076d",
+    "candidate_sha256": "71ab5037f300e171325b5d5206711ac3dee50be2391a3934b0ab806a5e815e1c",
+    "fixtures_sha256": "4f13e0bfb1074c62ef036b7a57e3e4f3430c0ecefd254c6092c93e7de2ef2674",
+    "repeats": 3,
+    "variants": [
+      "plain",
+      "current",
+      "candidate"
+    ],
+    "generator": "gpt-6.2-sol",
+    "reasoning": "low",
+    "harness": "codex-cli 0.172.0"
+  },
+  "reader_question": "What is July ending cash and the gap to the reserve? Which editable input would you change if the $2,500 receipt is confirmed, and what would July ending cash and the reserve gap become?",
+  "runs": [
+    {
+      "case": "cash-forecast",
+      "repeat": 1,
+      "variant": "candidate",
+      "artifact": "artifacts/cash-forecast-1-candidate.xlsx",
+      "sha256": "34fef9cbfe7b8750cfb8367c0f7b2601c8f0e91e91a09639fc601b1597eba680",
+      "usage": {
+        "input_tokens": 181352,
+        "cached_input_tokens": 145152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1431,
+        "reasoning_output_tokens": 48
+      },
+      "view": "[Cash forecast]\nA1=Cash forecast · June–July 2027\nA2=USD · Blue cells are editable inputs.\nA4=July reserve check | B4=Base forecast | C4=If receipt confirmed\nA5=July closing cash | B5=6000 | C5=8500\nA6=July reserve target | B6=7000 | C6=7000\nA7=Surplus / (shortfall) | B7=-1000 | C7=1500\nA8=Reserve status | B8=Below reserve | C8=Meets reserve\nA9=Possible extra July receipt | C9=2500\nA10=If confirmed, add the receipt to July confirmed receipts\nA11=and set the possible extra receipt above to $0.\nA12=Monthly cash forecast | B12=June 2027 | C12=July 2027\nA13=Opening cash | B13=12000 | C13=9500\nA14=Confirmed receipts | B14=10000 | C14=7000\nA15=Payroll | B15=9000 | C15=9000\nA16=Rent | B16=1500 | C16=1500\nA17=Equipment paid | B17=2000 | C17=0\nA18=Total cash paid | B18=12500 | C18=10500\nA19=Closing cash | B19=9500 | C19=6000",
+      "units": [
+        "Cash forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The base forecast carries June’s $9,500 close into July and shows a $1,000 reserve shortfall. The conditional calculation shows a $1,500 surplus. The instructions correctly prevent double counting when the receipt moves into confirmed receipts."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "July closes at $6,000, $1,000 below reserve. As instructed, raise July “Confirmed receipts” (C14) to $9,500 and clear “Possible extra July receipt” (C9) to $0. July closes at $8,500, $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The tab keeps the update instructions beside the scenario amount, explaining how to count the receipt once."
+      },
+      "reader_response": {
+        "answer": "July ending cash is **$6,000**, a **$1,000 shortfall** against the $7,000 reserve. If the $2,500 receipt is confirmed, increase July confirmed receipts in **C14 from $7,000 to $9,500** and set the possible extra receipt in **C9 to $0**. July ending cash would become **$8,500**, or **$1,500 above** the reserve.",
+        "evidence": [
+          "“A5=July closing cash | B5=6000 | C5=8500”",
+          "“A6=July reserve target | B6=7000 | C6=7000” and “A7=Surplus / (shortfall) | B7=-1000 | C7=1500”",
+          "“A9=Possible extra July receipt | C9=2500”",
+          "“A10=If confirmed, add the receipt to July confirmed receipts” and “A11=and set the possible extra receipt above to $0.”",
+          "“A14=Confirmed receipts | B14=10000 | C14=7000”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer gives both balances and gaps and follows the sheet’s confirmation instructions by raising C14 to $9,500 and clearing C9."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash forecast",
+              "C14"
+            ],
+            "june_close": [
+              "Cash forecast",
+              "B19"
+            ],
+            "july_close": [
+              "Cash forecast",
+              "C19"
+            ],
+            "reserve": [
+              "Cash forecast",
+              "B6"
+            ],
+            "reserve_gap": [
+              "Cash forecast",
+              "B7"
+            ],
+            "headline": [
+              "Cash forecast",
+              "B5"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash forecast!B5": "=C19",
+          "Cash forecast!C5": "=B5+C9",
+          "Cash forecast!C6": "=B6",
+          "Cash forecast!B7": "=B5-B6",
+          "Cash forecast!C7": "=C5-C6",
+          "Cash forecast!B8": "=IF(B7>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!C8": "=IF(C7>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!C13": "=B19",
+          "Cash forecast!B18": "=SUM(B15:B17)",
+          "Cash forecast!C18": "=SUM(C15:C17)",
+          "Cash forecast!B19": "=B13+B14-B18",
+          "Cash forecast!C19": "=C13+C14-C18"
+        }
+      }
+    },
+    {
+      "case": "cash-forecast",
+      "repeat": 1,
+      "variant": "current",
+      "artifact": "artifacts/cash-forecast-1-current.xlsx",
+      "sha256": "09b7fb07665712e33de70af6afac06f4c72fe8305197a5c6b9223203302dd12f",
+      "usage": {
+        "input_tokens": 212757,
+        "cached_input_tokens": 193920,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1656,
+        "reasoning_output_tokens": 98
+      },
+      "view": "[Cash forecast]\nA1=Cash forecast | USD\nA2=Edit blue cells. The rightmost column shows July if the extra receipt is confirmed.\nA4=Cash movement | B4=June 2027 | C4=July 2027\nConfirmed only | D4=July 2027\nIf receipt is confirmed\nA5=Opening cash | B5=12000 | C5=9500 | D5=9500\nA6=Confirmed receipts | B6=10000 | C6=7000 | D6=7000\nA7=Possible additional receipt | D7=2500\nA8=Payroll | B8=9000 | C8=9000 | D8=9000\nA9=Rent | B9=1500 | C9=1500 | D9=1500\nA10=Equipment paid | B10=2000 | C10=0 | D10=0\nA11=Total cash paid | B11=12500 | C11=10500 | D11=10500\nA12=Closing cash | B12=9500 | C12=6000 | D12=8500\nA14=July closing reserve target | C14=7000 | D14=7000\nA15=Surplus / (shortfall) | C15=-1000 | D15=1500\nA16=Reserve status | C16=Below reserve | D16=Meets reserve",
+      "units": [
+        "Cash forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The confirmed-only July formula excludes the possible receipt, while the conditional formula adds it once. The editable forecast preserves all USD amounts and visibly reconciles July closing cash of $6,000 and $8,500 to the $7,000 reserve."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "Confirmed-only July cash ends at $6,000, $1,000 below reserve. Change July “Confirmed receipts” (C6) from $7,000 to $9,500. Ending cash becomes $8,500, $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The July columns show the receipt, payments, closing balances and reserve gaps in one calculation trace."
+      },
+      "reader_response": {
+        "answer": "July ending cash is $6,000, which is $1,000 below the $7,000 reserve. If the $2,500 receipt is confirmed, the displayed scenario shows ending cash of $8,500, or $1,500 above the reserve. The artifact does not identify which cells are blue, so it does not establish which editable input to change. D7 contains the possible receipt in the scenario, but its editability is not shown.",
+        "evidence": [
+          "“C12=6000 | D12=8500”",
+          "“C14=7000 | D14=7000” and “C15=-1000 | D15=1500”",
+          "“A7=Possible additional receipt | D7=2500”",
+          "“Edit blue cells. The rightmost column shows July if the extra receipt is confirmed.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The cash and reserve figures are correct, but the reader only describes the amount in D7 and leaves the requested input choice unresolved."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash forecast",
+              "C6"
+            ],
+            "june_close": [
+              "Cash forecast",
+              "B12"
+            ],
+            "july_close": [
+              "Cash forecast",
+              "C12"
+            ],
+            "reserve": [
+              "Cash forecast",
+              "C14"
+            ],
+            "reserve_gap": [
+              "Cash forecast",
+              "C15"
+            ],
+            "headline": [
+              "Cash forecast",
+              "C12"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash forecast!C5": "=B12",
+          "Cash forecast!D5": "=C5",
+          "Cash forecast!D6": "=C6",
+          "Cash forecast!D8": "=C8",
+          "Cash forecast!D9": "=C9",
+          "Cash forecast!D10": "=C10",
+          "Cash forecast!B11": "=SUM(B8:B10)",
+          "Cash forecast!C11": "=SUM(C8:C10)",
+          "Cash forecast!D11": "=SUM(D8:D10)",
+          "Cash forecast!B12": "=B5+B6-B11",
+          "Cash forecast!C12": "=C5+C6-C11",
+          "Cash forecast!D12": "=D5+SUM(D6:D7)-D11",
+          "Cash forecast!D14": "=C14",
+          "Cash forecast!C15": "=C12-C14",
+          "Cash forecast!D15": "=D12-D14",
+          "Cash forecast!C16": "=IF(C15>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!D16": "=IF(D15>=0,\"Meets reserve\",\"Below reserve\")"
+        }
+      }
+    },
+    {
+      "case": "cash-forecast",
+      "repeat": 1,
+      "variant": "plain",
+      "artifact": "artifacts/cash-forecast-1-plain.xlsx",
+      "sha256": "da09e00000dea15712dd744ade034aaaf723aa1c633ad3c9eeb4d4785f956fc3",
+      "usage": {
+        "input_tokens": 185972,
+        "cached_input_tokens": 146432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1821,
+        "reasoning_output_tokens": 27
+      },
+      "view": "[Cash forecast]\nA1=Cash forecast\nA2=June–July 2027  |  USD  |  Edit the blue input cells to update the forecast.\nA4=Cash flow | B4=June 2027 | C4=July 2027 | D4=July if confirmed\nA5=Opening cash | B5=12000 | C5=9500 | D5=9500\nA6=Confirmed receipts | B6=10000 | C6=7000 | D6=7000\nA7=Extra July receipt | D7=2500\nA8=Total receipts | B8=10000 | C8=7000 | D8=9500\nA9=Payroll | B9=9000 | C9=9000 | D9=9000\nA10=Rent | B10=1500 | C10=1500 | D10=1500\nA11=Equipment paid | B11=2000 | C11=0 | D11=0\nA12=Total payments | B12=12500 | C12=10500 | D12=10500\nA13=Net cash movement | B13=-2500 | C13=-3500 | D13=-1000\nA14=Closing cash | B14=9500 | C14=6000 | D14=8500\nA15=July closing reserve target | C15=7000 | D15=7000\nA16=Surplus / (shortfall) | C16=-1000 | D16=1500\nA17=July reserve decision | C17=Below reserve | D17=Meets reserve\nA19=The July forecast includes confirmed receipts only. The scenario adds the possible July receipt.",
+      "units": [
+        "Cash forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The forecast preserves the source amounts, carries June’s closing balance into July and explicitly identifies which receipts each July column includes. The formulas correctly show the reserve decision changing from $1,000 below target to $1,500 above."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "July closes at $6,000, $1,000 below reserve. Change July “Confirmed receipts” (C6) from $7,000 to $9,500. The resulting $8,500 is $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The tab shows how receipt and payment totals lead to each closing balance and reserve decision."
+      },
+      "reader_response": {
+        "answer": "July ending cash is **$6,000**, a **$1,000 shortfall** against the $7,000 reserve. If the $2,500 receipt is confirmed, the scenario shows ending cash of **$8,500**, a **$1,500 surplus** above the reserve.\n\nThe artifact does not identify which specific cells are blue or editable, so it does not establish which input to change. It labels the possible amount as “Extra July receipt” in D7, but does not establish whether D7 is the editable input or how confirmation should be recorded in the main forecast.",
+        "evidence": [
+          "“A14=Closing cash | B14=9500 | C14=6000 | D14=8500”",
+          "“A15=July closing reserve target | C15=7000 | D15=7000”",
+          "“A16=Surplus / (shortfall) | C16=-1000 | D16=1500”",
+          "“A7=Extra July receipt | D7=2500”",
+          "“A2=June–July 2027  |  USD  |  Edit the blue input cells to update the forecast.”",
+          "“A19=The July forecast includes confirmed receipts only. The scenario adds the possible July receipt.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The reader correctly reports both outcomes and locates Extra July receipt at D7, but explicitly leaves open which input to use."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes establish that the scenario adds the $2,500 receipt excluded from the base. They do not establish that D7 is editable or identify the confirmed-receipts cell and its starting value."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash forecast",
+              "C6"
+            ],
+            "june_close": [
+              "Cash forecast",
+              "B14"
+            ],
+            "july_close": [
+              "Cash forecast",
+              "C14"
+            ],
+            "reserve": [
+              "Cash forecast",
+              "C15"
+            ],
+            "reserve_gap": [
+              "Cash forecast",
+              "C16"
+            ],
+            "headline": [
+              "Cash forecast",
+              "C14"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash forecast!C5": "=B14",
+          "Cash forecast!D5": "=C5",
+          "Cash forecast!D6": "=C6",
+          "Cash forecast!B8": "=SUM(B6:B7)",
+          "Cash forecast!C8": "=SUM(C6:C7)",
+          "Cash forecast!D8": "=SUM(D6:D7)",
+          "Cash forecast!D9": "=C9",
+          "Cash forecast!D10": "=C10",
+          "Cash forecast!D11": "=C11",
+          "Cash forecast!B12": "=SUM(B9:B11)",
+          "Cash forecast!C12": "=SUM(C9:C11)",
+          "Cash forecast!D12": "=SUM(D9:D11)",
+          "Cash forecast!B13": "=B8-B12",
+          "Cash forecast!C13": "=C8-C12",
+          "Cash forecast!D13": "=D8-D12",
+          "Cash forecast!B14": "=B5+B13",
+          "Cash forecast!C14": "=C5+C13",
+          "Cash forecast!D14": "=D5+D13",
+          "Cash forecast!D15": "=C15",
+          "Cash forecast!C16": "=C14-C15",
+          "Cash forecast!D16": "=D14-D15",
+          "Cash forecast!C17": "=IF(C16>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!D17": "=IF(D16>=0,\"Meets reserve\",\"Below reserve\")"
+        }
+      }
+    },
+    {
+      "case": "cash-forecast",
+      "repeat": 2,
+      "variant": "candidate",
+      "artifact": "artifacts/cash-forecast-2-candidate.xlsx",
+      "sha256": "d3eb510feeb552264e9bf6cc2b3f8a241006c4c1a91010db859cef4a87a779ea",
+      "usage": {
+        "input_tokens": 180109,
+        "cached_input_tokens": 161792,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1414,
+        "reasoning_output_tokens": 25
+      },
+      "view": "[Cash Forecast]\nA1=Cash forecast | June–July 2027\nA2=USD • Blue cells are editable inputs\nA4=July reserve check | B4=Confirmed only | C4=If receipt confirmed\nA5=Possible July receipt included | B5=0 | C5=2500\nA6=July closing cash | B6=6000 | C6=8500\nA7=July reserve target | B7=7000 | C7=7000\nA8=Above / (below) reserve | B8=-1000 | C8=1500\nA9=Reserve status | B9=Below reserve | C9=Meets reserve\nA12=Confirmed cash forecast | B12=June 2027 | C12=July 2027\nA13=Opening cash | B13=12000 | C13=9500\nA14=Confirmed receipts | B14=10000 | C14=7000\nA15=Payroll paid | B15=9000 | C15=9000\nA16=Rent paid | B16=1500 | C16=1500\nA17=Equipment paid | B17=2000 | C17=0\nA18=Closing cash | B18=9500 | C18=6000",
+      "units": [
+        "Cash Forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The USD forecast preserves all inputs and carries June’s $9,500 closing cash into July. The reserve check shows a $1,000 shortfall with confirmed receipts and a $1,500 surplus if the extra $2,500 arrives."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "Confirmed-only July cash ends at $6,000, $1,000 below reserve. Raise July “Confirmed receipts” (C14) from $7,000 to $9,500. July then ends at $8,500, $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The tab shows the amount included in each scenario and the underlying confirmed cash flows."
+      },
+      "reader_response": {
+        "answer": "July ending cash is $6,000, which is $1,000 below the $7,000 reserve. If the $2,500 receipt is confirmed, add it to the editable July confirmed receipts input, C14, changing it from $7,000 to $9,500. July ending cash would become $8,500, or $1,500 above the reserve.",
+        "evidence": [
+          "A2=USD • Blue cells are editable inputs",
+          "A14=Confirmed receipts | B14=10000 | C14=7000",
+          "A5=Possible July receipt included | B5=0 | C5=2500",
+          "A6=July closing cash | B6=6000 | C6=8500",
+          "A7=July reserve target | B7=7000 | C7=7000",
+          "A8=Above / (below) reserve | B8=-1000 | C8=1500"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer identifies July Confirmed receipts at C14, gives the change from $7,000 to $9,500, and reports both balances and gaps correctly."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The confirmed-receipts row identifies C14 and its $7,000 value. The quoted $2,500 receipt supports the increase to $9,500, and the reserve rows support both outcomes."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash Forecast",
+              "C14"
+            ],
+            "june_close": [
+              "Cash Forecast",
+              "B18"
+            ],
+            "july_close": [
+              "Cash Forecast",
+              "C18"
+            ],
+            "reserve": [
+              "Cash Forecast",
+              "B7"
+            ],
+            "reserve_gap": [
+              "Cash Forecast",
+              "B8"
+            ],
+            "headline": [
+              "Cash Forecast",
+              "B6"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash Forecast!B5": "=0",
+          "Cash Forecast!B6": "=C18",
+          "Cash Forecast!C6": "=B6+C5",
+          "Cash Forecast!C7": "=B7",
+          "Cash Forecast!B8": "=B6-B7",
+          "Cash Forecast!C8": "=C6-C7",
+          "Cash Forecast!B9": "=IF(B8>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash Forecast!C9": "=IF(C8>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash Forecast!C13": "=B18",
+          "Cash Forecast!B18": "=B13+B14-SUM(B15:B17)",
+          "Cash Forecast!C18": "=C13+C14-SUM(C15:C17)"
+        }
+      }
+    },
+    {
+      "case": "cash-forecast",
+      "repeat": 2,
+      "variant": "current",
+      "artifact": "artifacts/cash-forecast-2-current.xlsx",
+      "sha256": "ab50a833b885f1cf5aeae7f1a3f8665ee5f12b74a2cf387a2f50f6123fa8fba7",
+      "usage": {
+        "input_tokens": 178380,
+        "cached_input_tokens": 160512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1484,
+        "reasoning_output_tokens": 81
+      },
+      "view": "[Cash Forecast]\nA1=Cash forecast | June–July 2027\nA2=USD · Blue cells are editable inputs.\nA4=July reserve check | B4=Forecast | C4=If receipt confirmed\nA5=Closing cash | B5=6000 | C5=8500\nA6=Reserve target | B6=7000 | C6=7000\nA7=Surplus / (shortfall) | B7=-1000 | C7=1500\nA8=Reserve status | B8=Below reserve | C8=Meets reserve\nA10=Monthly cash flow | B10=June 2027 | C10=July 2027\nA11=Opening cash | B11=12000 | C11=9500\nA12=Confirmed receipts | B12=10000 | C12=7000\nA13=Extra receipt included | C13=0\nA14=Payroll | B14=9000 | C14=9000\nA15=Rent | B15=1500 | C15=1500\nA16=Equipment paid | B16=2000 | C16=0\nA17=Closing cash | B17=9500 | C17=6000\nA19=Possible July receipt | C19=2500\nA20=Include extra receipt? (0 = No, 1 = Yes) | C20=0",
+      "units": [
+        "Cash Forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The receipt switch starts at 0, so July closes at $6,000 against the $7,000 target. The conditional formula counts the $2,500 exactly once, even when the switch is on. The monthly inputs, carryforward and recalculation checks match the brief."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "July closes at $6,000, $1,000 below reserve. Change “Include extra receipt? (0 = No, 1 = Yes)” (C20) from 0 to 1 to include the $2,500 already entered in C19. July closes at $8,500, $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The tab connects the inclusion switch and receipt amount to the monthly cash flow and reserve check."
+      },
+      "reader_response": {
+        "answer": "July ending cash is **$6,000**, a **$1,000 shortfall** against the $7,000 reserve. If the $2,500 receipt is confirmed, change **C20 from 0 to 1**. July ending cash would become **$8,500**, leaving a **$1,500 surplus** above the reserve.",
+        "evidence": [
+          "A5=Closing cash | B5=6000 | C5=8500",
+          "A6=Reserve target | B6=7000 | C6=7000",
+          "A7=Surplus / (shortfall) | B7=-1000 | C7=1500",
+          "A19=Possible July receipt | C19=2500",
+          "A20=Include extra receipt? (0 = No, 1 = Yes) | C20=0",
+          "A2=USD · Blue cells are editable inputs."
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "Changing the inclusion control at C20 from 0 to 1 adds the separately recorded $2,500 receipt to July. The locator and setting identify the action, and both cash balances and reserve gaps are correct."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes identify the $2,500 July receipt and the C20 inclusion control, including its current value and the meaning of 1. The cash and reserve rows support both outcomes."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash Forecast",
+              "C12"
+            ],
+            "june_close": [
+              "Cash Forecast",
+              "B17"
+            ],
+            "july_close": [
+              "Cash Forecast",
+              "C17"
+            ],
+            "reserve": [
+              "Cash Forecast",
+              "B6"
+            ],
+            "reserve_gap": [
+              "Cash Forecast",
+              "B7"
+            ],
+            "headline": [
+              "Cash Forecast",
+              "B5"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash Forecast!B5": "=C17",
+          "Cash Forecast!C5": "=C17-C13+C19",
+          "Cash Forecast!C6": "=B6",
+          "Cash Forecast!B7": "=B5-B6",
+          "Cash Forecast!C7": "=C5-C6",
+          "Cash Forecast!B8": "=IF(B7>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash Forecast!C8": "=IF(C7>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash Forecast!C11": "=B17",
+          "Cash Forecast!C13": "=IF(C20=1,C19,0)",
+          "Cash Forecast!B17": "=SUM(B11:B13)-SUM(B14:B16)",
+          "Cash Forecast!C17": "=SUM(C11:C13)-SUM(C14:C16)"
+        }
+      }
+    },
+    {
+      "case": "cash-forecast",
+      "repeat": 2,
+      "variant": "plain",
+      "artifact": "artifacts/cash-forecast-2-plain.xlsx",
+      "sha256": "98276b072bc1f72503aba99ee1232821eb6d5a4837abc1c283313062f7dab0c8",
+      "usage": {
+        "input_tokens": 185326,
+        "cached_input_tokens": 164864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1605,
+        "reasoning_output_tokens": 35
+      },
+      "view": "[Cash Forecast]\nA1=Cash forecast\nA2=June–July 2027  |  USD\nA4=Monthly cash flow | C4=July scenario comparison\nA5=Cash flow item | B5=June | C5=July · Base forecast | D5=July · If confirmed\nA6=Opening cash | B6=12000 | C6=9500 | D6=9500\nA7=Confirmed receipts | B7=10000 | C7=7000 | D7=7000\nA8=Potential extra receipt | B8=0 | C8=0 | D8=2500\nA9=Payroll | B9=9000 | C9=9000 | D9=9000\nA10=Rent | B10=1500 | C10=1500 | D10=1500\nA11=Equipment paid | B11=2000 | C11=0 | D11=0\nA12=Net cash movement | B12=-2500 | C12=-3500 | D12=-1000\nA13=Closing cash | B13=9500 | C13=6000 | D13=8500\nA15=July closing reserve target | C15=7000 | D15=7000\nA16=Above / (below) reserve | C16=-1000 | D16=1500\nA17=Reserve status | C17=Below reserve | D17=Meets reserve\nA19=Blue cells are editable inputs. Cash payments are entered as positive amounts.\nA20=The base forecast excludes the unconfirmed receipt. Edit D8 to test a different receipt amount.",
+      "units": [
+        "Cash Forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The base column shows $0 for the potential receipt, and the conditional column shows an editable $2,500. Both use June’s $9,500 closing cash and the same July payments, yielding closing balances of $6,000 and $8,500 against the $7,000 target."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "July closes at $6,000, $1,000 below reserve. Change July “Confirmed receipts” (C7) from $7,000 to $9,500. July then closes at $8,500, $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The forecast tab keeps the base and conditional cash calculations beside their reserve checks."
+      },
+      "reader_response": {
+        "answer": "July ending cash in the base forecast is **$6,000**, which is **$1,000 below** the $7,000 reserve. If the $2,500 receipt is confirmed, use the editable **D8** input for the receipt amount. At $2,500, July ending cash is **$8,500**, or **$1,500 above** the reserve.",
+        "evidence": [
+          "“A13=Closing cash | B13=9500 | C13=6000 | D13=8500”",
+          "“A15=July closing reserve target | C15=7000 | D15=7000” and “A16=Above / (below) reserve | C16=-1000 | D16=1500”",
+          "“A8=Potential extra receipt | B8=0 | C8=0 | D8=2500”",
+          "“A20=The base forecast excludes the unconfirmed receipt. Edit D8 to test a different receipt amount.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The reader identifies D8 as the receipt-amount input, explains the outcome at its displayed $2,500 value, and gives the correct base and scenario balances and gaps."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash Forecast",
+              "C7"
+            ],
+            "june_close": [
+              "Cash Forecast",
+              "B13"
+            ],
+            "july_close": [
+              "Cash Forecast",
+              "C13"
+            ],
+            "reserve": [
+              "Cash Forecast",
+              "C15"
+            ],
+            "reserve_gap": [
+              "Cash Forecast",
+              "C16"
+            ],
+            "headline": [
+              "Cash Forecast",
+              "C13"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash Forecast!C6": "=B13",
+          "Cash Forecast!D6": "=C6",
+          "Cash Forecast!D7": "=C7",
+          "Cash Forecast!D9": "=C9",
+          "Cash Forecast!D10": "=C10",
+          "Cash Forecast!D11": "=C11",
+          "Cash Forecast!B12": "=SUM(B7:B8)-SUM(B9:B11)",
+          "Cash Forecast!C12": "=SUM(C7:C8)-SUM(C9:C11)",
+          "Cash Forecast!D12": "=SUM(D7:D8)-SUM(D9:D11)",
+          "Cash Forecast!B13": "=B6+B12",
+          "Cash Forecast!C13": "=C6+C12",
+          "Cash Forecast!D13": "=D6+D12",
+          "Cash Forecast!D15": "=C15",
+          "Cash Forecast!C16": "=C13-C15",
+          "Cash Forecast!D16": "=D13-D15",
+          "Cash Forecast!C17": "=IF(C16>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash Forecast!D17": "=IF(D16>=0,\"Meets reserve\",\"Below reserve\")"
+        }
+      }
+    },
+    {
+      "case": "cash-forecast",
+      "repeat": 3,
+      "variant": "candidate",
+      "artifact": "artifacts/cash-forecast-3-candidate.xlsx",
+      "sha256": "6ff74aa5d70606052dcc72c8fc1198d3be060b0272870eb9307bc1dc76e77fa2",
+      "usage": {
+        "input_tokens": 149308,
+        "cached_input_tokens": 131200,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1558,
+        "reasoning_output_tokens": 27
+      },
+      "view": "[Cash forecast]\nA1=Cash forecast | June–July 2027\nA2=USD · Edit blue cells to update the forecast.\nA4=July reserve decision | B4=Base forecast | C4=If receipt is confirmed\nA5=July closing cash | B5=6000 | C5=8500\nA6=July reserve target | B6=7000 | C6=7000\nA7=Cash above / (below) reserve | B7=-1000 | C7=1500\nA8=Reserve status | B8=Below reserve | C8=Meets reserve\nA10=Monthly cash forecast | B10=June 2027 | C10=July 2027\nA11=Opening cash | B11=12000 | C11=9500\nA12=Confirmed receipts | B12=10000 | C12=7000\nA13=Payroll | B13=9000 | C13=9000\nA14=Rent | B14=1500 | C14=1500\nA15=Equipment paid | B15=2000 | C15=0\nA16=Total cash paid | B16=12500 | C16=10500\nA17=Closing cash | B17=9500 | C17=6000\nA19=July assumptions\nA20=Closing reserve target | C20=7000\nA21=Possible extra receipt (unconfirmed) | C21=2500",
+      "units": [
+        "Cash forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The monthly formulas produce June and July closing cash of $9,500 and $6,000. The reserve summary uses the labeled unconfirmed receipt only in the conditional calculation and correctly shows the $1,000 shortfall and $1,500 surplus."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "July closes at $6,000, $1,000 below reserve. Increase July “Confirmed receipts” (C12) from $7,000 to $9,500. Ending cash becomes $8,500, $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The tab pairs the reserve decision with the monthly cash flows and the amount of the unconfirmed receipt."
+      },
+      "reader_response": {
+        "answer": "July ending cash is **$6,000**, which is **$1,000 below** the $7,000 reserve. If the $2,500 receipt is confirmed, July ending cash would be **$8,500**, or **$1,500 above** the reserve.\n\nThe artifact does not identify which cells are blue or editable, so it does not establish which input to change. The relevant receipt line is July’s “Confirmed receipts” (C12), currently $7,000; adding $2,500 would make it $9,500 if that cell is editable.",
+        "evidence": [
+          "“A2=USD · Edit blue cells to update the forecast.”",
+          "“A5=July closing cash | B5=6000 | C5=8500”",
+          "“A6=July reserve target | B6=7000 | C6=7000”",
+          "“A7=Cash above / (below) reserve | B7=-1000 | C7=1500”",
+          "“A12=Confirmed receipts | B12=10000 | C12=7000”",
+          "“A21=Possible extra receipt (unconfirmed) | C21=2500”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "Despite qualifying whether C12 is editable, the reader supplies the specific action requested: add $2,500 to July Confirmed receipts in C12, taking it from $7,000 to $9,500. Both balances and gaps are correct."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes identify confirmed receipts at C12 as $7,000 and the possible receipt as $2,500, supporting the stated $9,500 total. The closing cash and reserve rows support both outcomes."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash forecast",
+              "C12"
+            ],
+            "june_close": [
+              "Cash forecast",
+              "B17"
+            ],
+            "july_close": [
+              "Cash forecast",
+              "C17"
+            ],
+            "reserve": [
+              "Cash forecast",
+              "B6"
+            ],
+            "reserve_gap": [
+              "Cash forecast",
+              "B7"
+            ],
+            "headline": [
+              "Cash forecast",
+              "B5"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash forecast!B5": "=C17",
+          "Cash forecast!C5": "=B5+C21",
+          "Cash forecast!B6": "=$C$20",
+          "Cash forecast!C6": "=$C$20",
+          "Cash forecast!B7": "=B5-B6",
+          "Cash forecast!C7": "=C5-C6",
+          "Cash forecast!B8": "=IF(B7>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!C8": "=IF(C7>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!C11": "=B17",
+          "Cash forecast!B16": "=SUM(B13:B15)",
+          "Cash forecast!C16": "=SUM(C13:C15)",
+          "Cash forecast!B17": "=B11+B12-B16",
+          "Cash forecast!C17": "=C11+C12-C16"
+        }
+      }
+    },
+    {
+      "case": "cash-forecast",
+      "repeat": 3,
+      "variant": "current",
+      "artifact": "artifacts/cash-forecast-3-current.xlsx",
+      "sha256": "90444b2a084ab28a60f333f8b647f50e6701db942a92c2d0b4393cc1002efbcd",
+      "usage": {
+        "input_tokens": 147813,
+        "cached_input_tokens": 130176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1407,
+        "reasoning_output_tokens": 46
+      },
+      "view": "[Cash forecast]\nA1=Cash forecast | June–July 2027\nA2=USD · Blue cells are editable inputs.\nA4=July reserve check | C4=Starting forecast | D4=If receipt is confirmed\nA5=July closing cash | C5=6000 | D5=8500\nA6=July closing reserve target | C6=7000 | D6=7000\nA7=Surplus / (shortfall) | C7=-1000 | D7=1500\nA8=Reserve status | C8=Below reserve | D8=Meets reserve\nA10=Cash movements | B10=June 2027 | C10=July 2027 | D10=July if confirmed\nA11=Opening cash | B11=12000 | C11=9500 | D11=9500\nA12=Confirmed receipts | B12=10000 | C12=7000 | D12=7000\nA13=Additional receipt | D13=2500\nA14=Payroll | B14=9000 | C14=9000 | D14=9000\nA15=Rent | B15=1500 | C15=1500 | D15=1500\nA16=Equipment paid | B16=2000 | C16=0 | D16=0\nA17=Closing cash | B17=9500 | C17=6000 | D17=8500",
+      "units": [
+        "Cash forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The dated USD columns preserve the monthly inputs and carry June’s $9,500 close into both July calculations. The additional $2,500 appears only under the conditional heading, and the reserve summary correctly reports both outcomes."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The starting July forecast closes at $6,000, $1,000 below reserve. Raise July “Confirmed receipts” (C12) from $7,000 to $9,500. Ending cash becomes $8,500, $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The reserve check aligns with the cash movement columns, so each result can be traced to its inputs."
+      },
+      "reader_response": {
+        "answer": "July ending cash is $6,000, a $1,000 shortfall against the $7,000 reserve. If the $2,500 receipt is confirmed, July ending cash would be $8,500, a $1,500 surplus above the reserve.\n\nThe artifact does not identify which specific cell is blue or editable, so the editable input to change cannot be established. It does show the additional receipt in D13.",
+        "evidence": [
+          "“A5=July closing cash | C5=6000 | D5=8500”",
+          "“A6=July closing reserve target | C6=7000 | D6=7000”",
+          "“A7=Surplus / (shortfall) | C7=-1000 | D7=1500”",
+          "“A2=USD · Blue cells are editable inputs.”",
+          "“A13=Additional receipt | D13=2500”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "Both cash balances and reserve gaps are correct. The reader locates Additional receipt at D13 but declines to identify an input to change."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes support the balances, gaps, and amount in D13. The blue-cell legend does not identify D13 as editable, and no quote gives a confirmed-receipts edit."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash forecast",
+              "C12"
+            ],
+            "june_close": [
+              "Cash forecast",
+              "B17"
+            ],
+            "july_close": [
+              "Cash forecast",
+              "C17"
+            ],
+            "reserve": [
+              "Cash forecast",
+              "C6"
+            ],
+            "reserve_gap": [
+              "Cash forecast",
+              "C7"
+            ],
+            "headline": [
+              "Cash forecast",
+              "C5"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash forecast!C5": "=C17",
+          "Cash forecast!D5": "=D17",
+          "Cash forecast!D6": "=C6",
+          "Cash forecast!C7": "=C5-C6",
+          "Cash forecast!D7": "=D5-D6",
+          "Cash forecast!C8": "=IF(C7>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!D8": "=IF(D7>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!C11": "=B17",
+          "Cash forecast!D11": "=C11",
+          "Cash forecast!D12": "=C12",
+          "Cash forecast!D14": "=C14",
+          "Cash forecast!D15": "=C15",
+          "Cash forecast!D16": "=C16",
+          "Cash forecast!B17": "=SUM(B11:B13)-SUM(B14:B16)",
+          "Cash forecast!C17": "=SUM(C11:C13)-SUM(C14:C16)",
+          "Cash forecast!D17": "=SUM(D11:D13)-SUM(D14:D16)"
+        }
+      }
+    },
+    {
+      "case": "cash-forecast",
+      "repeat": 3,
+      "variant": "plain",
+      "artifact": "artifacts/cash-forecast-3-plain.xlsx",
+      "sha256": "26c3878c21bc77fed6056751cfbbecddbcb43136a4c0c3620c4f6d933800bd08",
+      "usage": {
+        "input_tokens": 150747,
+        "cached_input_tokens": 117888,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1576,
+        "reasoning_output_tokens": 17
+      },
+      "view": "[Cash forecast]\nA1=Two-month cash forecast\nA2=June–July 2027  |  USD  |  Edit blue cells to update the forecast.\nA4=Cash flow | B4=June 2027 | C4=July 2027 • Base | D4=July 2027 • If confirmed\nA5=Opening cash | B5=12000 | C5=9500 | D5=9500\nA6=Confirmed receipts | B6=10000 | C6=7000 | D6=7000\nA7=Possible July receipt | D7=2500\nA8=Total receipts | B8=10000 | C8=7000 | D8=9500\nA9=Payroll | B9=9000 | C9=9000 | D9=9000\nA10=Rent | B10=1500 | C10=1500 | D10=1500\nA11=Equipment paid | B11=2000 | C11=0 | D11=0\nA12=Total cash paid | B12=12500 | C12=10500 | D12=10500\nA13=Net cash movement | B13=-2500 | C13=-3500 | D13=-1000\nA14=Closing cash | B14=9500 | C14=6000 | D14=8500\nA16=July reserve check\nA17=Closing reserve target | C17=7000 | D17=7000\nA18=Surplus / (shortfall) | C18=-1000 | D18=1500\nA19=Reserve status | C19=Below reserve | D19=Meets reserve\nA21=The possible July receipt is included only in the “If confirmed” column.\nA22=Source: supplied cash forecast brief. Cash paid is shown as a positive amount.",
+      "units": [
+        "Cash forecast"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The monthly figures reconcile to $9,500 at June close and $6,000 at July base close. Only the conditional column includes the possible $2,500, bringing July to $8,500 and showing a $1,500 surplus against the $7,000 target."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "Base July cash ends at $6,000, $1,000 below reserve. Raise July base “Confirmed receipts” (C6) from $7,000 to $9,500. Ending cash rises to $8,500, $1,500 above reserve."
+        },
+        "avoidable_units": [],
+        "structure_reason": "Aligned columns let the reader trace each July scenario from receipts through closing cash to the reserve gap."
+      },
+      "reader_response": {
+        "answer": "July ending cash is **$6,000**, a **$1,000 shortfall** against the $7,000 reserve. If the $2,500 receipt is confirmed, ending cash would be **$8,500**, a **$1,500 surplus** over the reserve.\n\nThe artifact does not identify which specific cell is blue or otherwise editable, so it does not establish which input to change. The relevant receipt is shown in **D7**, but its editability is not established.",
+        "evidence": [
+          "“A14=Closing cash | B14=9500 | C14=6000 | D14=8500”",
+          "“A17=Closing reserve target | C17=7000 | D17=7000” and “A18=Surplus / (shortfall) | C18=-1000 | D18=1500”",
+          "“A7=Possible July receipt | D7=2500” and “A21=The possible July receipt is included only in the “If confirmed” column.”",
+          "“A2=June–July 2027  |  USD  |  Edit blue cells to update the forecast.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": false,
+          "reason": "The reader gives the correct balances and gaps and points to D7, but declines to select the receipt input or specify an edit."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      },
+      "file_evidence": {
+        "verified_calculation_checks": {
+          "checks": {
+            "editable_confirmed_receipt": true,
+            "saved_outcomes": true,
+            "closing_cash_is_formula": true,
+            "formula_errors_absent": true,
+            "artifact_tool_recalculates": true,
+            "libreoffice_recalculates": true
+          },
+          "cells": {
+            "receipts": [
+              "Cash forecast",
+              "C6"
+            ],
+            "june_close": [
+              "Cash forecast",
+              "B14"
+            ],
+            "july_close": [
+              "Cash forecast",
+              "C14"
+            ],
+            "reserve": [
+              "Cash forecast",
+              "C17"
+            ],
+            "reserve_gap": [
+              "Cash forecast",
+              "C18"
+            ],
+            "headline": [
+              "Cash forecast",
+              "C14"
+            ]
+          },
+          "artifact_tool": {
+            "before": [
+              9500,
+              6000,
+              7000,
+              -1000,
+              6000
+            ],
+            "after": [
+              9500,
+              8500,
+              7000,
+              1500,
+              8500
+            ]
+          },
+          "libreoffice": [
+            9500,
+            8500,
+            7000,
+            1500,
+            8500
+          ]
+        },
+        "formulas": {
+          "Cash forecast!C5": "=B14",
+          "Cash forecast!D5": "=C5",
+          "Cash forecast!D6": "=C6",
+          "Cash forecast!B8": "=SUM(B6:B7)",
+          "Cash forecast!C8": "=SUM(C6:C7)",
+          "Cash forecast!D8": "=SUM(D6:D7)",
+          "Cash forecast!D9": "=C9",
+          "Cash forecast!D10": "=C10",
+          "Cash forecast!D11": "=C11",
+          "Cash forecast!B12": "=SUM(B9:B11)",
+          "Cash forecast!C12": "=SUM(C9:C11)",
+          "Cash forecast!D12": "=SUM(D9:D11)",
+          "Cash forecast!B13": "=B8-B12",
+          "Cash forecast!C13": "=C8-C12",
+          "Cash forecast!D13": "=D8-D12",
+          "Cash forecast!B14": "=B5+B13",
+          "Cash forecast!C14": "=C5+C13",
+          "Cash forecast!D14": "=D5+D13",
+          "Cash forecast!D17": "=C17",
+          "Cash forecast!C18": "=C14-C17",
+          "Cash forecast!D18": "=D14-D17",
+          "Cash forecast!C19": "=IF(C18>=0,\"Meets reserve\",\"Below reserve\")",
+          "Cash forecast!D19": "=IF(D18>=0,\"Meets reserve\",\"Below reserve\")"
+        }
+      }
+    }
+  ]
+}

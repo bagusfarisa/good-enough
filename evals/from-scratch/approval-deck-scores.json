@@ -1,0 +1,526 @@
+{
+  "reader": "gpt-6.1-terra",
+  "judge": "gpt-6.2-astra",
+  "manifest": {
+    "current_commit": "9b826364e21b4b439231076e9e8b8fe260c1076d",
+    "candidate_sha256": "71ab5037f300e171325b5d5206711ac3dee50be2391a3934b0ab806a5e815e1c",
+    "fixtures_sha256": "4f13e0bfb1074c62ef036b7a57e3e4f3430c0ecefd254c6092c93e7de2ef2674",
+    "repeats": 3,
+    "variants": [
+      "plain",
+      "current",
+      "candidate"
+    ],
+    "generator": "gpt-6.2-sol",
+    "reasoning": "low",
+    "harness": "codex-cli 0.172.0"
+  },
+  "reader_question": "What should leadership approve, when can Cedar and Maple start, and what should leadership do if it defers funding? Give Cedar’s before and during counts and denominators for pickups over 10 minutes. What does the comparison establish, and how should leadership decide what happens after the test?",
+  "runs": [
+    {
+      "case": "approval-deck",
+      "repeat": 1,
+      "variant": "candidate",
+      "artifact": "artifacts/approval-deck-1-candidate.pptx",
+      "sha256": "6064e41c41db95bf7b251a7b9ddd6c050433202cd8be59b3f7a2b6a9559f4b0b",
+      "usage": {
+        "input_tokens": 186392,
+        "cached_input_tokens": 165888,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1413,
+        "reasoning_output_tokens": 17
+      },
+      "view": "[Slide 1]\nApprove the four-week pickup redesign test\nReserve up to $9,000 for Cedar and Maple.\nCedar\nStart when ready.\nMaple\nJoin only after staffing clears. No clearance date is confirmed.\nCoordination\nKim from Operations can coordinate the test.\nIf leadership defers, keep the current counter flow.\n\n[Slide 2]\nFewer Cedar pickups exceeded 10 minutes\nShare of pickups taking more than 10 minutes\nBefore the trial\n15.0%  (18 of 120)\nDuring the two-week trial\n5.9%  (7 of 118)\nCedar’s trial compared one site before and after the change, with no control.\nBefore deciding on expansion\nAt the end of the test, compare the share over 10 minutes by site.",
+      "units": [
+        "Slide 1",
+        "Slide 2"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The two slides cover the decision, cap, duration, sites, coordinator and fallback. Slide 2 preserves both counts and denominators, identifies the uncontrolled one-site comparison and calls for a site-level review before deciding on expansion."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The approval terms, start conditions, deferral, and expansion review are explicit. Both counts are visible, and the one-site before-and-after design without a control lets the reader infer that the decline does not establish causation."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The first slide groups the approval terms and responsibilities. The second connects the observed counts and study design to the measure leadership will review after the test."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve the four-week pickup redesign test and reserve up to $9,000 for Cedar and Maple. Cedar can start when ready; Maple can join only after staffing clears, and no clearance date is confirmed. If leadership defers funding, it should keep the current counter flow.\n\nAt Cedar, pickups over 10 minutes fell from 18 of 120 before the trial (15.0%) to 7 of 118 during the two-week trial (5.9%), a decrease of 9.1 percentage points. This establishes an observed before-and-during difference at one site; without a control, it does not establish that the redesign caused the decrease.\n\nAt the end of the test, leadership should compare the share of pickups over 10 minutes by site before deciding on expansion. The artifact does not specify an expansion threshold or other decision criteria.",
+        "evidence": [
+          "“Approve the four-week pickup redesign test” and “Reserve up to $9,000 for Cedar and Maple.”",
+          "Cedar: “Start when ready.” Maple: “Join only after staffing clears. No clearance date is confirmed.”",
+          "“If leadership defers, keep the current counter flow.”",
+          "“Before the trial” — “15.0%  (18 of 120)”; “During the two-week trial” — “5.9%  (7 of 118)”.",
+          "“Cedar’s trial compared one site before and after the change, with no control.”",
+          "“At the end of the test, compare the share over 10 minutes by site.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer includes the full operating decision, the two Cedar fractions, the single-site causal limitation, and the end-of-test comparison that informs expansion."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      }
+    },
+    {
+      "case": "approval-deck",
+      "repeat": 1,
+      "variant": "current",
+      "artifact": "artifacts/approval-deck-1-current.pptx",
+      "sha256": "d20ba1d48ba03e6c7884ad7ca75ef3cc855277cc446b876ebb66b1be93d95d07",
+      "usage": {
+        "input_tokens": 253293,
+        "cached_input_tokens": 212096,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1629,
+        "reasoning_output_tokens": 12
+      },
+      "view": "[Slide 1]\nApprove a four-week pickup redesign test\nReserve up to $9,000 for Cedar and Maple.\nCedar\nStart when ready.\nMaple\nJoin only after staffing clears.\nThe clearance date is unconfirmed.\nKim from Operations can coordinate the test.\nIf leadership defers, keep the current counter flow.\n\n[Slide 2]\nFewer Cedar pickups took over 10 minutes\nShare of pickups taking more than 10 minutes\nBefore the trial\n18 of 120 pickups\n15.0%\nDuring the two-week trial\n7 of 118 pickups\n5.9%\nCedar was the only site observed, and there was no control group.\nThe before-and-after comparison cannot establish what caused the change.\n\n[Slide 3]\nReview results by site before expansion\nAt the end of the test, compare each site’s share of pickups\ntaking more than 10 minutes before and during the test.\nShare of pickups taking more than 10 minutes\nPickups over 10 minutes ÷ total pickups at that site",
+      "units": [
+        "Slide 1",
+        "Slide 2",
+        "Slide 3"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The decision, rollout conditions, fallback and Cedar evidence are accurate. The proposed within-site before-and-during comparison is consistent with the end-of-test review, and the formula uses the correct site denominator."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The reader can recover every approval condition and both Cedar counts, explain the causal limitation, and use the stated formula to compare each site before and during the test."
+        },
+        "avoidable_units": [
+          "Slide 3"
+        ],
+        "structure_reason": "The evidence slide already illustrates the calculation with both count pairs. A closing instruction there could preserve the formula, the before-and-during comparison at each site, and the expansion decision."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve a four-week pickup redesign test and reserve up to $9,000 for Cedar and Maple. Cedar can start when ready; Maple can join only after staffing clears, and its clearance date is unconfirmed. If funding is deferred, leadership should keep the current counter flow.\n\nAt Cedar, pickups taking over 10 minutes fell from 18 of 120 (15.0%) before the trial to 7 of 118 (5.9%) during the two-week trial. The comparison establishes an observed decrease, but it cannot establish what caused it: Cedar was the only site observed, and there was no control group.\n\nAt the end of the four-week test, leadership should review each site’s results before expansion, comparing its before-and-during share of pickups over 10 minutes. The artifact does not specify a threshold for expansion or the decision to make for particular results.",
+        "evidence": [
+          "“Approve a four-week pickup redesign test” and “Reserve up to $9,000 for Cedar and Maple.”",
+          "“Cedar\nStart when ready.” “Maple\nJoin only after staffing clears.\nThe clearance date is unconfirmed.”",
+          "“If leadership defers, keep the current counter flow.”",
+          "“Before the trial\n18 of 120 pickups\n15.0%” and “During the two-week trial\n7 of 118 pickups\n5.9%”",
+          "“Cedar was the only site observed, and there was no control group.\nThe before-and-after comparison cannot establish what caused the change.”",
+          "“Review results by site before expansion” and “At the end of the test, compare each site’s share of pickups\ntaking more than 10 minutes before and during the test.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer supplies the requested decision, site timing, fallback, Cedar results, causal limitation, and site-by-site review before expansion."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      }
+    },
+    {
+      "case": "approval-deck",
+      "repeat": 1,
+      "variant": "plain",
+      "artifact": "artifacts/approval-deck-1-plain.pptx",
+      "sha256": "3c2a12a77389880a99213c6d9a24bee0ce9e5470ee184b41c2658e1914f0deea",
+      "usage": {
+        "input_tokens": 211774,
+        "cached_input_tokens": 174848,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1635,
+        "reasoning_output_tokens": 12
+      },
+      "view": "[Slide 1]\nApprove the pickup redesign test?\nLeadership decision on a four-week test at Cedar and Maple\nApprove\nReserve up to $9,000\nStart Cedar when ready. Maple joins after staffing clears.\nDefer\nKeep the current flow\nContinue using the current pickup counter flow.\n\n[Slide 2]\nFewer Cedar pickups took over 10 minutes\nShare of pickups taking more than 10 minutes at Cedar\nBefore trial\n15.0%  (18 of 120)\nDuring two-week trial\n5.9%  (7 of 118)\nCedar’s share fell by 9.1 percentage points. The single-site before-and-after\ncomparison had no control, so it cannot establish what caused the drop.\n\n[Slide 3]\nHow the four-week test would run\nKim from Operations can coordinate the test.\nCedar\nStart when ready\nBegin the test at Cedar when the site is ready.\nMaple\nWait for staffing clearance\nMaple joins only after staffing clears. The clearance date is still unconfirmed.\nAt the end of the test, compare the share of pickups taking more than 10 minutes\nby site before deciding whether to expand.",
+      "units": [
+        "Slide 1",
+        "Slide 2",
+        "Slide 3"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "Both decision paths and the site-level expansion review are clear. The additional 9.1-percentage-point decline is correctly rounded from the supplied counts, and the slide explains the causal limit. Kim’s role and Maple’s pending clearance are preserved."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The artifact gives both decision options, the staffing condition and uncertain date, and the site review before expansion. The counts support the reported 9.1-percentage-point decline, and the slide explains why causation remains uncertain."
+        },
+        "avoidable_units": [
+          "Slide 3"
+        ],
+        "structure_reason": "The site instructions repeat Slide 1. Kim’s role, the pending clearance date, and the expansion review can fit alongside the approval terms once the repeated deferral wording is condensed."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve the four-week pickup redesign test at Cedar and Maple and reserve up to $9,000. Cedar can start when ready; Maple can join only after staffing clears, and its clearance date is unconfirmed. If leadership defers funding, it should keep the current pickup counter flow.\n\nAt Cedar, pickups over 10 minutes fell from 18 of 120 (15.0%) before the trial to 7 of 118 (5.9%) during the two-week trial, a decrease of 9.1 percentage points. The comparison establishes an observed decline at Cedar, but it cannot establish what caused it because it was a single-site before-and-after comparison without a control.\n\nAfter the four-week test, leadership should compare the share of pickups over 10 minutes by site before deciding whether to expand. The artifact does not specify an expansion threshold or a confirmed Maple start date.",
+        "evidence": [
+          "“Approve” and “Reserve up to $9,000”",
+          "“Start Cedar when ready. Maple joins after staffing clears.”",
+          "“The clearance date is still unconfirmed.”",
+          "“Defer” and “Continue using the current pickup counter flow.”",
+          "“Before trial 15.0%  (18 of 120)” and “During two-week trial 5.9%  (7 of 118)”",
+          "“Cedar’s share fell by 9.1 percentage points. The single-site before-and-after comparison had no control, so it cannot establish what caused the drop.”",
+          "“At the end of the test, compare the share of pickups taking more than 10 minutes by site before deciding whether to expand.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer supplies every required part. The reported 9.1-percentage-point decline also follows from the two percentages."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      }
+    },
+    {
+      "case": "approval-deck",
+      "repeat": 2,
+      "variant": "candidate",
+      "artifact": "artifacts/approval-deck-2-candidate.pptx",
+      "sha256": "aa11ac58afc3fa835bae057106cd706539c4ca338f6950503e09b2efb4a9b4d5",
+      "usage": {
+        "input_tokens": 291064,
+        "cached_input_tokens": 268544,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1925,
+        "reasoning_output_tokens": 78
+      },
+      "view": "[Slide 1]\nPICKUP COUNTER REDESIGN\nApprove a four-week test with a $9,000 cap\nIf approved\nReserve the budget. Kim from Operations can coordinate.\nStart Cedar when ready.\nMaple joins only after staffing clears.\nClearance is pending with no confirmed date.\nIf deferred\nKeep the current\ncounter flow.\nAt the end of the test\nCompare the share of pickups over 10 minutes by site before deciding on expansion.\n\n[Slide 2]\nCEDAR TRIAL RESULTS\nFewer Cedar pickups took over 10 minutes\nShare of pickups over 10 minutes\nBefore the trial\n15.0%  (18 of 120)\nDuring the two-week trial\n5.9%  (7 of 118)\nCedar was the only site observed, and there was no control group.\nThe before-and-after comparison cannot establish what caused the drop.",
+      "units": [
+        "Slide 1",
+        "Slide 2"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The approval path names Cedar and Maple, separates budget reservation from site readiness and leaves Maple’s clearance undated. The fallback, coordinator, end-of-test decision and uncontrolled Cedar results are all visible."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The decision slide covers the cap, timing, staffing condition, deferral, and expansion review. The evidence slide gives both counts and explains why the observed decline supports a test while leaving its cause uncertain."
+        },
+        "avoidable_units": [],
+        "structure_reason": "The decision and operating conditions are readable together. The separate evidence slide keeps each percentage beside its count and the causal caveat."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve a four-week test capped at $9,000 and reserve the budget. Cedar can start when ready; Maple can join only after staffing clears, for which there is no confirmed date. If funding is deferred, leadership should keep the current counter flow.\n\nAt Cedar, pickups over 10 minutes fell from 18 of 120 before the trial (15.0%) to 7 of 118 during the two-week trial (5.9%), a decrease of 9.1 percentage points. The comparison establishes a drop in the observed share, but not what caused it: Cedar was the only site observed, with no control group. At the end of the test, leadership should compare the share of pickups over 10 minutes by site before deciding whether to expand.",
+        "evidence": [
+          "“Approve a four-week test with a $9,000 cap”",
+          "“Reserve the budget. Kim from Operations can coordinate.”",
+          "“Start Cedar when ready.”",
+          "“Maple joins only after staffing clears. Clearance is pending with no confirmed date.”",
+          "“If deferred Keep the current counter flow.”",
+          "“Before the trial 15.0%  (18 of 120)”",
+          "“During the two-week trial 5.9%  (7 of 118)”",
+          "“Cedar was the only site observed, and there was no control group. The before-and-after comparison cannot establish what caused the drop.”",
+          "“Compare the share of pickups over 10 minutes by site before deciding on expansion.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer supplies the cap and duration, both start conditions, the fallback, Cedar’s counts and denominators, the causal limitation, and the post-test expansion decision."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The final quote links the site comparison to expansion but omits the heading specifying that leadership conducts the comparison at the end of the test."
+        }
+      }
+    },
+    {
+      "case": "approval-deck",
+      "repeat": 2,
+      "variant": "current",
+      "artifact": "artifacts/approval-deck-2-current.pptx",
+      "sha256": "8d1f98a3f8448c172f8c544bb4ad4acd5b3d15e5a8b254a369daa8b2f18d4a91",
+      "usage": {
+        "input_tokens": 258639,
+        "cached_input_tokens": 236160,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1604,
+        "reasoning_output_tokens": 12
+      },
+      "view": "[Slide 1]\nApprove a four-week pickup redesign test\nReserve up to $9,000 for Cedar and Maple.\nCedar\nStart when ready.\nMaple\nJoin only after staffing clears.\nStaffing clearance is pending, with no confirmed date.\nIf leadership defers, keep the current counter flow.\n\n[Slide 2]\nLong waits fell during the Cedar trial\nShare of pickups that took more than 10 minutes\nBefore trial\n15.0%   (18 of 120)\nDuring trial\n5.9%   (7 of 118)\nCedar ran the trial for two weeks. This single-site before-and-after\ncomparison had no control group.\n\n[Slide 3]\nReview site results before expansion\nKim from Operations can coordinate the test.\nAt the end of the test\nCompare the share of pickups that took more than 10 minutes\nby site to inform the expansion decision.",
+      "units": [
+        "Slide 1",
+        "Slide 2",
+        "Slide 3"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The chart defines a long wait as more than 10 minutes, gives both original fractions and identifies the two-week, uncontrolled single-site comparison. The funding terms, conditional starts, coordinator, fallback and expansion review match the brief."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The budget, duration, site conditions, deferral option, and expansion review are explicit. The counts and the description of a single-site comparison without a control let the reader infer why the decline alone cannot establish causation."
+        },
+        "avoidable_units": [
+          "Slide 3"
+        ],
+        "structure_reason": "Kim’s role and the instruction to compare sites before expansion would fit as two short lines on the decision slide."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve a four-week pickup redesign test and reserve up to $9,000 for Cedar and Maple. Cedar can start when ready; Maple can join only after staffing clears, and there is no confirmed clearance date. If funding is deferred, leadership should keep the current counter flow.\n\nAt Cedar, pickups over 10 minutes fell from 18 of 120 (15.0%) before the trial to 7 of 118 (5.9%) during it. The comparison establishes an observed decrease at Cedar, but does not establish that the redesign caused it: the two-week comparison covered one site and had no control group.\n\nAfter the test, leadership should compare the share of pickups over 10 minutes by site to inform whether to expand. The artifact does not specify an expansion threshold or the other criteria for that decision.",
+        "evidence": [
+          "“Approve a four-week pickup redesign test” and “Reserve up to $9,000 for Cedar and Maple.”",
+          "“Start when ready.” “Join only after staffing clears.” “Staffing clearance is pending, with no confirmed date.”",
+          "“If leadership defers, keep the current counter flow.”",
+          "“Before trial\n15.0%   (18 of 120)” and “During trial\n5.9%   (7 of 118)”",
+          "“Cedar ran the trial for two weeks. This single-site before-and-after\ncomparison had no control group.”",
+          "“Compare the share of pickups that took more than 10 minutes\nby site to inform the expansion decision.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer gives the full approval and deferral plan, both Cedar fractions, the limits of the uncontrolled single-site comparison, and the post-test review by site."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      }
+    },
+    {
+      "case": "approval-deck",
+      "repeat": 2,
+      "variant": "plain",
+      "artifact": "artifacts/approval-deck-2-plain.pptx",
+      "sha256": "fa7ea7f754491877cb82fcf989ce2f6d2199727fb9e65525016ae5f033b57477",
+      "usage": {
+        "input_tokens": 218005,
+        "cached_input_tokens": 178816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1541,
+        "reasoning_output_tokens": 7
+      },
+      "view": "[Slide 1]\nLeadership decision\nApprove a four-week pickup redesign test?\nProposed test at Cedar and Maple with a $9,000 cap\nApprove\nReserve the budget and start Cedar when ready. Add Maple once staffing clears.\nDefer\nKeep the current pickup counter flow.\n\n[Slide 2]\nCedar trial\nFewer Cedar pickups exceeded 10 minutes\nShare of Cedar pickups taking more than 10 minutes\nBefore trial\n18 of 120 pickups\n15.0%\nDuring two-week trial\n7 of 118 pickups\n5.9%\nCedar was the only site observed. The before-and-after trial had no control, so it cannot establish whether the redesign caused the drop.\n\n[Slide 3]\nTest plan\nStart with Cedar when ready\nKim from Operations can coordinate the test.\nCedar\nStart the redesigned pickup flow when the site is ready.\nMaple\nJoin only after staffing clears. Clearance is pending, with no confirmed date.\nEnd of test\nCompare the share of pickups taking more than 10 minutes before and during the test, by site, then decide whether to expand.",
+      "units": [
+        "Slide 1",
+        "Slide 2",
+        "Slide 3"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The slides preserve the capped four-week proposal, conditional rollout, fallback, Kim’s role and Cedar trial evidence. The before-and-during comparison by site is a grounded way to inform the expansion decision."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The proposal and plan specify the cap, duration, site conditions, deferral, and before-and-during review by site. Both Cedar counts and the explicit causal caveat support a cautious reading of the decline."
+        },
+        "avoidable_units": [
+          "Slide 3"
+        ],
+        "structure_reason": "The plan repeats both sites’ start conditions. Slide 1 has room for Kim’s role, the unconfirmed clearance date, and the before-and-during comparison by site."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve the four-week pickup redesign test at Cedar and Maple with a $9,000 cap and reserve the budget. Cedar can start when the site is ready; Maple can join only after staffing clears, and no clearance date is confirmed. If leadership defers funding, it should keep the current pickup counter flow.\n\nAt Cedar, pickups over 10 minutes fell from 18 of 120 before the trial (15.0%) to 7 of 118 during the two-week trial (5.9%). The comparison establishes that the observed share fell at Cedar, but it does not establish that the redesign caused the drop: Cedar was the only observed site and there was no control.\n\nAfter the test, leadership should compare the before-and-during shares by site, then decide whether to expand. The artifact does not specify an expansion threshold or decision criteria.",
+        "evidence": [
+          "“Proposed test at Cedar and Maple with a $9,000 cap”",
+          "“Reserve the budget and start Cedar when ready. Add Maple once staffing clears.”",
+          "“Clearance is pending, with no confirmed date.”",
+          "“Defer\nKeep the current pickup counter flow.”",
+          "“Before trial\n18 of 120 pickups\n15.0%”",
+          "“During two-week trial\n7 of 118 pickups\n5.9%”",
+          "“Cedar was the only site observed. The before-and-after trial had no control, so it cannot establish whether the redesign caused the drop.”",
+          "“Compare the share of pickups taking more than 10 minutes before and during the test, by site, then decide whether to expand.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer covers all required facts. Its reference to before-and-during shares refers back to the stated share of pickups over ten minutes."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "The quotes support the budget cap and both proposed sites, but omit the four-week test duration. The quoted two-week duration applies to Cedar’s earlier trial."
+        }
+      }
+    },
+    {
+      "case": "approval-deck",
+      "repeat": 3,
+      "variant": "candidate",
+      "artifact": "artifacts/approval-deck-3-candidate.pptx",
+      "sha256": "67312b212f2e56a3581427273823f4118c08e68cee033cb7b7b8baaae5cfa43c",
+      "usage": {
+        "input_tokens": 221811,
+        "cached_input_tokens": 199936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1516,
+        "reasoning_output_tokens": 47
+      },
+      "view": "[Slide 1]\nApprove the four-week pickup redesign test\nReserve up to $9,000 for Cedar and Maple.\nCedar\nStart when ready. Kim from Operations can coordinate the test.\nMaple\nJoin only after staffing clearance. The clearance date is unconfirmed.\nIf deferred\nKeep the current counter flow.\nExpansion decision\nAfter the test, compare each site’s share of pickups over 10 minutes before deciding on expansion.\n\n[Slide 2]\nFewer Cedar pickups took over 10 minutes\nShare of pickups over 10 minutes at Cedar\nBefore trial\n15.0%  (18 of 120)\nDuring two-week trial\n5.9%  (7 of 118)\nCedar’s before-and-after comparison had no control group.\nThe trial leaves open whether the redesign caused the decline.",
+      "units": [
+        "Slide 1",
+        "Slide 2"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "Slide 1 gives the funding decision, rollout conditions, Kim’s role, fallback and expansion decision. Slide 2 confines the evidence to Cedar, preserves both fractions and explains why the cause of the decline is uncertain."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The decision slide supplies the budget, duration, start conditions, deferral option, and post-test comparison. The Cedar counts and uncontrolled before-and-after design explain why the observed improvement warrants further testing."
+        },
+        "avoidable_units": [],
+        "structure_reason": "One slide covers the decision through expansion review. The other keeps Cedar’s counts, percentages, and interpretation together."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve the four-week pickup redesign test and reserve up to $9,000 for Cedar and Maple. Cedar can start when ready, with Kim from Operations coordinating. Maple can join only after staffing clearance; its clearance date is unconfirmed. If funding is deferred, leadership should keep the current counter flow.\n\nAt Cedar, pickups over 10 minutes fell from 18 of 120 before the trial (15.0%) to 7 of 118 during the two-week trial (5.9%). This establishes a decline in the observed share, but not that the redesign caused it: the comparison had no control group.\n\nAfter the test, leadership should compare each site’s share of pickups over 10 minutes before deciding whether to expand. The artifact does not specify an expansion threshold or provide Maple’s pickup figures.",
+        "evidence": [
+          "“Approve the four-week pickup redesign test” and “Reserve up to $9,000 for Cedar and Maple.”",
+          "“Start when ready. Kim from Operations can coordinate the test.”",
+          "“Join only after staffing clearance. The clearance date is unconfirmed.”",
+          "“If deferred\nKeep the current counter flow.”",
+          "“Before trial\n15.0%  (18 of 120)” and “During two-week trial\n5.9%  (7 of 118)”",
+          "“Cedar’s before-and-after comparison had no control group. The trial leaves open whether the redesign caused the decline.”",
+          "“After the test, compare each site’s share of pickups over 10 minutes before deciding on expansion.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer gives Cedar’s observed change and the lack of a control, along with the complete funding, start, deferral, and expansion decisions."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      }
+    },
+    {
+      "case": "approval-deck",
+      "repeat": 3,
+      "variant": "current",
+      "artifact": "artifacts/approval-deck-3-current.pptx",
+      "sha256": "38606c8ff83c2141a44e30a924f62aac3c7ff053be19aca2cb0f92c9fc993a53",
+      "usage": {
+        "input_tokens": 189379,
+        "cached_input_tokens": 168320,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1407,
+        "reasoning_output_tokens": 12
+      },
+      "view": "[Slide 1]\nApprove a four-week pickup redesign test\nReserve up to $9,000 for Cedar and Maple.\nIf approved\nStart Cedar when ready.\nMaple joins only after staffing clearance. No date is confirmed.\nIf deferred, keep the current counter flow.\n\n[Slide 2]\nFewer Cedar pickups took over 10 minutes\nShare of pickups taking more than 10 minutes\nBefore trial\n15.0%  (18 of 120)\nDuring two-week trial\n5.9%  (7 of 118)\nCedar was the only site observed, and the trial had no control group.\nThe before-and-after comparison leaves the cause of the change uncertain.\n\n[Slide 3]\nReview results by site before expanding\nKim from Operations can coordinate the test.\nAt the end of the test\nCompare the share of pickups taking more than 10 minutes by site.",
+      "units": [
+        "Slide 1",
+        "Slide 2",
+        "Slide 3"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "Slide 3’s heading and closing instruction together make the site-level review a condition for expansion. The funding request, rollout conditions, fallback, Kim’s role and Cedar evidence all match the brief."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The reader can identify the capped four-week test, each site’s start condition, the unconfirmed clearance date, and the deferral option. The counts, causal caveat, and final site comparison explain how to approach expansion."
+        },
+        "avoidable_units": [
+          "Slide 3"
+        ],
+        "structure_reason": "Kim’s role and the site comparison before expansion can be added to the short approval slide while keeping the trial counts and interpretation together."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve a four-week pickup redesign test and reserve up to $9,000 for Cedar and Maple. Cedar can start when ready; Maple can join only after staffing clearance, with no confirmed date. If funding is deferred, leadership should keep the current counter flow.\n\nAt Cedar, pickups over 10 minutes fell from 18 of 120 (15.0%) before the trial to 7 of 118 (5.9%) during the two-week trial—a decrease of 9.1 percentage points. The comparison establishes an observed decrease at Cedar, but does not establish that the redesign caused it: Cedar was the only site observed and there was no control group.\n\nAfter the test, leadership should review the share of pickups over 10 minutes by site before deciding whether to expand. The artifact does not specify an expansion threshold or other decision criteria.",
+        "evidence": [
+          "“Approve a four-week pickup redesign test” and “Reserve up to $9,000 for Cedar and Maple.”",
+          "“Start Cedar when ready.” “Maple joins only after staffing clearance. No date is confirmed.” “If deferred, keep the current counter flow.”",
+          "“Before trial 15.0%  (18 of 120)” and “During two-week trial 5.9%  (7 of 118)”",
+          "“Cedar was the only site observed, and the trial had no control group.” “The before-and-after comparison leaves the cause of the change uncertain.”",
+          "“Review results by site before expanding” and “Compare the share of pickups taking more than 10 minutes by site.”"
+        ],
+        "evidence_verified": false
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer covers every required fact and correctly distinguishes the observed decline from its uncertain cause."
+        },
+        "citations": {
+          "passed": false,
+          "reason": "No verifiable verbatim evidence was supplied."
+        }
+      }
+    },
+    {
+      "case": "approval-deck",
+      "repeat": 3,
+      "variant": "plain",
+      "artifact": "artifacts/approval-deck-3-plain.pptx",
+      "sha256": "4c56df0658efb9dc31c8951342002e8ea6432092053bec548facf7dd758a104d",
+      "usage": {
+        "input_tokens": 186451,
+        "cached_input_tokens": 148224,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1584,
+        "reasoning_output_tokens": 13
+      },
+      "view": "[Slide 1]\nApprove the pickup redesign test?\nLeadership decision on a four-week test at Cedar and Maple\nIf approved\nReserve up to $9,000.\nStart Cedar when ready.\nMaple joins only after staffing clears.\nIf deferred\nKeep the current\ncounter flow.\n\n[Slide 2]\nLong pickups were less common at Cedar\nShare of pickups that took more than 10 minutes\nBefore the trial\n15.0%\n18 of 120 pickups\nDuring the two-week trial\n5.9%\n7 of 118 pickups\nSingle-site before-and-after observation with no control.\nThe observation cannot establish that the redesign caused the decline.\n\n[Slide 3]\nHow the test would run\nKim from Operations can coordinate the four-week test.\nCedar\nStart when ready.\nMaple\nJoin only after staffing clears. No clearance date is confirmed.\nEnd of test\nCompare the share of pickups over 10 minutes by site\nbefore deciding whether to expand.",
+      "units": [
+        "Slide 1",
+        "Slide 2",
+        "Slide 3"
+      ],
+      "fidelity": {
+        "passed": true,
+        "reason": "The approval and deferral paths are explicit. The test plan names Kim, keeps Maple’s start conditional and undated, and requires a site-level review before expansion. The Cedar slide preserves the counts, threshold and observational limit."
+      },
+      "artifact_grade": {
+        "usability": {
+          "passed": true,
+          "reason": "The approval and deferral options are clear. The reader can find Cedar’s start condition, Maple’s unconfirmed clearance date, both trial counts, the causal limitation, and the site comparison required before expansion."
+        },
+        "avoidable_units": [
+          "Slide 3"
+        ],
+        "structure_reason": "Slide 1 already gives both start conditions. Adding Kim’s role, the unconfirmed clearance date, and the end-of-test comparison there would preserve the plan and leave the trial evidence together."
+      },
+      "reader_response": {
+        "answer": "Leadership should approve a four-week pickup redesign test at Cedar and Maple and reserve up to $9,000. Cedar can start when ready; Maple can join only after staffing clears, and no clearance date is confirmed. If funding is deferred, leadership should keep the current counter flow.\n\nAt Cedar, pickups over 10 minutes fell from 18 of 120 (15.0%) before the trial to 7 of 118 (5.9%) during the two-week trial. This establishes a decline in the observed share at that site, but the uncontrolled before-and-after comparison cannot establish that the redesign caused it.\n\nAt the end of the test, leadership should compare the share of pickups over 10 minutes by site before deciding whether to expand. The artifact does not specify an expansion threshold or other decision criteria.",
+        "evidence": [
+          "“Leadership decision on a four-week test at Cedar and Maple”",
+          "“Reserve up to $9,000.”",
+          "“Start Cedar when ready.”",
+          "“Maple joins only after staffing clears.”",
+          "“Join only after staffing clears. No clearance date is confirmed.”",
+          "“If deferred\nKeep the current\ncounter flow.”",
+          "“Before the trial\n15.0%\n18 of 120 pickups”",
+          "“During the two-week trial\n5.9%\n7 of 118 pickups”",
+          "“Single-site before-and-after observation with no control.\nThe observation cannot establish that the redesign caused the decline.”",
+          "“Compare the share of pickups over 10 minutes by site\nbefore deciding whether to expand.”"
+        ],
+        "evidence_verified": true
+      },
+      "reader": {
+        "answer": {
+          "passed": true,
+          "reason": "The answer covers the funding decision, both start conditions, deferral, Cedar’s counts and denominators, the causal limitation, and the post-test expansion review."
+        },
+        "citations": {
+          "passed": true,
+          "reason": "The quotes cover the four-week proposal and funding cap, both sites’ start conditions, the fallback, both observations, the uncontrolled design, and the by-site comparison before expansion."
+        }
+      }
+    }
+  ]
+}

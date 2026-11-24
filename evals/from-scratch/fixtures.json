@@ -1,0 +1,44 @@
+[
+  {
+    "id": "decision-memo",
+    "format": "md",
+    "task": "Write a decision memo in Markdown for the Operations Director to decide what to authorize in Monday's staffing meeting. Use the brief below as the source.",
+    "brief": "Renewals miss the one-business-day response target on 12 of 40 requests over the last four weeks. Approving a single four-week pilot requires a budget cap of $6,400. North Desk can run a new intake queue on June 8 with its existing shift coverage. The queue needs a written data retention plan before it launches. No plan owner or clearance date has been confirmed. Extending manual triage needs no pilot spend and leaves the current handoff in place. A second desk is outside this decision. At the end of four weeks the director will review missed responses, using the same one-business-day definition. Approval today can reserve pilot spend. It does not authorize launching the queue before the written plan.",
+    "question": "What can the director authorize today, what needs to happen before launch, and what is the alternative if the launch condition is unresolved?",
+    "answer": "Reserve up to $6,400 for a four-week North Desk intake-queue pilot. The planned start is June 8. Launch waits for a written data retention plan. The owner and clearance date are still unconfirmed. Keep manual triage as the no-pilot-spend option while the launch condition is unresolved. Approval does not include a second desk.",
+    "requirements": [
+      "Accurately retain 12 of 40 misses, four-week measurement window and the one-business-day definition.",
+      "Explain the authorized option, four-week duration, North Desk, and $6,400 cap.",
+      "Distinguish reserving spend from authorizing launch and surface unknown owner and clearance date.",
+      "Preserve the no-spend manual alternative, limited scope, and follow-up review. Do not invent sign-off authority or a timeline."
+    ]
+  },
+  {
+    "id": "cash-forecast",
+    "format": "xlsx",
+    "task": "Build an editable two-month Excel cash forecast for an operations lead deciding whether July cash will meet the reserve. Use the brief below as the source. Save result.xlsx.",
+    "brief": "Opening cash on June 1, 2027 is $12,000. Confirmed receipts are $10,000 in June and $7,000 in July. Payroll is $9,000 per month and rent is $1,500 per month. Equipment paid is $2,000 in June and $0 in July. The July closing reserve target is $7,000. One possible extra $2,500 receipt in July is still unconfirmed. Keep that receipt out of the starting forecast. The lead wants to see whether July meets the reserve and understand what changes if the receipt is confirmed. All amounts are USD.",
+    "question": "What is July ending cash and the gap to the reserve? Which editable input would you change if the $2,500 receipt is confirmed, and what would July ending cash and the reserve gap become?",
+    "answer": "July ending cash is $6,000, $1,000 below the $7,000 reserve. Edit confirmed July receipts from $7,000 to $9,500, or add $2,500 in a separately labeled editable July extra-receipts input excluded in the base forecast. July ending cash becomes $8,500, $1,500 above reserve. Give the input's visible label and sheet or equivalent locator.",
+    "requirements": [
+      "Show June and July 2027 clearly, report USD, and preserve all source amounts.",
+      "Use formula-driven ending cash and an editable input. Carry June closing cash to July.",
+      "Identify the extra receipt as unconfirmed and exclude it from the base forecast.",
+      "Make both months' results and the July reserve comparison intelligible from visible figures."
+    ]
+  },
+  {
+    "id": "approval-deck",
+    "format": "pptx",
+    "task": "Create an editable PowerPoint deck for a leadership meeting to decide whether to approve a pickup redesign test. Save result.pptx. Use a straightforward 16:9 format with legible text. Use the brief below as the source.",
+    "brief": "Cedar site tried a new pickup counter flow over two weeks. Before the trial, 18 of 120 pickups took more than 10 minutes. During the trial, 7 of 118 did. This was a single-site before-and-after observation with no control. Leadership is deciding whether to fund a four-week test at Cedar and Maple with a $9,000 cap. Kim from Operations can coordinate the test. Maple staffing clearance is still pending and has no confirmed date. The approval can reserve the budget. Start Cedar when ready. Maple joins only after staffing clears. Keep the current counter flow if leadership defers the test. At the end, compare the over-10-minute pickup share by site before deciding on expansion.",
+    "question": "What should leadership approve, under what condition can Maple join, and how should leadership interpret the evidence and decide what happens after the test?",
+    "answer": "Reserve up to $9,000 for a four-week Cedar and Maple test. Cedar can start when ready. Maple joins only after staffing clearance, whose date is unconfirmed. Cedar observed 18/120 over ten minutes before versus 7/118 during the trial. It was a single-site before-and-after observation with no control, so it supports testing and does not establish causality. Compare the over-ten-minute share by site after the test before deciding on expansion. If approval is deferred, retain current flow.",
+    "requirements": [
+      "State the decision, $9,000 maximum, four-week duration, Cedar and Maple scope, and Kim as coordinator.",
+      "Distinguish budget approval, Cedar readiness, and Maple staffing clearance without assigning a date or inventing authority.",
+      "Preserve both original counts and denominators, the ten-minute definition, and the uncontrolled single-site limit.",
+      "Make the actual completion decision and fallback clear from the visible slide content."
+    ]
+  }
+]

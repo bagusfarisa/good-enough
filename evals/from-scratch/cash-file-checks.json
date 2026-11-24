@@ -1,0 +1,533 @@
+{
+  "cash-forecast-1-candidate": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash forecast",
+        "C14"
+      ],
+      "june_close": [
+        "Cash forecast",
+        "B19"
+      ],
+      "july_close": [
+        "Cash forecast",
+        "C19"
+      ],
+      "reserve": [
+        "Cash forecast",
+        "B6"
+      ],
+      "reserve_gap": [
+        "Cash forecast",
+        "B7"
+      ],
+      "headline": [
+        "Cash forecast",
+        "B5"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  },
+  "cash-forecast-1-current": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash forecast",
+        "C6"
+      ],
+      "june_close": [
+        "Cash forecast",
+        "B12"
+      ],
+      "july_close": [
+        "Cash forecast",
+        "C12"
+      ],
+      "reserve": [
+        "Cash forecast",
+        "C14"
+      ],
+      "reserve_gap": [
+        "Cash forecast",
+        "C15"
+      ],
+      "headline": [
+        "Cash forecast",
+        "C12"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  },
+  "cash-forecast-1-plain": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash forecast",
+        "C6"
+      ],
+      "june_close": [
+        "Cash forecast",
+        "B14"
+      ],
+      "july_close": [
+        "Cash forecast",
+        "C14"
+      ],
+      "reserve": [
+        "Cash forecast",
+        "C15"
+      ],
+      "reserve_gap": [
+        "Cash forecast",
+        "C16"
+      ],
+      "headline": [
+        "Cash forecast",
+        "C14"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  },
+  "cash-forecast-2-candidate": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash Forecast",
+        "C14"
+      ],
+      "june_close": [
+        "Cash Forecast",
+        "B18"
+      ],
+      "july_close": [
+        "Cash Forecast",
+        "C18"
+      ],
+      "reserve": [
+        "Cash Forecast",
+        "B7"
+      ],
+      "reserve_gap": [
+        "Cash Forecast",
+        "B8"
+      ],
+      "headline": [
+        "Cash Forecast",
+        "B6"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  },
+  "cash-forecast-2-current": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash Forecast",
+        "C12"
+      ],
+      "june_close": [
+        "Cash Forecast",
+        "B17"
+      ],
+      "july_close": [
+        "Cash Forecast",
+        "C17"
+      ],
+      "reserve": [
+        "Cash Forecast",
+        "B6"
+      ],
+      "reserve_gap": [
+        "Cash Forecast",
+        "B7"
+      ],
+      "headline": [
+        "Cash Forecast",
+        "B5"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  },
+  "cash-forecast-2-plain": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash Forecast",
+        "C7"
+      ],
+      "june_close": [
+        "Cash Forecast",
+        "B13"
+      ],
+      "july_close": [
+        "Cash Forecast",
+        "C13"
+      ],
+      "reserve": [
+        "Cash Forecast",
+        "C15"
+      ],
+      "reserve_gap": [
+        "Cash Forecast",
+        "C16"
+      ],
+      "headline": [
+        "Cash Forecast",
+        "C13"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  },
+  "cash-forecast-3-candidate": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash forecast",
+        "C12"
+      ],
+      "june_close": [
+        "Cash forecast",
+        "B17"
+      ],
+      "july_close": [
+        "Cash forecast",
+        "C17"
+      ],
+      "reserve": [
+        "Cash forecast",
+        "B6"
+      ],
+      "reserve_gap": [
+        "Cash forecast",
+        "B7"
+      ],
+      "headline": [
+        "Cash forecast",
+        "B5"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  },
+  "cash-forecast-3-current": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash forecast",
+        "C12"
+      ],
+      "june_close": [
+        "Cash forecast",
+        "B17"
+      ],
+      "july_close": [
+        "Cash forecast",
+        "C17"
+      ],
+      "reserve": [
+        "Cash forecast",
+        "C6"
+      ],
+      "reserve_gap": [
+        "Cash forecast",
+        "C7"
+      ],
+      "headline": [
+        "Cash forecast",
+        "C5"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  },
+  "cash-forecast-3-plain": {
+    "checks": {
+      "editable_confirmed_receipt": true,
+      "saved_outcomes": true,
+      "closing_cash_is_formula": true,
+      "formula_errors_absent": true,
+      "artifact_tool_recalculates": true,
+      "libreoffice_recalculates": true
+    },
+    "cells": {
+      "receipts": [
+        "Cash forecast",
+        "C6"
+      ],
+      "june_close": [
+        "Cash forecast",
+        "B14"
+      ],
+      "july_close": [
+        "Cash forecast",
+        "C14"
+      ],
+      "reserve": [
+        "Cash forecast",
+        "C17"
+      ],
+      "reserve_gap": [
+        "Cash forecast",
+        "C18"
+      ],
+      "headline": [
+        "Cash forecast",
+        "C14"
+      ]
+    },
+    "artifact_tool": {
+      "before": [
+        9500,
+        6000,
+        7000,
+        -1000,
+        6000
+      ],
+      "after": [
+        9500,
+        8500,
+        7000,
+        1500,
+        8500
+      ]
+    },
+    "libreoffice": [
+      9500,
+      8500,
+      7000,
+      1500,
+      8500
+    ]
+  }
+}

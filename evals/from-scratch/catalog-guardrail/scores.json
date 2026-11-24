@@ -1,0 +1,321 @@
+{
+  "generator": "gpt-6.2-sol",
+  "judge": "gpt-6.2-astra",
+  "repeats": 3,
+  "comparison": "current skill and creation candidate",
+  "harness": "codex-cli 0.172.0",
+  "summary": {
+    "baseline": {
+      "documents_passing": 3,
+      "documents": 3,
+      "checks_passing": 15,
+      "checks": 15,
+      "median_words": 154,
+      "judge_preferences": 1
+    },
+    "good-enough": {
+      "documents_passing": 3,
+      "documents": 3,
+      "checks_passing": 15,
+      "checks": 15,
+      "median_words": 157,
+      "judge_preferences": 0
+    }
+  },
+  "ties": 2,
+  "runs": [
+    {
+      "case": "sop",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-1-baseline.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare both the new-item count and the updated-item count with the approved CSV.",
+          "reason": "The prerequisites list names all three inputs. The numbered steps put supplier selection, upload, and both count checks before Publish."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "Request a corrected file from the supplier, then return to the upload step with the corrected, approved CSV.",
+          "reason": "A duplicate flag stops the batch before Publish. The operator resumes at upload with the supplier’s correction."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "The trigger, approver, written form, and timing all match."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "If either price differs, contact Catalog Support and do not republish.",
+          "reason": "The procedure requires Applied status, checks two affected prices against the CSV, and records the batch ID only after both match."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The sequence, approval requirement, and recovery instructions agree with the source."
+        }
+      },
+      "passed": true,
+      "word_count": 148,
+      "usage": {
+        "input_tokens": 27186,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 209,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-1-good-enough.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare the preview’s new and updated item counts with the corresponding counts in the approved CSV.",
+          "reason": "The opening sentence names all three prerequisites. Supplier selection and upload precede Preview, and Publish follows the count comparison."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "Request a corrected file from the supplier and restart at the upload step with the corrected, approved CSV.",
+          "reason": "Step 2 stops the flagged batch before Publish and directs the operator back to upload."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before proceeding.",
+          "reason": "Publish is the next step, so written Merchandising approval is required before publication at the stated threshold."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "After both prices match, record the batch ID in the change log.",
+          "reason": "The preceding steps confirm Applied, verify two affected prices against the CSV, and direct mismatches to Catalog Support without republishing."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The sequence, threshold, approval role, and recovery rules agree with the source."
+        }
+      },
+      "passed": true,
+      "word_count": 153,
+      "usage": {
+        "input_tokens": 27230,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 203,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-2-good-enough.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare the preview’s counts for new and updated items with the corresponding counts in the approved CSV.",
+          "reason": "All three prerequisites are listed. The operator selects the supplier, uploads the file, and compares both Preview counts before Publish."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "Request a corrected CSV from the supplier, then restart at the upload step with the approved corrected file.",
+          "reason": "The duplicate branch stops the flagged batch before publication and specifies the supplier and restart point."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "The instruction specifies the correct threshold, approver, form, and timing."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "Leave the batch as applied and await Support’s guidance before taking any further publishing action.",
+          "reason": "On a mismatch, the operator stops, contacts Catalog Support, and leaves the batch alone. Logging requires Applied status and two verified price matches."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "Waiting for Support’s guidance is consistent with contacting Support and leaving the applied batch in place."
+        }
+      },
+      "passed": true,
+      "word_count": 171,
+      "usage": {
+        "input_tokens": 27230,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 235,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-2-baseline.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare the preview’s new and updated item counts with the approved CSV.",
+          "reason": "The opening sentence names the approved CSV, supplier ID, and access. The numbered steps place supplier selection and upload before Preview and publication afterward."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "Request a corrected file from the supplier, then restart at the upload step with the corrected, approved CSV.",
+          "reason": "A duplicate flag stops the current batch before Publish. The supplier provides the replacement for a fresh upload."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before proceeding.",
+          "reason": "The next step is Publish, making written Merchandising approval a prepublication requirement for changes above 10%."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "If either price differs, stop and contact Catalog Support. Leave the batch as it is while Support investigates.",
+          "reason": "Leaving the batch in place directs the operator to avoid republishing. The procedure confirms Applied, compares two affected prices with the CSV, and logs the ID after both match."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "Pausing at a count discrepancy and leaving a price mismatch with Support are consistent with the required sequence and recovery rules."
+        }
+      },
+      "passed": true,
+      "word_count": 164,
+      "usage": {
+        "input_tokens": 27184,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 216,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 3,
+      "variant": "baseline",
+      "artifact": "artifacts/sop-3-baseline.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare the new and updated item counts with the corresponding counts in the approved CSV.",
+          "reason": "The prerequisites list supplies all three requirements. The steps order supplier selection, upload, Preview count comparison, and Publish correctly."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "Request a corrected file from the supplier, then upload the corrected, approved CSV and review its preview.",
+          "reason": "The duplicate flag stops publication of the flagged batch. Uploading the replacement and reviewing its preview restarts the procedure at the correct point."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "The threshold, approver, written form, and timing match the source."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "After the batch shows **Applied** and both prices match, record the batch ID in the change log.",
+          "reason": "The preceding step checks two affected SKU prices against the CSV and directs the operator to contact Catalog Support without republishing if either differs."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The procedure preserves the publication sequence and both recovery paths."
+        }
+      },
+      "passed": true,
+      "word_count": 154,
+      "usage": {
+        "input_tokens": 27188,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 216,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "sop",
+      "repeat": 3,
+      "variant": "good-enough",
+      "artifact": "artifacts/sop-3-good-enough.md",
+      "checks": {
+        "prerequisites_and_flow": {
+          "passed": true,
+          "evidence": "Compare the counts of new and updated items with the corresponding counts in the approved CSV.",
+          "reason": "All three prerequisites appear in the list. Supplier selection, upload, and the Preview count checks precede Publish."
+        },
+        "duplicate_exception": {
+          "passed": true,
+          "evidence": "Request a corrected file from the supplier, then resume at the upload step with the approved corrected CSV.",
+          "reason": "The duplicate branch stops the flagged batch before Publish and returns the operator to upload with the supplier’s correction."
+        },
+        "price_exception": {
+          "passed": true,
+          "evidence": "If any price changes by more than 10%, obtain written approval from Merchandising before publishing.",
+          "reason": "The instruction gives the required threshold, written approval, approval role, and deadline."
+        },
+        "completion_and_mismatch": {
+          "passed": true,
+          "evidence": "If either price differs, contact Catalog Support and do not republish.",
+          "reason": "The procedure checks two affected prices against the CSV and permits logging only after the batch shows Applied and both prices match."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The Preview checks, publication step, and mismatch instructions agree with the source."
+        }
+      },
+      "passed": true,
+      "word_count": 157,
+      "usage": {
+        "input_tokens": 27232,
+        "cached_input_tokens": 24192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 220,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "case": "sop",
+      "repeat": 1,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "tie",
+      "reason": "Both pass every check. A groups the Preview exceptions under one step. B puts the duplicate stop immediately after opening Preview. Both make the conditions for publishing and logging easy to find."
+    },
+    {
+      "case": "sop",
+      "repeat": 2,
+      "blind_order": {
+        "A": "good-enough",
+        "B": "baseline"
+      },
+      "preference": "baseline",
+      "reason": "Both pass every check. B gives the count comparison and approval requirement their own numbered steps, making both checks easy to locate immediately before Publish."
+    },
+    {
+      "case": "sop",
+      "repeat": 3,
+      "blind_order": {
+        "A": "baseline",
+        "B": "good-enough"
+      },
+      "preference": "tie",
+      "reason": "Both pass every check. A explicitly tells the operator to review the replacement file’s preview. B makes a count discrepancy easy to spot with a separate stop instruction. Both clearly identify when to publish and when to log the batch ID."
+    }
+  ],
+  "judge_usage": {
+    "sop": {
+      "input_tokens": 25898,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1932,
+      "reasoning_output_tokens": 0
+    }
+  }
+}

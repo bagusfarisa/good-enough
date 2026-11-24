@@ -91,6 +91,10 @@ Keep the pending decisions and exceptions accurate.
 
 The skill guides how the agent structures and reviews the work. The file formats it can produce depend on its available tools.
 
+## From-scratch creation benchmark
+
+On three new briefs, the creation guidance supported complete reader answers in all nine runs. The previous skill and the plain prompt each supported six. All three conditions passed every source and artifact-usability check. The creation guidance used two slides in each approval deck, compared with three in both comparison conditions. [Memos, workbooks, decks, and scores](evals/from-scratch/)
+
 ## Existing artifact revision benchmark
 
 In 36 revisions of six synthetic artifacts, Good Enough passed both the full reader task and preservation checks in 12 of 12 runs. The plain prompt passed 11 of 12, and the one-line concision prompt passed 8 of 12. The concision prompt supported more answers from the opening view. [Sources, outputs, scores, and reproduction steps](evals/revision/)
