@@ -6,10 +6,28 @@ Good Enough is an agent skill for making documents, spreadsheets, financial mode
 
 | If you need a… | Good Enough helps the agent… |
 | --- | --- |
-| Decision brief | Lead with the decision and put the evidence where the reader needs it. |
+| Decision brief | State the decision, the recommendation when supported, and the trade-offs that affect the choice. |
+| Impact analysis | Show what changes in each affected case, who is affected, and what still needs a decision. |
+| Standard operating procedure (SOP) | Write steps a new operator can follow, with common exceptions and a clear check for completion. |
 | Tracker | Use a clear table and readable formulas. Add a dashboard when it serves a distinct task. |
 | Financial model | Label the assumptions and show how they drive the results a human needs to understand. |
 | Slide deck | Give each slide one main takeaway and keep the evidence that supports it. |
+
+## Try it without installing
+
+Fill in the brackets and paste this into your agent with your source material.
+
+```text
+Create [deliverable] for [audience] using [notes, data, or files].
+The reader needs to [make a decision, understand a change, or complete a task].
+
+Make it complete, correct, and easy to use. Keep the evidence, assumptions,
+and exceptions the reader needs. Give each section, tab, or slide a clear purpose.
+
+For a financial model, make key results easy to trace back to labeled assumptions.
+
+Before delivering, check that the reader can do the intended task using the finished artifact.
+```
 
 ## Install
 

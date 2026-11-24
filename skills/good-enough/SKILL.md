@@ -1,6 +1,6 @@
 ---
 name: good-enough
-description: Create, materially revise, or simplify documents, spreadsheets, financial models, and presentations. Choose the content, structure, and features the reader needs to use the deliverable.
+description: Create, materially revise, or simplify documents, spreadsheets, financial models, and presentations, including decision briefs, impact analyses, and standard operating procedures (SOPs). Choose the content, structure, and features the reader needs to use the deliverable.
 ---
 
 # Good Enough
@@ -18,6 +18,12 @@ Make the smallest complete, correct artifact the intended reader can use, trust,
 - **Documents.** Lead with the answer, recommendation, or information the reader came for. Organize by the reader's questions or actions. Use a list for steps and a table when it makes comparisons easier. Keep evidence close to the claim it supports. Add an appendix when readers need detail they can look up separately.
 - **Spreadsheets.** Use one main table per dataset with consistent columns and a clear row meaning. Make editable inputs and calculated results easy to tell apart. Use readable native formulas for values that must update. Add a tab, pivot, dashboard, or automation when it serves a distinct task that the current table or a simple summary handles poorly.
 - **Presentations.** Give each slide one main takeaway. Use the title to state it when the evidence supports a clear claim. Choose the simplest layout that makes the point legible. Use charts for patterns and tables for exact comparisons. Keep the context and evidence the audience needs to follow the argument or make the decision.
+
+## Decision briefs, impact analyses, and SOPs
+
+- **Decision briefs.** Start with the decision needed and the recommendation when the evidence supports one. Compare viable options on the trade-offs that could change the choice. Surface uncertainty that matters to the decision.
+- **Impact analyses.** For each material case, show current behavior, the proposed change, who or what it affects, and any action or decision it requires. Use a concrete example when the consequence is hard to infer.
+- **Standard operating procedures (SOPs).** Put prerequisites before the steps. Write the actions in the order someone performs them, with common exceptions next to the steps they affect. Include an observable check for successful completion.
 
 ## Financial models
 
