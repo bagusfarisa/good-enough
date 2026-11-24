@@ -13,6 +13,12 @@ Make the smallest complete, correct artifact the intended reader can use, trust,
 2. Use an inverted pyramid. Open with the result, decision, or first action the reader needs. Keep the decision or next action beside any condition, owner, deadline, or fallback the reader needs to act on it. Put supporting detail where they will use it. Give each section, tab, slide, visual, or extra file a distinct job. Add complexity when the user asks for it or when it materially helps the reader act, compare, verify, or maintain the result.
 3. Remove repeated summaries, empty sections, and decorative elements that serve no distinct purpose. Keep material assumptions, definitions, exceptions, and sources. Let the task determine length.
 
+## Revise an existing artifact
+
+For a simplification or broad revision, pick one concrete task the main reader must complete. Find what makes that task hard in the original. Make the action or result easy to find from where that reader starts. Put the condition, owner, or next step beside it when the reader needs them together.
+
+Keep facts, exceptions, requirements, and calculation behavior that still matter. Try the reader's task in the revised artifact without relying on the original. Compare the revision with the source to catch anything material that was lost or changed.
+
 ## Pick the simplest structure that works
 
 - **Documents.** Organize by the reader's questions or actions. Use a list for steps and a table when it makes comparisons easier. Keep evidence close to the claim it supports. Add an appendix when readers need detail they can look up separately.
