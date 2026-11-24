@@ -29,7 +29,7 @@ Make the smallest complete, correct artifact the intended reader can use, trust,
 
 Prioritize interpretability for the human reviewer. Make the key result and its main drivers easy to find. Label key outputs with their units and periods. Distinguish actuals from forecasts where both appear. Put material assumptions in labeled input cells and show their source or rationale when it affects interpretation.
 
-Make the path from assumptions to outputs visible. Use labeled intermediate calculations or subtotals when they make the model easier to follow. Trace a key output back to its inputs and vary a material assumption to check that the result changes as expected. Keep the delivered model at its intended assumptions.
+Check that a reviewer can explain a key result using the labeled values and calculations visible on the sheet. Add a labeled subtotal or roll-forward when it makes a material calculation step visible. Trace a key output back to its inputs and vary a material assumption to check that the result changes as expected. Keep the delivered model at its intended assumptions.
 
 ## Finish the job
 
