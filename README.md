@@ -109,6 +109,10 @@ Good Enough used fewer filled rows in all three pairs. In the example above, the
 
 Tested with Codex CLI **0.172.0**, model **`gpt-6.2-sol`** at low reasoning effort, and skill commit [`01eb485`](https://github.com/bagusfarisa/good-enough/blob/01eb48510be3bbbcffc88263268865b5448098eb/skills/good-enough/SKILL.md). [Method and all workbooks](evals/cash-forecast/) · [Prompt](evals/cash-forecast/prompt.txt) · [Inputs](evals/cash-forecast/cash-inputs.csv) · [Raw scores](evals/cash-forecast/scores.json)
 
+## Automated document evaluation
+
+Both conditions passed all nine document runs. A blinded model judge preferred Good Enough in five pairs, the baseline in two, and called two ties. The tasks covered decision briefs, impact analyses, and SOPs. [Results, rubric, artifacts, and rerun instructions](evals/automated/)
+
 ## Inspiration
 
 Inspired by Dietrich Gebert’s [Ponytail](https://github.com/DietrichGebert/ponytail), which applies the same preference for simple, complete work to coding.
