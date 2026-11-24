@@ -110,6 +110,8 @@ Good Enough put ending cash in row 2 in every run. The baseline workbooks includ
 
 Tested with Codex CLI **0.172.0**, model **`gpt-6.2-sol`** at low reasoning effort, and skill commit [`1b391a7`](https://github.com/bagusfarisa/good-enough/blob/1b391a77d96cbe3fb06af028fde121e49e6edaec/skills/good-enough/SKILL.md). [Method](evals/inverted-pyramid/) · [All six workbooks](evals/inverted-pyramid/cash-forecast/workbooks/) · [Raw scores](evals/inverted-pyramid/cash-forecast/scores.json) · [Original pilot and inputs](evals/cash-forecast/)
 
+In the three-month follow-up, both skill revisions passed every calculation and reader check. The revised skill showed a labeled March payments subtotal in all three workbooks, compared with one of three for the previous revision. [Financial traceability test](evals/financial-traceability/)
+
 ## Automated document evaluation
 
 In the inverted-pyramid rerun, both conditions passed all nine documents and supported all 27 reader answers. A blinded judge preferred Good Enough in six pairs and the baseline in three. The impact analyses surfaced the customer’s next step earlier. Overall evidence placement was tied. [Full rerun results and instructions](evals/inverted-pyramid/) · [Original evaluation](evals/automated/)

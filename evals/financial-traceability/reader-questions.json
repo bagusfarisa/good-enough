@@ -1,0 +1,20 @@
+[
+  {
+    "id": "march_carry_forward",
+    "question": "What was March opening cash, which prior month supplied that balance, and what was March ending cash?",
+    "expected": {"opening_usd": 9000, "preceding_month": "February", "ending_usd": 12000},
+    "evidence_amounts": [9000, 9000, 12000]
+  },
+  {
+    "id": "march_cash_change",
+    "question": "Explain March's change in cash. Give customer receipts, the payroll, rent and equipment payments, and the resulting net cash change. Give payment amounts as positive numbers.",
+    "expected": {"receipts_usd": 11000, "payroll_usd": 6000, "rent_usd": 2000, "equipment_usd": 0, "net_change_usd": 3000},
+    "evidence_amounts": [11000, 6000, 2000, 0]
+  },
+  {
+    "id": "january_equipment_payment",
+    "question": "Which one-time payment affected January's cash, how much was the payment, and what was January ending cash? Give the payment amount as a positive number.",
+    "expected": {"payment": "equipment", "amount_usd": 3000, "ending_usd": 10000},
+    "evidence_amounts": [3000, 10000]
+  }
+]

@@ -1,0 +1,1 @@
+Build a January through March 2027 cash forecast in Excel for an operations lead, using cash-inputs.csv. Opening cash on January 1 is $12,000. The lead needs to update cash assumptions and explain what drives March ending cash. Use USD, formula-driven results, and only the supplied data. Save the deliverable as cash-forecast.xlsx in the current directory.
