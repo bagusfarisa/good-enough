@@ -17,6 +17,8 @@ Make the smallest complete, correct artifact the intended reader can use, trust,
 
 For a simplification or broad revision, pick one concrete task the main reader must complete. Find what makes that task hard in the original. Make the action or result easy to find from where that reader starts. Put the condition, owner, or next step beside it when the reader needs them together.
 
+If the reader needs to act on the first pass, try the task from the opening view. Put any detail needed for that action beside the decision, instruction, or result. Give an exact section or cell reference when the reader needs to look up supporting detail.
+
 Keep facts, exceptions, requirements, and calculation behavior that still matter. Try the reader's task in the revised artifact without relying on the original. Compare the revision with the source to catch anything material that was lost or changed.
 
 ## Pick the simplest structure that works
