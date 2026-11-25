@@ -9,38 +9,34 @@ Make the smallest complete, correct artifact the intended reader can use, trust,
 
 ## Choose what earns a place
 
-1. Identify what the reader needs to understand or do. Follow the requested format, required template, and applicable format workflow. For a targeted edit, reuse the existing structure and change only what was requested and what depends on it.
-2. Use an inverted pyramid. Open with the result, decision, or first action the reader needs. Keep the decision or next action beside any condition, owner, deadline, or fallback the reader needs to act on it. Put supporting detail where they will use it. Give each section, tab, slide, visual, or extra file a distinct job. Add complexity when the user asks for it or when it materially helps the reader act, compare, verify, or maintain the result.
-3. Remove repeated summaries, empty sections, and decorative elements that serve no distinct purpose. Keep material assumptions, definitions, exceptions, and sources. Let the task determine length.
+1. **Anchor on one reader task.** Identify the concrete task the main reader must understand or complete. Follow any requested format, template, or workflow.
+2. **Lead with what they act on.** Use an inverted pyramid: open with the result, decision, or first action, placed beside any condition, owner, deadline, or fallback needed to act on it. Put supporting detail where they will use it.
+3. **Make every piece earn its space.** Give each section, tab, slide, visual, or extra file a distinct job. Add complexity only when asked or when it materially helps the reader act, compare, verify, or maintain the result. Cut repeated summaries, empty sections, and decoration. Keep material assumptions, definitions, exceptions, and sources. Let the task determine length.
 
-## Create from scratch
+## Create or revise
 
-Choose one concrete task for the reader. Build the smallest artifact that lets them complete it. State any assumption or unresolved decision that could change their action. Try the task from the finished artifact before adding more.
-
-## Revise an existing artifact
-
-For a simplification or broad revision, pick one concrete task the main reader must complete. Find what makes that task hard in the original. Make the action or result easy to find from where that reader starts. Put the condition, owner, or next step beside it when the reader needs them together.
-
-Keep facts, exceptions, requirements, and calculation behavior that still matter. Try the reader's task in the revised artifact without relying on the original. Compare the revision with the source to catch anything material that was lost or changed.
+- **From scratch:** Build the smallest artifact that completes the reader's task. State any assumption or unresolved decision that could change their action. Try the task before adding more.
+- **Broad revision or simplification:** Find what makes the task hard in the original and clear that path from where the reader starts. Keep facts, exceptions, requirements, and calculation behavior that still matter. Compare against the source so nothing material is lost or silently changed.
+- **Targeted edit:** Reuse the existing structure and change only what was requested and what depends on it.
 
 ## Pick the simplest structure that works
 
-- **Documents.** Organize by the reader's questions or actions. Use a list for steps and a table when it makes comparisons easier. Keep evidence close to the claim it supports. Add an appendix when readers need detail they can look up separately.
-- **Spreadsheets.** Use one main table per dataset with consistent columns and a clear row meaning. Make editable inputs and calculated results easy to tell apart. Use readable native formulas for values that must update. Add a tab, pivot, dashboard, or automation when it serves a distinct task that the current table or a simple summary handles poorly.
-- **Presentations.** Give the audience the main takeaway before walking through the evidence. Give each slide one main takeaway and state it in the title when the evidence supports a clear claim. Use the simplest legible layout, with charts for patterns and tables for exact comparisons. Keep the context and evidence the audience needs to follow the argument or make the decision.
+- **Documents.** Organize by the reader's questions or actions. Use lists for steps and tables for comparisons. Keep evidence beside the claim it supports, and move lookup detail to an appendix.
+- **Spreadsheets.** Use one main table per dataset with consistent columns and a clear row meaning. Make editable inputs and calculated results easy to tell apart, and use readable native formulas for values that must update. Add a tab, pivot, dashboard, or automation only when it serves a distinct task the table or a simple summary handles poorly.
+- **Presentations.** Give the main takeaway before the evidence. Put one takeaway per slide and state it in the title when supported. Use the simplest legible layout—charts for patterns, tables for exact comparisons—while keeping the context and evidence needed to decide.
 
 ## Decision briefs, impact analyses, and SOPs
 
-- **Decision briefs.** Start with the decision needed and the recommendation when the evidence supports one. Put the condition for approval beside the recommendation. Compare viable options on the trade-offs that could change the choice. Surface uncertainty that matters to the decision.
-- **Impact analyses.** Open with the change, who it affects, and what they should do next. Include the condition that changes the immediate action before the case details. For each material case, show current behavior, the proposed change, who or what it affects, and any action or decision it requires. Use a concrete example when the consequence is hard to infer.
-- **Standard operating procedures (SOPs).** Put prerequisites before the steps. Write the actions in the order someone performs them, with common exceptions next to the steps they affect. Include an observable check for successful completion.
+- **Decision briefs.** Open with the decision needed, the recommendation when supported, and any approval condition beside it. Compare viable options on trade-offs that could change the choice, and surface material uncertainty.
+- **Impact analyses.** Open with the change, who it affects, what they should do next, and any condition that changes immediate action. For each material case, show current behavior, proposed change, who or what it affects, and any required action or decision. Add a concrete example when the consequence is hard to infer.
+- **Standard operating procedures (SOPs).** Put prerequisites before steps. Write actions in execution order with common exceptions beside the steps they affect. End with an observable check for completion.
 
 ## Financial models
 
-Prioritize interpretability for the human reviewer. Make the key result and its main drivers easy to find. Label key outputs with their units and periods. Distinguish actuals from forecasts where both appear. Put material assumptions in labeled input cells and show their source or rationale when it affects interpretation.
+Prioritize interpretability for a human reviewer. Make the key result and its main drivers easy to find, label outputs with units and periods, and distinguish actuals from forecasts. Put material assumptions in labeled input cells with their source or rationale when it affects interpretation.
 
-Check that a reviewer can explain a key result using the labeled values and calculations visible on the sheet. Add a labeled subtotal or roll-forward when it makes a material calculation step visible. Trace a key output back to its inputs and vary a material assumption to check that the result changes as expected. Keep the delivered model at its intended assumptions.
+Ensure a reviewer can explain a key result from the labeled values and calculations visible on the sheet—add a labeled subtotal or roll-forward when it makes a material step visible. Trace a key output back to its inputs, vary a material assumption to verify it responds as expected, and restore the intended assumptions.
 
 ## Finish the job
 
-Try the reader's main task in the final artifact. Find the decision and its evidence, update a representative input and check any dependent results, or follow the argument in slide order, as appropriate. Verify material claims and calculations. Surface assumptions or verification gaps that affect use. Stop when the requested artifact is complete and usable.
+Try the reader's main task in the final artifact without relying on the original (find the decision and its evidence, update a representative input and check dependent results, or follow the slides in order). Verify material claims and calculations, surface assumptions or verification gaps that affect use, and stop once the artifact is complete and usable.
