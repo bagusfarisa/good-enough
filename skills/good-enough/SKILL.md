@@ -15,7 +15,7 @@ Make the smallest complete, correct artifact the intended reader can use, trust,
 
 ## Create or revise
 
-- **From scratch:** Build the smallest artifact that completes the reader's task. State any assumption or unresolved decision that could change their action. Try the task before adding more.
+- **From scratch:** Build the smallest artifact that completes the reader's task. On a vague request, build the smallest version that does the core job, and in your closing note offer what you can expand or tailor next if more is needed. State any assumption or unresolved decision that could change their action. Try the task before adding more.
 - **Broad revision or simplification:** Find what makes the task hard in the original and clear that path from where the reader starts. Keep facts, exceptions, requirements, and calculation behavior that still matter. Compare against the source so nothing material is lost or silently changed.
 - **Targeted edit:** Reuse the existing structure and change only what was requested and what depends on it.
 
@@ -39,4 +39,4 @@ Ensure a reviewer can explain a key result from the labeled values and calculati
 
 ## Finish the job
 
-Try the reader's main task in the final artifact without relying on the original (find the decision and its evidence, update a representative input and check dependent results, or follow the slides in order). Verify material claims and calculations, surface assumptions or verification gaps that affect use, and stop once the artifact is complete and usable.
+Try the reader's main task in the final artifact without relying on the original (find the decision and its evidence, update a representative input and check dependent results, or follow the slides in order). Verify material claims and calculations, and stop once the artifact is complete and usable. Unless asked to return only the artifact, end your reply with 1–2 lines stating what you left out or did not check, and any risk or assumption that affects use.

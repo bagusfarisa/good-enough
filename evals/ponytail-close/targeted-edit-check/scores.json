@@ -1,0 +1,463 @@
+{
+  "skill_commit": "WORKTREE",
+  "generator": "gpt-6.2-sol",
+  "reasoning_effort": "low",
+  "repeats": 2,
+  "cases_sha256": "3a2b6e0b6e13a7d3a3de670a98c2263bed9da02ba40944dda6463efe466bcc33",
+  "baseline_skill_commit": "b6275354c71d3aa6ffe3ed71499b1ee50739cdaa",
+  "harness": "codex-cli 0.172.0",
+  "summary": {
+    "baseline": {
+      "documents_passing": 8,
+      "documents": 8,
+      "cases_pass_all_k": 4,
+      "cases_pass_at_k": 4,
+      "cases": 4,
+      "pass_all_k_rate": 1.0,
+      "pass_at_k_rate": 1.0,
+      "headings_preserved": 8,
+      "scope_discipline": 8,
+      "median_changed_ratio": 0.0054,
+      "median_input_tokens": 27442.0,
+      "total_input_tokens": 219538,
+      "median_output_tokens": 439.0,
+      "total_output_tokens": 3540
+    },
+    "good-enough": {
+      "documents_passing": 7,
+      "documents": 8,
+      "cases_pass_all_k": 3,
+      "cases_pass_at_k": 4,
+      "cases": 4,
+      "pass_all_k_rate": 0.75,
+      "pass_at_k_rate": 1.0,
+      "headings_preserved": 8,
+      "scope_discipline": 8,
+      "median_changed_ratio": 0.0054,
+      "median_input_tokens": 27493.0,
+      "total_input_tokens": 219944,
+      "median_output_tokens": 439.0,
+      "total_output_tokens": 3553
+    }
+  },
+  "runs": [
+    {
+      "case": "returns-expiry-window",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/returns-expiry-window-1-baseline.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0063,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27473,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 471,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "returns-expiry-window",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/returns-expiry-window-1-good-enough.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0177,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27522,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 470,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "returns-expiry-window",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/returns-expiry-window-2-baseline.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0063,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27469,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 469,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "returns-expiry-window",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/returns-expiry-window-2-good-enough.md",
+      "passed": false,
+      "checks": {
+        "required_updates": false,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0399,
+      "max_changed_ratio": 0.25,
+      "missing_required": [
+        "(?:ten|10)(?: or more(?: calendar)? days|(?: calendar)? days or more)"
+      ],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27522,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 483,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "price-import-threshold",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/price-import-threshold-1-baseline.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0056,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27422,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 423,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "price-import-threshold",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/price-import-threshold-1-good-enough.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0056,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27473,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 423,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "price-import-threshold",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/price-import-threshold-2-baseline.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0056,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27422,
+        "cached_input_tokens": 8320,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 423,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "price-import-threshold",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/price-import-threshold-2-good-enough.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0056,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27471,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 423,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-atlas-cost",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/dispatch-atlas-cost-1-baseline.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0053,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27462,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 455,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-atlas-cost",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/dispatch-atlas-cost-1-good-enough.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0053,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27515,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 455,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-atlas-cost",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/dispatch-atlas-cost-2-baseline.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0053,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27464,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 455,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "dispatch-atlas-cost",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/dispatch-atlas-cost-2-good-enough.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0053,
+      "max_changed_ratio": 0.25,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27513,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 455,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "device-return-extension",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/device-return-extension-1-baseline.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0028,
+      "max_changed_ratio": 0.2,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27414,
+        "cached_input_tokens": 24448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 422,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "device-return-extension",
+      "repeat": 1,
+      "variant": "good-enough",
+      "artifact": "artifacts/device-return-extension-1-good-enough.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0028,
+      "max_changed_ratio": 0.2,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27463,
+        "cached_input_tokens": 24448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 422,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "device-return-extension",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/device-return-extension-2-baseline.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0028,
+      "max_changed_ratio": 0.2,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27412,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 422,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "device-return-extension",
+      "repeat": 2,
+      "variant": "good-enough",
+      "artifact": "artifacts/device-return-extension-2-good-enough.md",
+      "passed": true,
+      "checks": {
+        "required_updates": true,
+        "no_stale_values": true,
+        "headings_preserved": true,
+        "scope_discipline": true
+      },
+      "changed_ratio": 0.0028,
+      "max_changed_ratio": 0.2,
+      "missing_required": [],
+      "occurrence_failures": {},
+      "present_forbidden": [],
+      "missing_headings": [],
+      "usage": {
+        "input_tokens": 27465,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 422,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ]
+}

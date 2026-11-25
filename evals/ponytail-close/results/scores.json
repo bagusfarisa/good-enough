@@ -1,0 +1,690 @@
+{
+  "baseline_revision": "HEAD",
+  "candidate_revision": "WORKTREE",
+  "generator": "gpt-6.2-sol",
+  "judge": "gpt-6.2-astra",
+  "repeats": 2,
+  "cases_sha256": "e088c34aca7ae55f35f0aed1b2897f9673d5e8176b1f0650c0dcd6e6d743cf4d",
+  "harness": "codex-cli 0.172.0",
+  "summary": {
+    "baseline": {
+      "runs_passing": 3,
+      "runs": 8,
+      "cases_pass_all_k": 1,
+      "cases_pass_at_k": 2,
+      "cases": 4,
+      "median_words": 221.5,
+      "preferences": 2,
+      "median_input_tokens": 26962.0,
+      "total_input_tokens": 213164,
+      "median_output_tokens": 322.0,
+      "total_output_tokens": 3006
+    },
+    "candidate": {
+      "runs_passing": 5,
+      "runs": 8,
+      "cases_pass_all_k": 2,
+      "cases_pass_at_k": 3,
+      "cases": 4,
+      "median_words": 221.5,
+      "preferences": 6,
+      "median_input_tokens": 27005.0,
+      "total_input_tokens": 207446,
+      "median_output_tokens": 313.0,
+      "total_output_tokens": 2851
+    },
+    "ties": 0,
+    "by_case": {
+      "vague-onboarding": {
+        "baseline": 0,
+        "candidate": 0
+      },
+      "vague-qbr-outline": {
+        "baseline": 0,
+        "candidate": 2
+      },
+      "scoped-vendor-brief": {
+        "baseline": 1,
+        "candidate": 1
+      },
+      "artifact-only-sop": {
+        "baseline": 2,
+        "candidate": 2
+      }
+    },
+    "median_words_by_case": {
+      "vague-onboarding": {
+        "baseline": 571.0,
+        "candidate": 504.0
+      },
+      "vague-qbr-outline": {
+        "baseline": 319.5,
+        "candidate": 318.0
+      },
+      "scoped-vendor-brief": {
+        "baseline": 96.5,
+        "candidate": 101.0
+      },
+      "artifact-only-sop": {
+        "baseline": 125.0,
+        "candidate": 130.0
+      }
+    }
+  },
+  "pairs": [
+    {
+      "case": "vague-onboarding",
+      "repeat": 1,
+      "blind_order": {
+        "A": "baseline",
+        "B": "candidate"
+      },
+      "preference": "candidate",
+      "reason": "Both guides are usable, and both miss the expansion offer. B gives the trainer three concrete practice cases and explicitly states the assumptions behind the guide."
+    },
+    {
+      "case": "vague-onboarding",
+      "repeat": 2,
+      "blind_order": {
+        "A": "candidate",
+        "B": "baseline"
+      },
+      "preference": "candidate",
+      "reason": "A gives the hire and trainer a first-week schedule they can use immediately, then clarifies that the pace is flexible and names the details to confirm on day one. Neither response offers a concrete expansion."
+    },
+    {
+      "case": "vague-qbr-outline",
+      "repeat": 1,
+      "blind_order": {
+        "A": "candidate",
+        "B": "baseline"
+      },
+      "preference": "candidate",
+      "reason": "A meets every check. Its five adaptable titles, evidence check, and concise statement of scope make it ready for an account manager to use."
+    },
+    {
+      "case": "vague-qbr-outline",
+      "repeat": 2,
+      "blind_order": {
+        "A": "baseline",
+        "B": "candidate"
+      },
+      "preference": "candidate",
+      "reason": "B meets every check. Its closing note tells the account manager which assumptions to verify and when the customer’s agenda warrants a commercial slide."
+    },
+    {
+      "case": "scoped-vendor-brief",
+      "repeat": 1,
+      "blind_order": {
+        "A": "baseline",
+        "B": "candidate"
+      },
+      "preference": "baseline",
+      "reason": "Both support the pilot decision. A also tells the ops lead exactly why follow-up on renewal pricing is needed."
+    },
+    {
+      "case": "scoped-vendor-brief",
+      "repeat": 2,
+      "blind_order": {
+        "A": "candidate",
+        "B": "baseline"
+      },
+      "preference": "candidate",
+      "reason": "A explicitly identifies renewal pricing as unknown and names Priya as the questionnaire owner, giving the ops lead a clearer handoff."
+    },
+    {
+      "case": "artifact-only-sop",
+      "repeat": 1,
+      "blind_order": {
+        "A": "candidate",
+        "B": "baseline"
+      },
+      "preference": "baseline",
+      "reason": "Both pass. B follows the supplied exception more closely and gives a clear stop instruction. A adds a second rolling restart before the alert, which the notes do not specify."
+    },
+    {
+      "case": "artifact-only-sop",
+      "repeat": 2,
+      "blind_order": {
+        "A": "baseline",
+        "B": "candidate"
+      },
+      "preference": "candidate",
+      "reason": "Both pass. A’s separate outcome bullets are easier to scan. B follows the specified rollback and alert sequence more closely and makes the 200 OK requirement explicit at the point of revocation."
+    }
+  ],
+  "runs": [
+    {
+      "case": "vague-onboarding",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/vague-onboarding-1-baseline.md",
+      "checks": {
+        "usable_core": {
+          "passed": true,
+          "evidence": "Start by shadowing an experienced teammate. Then draft replies to practice tickets, review the feedback, and work live tickets with supervision once your manager approves.",
+          "reason": "The guide gives the hire a practical sequence for setup, ticket handling, escalation, and supervised practice."
+        },
+        "offers_next_step": {
+          "passed": false,
+          "evidence": null,
+          "reason": "It lists details for the hire to confirm but offers no specific expansion of the guide."
+        },
+        "closing_note_concise": {
+          "passed": false,
+          "evidence": "Company-specific details to confirm on day one include tool names, policy links, response targets, approval limits, and escalation contacts.",
+          "reason": "The closing line identifies unconfirmed details but leaves the assumption that a reviewer is available implicit."
+        },
+        "no_bloat": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The tables support quick lookups, and the sample reply demonstrates how to request missing information."
+        }
+      },
+      "passed": false,
+      "word_count": 675,
+      "usage": {
+        "input_tokens": 26957,
+        "cached_input_tokens": 24448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 869,
+        "reasoning_output_tokens": 11
+      }
+    },
+    {
+      "case": "vague-onboarding",
+      "repeat": 1,
+      "variant": "candidate",
+      "artifact": "artifacts/vague-onboarding-1-candidate.md",
+      "checks": {
+        "usable_core": {
+          "passed": true,
+          "evidence": "Start with a routine question, then try a case that requires verification and one that requires escalation.",
+          "reason": "The hire can practice the ticket workflow on three distinct cases before sending a reviewed live reply."
+        },
+        "offers_next_step": {
+          "passed": false,
+          "evidence": null,
+          "reason": "The practice assignments are onboarding activities. There is no offer to expand the guide or question about which details to add."
+        },
+        "closing_note_concise": {
+          "passed": true,
+          "evidence": "This guide assumes a shared support inbox and a team lead who reviews early replies. Your team lead should confirm the tools, response targets, escalation contacts, and approval limits before you begin live work.",
+          "reason": "Two sentences identify the operating assumptions and the local details that still need verification."
+        },
+        "no_bloat": {
+          "passed": true,
+          "evidence": null,
+          "reason": "Each section addresses a task the hire or reviewer can perform during the first week."
+        }
+      },
+      "passed": false,
+      "word_count": 526,
+      "usage": {
+        "input_tokens": 27002,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 643,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "vague-onboarding",
+      "repeat": 2,
+      "variant": "candidate",
+      "artifact": "artifacts/vague-onboarding-2-candidate.md",
+      "checks": {
+        "usable_core": {
+          "passed": true,
+          "evidence": "Watch your trainer handle a routine request and escalate a case. Then practice the same workflow in a training ticket.",
+          "reason": "The day-by-day plan takes the hire from access checks through practice, reviewed live replies, and a readiness check."
+        },
+        "offers_next_step": {
+          "passed": false,
+          "evidence": null,
+          "reason": "It gives the hire next steps but offers no follow-up deliverable or choice about what to add to the guide."
+        },
+        "closing_note_concise": {
+          "passed": true,
+          "evidence": "The first-week schedule is a suggested pace. Your trainer should confirm the team’s tools, response targets, approval limits, and escalation contacts on day one.",
+          "reason": "The note qualifies the proposed timeline and identifies the team-specific details that remain unverified."
+        },
+        "no_bloat": {
+          "passed": true,
+          "evidence": null,
+          "reason": "Short day ranges make the plan easy to scan, and the escalation table pairs each situation with an action."
+        }
+      },
+      "passed": false,
+      "word_count": 482,
+      "usage": {
+        "input_tokens": 27008,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 644,
+        "reasoning_output_tokens": 14
+      }
+    },
+    {
+      "case": "vague-onboarding",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/vague-onboarding-2-baseline.md",
+      "checks": {
+        "usable_core": {
+          "passed": true,
+          "evidence": "If the approved troubleshooting steps fail, send the receiving team the error, when it happened, and what you tested.",
+          "reason": "The setup checklist and case workflow are immediately usable, and the export example shows what to include in a handoff."
+        },
+        "offers_next_step": {
+          "passed": false,
+          "evidence": null,
+          "reason": "It ends with trainer sign-off and makes no offer to tailor or expand the guide."
+        },
+        "closing_note_concise": {
+          "passed": false,
+          "evidence": null,
+          "reason": "The final paragraph gives readiness instructions. It lacks a closing note identifying omissions and a key assumption or risk."
+        },
+        "no_bloat": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The checklist, workflow, example, and readiness review all help the hire handle a first case."
+        }
+      },
+      "passed": false,
+      "word_count": 467,
+      "usage": {
+        "input_tokens": 26955,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 585,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "vague-qbr-outline",
+      "repeat": 1,
+      "variant": "candidate",
+      "artifact": "artifacts/vague-qbr-outline-1-candidate.md",
+      "checks": {
+        "usable_core": {
+          "passed": true,
+          "evidence": "Give the most important result, the biggest gap, and the decision you need in the meeting.",
+          "reason": "The five slides connect measured outcomes and adoption to customer value, blockers, decisions, and an owned next-quarter plan."
+        },
+        "offers_next_step": {
+          "passed": true,
+          "evidence": "Replace bracketed text with account-specific evidence.",
+          "reason": "The account manager can tailor the takeaway titles immediately and use the pre-presentation check to verify them."
+        },
+        "closing_note_concise": {
+          "passed": true,
+          "evidence": "This outline assumes a joint review with customer stakeholders. Add renewal or expansion content when it calls for a customer decision.",
+          "reason": "The two-sentence close identifies the audience assumption and the commercial topics omitted by default."
+        },
+        "no_bloat": {
+          "passed": true,
+          "evidence": null,
+          "reason": "Each of the five slides supports a customer decision or action."
+        }
+      },
+      "passed": true,
+      "word_count": 324,
+      "usage": {
+        "input_tokens": 27014,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 466,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "vague-qbr-outline",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/vague-qbr-outline-1-baseline.md",
+      "checks": {
+        "usable_core": {
+          "passed": true,
+          "evidence": "Lead with the most important customer outcome and the recommended next priority.",
+          "reason": "The six slides cover results, evidence of value, material risks, next-quarter priorities, and commitments."
+        },
+        "offers_next_step": {
+          "passed": true,
+          "evidence": "Write each slide title as a customer-specific takeaway once the evidence is available.",
+          "reason": "The instruction and worked example show how to turn the outline into an account-specific deck."
+        },
+        "closing_note_concise": {
+          "passed": false,
+          "evidence": "Keep detailed usage breakdowns and metric definitions in an appendix if they’re needed for follow-up.",
+          "reason": "The ending explains where supporting detail belongs, but includes a worked example and lacks an explicit assumption or risk."
+        },
+        "no_bloat": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The six-slide agenda reserves time for decisions and keeps detailed metrics in an optional appendix."
+        }
+      },
+      "passed": false,
+      "word_count": 333,
+      "usage": {
+        "input_tokens": 26963,
+        "cached_input_tokens": 24448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 467,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "vague-qbr-outline",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/vague-qbr-outline-2-baseline.md",
+      "checks": {
+        "usable_core": {
+          "passed": true,
+          "evidence": "Show the baseline, quarter target, actual, and what the result means for the customer.",
+          "reason": "The five-slide sequence links outcomes and value to adoption blockers, a measurable plan, and live decisions."
+        },
+        "offers_next_step": {
+          "passed": true,
+          "evidence": "Use the customer’s wording for goals and keep the reporting period and source beside each key metric.",
+          "reason": "This gives the account manager a concrete first pass for tailoring the scorecard."
+        },
+        "closing_note_concise": {
+          "passed": false,
+          "evidence": "Add a renewal or expansion slide only when there’s a commercial decision to discuss.",
+          "reason": "The closing paragraph identifies optional content but gives no explicit assumption or risk."
+        },
+        "no_bloat": {
+          "passed": true,
+          "evidence": null,
+          "reason": "Five slides cover the meeting, with detailed usage and support data optional."
+        }
+      },
+      "passed": false,
+      "word_count": 306,
+      "usage": {
+        "input_tokens": 26961,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 436,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "vague-qbr-outline",
+      "repeat": 2,
+      "variant": "candidate",
+      "artifact": "artifacts/vague-qbr-outline-2-candidate.md",
+      "checks": {
+        "usable_core": {
+          "passed": true,
+          "evidence": "For each priority, show the customer outcome, the first action, the measure of success, and any dependency.",
+          "reason": "The outline covers results against goals, adoption, customer impact, recovery actions, priorities, and commitments."
+        },
+        "offers_next_step": {
+          "passed": true,
+          "evidence": "Add a commercial slide when a renewal, expansion, or contract decision is on the agenda.",
+          "reason": "The account manager has a specific tailoring action based on the customer’s upcoming decisions."
+        },
+        "closing_note_concise": {
+          "passed": true,
+          "evidence": "The outline assumes an existing customer with agreed goals and access to usage data. Add a commercial slide when a renewal, expansion, or contract decision is on the agenda.",
+          "reason": "Two sentences identify the account and data assumptions and explain when to add the omitted commercial slide."
+        },
+        "no_bloat": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The outline allows the account manager to omit an empty issues slide and merge the checkpoint with commitments."
+        }
+      },
+      "passed": true,
+      "word_count": 312,
+      "usage": {
+        "input_tokens": 27010,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 429,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "scoped-vendor-brief",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/scoped-vendor-brief-1-baseline.md",
+      "checks": {
+        "clear_recommendation": {
+          "passed": true,
+          "evidence": "Recommend Vendor A for the six-week pilot, pending InfoSec sign-off.",
+          "reason": "The recommendation requires InfoSec approval and explains that Vendor B’s Q3 SSO roadmap misses the day-one requirement."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "It invents no approval date, renewal price, or SSO exception and omits the design chatter."
+        },
+        "closing_note_concise": {
+          "passed": true,
+          "evidence": "Vendor A hasn’t quoted year-two renewal pricing. Get that quote before making any commitment beyond the pilot.",
+          "reason": "The closing line names the missing quote and explains which commitment it affects."
+        }
+      },
+      "passed": true,
+      "word_count": 98,
+      "usage": {
+        "input_tokens": 24041,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 135,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "scoped-vendor-brief",
+      "repeat": 1,
+      "variant": "candidate",
+      "artifact": "artifacts/scoped-vendor-brief-1-candidate.md",
+      "checks": {
+        "clear_recommendation": {
+          "passed": true,
+          "evidence": "Move forward with Vendor A for the six-week pilot, subject to InfoSec sign-off before committing.",
+          "reason": "It conditions the decision on approval and explicitly disqualifies Vendor B because SSO is still on its Q3 roadmap."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "It preserves the unknown approval timing and renewal price, grants no SSO exception, and omits the design chatter."
+        },
+        "closing_note_concise": {
+          "passed": false,
+          "evidence": "Confirm year-two pricing before making any commitment beyond the pilot.",
+          "reason": "The line identifies the risk of committing beyond the pilot, but “confirm” leaves unclear whether a quote already exists. It never explicitly states what information is missing."
+        }
+      },
+      "passed": false,
+      "word_count": 98,
+      "usage": {
+        "input_tokens": 24092,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 136,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "scoped-vendor-brief",
+      "repeat": 2,
+      "variant": "candidate",
+      "artifact": "artifacts/scoped-vendor-brief-2-candidate.md",
+      "checks": {
+        "clear_recommendation": {
+          "passed": true,
+          "evidence": "Recommend Vendor A for the six-week ticketing pilot. Commit only after InfoSec signs off.",
+          "reason": "It makes approval a condition of commitment and explains that Vendor B’s Q3 SSO roadmap misses the mandatory start date."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "It preserves Priya’s ownership, leaves approval timing and renewal pricing unknown, and omits irrelevant chatter without suggesting an SSO exception."
+        },
+        "closing_note_concise": {
+          "passed": true,
+          "evidence": "Vendor A’s year-two renewal pricing is still unknown. Get a quote before making any commitment beyond the pilot.",
+          "reason": "The closing line explicitly identifies the unknown price and ties it to the risk of a longer commitment."
+        }
+      },
+      "passed": true,
+      "word_count": 104,
+      "usage": {
+        "input_tokens": 27150,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 141,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "scoped-vendor-brief",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/scoped-vendor-brief-2-baseline.md",
+      "checks": {
+        "clear_recommendation": {
+          "passed": true,
+          "evidence": "Move forward with Vendor A if InfoSec signs off in time for next month’s pilot.",
+          "reason": "It conditions the recommendation on timely approval and explains why Vendor B’s Q3 SSO roadmap fails the day-one requirement."
+        },
+        "source_fidelity": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The two-week launch window comes from the notes. The response invents no approval date, renewal price, or SSO exception and omits irrelevant chatter."
+        },
+        "closing_note_concise": {
+          "passed": false,
+          "evidence": "Request Vendor A’s year-two renewal quote before making any commitment beyond the pilot.",
+          "reason": "The line gives a concise action and identifies the commitment at risk. It leaves the reader to infer that renewal pricing was never quoted."
+        }
+      },
+      "passed": false,
+      "word_count": 95,
+      "usage": {
+        "input_tokens": 27097,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 131,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "artifact-only-sop",
+      "repeat": 1,
+      "variant": "candidate",
+      "artifact": "artifacts/artifact-only-sop-1-candidate.md",
+      "checks": {
+        "complete_sop": {
+          "passed": true,
+          "evidence": "Proceed to step 4 only if it returns `200 OK`.",
+          "reason": "Lists both prerequisites and all four steps in order. The adjacent 401 branch restores the previous secret and alerts On-Call Payments while both keys remain active. The completion check confirms 200 OK after revocation."
+        },
+        "no_closing_chatter": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The response starts with the SOP title and ends with its completion check."
+        }
+      },
+      "passed": true,
+      "word_count": 131,
+      "usage": {
+        "input_tokens": 24085,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 195,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "artifact-only-sop",
+      "repeat": 1,
+      "variant": "baseline",
+      "artifact": "artifacts/artifact-only-sop-1-baseline.md",
+      "checks": {
+        "complete_sop": {
+          "passed": true,
+          "evidence": "If it returns `401`, restore the previous value of `BILLING_API_KEY`, alert On-Call Payments, and stop.",
+          "reason": "Lists both prerequisites and all four steps in order. The 401 exception sits under verification, and the SOP requires 200 OK before revocation and checks it again afterward."
+        },
+        "no_closing_chatter": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The response contains only the Markdown SOP."
+        }
+      },
+      "passed": true,
+      "word_count": 113,
+      "usage": {
+        "input_tokens": 27096,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 175,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "artifact-only-sop",
+      "repeat": 2,
+      "variant": "baseline",
+      "artifact": "artifacts/artifact-only-sop-2-baseline.md",
+      "checks": {
+        "complete_sop": {
+          "passed": true,
+          "evidence": "Stop the rotation before revoking any key.",
+          "reason": "Lists both prerequisites and all four steps in order. The verification branches direct the operator to proceed on 200 OK or restore the key and alert On-Call Payments on 401. The completion check verifies 200 OK again."
+        },
+        "no_closing_chatter": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The response contains only the Markdown SOP."
+        }
+      },
+      "passed": true,
+      "word_count": 137,
+      "usage": {
+        "input_tokens": 27094,
+        "cached_input_tokens": 24448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 208,
+        "reasoning_output_tokens": 0
+      }
+    },
+    {
+      "case": "artifact-only-sop",
+      "repeat": 2,
+      "variant": "candidate",
+      "artifact": "artifacts/artifact-only-sop-2-candidate.md",
+      "checks": {
+        "complete_sop": {
+          "passed": true,
+          "evidence": "If it returns `401`, restore the previous value of `BILLING_API_KEY`, alert On-Call Payments, and stop before revoking any key.",
+          "reason": "Lists both prerequisites and all four steps in order. The exception appears in the verification step, revocation requires 200 OK, and the completion check verifies that status again."
+        },
+        "no_closing_chatter": {
+          "passed": true,
+          "evidence": null,
+          "reason": "The title, prerequisites, procedure, and completion check form the entire response."
+        }
+      },
+      "passed": true,
+      "word_count": 129,
+      "usage": {
+        "input_tokens": 24085,
+        "cached_input_tokens": 13952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 197,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "skill_commit": "WORKTREE",
+  "generator": "gpt-6.2-sol",
+  "reasoning_effort": "low",
+  "repeats": 2,
+  "cases_sha256": "3a2b6e0b6e13a7d3a3de670a98c2263bed9da02ba40944dda6463efe466bcc33",
+  "baseline_skill_commit": "b6275354c71d3aa6ffe3ed71499b1ee50739cdaa"
+}

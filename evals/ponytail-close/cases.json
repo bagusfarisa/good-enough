@@ -1,0 +1,47 @@
+[
+  {
+    "id": "vague-onboarding",
+    "mode": "vague",
+    "task": "Create an onboarding guide for new hires on our customer support team.",
+    "source": "",
+    "checks": {
+      "usable_core": "Provides a focused, immediately usable core onboarding guide (e.g., Day 1 / Week 1 essentials or core setup + first tickets) rather than an unfocused wall of generic HR filler.",
+      "offers_next_step": "Offers a concrete smaller/next-step expansion option or asks what specific details to add next given the vague request.",
+      "closing_note_concise": "Ends the reply with 1–2 concise lines (not a long multi-paragraph section) explicitly stating what was left out or not checked, and any key assumption or risk.",
+      "no_bloat": "Stays lean and scannable without padded boilerplate sections (such as company history, values speeches, or speculative tool configs)."
+    }
+  },
+  {
+    "id": "vague-qbr-outline",
+    "mode": "vague",
+    "task": "Draft a quarterly business review (QBR) deck outline for our B2B SaaS account managers.",
+    "source": "",
+    "checks": {
+      "usable_core": "Provides a compact, decision-oriented QBR slide outline covering core outcomes, value delivered, risks/blockers, and next-quarter plan.",
+      "offers_next_step": "Offers a concrete next step or asks what customer context/metrics to tailor next given the vague request.",
+      "closing_note_concise": "Ends the reply with 1–2 concise lines explicitly stating what was left out or not checked, and any key assumption or risk.",
+      "no_bloat": "Avoids bloated filler slides (e.g., long company intro, generic industry trends, or 15+ slides)."
+    }
+  },
+  {
+    "id": "scoped-vendor-brief",
+    "mode": "scoped",
+    "task": "Write a short vendor recommendation brief for our team chat based on these notes so our ops lead can decide whether to move forward.",
+    "source": "We need a ticketing tool for a 6-week pilot starting next month. Budget cap is $15,000. Company SSO on day one is mandatory. Vendor A costs $12,000 for the pilot, supports day-one SSO, and can launch in 2 weeks, but its security questionnaire has not been signed off by InfoSec yet (Priya owns it, no ETA given) and year-2 renewal pricing was never quoted. Vendor B costs $8,500, launches in 1 week, but SSO is on their Q3 roadmap. The team also joked about dark mode and logo colors.",
+    "checks": {
+      "clear_recommendation": "Recommends Vendor A conditional on InfoSec sign-off and explains why Vendor B fails mandatory day-one SSO.",
+      "source_fidelity": "Does not invent an InfoSec ETA, year-2 price, or SSO exception, and omits irrelevant chatter (dark mode, logo colors).",
+      "closing_note_concise": "Ends the reply with 1–2 concise lines explicitly naming what was left out or not checked (e.g., omitted chatter, unverified InfoSec ETA / unquoted year-2 renewal pricing) and any key risk."
+    }
+  },
+  {
+    "id": "artifact-only-sop",
+    "mode": "artifact_only",
+    "task": "Return only the finished Markdown SOP below, with no conversational preamble or closing note. Write an SOP for rotating an API key from these notes.",
+    "source": "Prerequisites: Admin access to the Billing Portal and access to the production secrets manager. Steps: 1. Generate a new key in Billing Portal under Settings > API Keys. 2. Copy the new key into the secrets manager under BILLING_API_KEY and trigger a rolling restart. 3. Check the health endpoint /health/billing returns 200 OK. 4. Revoke the old key in Billing Portal. Exception: If /health/billing returns 401 after restart, roll back the secret to the previous key and alert On-Call Payments before revoking anything.",
+    "checks": {
+      "complete_sop": "Includes prerequisites, the four ordered steps, the 401 rollback/alert exception next to the verification step, and the observable 200 OK completion check.",
+      "no_closing_chatter": "Contains ONLY the Markdown SOP artifact with zero conversational preamble and zero closing note / 'what I left out' footer."
+    }
+  }
+]
