@@ -25,8 +25,7 @@ Ask your agent to use the `good-enough` skill, or invoke it directly:
 
 ```text
 Use the good-enough skill to revise this Q3 budget proposal. Our department
-head needs to decide whether to approve the request in a quick review. Keep
-the key assumptions, trade-offs, and open questions accurate.
+head needs to decide whether to approve the request in a quick review.
 ```
 
 The skill guides how the agent structures and reviews the work. The file formats it can produce depend on its available tools.
