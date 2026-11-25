@@ -2,6 +2,8 @@
 
 **Ponytail for knowledge worker**
 
+[Use it](#use-it) · [Install](#install) · [Update](#update) · [Inspiration](#inspiration)
+
 Good Enough is an agent skill for making documents, spreadsheets, financial models, and presentations that are complete, correct, and easy to use. When you revise an existing artifact, give the agent one task the reader must complete. The skill helps the agent clear that path and check that essential content survives.
 
 | If you need a… | Good Enough helps the agent… |
@@ -13,11 +15,29 @@ Good Enough is an agent skill for making documents, spreadsheets, financial mode
 | Financial model | Label the assumptions and show how they drive the results a human needs to understand. |
 | Slide deck | Give each slide one main takeaway and keep the evidence that supports it. |
 
+## Use it
+
+Ask your agent to use the `good-enough` skill, or invoke it directly:
+
+- **Claude Code / Antigravity:** `/good-enough`
+- **Codex:** `$good-enough`
+- **Pi:** `/skill:good-enough`
+
+```text
+Use the good-enough skill to revise this Q3 budget proposal. Our department
+head needs to decide whether to approve the request in a quick review. Keep
+the key assumptions, trade-offs, and open questions accurate.
+```
+
+The skill guides how the agent structures and reviews the work. The file formats it can produce depend on its available tools.
+
 ## Install
+
+Choose the option that fits your setup: [ask your agent](#ask-your-agent-to-install), use a [CLI installer](#installer-commands), or [install manually](#install-manually).
 
 ### Ask your agent to install
 
-Copy this prompt into your agent's chat.
+Paste this prompt into your agent's chat:
 
 ```text
 Install the good-enough skill from https://github.com/bagusfarisa/good-enough.
@@ -34,27 +54,25 @@ or start a new session, tell me.
 
 ### Installer commands
 
-From your project, run the [Skills CLI](https://github.com/vercel-labs/skills) (Node.js 22.20+) and select your agents when prompted. Add `-g` to install for your user account.
-
-```sh
-npx skills add bagusfarisa/good-enough --skill good-enough
-```
-
-In [Codex](https://learn.chatgpt.com/docs/build-skills#install-curated-skills-for-local-use), you can also paste this into a chat:
-
-```text
-$skill-installer https://github.com/bagusfarisa/good-enough/tree/main/skills/good-enough
-```
-
-In [Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md), you can install directly from Git. Add `--local` for the current project.
-
-```sh
-pi install git:github.com/bagusfarisa/good-enough
-```
+- **[Skills CLI](https://github.com/vercel-labs/skills)** (Node.js 22.20+) — run from your project, or add `-g` for your user account:
+  ```sh
+  npx skills add bagusfarisa/good-enough --skill good-enough
+  ```
+- **[Codex](https://learn.chatgpt.com/docs/build-skills#install-curated-skills-for-local-use)** — paste into a chat:
+  ```text
+  $skill-installer https://github.com/bagusfarisa/good-enough/tree/main/skills/good-enough
+  ```
+- **[Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md)** — install from Git (add `--local` for the current project):
+  ```sh
+  pi install git:github.com/bagusfarisa/good-enough
+  ```
 
 ### Install manually
 
-Copy the [`good-enough` folder](skills/good-enough) into one of the locations below. For example, a project install in Claude Code should end up at `.claude/skills/good-enough/SKILL.md`.
+Copy the [`good-enough` folder](skills/good-enough) into your agent's project or personal skills directory (for example, `.claude/skills/good-enough/SKILL.md` for a Claude Code project install).
+
+<details>
+<summary>Show directory paths by agent</summary>
 
 | Agent | Project directory | Personal directory |
 | --- | --- | --- |
@@ -69,25 +87,15 @@ Copy the [`good-enough` folder](skills/good-enough) into one of the locations be
 
 For any other agent that supports the [Agent Skills format](https://agentskills.io/specification), use its documented skills directory and the same [`SKILL.md`](skills/good-enough/SKILL.md).
 
+</details>
+
 ## Update
 
-Changes to [`skills/good-enough/SKILL.md`](skills/good-enough/SKILL.md) are published on `main`. Refresh your local installation after a change lands.
+Changes to [`skills/good-enough/SKILL.md`](skills/good-enough/SKILL.md) are published on `main`. Update using the method you installed with:
 
-- **Skills CLI.** Run `npx skills update good-enough --project` from the project, or `npx skills update good-enough --global` for a personal install. If you install for multiple agents, choose the symlink option so they share one local copy. [Skills CLI reference](https://github.com/vercel-labs/skills/blob/main/docs/commands.md#skills-update)
-- **Pi Git package.** Run `pi update git:github.com/bagusfarisa/good-enough`, then `/reload` in your Pi session. For a project install, run the update from that project. [Pi package commands](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/cli.md#update-pi-or-packages)
-- **Manual or Codex `$skill-installer` install.** Download the latest `SKILL.md` from `main` and replace the file in your existing `good-enough` folder. Open a new agent session if it still shows the previous version.
-
-## Use it
-
-Ask your agent to use the `good-enough` skill. Codex also accepts `$good-enough`, Claude Code and Antigravity offer `/good-enough`, and Pi offers `/skill:good-enough`.
-
-```text
-Use the good-enough skill to revise this launch brief. The Support lead needs
-to tell a customer what happens to a request that was already open at launch.
-Keep the pending decisions and exceptions accurate.
-```
-
-The skill guides how the agent structures and reviews the work. The file formats it can produce depend on its available tools.
+- **Skills CLI:** Run `npx skills update good-enough --project` (or `--global` for a personal install). If you install for multiple agents, choose the symlink option so they share one local copy. ([Reference](https://github.com/vercel-labs/skills/blob/main/docs/commands.md#skills-update))
+- **Pi Git package:** Run `pi update git:github.com/bagusfarisa/good-enough` (from the project directory for a project install), then `/reload` in your Pi session. ([Reference](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/cli.md#update-pi-or-packages))
+- **Manual or Codex `$skill-installer`:** Download the latest `SKILL.md` from `main`, replace the file in your `good-enough` folder, and start a new session if the previous version still appears.
 
 ## Inspiration
 
