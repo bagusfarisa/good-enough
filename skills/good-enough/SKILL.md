@@ -1,6 +1,6 @@
 ---
 name: good-enough
-description: Create, materially revise, or simplify documents, spreadsheets, financial models, and presentations, including decision briefs, impact analyses, and standard operating procedures (SOPs). Choose the content, structure, and features the reader needs to use the deliverable.
+description: Create, materially revise, or simplify work documents, spreadsheets, financial models, and presentations, including decision briefs, impact analyses, and standard operating procedures (SOPs). Choose the content, structure, and features the reader needs to use the deliverable. Do not use for minor copyedits, one-line summaries, translations, casual messages, or coding tasks.
 ---
 
 # Good Enough

@@ -29,4 +29,6 @@ From a clone of this repository, use an authenticated Codex CLI and Python 3.
 python3 evals/automated/run.py --revision 01eb485 --out /tmp/good-enough-evaluation
 ```
 
-The [runner](run.py) writes the generated Markdown, model usage, and grading results to the output directory. Use a fresh output directory for a different skill revision.
+Optional flags: `--generator <model>`, `--judge <model>`, `--reasoning-effort <level>`, and `--repeats <k>` (to measure `pass@k` and `pass^k` across $k$ trials).
+
+The [runner](run.py) writes the generated Markdown, model usage, token summary, `pass@k` / `pass^k` metrics, and grading results to the output directory. Use a fresh output directory for a different skill revision or model configuration.

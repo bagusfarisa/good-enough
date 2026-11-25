@@ -1,0 +1,89 @@
+[
+  {
+    "id": "returns-expiry-window",
+    "fixture": "../revision/fixtures/returns-launch.md",
+    "task": "Make a targeted edit to this document: change the expiry window from 7 calendar days to 10 calendar days, and update any dependent wording in the document that references that threshold. Reuse the existing structure and keep untouched sections unchanged.",
+    "required_substrings": [
+      "(?:ten|10) calendar days",
+      "(?:ten|10)(?: or more(?: calendar)? days|(?: calendar)? days or more)"
+    ],
+    "forbidden_substrings": [
+      "seven calendar days",
+      "seven or more days"
+    ],
+    "required_headings": [
+      "# Returns expiry rollout cross-functional working brief",
+      "## Project context",
+      "## Portal treatment",
+      "## Release criteria",
+      "## Calculation rules",
+      "## Summary for the launch meeting"
+    ],
+    "max_changed_ratio": 0.25
+  },
+  {
+    "id": "price-import-threshold",
+    "fixture": "../revision/fixtures/price-import.md",
+    "task": "Make a targeted edit to this document: change the Merchandising written-approval threshold from 10% to 15% (including the boundary rule). Reuse the existing structure and keep untouched sections unchanged.",
+    "required_substrings": [
+      "over 15%",
+      "exactly 15%"
+    ],
+    "forbidden_substrings": [
+      "10%"
+    ],
+    "required_headings": [
+      "# Weekly catalog price import working notes",
+      "## Purpose and normal cadence",
+      "## Admin navigation",
+      "## Troubleshooting before publish",
+      "## Status and records",
+      "## Keep for reference"
+    ],
+    "max_changed_ratio": 0.25
+  },
+  {
+    "id": "dispatch-atlas-cost",
+    "fixture": "../revision/fixtures/dispatch-brief.md",
+    "task": "Make a targeted edit to this document: Atlas updated its pilot quote from $4,800 to $5,500. Update the cost everywhere it appears in the document, including the funding reserve line. Reuse the existing structure and keep untouched sections unchanged.",
+    "required_substrings": [
+      "\\$5,500"
+    ],
+    "forbidden_substrings": [
+      "\\$4,800"
+    ],
+    "min_occurrences": {
+      "\\$5,500": 2
+    },
+    "required_headings": [
+      "# Options paper for May warehouse dispatch pilot",
+      "## Origin",
+      "## Options discussion",
+      "## Evaluation plan",
+      "## Assurance review",
+      "## Systems review",
+      "## Material for the decision meeting"
+    ],
+    "max_changed_ratio": 0.25
+  },
+  {
+    "id": "device-return-extension",
+    "fixture": "../revision/fixtures/device-return.md",
+    "task": "Make a targeted edit to this document: Facilities changed its emergency extension from 221 to 418. Update the procedure accordingly while keeping the existing structure and untouched sections unchanged.",
+    "required_substrings": [
+      "extension 418"
+    ],
+    "forbidden_substrings": [
+      "221"
+    ],
+    "required_headings": [
+      "# Loaner laptop return procedure and handling notes",
+      "## Before the appointment",
+      "## Intake checklist",
+      "## Damage classes",
+      "## Closing an ordinary return",
+      "## End-of-day review"
+    ],
+    "max_changed_ratio": 0.20
+  }
+]

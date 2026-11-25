@@ -1,0 +1,146 @@
+[
+  {
+    "id": "pos-decision-brief",
+    "category": "document-create",
+    "should_trigger": true,
+    "prompt": "Turn these rough meeting notes into a decision brief for the VP of Operations so she can approve or reject the warehouse pilot on Thursday."
+  },
+  {
+    "id": "pos-impact-analysis",
+    "category": "document-create",
+    "should_trigger": true,
+    "prompt": "Write an impact analysis for Support, Product, and Ops covering the new 7-day return expiry rule, including which requests are affected and what is still undecided."
+  },
+  {
+    "id": "pos-sop-create",
+    "category": "document-create",
+    "should_trigger": true,
+    "prompt": "Draft a standard operating procedure for a new catalog operator to validate and publish weekly supplier pricing CSVs, including duplicate-SKU and >10% price-change exceptions."
+  },
+  {
+    "id": "pos-simplify-brief",
+    "category": "document-revise",
+    "should_trigger": true,
+    "prompt": "This 6-page launch brief is way too bloated. Simplify it so the Support lead can immediately see what to tell customers with open tickets at launch, without losing any pending decisions."
+  },
+  {
+    "id": "pos-sop-revise",
+    "category": "document-revise",
+    "should_trigger": true,
+    "prompt": "Reorganize this messy laptop-return runbook so a new service desk operator can follow the intake steps in order and immediately spot the battery-swelling exception."
+  },
+  {
+    "id": "pos-financial-model",
+    "category": "spreadsheet-create",
+    "should_trigger": true,
+    "prompt": "Build a 3-month cash forecast spreadsheet from these revenue and payroll assumptions so finance can tweak collections and immediately see closing cash and reserve gaps."
+  },
+  {
+    "id": "pos-tracker-create",
+    "category": "spreadsheet-create",
+    "should_trigger": true,
+    "prompt": "Create a clean vendor onboarding tracker spreadsheet with clear status columns, owners, due dates, and a simple formula summary of overdue items."
+  },
+  {
+    "id": "pos-spreadsheet-simplify",
+    "category": "spreadsheet-revise",
+    "should_trigger": true,
+    "prompt": "Simplify this 8-tab quarterly gross-profit workbook so an FP&A reviewer can trace June gross profit back to unit cost assumptions without hunting across hidden sheets."
+  },
+  {
+    "id": "pos-slide-deck-create",
+    "category": "presentation-create",
+    "should_trigger": true,
+    "prompt": "Create a concise executive slide deck recommending whether to renew our help-desk vendor, with one clear takeaway per slide and the cost/SSO trade-offs."
+  },
+  {
+    "id": "pos-slide-deck-revise",
+    "category": "presentation-revise",
+    "should_trigger": true,
+    "prompt": "Trim and restructure this 18-slide Q2 business review deck so leadership gets the decision and supporting evidence up front without redundant summary slides."
+  },
+  {
+    "id": "pos-messy-notes-brief",
+    "category": "document-create",
+    "should_trigger": true,
+    "prompt": "Here is a rambling Slack thread between Legal, Security, and Ops. Turn it into a clean one-page memo summarizing the recommendation, open blockers, and owners."
+  },
+  {
+    "id": "pos-ops-runbook",
+    "category": "document-create",
+    "should_trigger": true,
+    "prompt": "Write a step-by-step SOP for refreshing the weekly revenue dashboard, including prerequisites, what to do if the warehouse sync fails, and how to verify completion."
+  },
+  {
+    "id": "neg-typo-fix",
+    "category": "distractor-micro-edit",
+    "should_trigger": false,
+    "prompt": "Fix the spelling mistake 'recieve' to 'receive' in the second sentence of this paragraph."
+  },
+  {
+    "id": "neg-one-sentence-summary",
+    "category": "distractor-summary",
+    "should_trigger": false,
+    "prompt": "Summarize this article in one sentence."
+  },
+  {
+    "id": "neg-python-refactor",
+    "category": "distractor-coding",
+    "should_trigger": false,
+    "prompt": "Refactor this Python function to avoid mutating the input list and add a unit test for empty inputs."
+  },
+  {
+    "id": "neg-git-commit",
+    "category": "distractor-coding",
+    "should_trigger": false,
+    "prompt": "Write a conventional commit message for this git diff."
+  },
+  {
+    "id": "neg-sql-query",
+    "category": "distractor-coding",
+    "should_trigger": false,
+    "prompt": "Write a PostgreSQL query to count active users per day over the last 30 days."
+  },
+  {
+    "id": "neg-regex-help",
+    "category": "distractor-coding",
+    "should_trigger": false,
+    "prompt": "Give me a regex that matches ISO-8601 dates like 2026-11-25."
+  },
+  {
+    "id": "neg-marketing-post",
+    "category": "distractor-creative",
+    "should_trigger": false,
+    "prompt": "Write a playful LinkedIn post announcing our company's 5-year anniversary."
+  },
+  {
+    "id": "neg-translation",
+    "category": "distractor-language",
+    "should_trigger": false,
+    "prompt": "Translate this short greeting into Japanese and Bahasa Indonesia."
+  },
+  {
+    "id": "neg-slack-reply",
+    "category": "distractor-casual",
+    "should_trigger": false,
+    "prompt": "Draft a quick 2-line Slack reply letting Sam know I'll be 10 minutes late to standup."
+  },
+  {
+    "id": "neg-factual-qa",
+    "category": "distractor-qa",
+    "should_trigger": false,
+    "prompt": "What is the difference between gross margin and contribution margin?"
+  },
+  {
+    "id": "neg-json-format",
+    "category": "distractor-coding",
+    "should_trigger": false,
+    "prompt": "Convert this YAML snippet into valid JSON."
+  },
+  {
+    "id": "neg-shell-command",
+    "category": "distractor-coding",
+    "should_trigger": false,
+    "prompt": "What tar command extracts a .tar.gz file into a specific directory?"
+  }
+]
